@@ -8,4 +8,13 @@
     <string name="button_criar_conta">CRIAR CONTA</string>
     <string name="text_click_esqueceu_senha">Esqueceu a senha?</string>
     <string name="img_logo">logo</string>
+    <string name="edit_text_email">Email</string>
+    <string name="edit_text_senha">Senha</string>
+    <string name="edit_text_nome">Nome</string>
+    <string name="text_view_cadastro">CADASTRO</string>
+    <string name="text_view_nome">Nome:</string>
+    <string name="text_view_email">Email:</string>
+    <string name="text_view_senha">Senha:</string>
+    <string name="text_view_conf_senha">Confirmar senha:</string>
+
 </resources>
