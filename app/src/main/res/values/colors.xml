@@ -3,4 +3,9 @@
     <color name="colorPrimary">#e86d3f</color>
     <color name="colorPrimaryDark">#e15e36</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorButoes">#e86d3f</color>
+    <color name="colorTextoBut">#ffffff</color>
+    <color name="colorFundo">#ffffff</color>
+    <color name="colorTextoNormal">#0d0d0d</color>
+
 </resources>
