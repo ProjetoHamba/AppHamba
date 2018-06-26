@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.apphamba.hamba.usuario.gui.CadastroActivity;
+import com.apphamba.hamba.usuario.gui.LoginActivity;
+
 public class EscolhaCadOuLoginActivity extends AppCompatActivity {
 
     @Override

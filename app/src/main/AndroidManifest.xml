@@ -18,10 +18,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".usuario.gui.LoginActivity"
             android:label="@string/label_login" />
         <activity
-            android:name=".CadastroActivity"
+            android:name=".usuario.gui.CadastroActivity"
             android:label="@string/label_cadastro" />
         <activity
             android:name=".EscolhaCadOuLoginActivity"
