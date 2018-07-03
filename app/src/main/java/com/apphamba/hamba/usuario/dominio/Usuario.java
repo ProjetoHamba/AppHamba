@@ -6,11 +6,11 @@ public class Usuario {
     private String email;
     private String senha;
 
-    public int getIdUsuario() {
+    public long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
