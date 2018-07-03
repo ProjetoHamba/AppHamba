@@ -10,7 +10,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".usuario.gui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,9 +24,9 @@
             android:name=".usuario.gui.CadastroActivity"
             android:label="@string/label_cadastro" />
         <activity
-            android:name=".EscolhaCadOuLoginActivity"
+            android:name=".usuario.gui.EscolhaCadOuLoginActivity"
             android:label="@string/label_escolha" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".usuario.gui.HomeActivity"></activity>
     </application>
 
 </manifest>

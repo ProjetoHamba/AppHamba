@@ -1,10 +1,11 @@
-package com.apphamba.hamba;
+package com.apphamba.hamba.usuario.gui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.apphamba.hamba.R;
 import com.apphamba.hamba.usuario.gui.CadastroActivity;
 import com.apphamba.hamba.usuario.gui.LoginActivity;
 

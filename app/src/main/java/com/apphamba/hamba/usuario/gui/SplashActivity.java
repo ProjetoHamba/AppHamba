@@ -1,10 +1,12 @@
-package com.apphamba.hamba;
+package com.apphamba.hamba.usuario.gui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.apphamba.hamba.R;
+import com.apphamba.hamba.usuario.gui.EscolhaCadOuLoginActivity;
 
 /**
  * <h1>SplashActivity</h1>
