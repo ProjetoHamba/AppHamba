@@ -16,5 +16,8 @@
     <string name="text_view_email">Email:</string>
     <string name="text_view_senha">Senha:</string>
     <string name="text_view_conf_senha">Confirmar senha:</string>
+    <string name="dialog_botao_ok">OK</string>
+    <string name="dialog_titulo_erro">ERRO</string>
+
 
 </resources>
