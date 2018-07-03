@@ -1,7 +1,7 @@
 package com.apphamba.hamba.usuario.dominio;
 
 public class Usuario {
-    private int idUsuario;
+    private long idUsuario;
     private String nome;
     private String email;
     private String senha;
