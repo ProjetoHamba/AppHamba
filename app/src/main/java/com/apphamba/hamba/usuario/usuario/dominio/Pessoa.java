@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.dominio;
+package com.apphamba.hamba.usuario.usuario.dominio;
 
 public class Pessoa {
     private long id;

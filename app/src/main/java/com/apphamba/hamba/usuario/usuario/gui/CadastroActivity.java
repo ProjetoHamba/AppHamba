@@ -1,15 +1,15 @@
-package com.apphamba.hamba.usuario.gui;
+package com.apphamba.hamba.usuario.usuario.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.apphamba.hamba.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_cadastro);
     }
 }

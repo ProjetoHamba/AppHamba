@@ -1,11 +1,11 @@
-package com.apphamba.hamba.usuario.persistencia;
+package com.apphamba.hamba.usuario.usuario.persistencia;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.apphamba.hamba.usuario.dominio.Usuario;
+import com.apphamba.hamba.usuario.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.infra.DataBase;
 
 public class UsuarioDAO {

@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.persistencia;
+package com.apphamba.hamba.usuario.usuario.persistencia;
 
 //POPULAR BANCO COM EXEMPLOS DE
 public class ConstantePopularBanco {

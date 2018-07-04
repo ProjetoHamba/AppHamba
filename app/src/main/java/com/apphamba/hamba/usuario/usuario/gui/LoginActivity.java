@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.gui;
+package com.apphamba.hamba.usuario.usuario.gui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
