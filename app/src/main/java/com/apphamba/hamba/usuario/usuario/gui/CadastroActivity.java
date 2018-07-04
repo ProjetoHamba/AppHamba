@@ -1,7 +1,6 @@
 package com.apphamba.hamba.usuario.usuario.gui;
 
-import android.content.Context;
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.usuario.usuario.persistencia.UsuarioDAO;
 import com.apphamba.hamba.usuario.usuario.usuarioservices.ServicosUsuario;
 
 public class CadastroActivity extends AppCompatActivity {

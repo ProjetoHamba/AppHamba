@@ -1,7 +1,6 @@
 package com.apphamba.hamba.usuario.usuario.gui;
 
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -56,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         senha=campoSenha.getText().toString().trim();
         Toast Erro;
         Erro =Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
-
         if (usuarioValido.verficarEmailSenhaLiberarLogin(email,senha,this)){
             Toast Logado;
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
