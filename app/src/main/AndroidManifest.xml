@@ -10,7 +10,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".usuario.gui.SplashActivity">
+        <activity android:name=".usuario.usuario.gui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,15 +18,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".usuario.gui.LoginActivity"
+            android:name=".usuario.usuario.gui.LoginActivity"
             android:label="@string/label_login" />
         <activity
-            android:name=".usuario.gui.CadastroActivity"
+            android:name=".usuario.usuario.gui.CadastroActivity"
             android:label="@string/label_cadastro" />
         <activity
             android:name=".usuario.usuario.gui.EscolhaCadOuLoginActivity"
             android:label="@string/label_escolha" />
-        <activity android:name=".usuario.gui.HomeActivity"></activity>
+        <activity android:name=".usuario.titulos.gui.HomeActivity"></activity>
     </application>
 
 </manifest>
