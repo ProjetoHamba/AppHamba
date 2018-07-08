@@ -7,11 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.usuario.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.infra.DataBase;
-import com.apphamba.hamba.usuario.infra.ConstanteSharedPreferences;
+
 
 public class UsuarioDAO {
     private SQLiteDatabase liteDatabase;
-    private DataBase dataBaseHelper;
 
     public SQLiteDatabase getBancoParaLeitura(Context context){
         DataBase auxDataBase = new DataBase(context);

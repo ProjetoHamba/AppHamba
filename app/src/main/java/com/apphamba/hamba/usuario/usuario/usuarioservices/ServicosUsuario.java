@@ -3,6 +3,7 @@ package com.apphamba.hamba.usuario.usuario.usuarioservices;
 import android.content.Context;
 import android.util.Patterns;
 
+import com.apphamba.hamba.usuario.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.usuario.persistencia.UsuarioDAO;
 
@@ -30,7 +31,13 @@ public class ServicosUsuario {
         return user;
     }
 
-    public void salvarUsuarioBanco(Usuario usuario, Context context){
+    public Pessoa criarPessoa(String nome){
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome(nome);
+        return pessoa;
+    }
+
+    public void salvarUsuarioBanco(Usuario usuario, Pessoa pessoa, Context context){
         UsuarioDAO banco = new UsuarioDAO();
         banco.getBancoParaEscrita(context);
         banco.inserir(usuario);

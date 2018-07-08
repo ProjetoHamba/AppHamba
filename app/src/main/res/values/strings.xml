@@ -18,6 +18,9 @@
     <string name="text_view_conf_senha">Confirmar senha:</string>
     <string name="dialog_botao_ok">OK</string>
     <string name="dialog_titulo_erro">ERRO</string>
+    <string name="PrimeiraTaB">TUDO</string>
+    <string name="segundaTab">SÉRIES</string>
+    <string name="terceiraTab">FILMES</string>
 
 
 </resources>

@@ -1,18 +1,15 @@
 package com.apphamba.hamba.usuario.usuario.dominio;
 
 public class Pessoa {
-    private long id;
+    private int id;
     private String nome;
-    private String sexo; //Será um ENUM
-    private String dataNasc;
-    private String cpf; //talvez um long seja melhor
-    private long idUsuario;
+    private int idUsuario;
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -24,35 +21,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getDataNasc() {
-        return dataNasc;
-    }
-
-    public void setDataNasc(String dataNasc) {
-        this.dataNasc = dataNasc;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(long idUsuario) {
+    public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
 

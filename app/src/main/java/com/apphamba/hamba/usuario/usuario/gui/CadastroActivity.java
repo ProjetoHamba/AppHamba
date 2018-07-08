@@ -62,7 +62,7 @@ public class CadastroActivity extends AppCompatActivity {
             erro.show();
         }
         else{
-            usuarioValido.salvarUsuarioBanco(usuarioValido.criaUsuario(email,senha),this);
+            usuarioValido.salvarUsuarioBanco(usuarioValido.criaUsuario(email,senha),usuarioValido.criarPessoa(nome),this);
             contaCriada = Toast.makeText(getApplicationContext(),"Conta Criada",Toast.LENGTH_SHORT);
             contaCriada.show();
 
@@ -76,7 +76,7 @@ public class CadastroActivity extends AppCompatActivity {
             campoNome.setError("Campo Vazio");
             return false;
         }
-        else if (usuarioValido.verificarCampoVazio(email)) {
+        else if (usuarioValido.validarCampoEmail(email)) {
             campoEmail.setError("Campo Vazio");
             return false;
         }
