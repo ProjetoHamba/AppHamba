@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.titulos.dominio;
+package com.apphamba.hamba.titulos.dominio;
 
 import java.util.ArrayList;
 

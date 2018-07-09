@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.titulos.dominio;
+package com.apphamba.hamba.titulos.dominio;
 
 public class Filme {
     private int id;

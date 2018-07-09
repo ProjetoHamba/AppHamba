@@ -1,11 +1,11 @@
-package com.apphamba.hamba.usuario.usuario.persistencia;
+package com.apphamba.hamba.usuario.persistencia;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.apphamba.hamba.usuario.infra.DataBase;
-import com.apphamba.hamba.usuario.usuario.dominio.Pessoa;
+import com.apphamba.hamba.infra.DataBase;
+import com.apphamba.hamba.usuario.dominio.Pessoa;
 
 public class PessoaDAO {
     private SQLiteDatabase liteDatabase;

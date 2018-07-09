@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.usuario.gui;
+package com.apphamba.hamba.usuario.gui;
 
 
 import android.support.v7.app.AppCompatActivity;
@@ -10,13 +10,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.usuario.usuario.usuarioservices.ServicosUsuario;
+import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText campoEmail, campoSenha;
     private Button botaoEntrar;
     private String email, senha;
-    private ServicosUsuario usuarioValido = new ServicosUsuario();
+    private ServicoUsuario servicoUsuario = new ServicoUsuario();
 
 
     @Override
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         senha=campoSenha.getText().toString().trim();
         Toast Erro;
         Erro =Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
-        if (usuarioValido.verficarEmailSenhaLiberarLogin(email,senha,this)){
+        if (servicoUsuario.login(email,senha,this)){
             Toast Logado;
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
             Logado.show();
@@ -68,10 +68,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private boolean verificarCampos(){
-        if(usuarioValido.validarCampoEmail(email)){
+        if(servicoUsuario.validarCampoEmail(email)){
             campoEmail.setError("Email Inválido");
         }
-        if(usuarioValido.verificarCampoVazio(senha)){
+        if(servicoUsuario.verificarCampoVazio(senha)){
             campoSenha.setError("Senha Inválida");
         }
         else {

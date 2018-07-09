@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.infra;
+package com.apphamba.hamba.infra;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
