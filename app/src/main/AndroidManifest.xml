@@ -27,6 +27,12 @@
             android:name=".usuario.usuario.gui.EscolhaCadOuLoginActivity"
             android:label="@string/label_escolha" />
         <activity android:name=".usuario.titulos.gui.HomeActivity" />
+        <activity
+            android:name=".TelaComMenuActivity"
+            android:label="@string/title_activity_tela_com_menu"
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>

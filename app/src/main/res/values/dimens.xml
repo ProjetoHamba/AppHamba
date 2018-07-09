@@ -29,6 +29,7 @@
     <dimen name="margin_end_card">8dp</dimen>
     <dimen name="margin_top_card">8dp</dimen>
     <dimen name="margin_top_button">12dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 
 
 </resources>

@@ -45,5 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("Email:", email);
         Log.d("Senha:", senha);
     }
+
     
 }

@@ -18,6 +18,28 @@
     <string name="text_view_conf_senha">Confirmar senha:</string>
     <string name="dialog_botao_ok">OK</string>
     <string name="dialog_titulo_erro">ERRO</string>
+    <string name="title_activity_mainha">MainhaActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home_n">HomeNActivity</string>
+    <string name="tab_text_1">TUDO</string>
+    <string name="tab_text_2">SÉRIES</string>
+    <string name="tab_text_3">FILMES</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_tela_com_menu">TelaComMenuActivity</string>
+    <string name="Search">Pesquisar</string>
+    <string name="nav_inicio_text">Inicio</string>
+    <string name="nav_meu_hamba_text">Meu Hamba</string>
+    <string name="nav_calendario_text">Calendário</string>
+    <string name="nav_favoritos_text">Favoritos</string>
+    <string name="nav_recomendacoes_text">Recomendações</string>
+    <string name="nav_configuracoes_text">Configurações</string>
+    <string name="nav_noticias_text">Noticias</string>
+
 
 
 </resources>
