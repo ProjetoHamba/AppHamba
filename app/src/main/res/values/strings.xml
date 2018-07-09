@@ -39,7 +39,7 @@
     <string name="nav_recomendacoes_text">Recomendações</string>
     <string name="nav_configuracoes_text">Configurações</string>
     <string name="nav_noticias_text">Noticias</string>
-
+    <string name="title_activity_com_tabs">ComTabsActivity</string>
 
 
 </resources>
