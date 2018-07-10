@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.titulos.gui.MainScreenActivity;
 import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
 import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
 
@@ -61,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
             Toast Logado;
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
             Logado.show();
-            this.mudarTela(TelaComMenuActivity.class);
-            //finish();
+            irTelaHome();
+            finish();
         }
         else{
             Erro.show();
@@ -82,10 +83,8 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
-    public void mudarTela(Class tela){
-        Intent intent = new Intent(this, tela);
-        startActivity(intent);
-        finish();
+    private void irTelaHome(){
+        startActivity(new Intent(LoginActivity.this,MainScreenActivity.class));
     }
 
 }
