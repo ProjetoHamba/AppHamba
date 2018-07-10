@@ -1,4 +1,4 @@
-package com.apphamba.hamba;
+package com.apphamba.hamba.titulos.gui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +20,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.apphamba.hamba.R;
 
 public class TelaComMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
