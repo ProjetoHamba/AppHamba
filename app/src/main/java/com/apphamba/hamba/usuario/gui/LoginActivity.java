@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void irTelaHome(){
-        startActivity(new Intent(LoginActivity.this,MainScreenActivity.class));
+        startActivity(new Intent(LoginActivity.this,TelaComMenuActivity.class));
     }
 
 }

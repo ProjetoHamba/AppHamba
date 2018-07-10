@@ -1,8 +1,8 @@
 package com.apphamba.hamba.titulos.gui;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,9 +19,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.apphamba.hamba.CalendarioActivity;
+import com.apphamba.hamba.usuario.gui.ConfiguracaoActivity;
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.titulos.servicos.ServiceTitulos;
+
+import java.util.ArrayList;
 
 public class TelaComMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,13 +46,15 @@ public class TelaComMenuActivity extends AppCompatActivity
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
+    private ServiceTitulos serviceTitulos= new ServiceTitulos();
+    public static ArrayList<String> arrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_com_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        arrayList = serviceTitulos.getAllTitulos(this);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -60,14 +69,7 @@ public class TelaComMenuActivity extends AppCompatActivity
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        //era fab
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -121,16 +123,25 @@ public class TelaComMenuActivity extends AppCompatActivity
 
         if (id == R.id.nav_inicio) {
             // Handle inicio action
+
+
         } else if (id == R.id.nav_meu_hamba) {
             //colocar aq a ação do clique
 
         } else if (id == R.id.nav_calendario) {
+            //TODO PROXIMA SPRINT
+            startActivity(new Intent(TelaComMenuActivity.this,CalendarioActivity.class));
+
 
         } else if (id == R.id.nav_favoritos) {
 
         } else if (id == R.id.nav_recomendacoes) {
+                //TODO RECOMENDAÇÕES
+            startActivity(new Intent(TelaComMenuActivity.this,RecomendacoesActivity.class));
 
         } else if (id == R.id.nav_configuracoes) {
+                //TODO para sexta cria tela
+            startActivity(new Intent(TelaComMenuActivity.this,ConfiguracaoActivity.class));
 
         } else if (id == R.id.nav_noticias) {
 
@@ -143,12 +154,15 @@ public class TelaComMenuActivity extends AppCompatActivity
 
     /* A placeholder fragment containing a simple view.
      */
+    @SuppressLint("ValidFragment")
     public static class PlaceholderFragment extends Fragment {
         /**
          * The fragment argument representing the section number for this
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+
+        private ListView listaSeries;
 
         public PlaceholderFragment() {
         }
@@ -157,7 +171,7 @@ public class TelaComMenuActivity extends AppCompatActivity
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+        public static final PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -169,8 +183,26 @@ public class TelaComMenuActivity extends AppCompatActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tela_com_menu, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            if(getArguments().getInt( ARG_SECTION_NUMBER )==1){
+
+                listaSeries = (ListView) rootView.findViewById(R.id.list_viewFrag);
+
+                ArrayAdapter<String> adaptador = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_list_item_1, android.R.id.text1, arrayList);
+
+                listaSeries.setAdapter(adaptador);
+
+                listaSeries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        int codigoPosicao = i;
+                        String valorClicado = (String) listaSeries.getItemAtPosition(codigoPosicao);
+                        //Toast.makeText(getApplicationContext(),valorClicado,Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }

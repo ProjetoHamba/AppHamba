@@ -17,7 +17,6 @@ public class EscolhaCadOuLoginActivity extends AppCompatActivity {
     public void mudarTela(Class tela){
         Intent intent = new Intent(this, tela);
         startActivity(intent);
-        finish();
     }
     public void cliqueBotaoEntrar(View view){
         this.mudarTela(LoginActivity.class);

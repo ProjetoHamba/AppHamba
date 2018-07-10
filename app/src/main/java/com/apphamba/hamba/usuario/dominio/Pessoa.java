@@ -3,7 +3,7 @@ package com.apphamba.hamba.usuario.dominio;
 public class Pessoa {
     private int id;
     private String nome;
-    private int idUsuario;
+    private int idUsuario; //Objeto Usuario
 
     public long getId() {
         return id;

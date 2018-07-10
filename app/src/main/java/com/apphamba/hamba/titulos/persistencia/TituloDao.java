@@ -55,9 +55,12 @@ public class TituloDao {
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
         String query = "SELECT * FROM titulo";
         Cursor cursor = leitorBanco.rawQuery(query,null);
-        if(cursor.getCount()>0){
-            cursor.moveToNext();
-            titulos.add(this.createTitulo(cursor));
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                //cursor.moveToNext();
+                titulos.add( this.createTitulo( cursor ) );
+            }while(cursor.moveToNext());
         }
         return titulos;
 

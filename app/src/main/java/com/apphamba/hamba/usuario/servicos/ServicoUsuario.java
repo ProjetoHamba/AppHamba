@@ -59,5 +59,8 @@ public class ServicoUsuario {
         }
         return false;
     }
-
+    public Usuario getUsuarioDB(String email, Context context){
+        UsuarioDAO dao = new UsuarioDAO( context );
+        return dao.getByEmail( email );
+    }
 }
