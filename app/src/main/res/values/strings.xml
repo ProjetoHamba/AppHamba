@@ -18,6 +18,7 @@
     <string name="text_view_conf_senha">Confirmar senha:</string>
     <string name="dialog_botao_ok">OK</string>
     <string name="dialog_titulo_erro">ERRO</string>
+<<<<<<< HEAD
     <string name="title_activity_mainha">MainhaActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -40,6 +41,11 @@
     <string name="nav_configuracoes_text">Configurações</string>
     <string name="nav_noticias_text">Noticias</string>
     <string name="title_activity_com_tabs">ComTabsActivity</string>
+=======
+    <string name="PrimeiraTaB">TUDO</string>
+    <string name="segundaTab">SÉRIES</string>
+    <string name="terceiraTab">FILMES</string>
+>>>>>>> LoginCadastro
 
 
 </resources>

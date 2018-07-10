@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.titulos.gui;
+package com.apphamba.hamba.titulos.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

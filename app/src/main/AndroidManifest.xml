@@ -24,7 +24,7 @@
             android:name=".usuario.usuario.gui.CadastroActivity"
             android:label="@string/label_cadastro" />
         <activity
-            android:name=".usuario.usuario.gui.EscolhaCadOuLoginActivity"
+            android:name=".usuario.gui.EscolhaCadOuLoginActivity"
             android:label="@string/label_escolha" />
         <activity android:name=".usuario.titulos.gui.HomeActivity" />
         <activity

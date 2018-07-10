@@ -1,4 +1,4 @@
-package com.apphamba.hamba.usuario.infra;
+package com.apphamba.hamba.infra;
 
 import android.text.Editable;
 import android.text.TextWatcher;
