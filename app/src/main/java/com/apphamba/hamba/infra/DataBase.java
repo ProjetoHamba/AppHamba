@@ -62,6 +62,9 @@ public class DataBase extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_titulo interger, " +
                 "duracao int);");
+
+        db.execSQL(ConstantesBanco.INSERIR_TITULO);
+        db.execSQL(ConstantesBanco.INSERIR_USUARIO);
     }
 
     //Atualização da tabela
