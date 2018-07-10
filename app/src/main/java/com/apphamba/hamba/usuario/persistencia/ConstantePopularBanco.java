@@ -29,8 +29,30 @@ public class ConstantePopularBanco {
             "('10','xxxxxxxxxxxxxxx','EEE','1')" +
             "('11','xxxxxxxxxxxxxxx','8WWW','1');";
 
+    public static final String INSERIR_TEMPORADA = "INSERT INTO `serie` (`id_serie`,`nome`,`numero_temporada`,`quantidade_episodio`,`data_lancamento`) VALUES " +
+            "('1','Teste','1','1','11/11/11)" +
+            "('2','Teste1','1','1','11/11/11)" +
+            "('3','Teste2','1','1','11/11/11)" +
+            "('4','Teste3','1','1','11/11/11)" +
+            "('5','Teste4','1','1','11/11/11)" +
+            "('6','Teste5','1','1','11/11/11)" +
+            "('7','Teste6','1','1','11/11/11)" +
+            "('8','Teste7','1','1','11/11/11)" +
+            "('9','Teste8','1','1','11/11/11)" +
+            "('10','Teste9','1','1','11/11/11)" +
+            "('11','Teste10','1','1','11/11/11);";
 
-
-
+    public static final String INSERIR_EPISODIO = "INSERT INTO `serie` (`id_temporada`,`nome`,`numero_episodio`) VALUES " +
+            "('1','epi1','1')" +
+            "('2','epi2','1')" +
+            "('3','epi3','1')" +
+            "('4','epi4','1')" +
+            "('5','epi5','1')" +
+            "('6','epi6','1')" +
+            "('7','epi7','1')" +
+            "('8','epi8','1')" +
+            "('9','epi9','1')" +
+            "('10','ep10','1')" +
+            "('11','epi11','1');";
 
 }
