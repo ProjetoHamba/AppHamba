@@ -50,6 +50,9 @@ public class ServicoUsuario {
     public boolean login(String email, String senha, Context context){
         UsuarioDAO usuarioDAO = new UsuarioDAO(context);
         Usuario usuario = usuarioDAO.getByEmail(email);
+        if (usuario == null){
+            return false;
+        }
         String senhaUsuario = usuario.getSenha();
         if (senha.equals(senhaUsuario)) {
             return true;

@@ -2,29 +2,35 @@ package com.apphamba.hamba.usuario.persistencia;
 
 //POPULAR BANCO COM EXEMPLOS DE
 public class ConstantePopularBanco {
-    public static final String INSERIR_USUARIO = "INSERT INTO `usuario` (`email`,`senha`) VALUES " +
-            "('a@gmail.com','111111')," +
-            "('b@gmail.com','111111')," +
-            "('c@gmail.com','111111')," +
-            "('d@gmail.com','111111')," +
-            "('e@gmail.com','111111')," +
-            "('f@gmail.com','111111')," +
-            "('g@gmail.com','111111')," +
-            "('h@gmail.com','111111')," +
-            "('i@gmail.com','111111')," +
-            "('j@gmail.com','111111');";
 
-    public static final String INSERIR_PESSOA = "INSERT INTO `pessoa` (`nome`,`sexo`,`data_nasc`,`id_est_usuario`) VALUES " +
-            "('Maite Stokes','Feminino',1)," +
-            "('Kane Kramer','Masculino',2)," +
-            "('Jenette Caldwell','Feminino','19881201',3)," +
-            "('Nomlanga Dennis','Masculino','19900212',4)," +
-            "('Leigh Day','Masculino','20001120',5)," +
-            "('Laith Miller','Feminino','19850417',6)," +
-            "('Amela Anderson','Feminino','19400123',7)," +
-            "('Lucy Whitehead','Feminino','19730202',8)," +
-            "('Indigo Ortega','Masculino','19870227',9)," +
-            "('Akeem Stout','Feminino','19950505',10);";
+    public static final String INSERIR_TITULO = "INSERT INTO `titulo` (`nome`,`sinopse`,`avaliacao`,`generos` `criadores`) VALUES " +
+            "('Friends','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('Vikings','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('Game of Thrones','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('xuxa','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('Kees','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('zzzz','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('xxx','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('qqq','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('wwww','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('eee','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria)" +
+            "('rrrr','xxxxxxxxxxxxxxx','80','comedia,romance','jose,maria);" ;
+
+    public static final String INSERIR_SERIE = "INSERT INTO `serie` (`id_titulo`,`distribuidor`,`quantidade_temporada`) VALUES " +
+            "('1','xxxxxxxxxxxxxxx','ABC','1')" +
+            "('2','xxxxxxxxxxxxxxx','BCA','1')" +
+            "('3','xxxxxxxxxxxxxxx','ADD','1')" +
+            "('4','xxxxxxxxxxxxxxx','AZX','1')" +
+            "('5','xxxxxxxxxxxxxxx','AUZ','1')" +
+            "('6','xxxxxxxxxxxxxxx','TMC','1')" +
+            "('7','xxxxxxxxxxxxxxx','KKK','1')" +
+            "('8','xxxxxxxxxxxxxxx','ZZZ','1')" +
+            "('9','xxxxxxxxxxxxxxx','QQQ','1')" +
+            "('10','xxxxxxxxxxxxxxx','EEE','1')" +
+            "('11','xxxxxxxxxxxxxxx','8WWW','1');";
+
+
+
 
 
 }
