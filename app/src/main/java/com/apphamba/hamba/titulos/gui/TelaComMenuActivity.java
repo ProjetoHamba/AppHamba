@@ -26,17 +26,17 @@ import com.apphamba.hamba.R;
 public class TelaComMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
+     * O {@link android.support.v4.view.PagerAdapter} que irá fornecer
+     * fragmentos para cada uma das seções. Nós usamos um
+     * {@link FragmentPagerAdapter} derivado, que irá manter cada
+     * fragmento carregado na memória. Se isso se tornar muito intensivo em memória,
+     * pode ser melhor mudar para um
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private TelaComMenuActivity.SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
-     * The {@link ViewPager} that will host the section contents.
+     * O {@link ViewPager} que hospedará o conteúdo da seção.
      */
     private ViewPager mViewPager;
 
@@ -47,10 +47,10 @@ public class TelaComMenuActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        // Cria o adaptador que retornará um fragmento para cada um dos três
+        // seções principais da atividade
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());;
-        // Set up the ViewPager with the sections adapter.
+        // Configura o ViewPager com o adaptador de seções.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
@@ -91,16 +91,16 @@ public class TelaComMenuActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Infla o menu; isso adiciona itens à barra de ação, se estiver presente.
         getMenuInflater().inflate(R.menu.tela_com_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Lidar com cliques de itens da barra de ação aqui. A barra de ação será
+        // lida automaticamente com cliques no botão Início / Acima, por muito tempo
+        // conforme você especifica uma atividade pai em AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -116,7 +116,7 @@ public class TelaComMenuActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Lidar com item de visualização de navegação clica aqui.
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
@@ -141,12 +141,12 @@ public class TelaComMenuActivity extends AppCompatActivity
         return true;
     }
 
-    /* A placeholder fragment containing a simple view.
+    /* A placeholder fragment contém um simple view.
      */
     public static class PlaceholderFragment extends Fragment {
         /**
-         * The fragment argument representing the section number for this
-         * fragment.
+         * O argumento do fragmento representando o número da seção para este
+         fragmento
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -154,8 +154,8 @@ public class TelaComMenuActivity extends AppCompatActivity
         }
 
         /**
-         * Returns a new instance of this fragment for the given section
-         * number.
+         * Retorna uma nova instância deste fragmento para a seção dada
+         * número.
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
@@ -164,7 +164,7 @@ public class TelaComMenuActivity extends AppCompatActivity
             fragment.setArguments(args);
             return fragment;
         }
-
+        //aqui é o texto e a mudança dele em cada tab AAAAAAAATENÇÃO ooooooooooooooooo
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -176,8 +176,8 @@ public class TelaComMenuActivity extends AppCompatActivity
     }
 
     /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
+     * Um {@link FragmentPagerAdapter} que retorna um fragmento correspondente a
+     * uma das seções / guias / páginas
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -187,14 +187,14 @@ public class TelaComMenuActivity extends AppCompatActivity
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
+            // getItem é chamado para instanciar o fragmento da página especificada.
+            // Retorna um PlaceholderFragment (definido como uma classe interna estática abaixo).
             return TelaComMenuActivity.PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Mostrar 3 paginas no total.
             return 3;
         }
     }
