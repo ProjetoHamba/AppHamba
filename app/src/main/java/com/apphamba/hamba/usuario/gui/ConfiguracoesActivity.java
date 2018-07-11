@@ -38,7 +38,6 @@ public class ConfiguracoesActivity extends AppCompatActivity {
             }
         });
 
-        onClickModificar();
     }
     private void mudarTela(Class tela){
         Intent intent=new Intent(this, tela);
@@ -55,7 +54,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     }
 
     //Modificar aqui para modificar no Banco
-    public void onClickModificar() {
+    public void onClickModificar(View view) {
         this.botaoModificar = (Button) findViewById(R.id.btnModificar);
         botaoModificar.setOnClickListener(new View.OnClickListener() {
             @Override
