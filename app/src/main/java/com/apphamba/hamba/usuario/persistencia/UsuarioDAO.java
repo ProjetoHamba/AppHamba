@@ -11,6 +11,7 @@ import com.apphamba.hamba.infra.DataBase;
 
 public class UsuarioDAO {
     private DataBase bancoDados;
+    private SQLiteDatabase db;
 
     public UsuarioDAO(Context context) {
         bancoDados = new DataBase(context);
@@ -65,4 +66,14 @@ public class UsuarioDAO {
         escritorBanco.insert("usuario",null,valores);
         escritorBanco.close();
     }
+
+    public void update(Usuario usuario){
+        String query = "_id =  '" + String.valueOf(usuario.getId()) + "'";
+        ContentValues values = new ContentValues();
+        values.put("email", usuario.getEmail());
+        values.put("senha",usuario.getSenha());
+        db.update("usuario",values,query,null);
+        db.close();
+    }
+
 }

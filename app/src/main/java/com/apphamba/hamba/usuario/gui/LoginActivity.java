@@ -13,11 +13,12 @@ import android.widget.Toast;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulos.gui.MainScreenActivity;
 import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
+import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
 
 public class LoginActivity extends AppCompatActivity {
+    private static Usuario usuarioLogado = new Usuario();
     private EditText campoEmail, campoSenha;
-    private Button botaoEntrar;
     private String email, senha;
     private ServicoUsuario servicoUsuario = new ServicoUsuario();
 
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void clicarBotaoEntrar() {
-        botaoEntrar = (Button) findViewById(R.id.button_entrar);
+        Button botaoEntrar = (Button) findViewById(R.id.button_entrar);
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +57,8 @@ public class LoginActivity extends AppCompatActivity {
     private void verificarEmailSenhaBanco(){
         email=campoEmail.getText().toString().trim();
         senha=campoSenha.getText().toString().trim();
-        Toast Erro;
-        Erro =Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
-        if (servicoUsuario.login(email,senha,this)){
+        if (servicoUsuario.confirmarUsuario(email,senha,this)){
+            usuarioLogado = servicoUsuario.criaUsuarioParaLogin(email,this);
             Toast Logado;
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
             Logado.show();
@@ -66,6 +66,8 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
         else{
+            Toast Erro;
+            Erro =Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
             Erro.show();
         }
     }
@@ -84,7 +86,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void irTelaHome(){
-        startActivity(new Intent(LoginActivity.this,TelaComMenuActivity.class));
+        startActivity(new Intent(LoginActivity.this,ConfiguracoesActivity.class));
     }
 
+    public static Usuario getUsuarioLogado() {
+        return usuarioLogado;
+    }
 }

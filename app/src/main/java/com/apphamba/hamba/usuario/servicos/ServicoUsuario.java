@@ -33,6 +33,12 @@ public class ServicoUsuario {
         return usuario;
     }
 
+    public Usuario criaUsuarioParaLogin(String email, Context context){
+        UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+        Usuario usuario = usuarioDAO.getByEmail(email);
+        return usuario;
+    }
+
     public void salvarUsuarioBanco(Usuario usuario, Context context){
         UsuarioDAO usuarioDAO = new UsuarioDAO(context);
         usuarioDAO.inserir(usuario);
@@ -47,7 +53,7 @@ public class ServicoUsuario {
         }
     }
 
-    public boolean login(String email, String senha, Context context){
+    public boolean confirmarUsuario(String email, String senha, Context context){
         UsuarioDAO usuarioDAO = new UsuarioDAO(context);
         Usuario usuario = usuarioDAO.getByEmail(email);
         if (usuario == null){
@@ -58,6 +64,11 @@ public class ServicoUsuario {
             return true;
         }
         return false;
+    }
+
+    public void alterarNoBanco(Usuario usuario,Context context){
+        UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+        usuarioDAO.update(usuario);
     }
 
 }
