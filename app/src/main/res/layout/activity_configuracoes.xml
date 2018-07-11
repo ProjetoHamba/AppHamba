@@ -141,20 +141,6 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnConfVoltar"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorButoes"
-                    android:onClick="retornoMenuPrincipal"
-                    android:text="@string/button_voltar"
-                    android:textColor="@color/colorTextoBut"
-                    android:textStyle="bold" />
-
-                <Button
                     android:id="@+id/btnModificar"
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
@@ -167,6 +153,21 @@
                     android:text="@string/button_modificar"
                     android:textColor="@color/colorTextoBut"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnApagarConta"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorButoes"
+                    android:onClick="retornoMenuPrincipal"
+                    android:text="@string/button_apagar_conta"
+                    android:textColor="@color/colorTextoBut"
+                    android:textStyle="bold" />
+
 
             </LinearLayout>
 
