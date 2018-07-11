@@ -43,5 +43,15 @@
     <string name="PrimeiraTaB">TUDO</string>
     <string name="segundaTab">SÉRIES</string>
     <string name="terceiraTab">FILMES</string>
+    <string name="label_configuracoes">Configurações</string>
+    <string name="button_voltar">Voltar</string>
+    <string name="button_modificar">Modificar</string>
+    <string name="text_view_email_novo">Digite seu novo e-mail </string>
+    <string name="text_view_confirmar_email_novo">Confirme seu novo e-mail </string>
+    <string name="text_view_senha_nova">Digite sua senha nova</string>
+    <string name="text_view_conf_senha_nova">Confirme sua senha nova</string>
+    <string name="edit_text_conf_email_novo">Confirme seu e-mail novo</string>
+    <string name="img_text_foto_avatar">Imagem do Avatar</string>
+
 
 </resources>
