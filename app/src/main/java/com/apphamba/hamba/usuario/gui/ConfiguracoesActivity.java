@@ -26,7 +26,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracoes);
 
-        this.campoEdtEmail =(EditText) findViewById(R.id.editTextEmail);
+        this.campoEdtEmail =(EditText) findViewById(R.id.edtEmailNovo);
         this.campoEdtConfEmail =(EditText) findViewById(R.id.edtConfEmail);
         this.campoEdtSenha =(EditText) findViewById(R.id.edtSenhaNova);
         this.campoEdtConfSenha =(EditText) findViewById(R.id.edtSenhaConf);
@@ -66,10 +66,10 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     }
 
     public void verificarInformacoes(){
-        edtEmail = campoEdtEmail.getText().toString().trim();
-        edtConfEmail = campoEdtConfEmail.getText().toString().trim();
-        edtSenha = campoEdtSenha.getText().toString().trim();
-        edtConfSenha = campoEdtConfSenha.getText().toString().trim();
+        this.edtEmail = campoEdtEmail.getText().toString().trim();
+        this.edtConfEmail = campoEdtConfEmail.getText().toString().trim();
+        this.edtSenha = campoEdtSenha.getText().toString().trim();
+        this.edtConfSenha = campoEdtConfSenha.getText().toString().trim();
         if(verificarCampos()) {
             liberarAlteracao();
         }
@@ -77,7 +77,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
 
     private boolean verificarCampos() {
         if (this.servicoUsuario.validarCampoEmail(this.edtEmail)){
-            this.campoEdtEmail.setError("Campo Vazio");
+            this.campoEdtEmail.setError("Email inválido");
             return false;
         }
         else if (!this.edtConfEmail.equals(this.edtEmail)) {
@@ -88,8 +88,8 @@ public class ConfiguracoesActivity extends AppCompatActivity {
             this.campoEdtSenha.setError("Campo Vazio");
             return false;
         }
-        else if (!this.campoEdtConfSenha.equals(this.edtSenha)) {
-                this.campoEdtConfEmail.setError("Senhas diferentes");
+        else if (!this.edtConfSenha.equals(this.edtSenha)) {
+                this.campoEdtConfSenha.setError("Senhas diferentes");
                 return false;
         }
         else{
@@ -98,11 +98,14 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     }
 
     private void liberarAlteracao() {
-        Usuario usuarioMucanca = servicoUsuario.criaUsuarioParaLogin(usuarioLogado.getEmail(),this);
-        usuarioMucanca.setEmail(edtEmail);
-        usuarioMucanca.setSenha(edtSenha);
-        servicoUsuario.alterarNoBanco(usuarioMucanca,this);
+        Usuario usuarioMudanca = new Usuario();
+        usuarioMudanca = servicoUsuario.criaUsuarioParaLogin(usuarioLogado.getEmail(),this);
+        usuarioMudanca.setEmail(edtEmail);
+        usuarioMudanca.setSenha(edtSenha);
+        servicoUsuario.alterarNoBanco(usuarioMudanca,this);
+        usuarioLogado = usuarioMudanca;
+        Toast.makeText(getApplicationContext(),"alterado com sucessso",Toast.LENGTH_SHORT).show();
+        finish();
+        }
 
     }
-
-}
