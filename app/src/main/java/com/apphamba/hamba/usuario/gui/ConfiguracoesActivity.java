@@ -53,8 +53,6 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     public void onBackPressed() {
         this.retornoMenuPrincipal();
     }
-
-    //Modificar aqui para modificar no Banco
     public void onClickModificar() {
         this.botaoModificar = (Button) findViewById(R.id.btnModificar);
         botaoModificar.setOnClickListener(new View.OnClickListener() {
