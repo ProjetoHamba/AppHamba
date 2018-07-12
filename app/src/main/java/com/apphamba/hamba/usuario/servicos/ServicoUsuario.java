@@ -33,7 +33,7 @@ public class ServicoUsuario {
         return usuario;
     }
 
-    public Usuario criaUsuarioParaLogin(String email, Context context){
+    public Usuario criaUsuarioCompleto(String email, Context context){
         UsuarioDAO usuarioDAO = new UsuarioDAO(context);
         Usuario usuario = usuarioDAO.getByEmail(email);
         return usuario;

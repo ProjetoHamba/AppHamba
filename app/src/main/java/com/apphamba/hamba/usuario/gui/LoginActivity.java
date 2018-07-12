@@ -11,9 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulos.gui.MainScreenActivity;
 import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
+import com.apphamba.hamba.usuario.servicos.ServicoPessoa;
 import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
 
 public class LoginActivity extends AppCompatActivity {
@@ -21,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText campoEmail, campoSenha;
     private String email, senha;
     private ServicoUsuario servicoUsuario = new ServicoUsuario();
+    private ServicoPessoa servicoPessoa = new ServicoPessoa();
 
 
     @Override
@@ -58,7 +61,9 @@ public class LoginActivity extends AppCompatActivity {
         email=campoEmail.getText().toString().trim();
         senha=campoSenha.getText().toString().trim();
         if (servicoUsuario.confirmarUsuario(email,senha,this)){
-            usuarioLogado = servicoUsuario.criaUsuarioParaLogin(email,this);
+            usuarioLogado = servicoUsuario.criaUsuarioCompleto(email,this);
+            Sessao.instance.setUsuario(usuarioLogado);
+            Sessao.instance.setPessoa(servicoPessoa.criarPessoaIdUsuario(usuarioLogado.getId(),this));
             Toast Logado;
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
             Logado.show();
@@ -85,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void irTelaHome(){
-        startActivity(new Intent(LoginActivity.this,ConfiguracoesActivity.class));
+        startActivity(new Intent(LoginActivity.this,tela_mostrar_nome.class));
     }
 
     public static Usuario getUsuarioLogado() {

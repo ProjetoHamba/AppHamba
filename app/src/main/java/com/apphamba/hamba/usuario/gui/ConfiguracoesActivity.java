@@ -97,7 +97,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
 
     private void liberarAlteracao() {
         Usuario usuarioMudanca = new Usuario();
-        usuarioMudanca = servicoUsuario.criaUsuarioParaLogin(usuarioLogado.getEmail(),this);
+        usuarioMudanca = servicoUsuario.criaUsuarioCompleto(usuarioLogado.getEmail(),this);
         usuarioMudanca.setEmail(edtEmail);
         usuarioMudanca.setSenha(edtSenha);
         servicoUsuario.alterarNoBanco(usuarioMudanca,this);

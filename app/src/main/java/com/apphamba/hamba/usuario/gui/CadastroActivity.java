@@ -67,8 +67,10 @@ public class CadastroActivity extends AppCompatActivity {
         } else {
             try {
                 Usuario usuario = this.servicoUsuario.criaUsuario(this.email, this.senha);
-                Pessoa pessoa = this.servicoPessoa.criarPessoa(this.nome);
                 this.servicoUsuario.salvarUsuarioBanco(usuario, this);
+                Usuario usuarioAtual = this.servicoUsuario.criaUsuarioCompleto(this.email,this);
+                Pessoa pessoa = this.servicoPessoa.criarPessoa(this.nome, usuarioAtual.getId());
+                this.servicoPessoa.salvarPessoaBanco(pessoa,this);
                 this.contaCriada = Toast.makeText(getApplicationContext(),"Conta Criada",Toast.LENGTH_SHORT);
                 this.contaCriada.show();
             } catch (Exception e) {
