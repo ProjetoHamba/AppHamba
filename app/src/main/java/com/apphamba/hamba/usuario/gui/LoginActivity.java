@@ -63,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
             Logado.show();
             irTelaHome();
-            finish();
         }
         else{
             Toast Erro;
