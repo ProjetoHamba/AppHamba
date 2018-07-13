@@ -18,6 +18,6 @@ public class tela_mostrar_nome extends AppCompatActivity {
         textoNome = (TextView) findViewById(R.id.textViewNomeUser);
         textoSaudacao = (TextView) findViewById(R.id.textView2);
         textoNome.setText(Sessao.instance.getPessoa().getNome());
-        textoSaudacao.setText("Bem Vindo BB");
+        textoSaudacao.setText("Bem Vindo");
     }
 }

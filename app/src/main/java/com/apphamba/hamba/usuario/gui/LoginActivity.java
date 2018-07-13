@@ -12,8 +12,6 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.Sessao;
-import com.apphamba.hamba.titulos.gui.MainScreenActivity;
-import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoPessoa;
 import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
@@ -63,11 +61,11 @@ public class LoginActivity extends AppCompatActivity {
         if (servicoUsuario.confirmarUsuario(email,senha,this)){
             usuarioLogado = servicoUsuario.criaUsuarioCompleto(email,this);
             Sessao.instance.setUsuario(usuarioLogado);
-            Sessao.instance.setPessoa(servicoPessoa.criarPessoaIdUsuario(usuarioLogado.getId(),this));
+            Sessao.instance.setPessoa(servicoPessoa.getPessoa(usuarioLogado.getId(),this));
             Toast Logado;
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
             Logado.show();
-            irTelaHome();
+            proximaTela();
         }
         else{
             Toast Erro;
@@ -89,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
-    private void irTelaHome(){
+    private void proximaTela(){
         startActivity(new Intent(LoginActivity.this,tela_mostrar_nome.class));
     }
 
