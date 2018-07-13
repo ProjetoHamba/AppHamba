@@ -19,7 +19,7 @@ public class ServicoPessoa {
         pessoaDAO.inserirPessoa(pessoa);
     }
 
-    public Pessoa criarPessoaIdUsuario(int idUsuario,Context context){
+    public Pessoa getPessoa(int idUsuario, Context context){
         PessoaDAO pessoaDAO = new PessoaDAO(context);
         Pessoa pessoa = pessoaDAO.getByIdUsuario(idUsuario);
         return pessoa;
