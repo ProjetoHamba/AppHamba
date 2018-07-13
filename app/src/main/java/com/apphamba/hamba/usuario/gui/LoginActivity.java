@@ -51,14 +51,14 @@ public class LoginActivity extends AppCompatActivity {
         email = campoEmail.getText().toString().trim();
         senha = campoSenha.getText().toString().trim();
         if (verificarCampos()){
-            verificarEmailSenhaBanco();
+            logarUsuario();
         }
     }
 
-    private void verificarEmailSenhaBanco(){
-        email=campoEmail.getText().toString().trim();
-        senha=campoSenha.getText().toString().trim();
-        if (servicoUsuario.confirmarUsuario(email,senha,this)){
+    private void logarUsuario(){
+        email = campoEmail.getText().toString().trim();
+        senha = campoSenha.getText().toString().trim();
+        if (servicoUsuario.confirmarUsuario(email, senha,this)){
             usuarioLogado = servicoUsuario.criaUsuarioCompleto(email,this);
             Sessao.instance.setUsuario(usuarioLogado);
             Sessao.instance.setPessoa(servicoPessoa.getPessoa(usuarioLogado.getId(),this));
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         else{
             Toast Erro;
-            Erro =Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
+            Erro = Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
             Erro.show();
         }
     }
@@ -91,7 +91,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(new Intent(LoginActivity.this,tela_mostrar_nome.class));
     }
 
-    public static Usuario getUsuarioLogado() {
-        return usuarioLogado;
-    }
 }

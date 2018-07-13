@@ -34,7 +34,6 @@ public class CadastroActivity extends AppCompatActivity {
         this.campoResenha = (EditText) findViewById(R.id.editTextConfSenha);
 
         clicarBotaoCriar();
-
     }
 
     private void clicarBotaoCriar(){
@@ -56,7 +55,6 @@ public class CadastroActivity extends AppCompatActivity {
         if (verificarCampos()){
             verificarEmailBanco();
         }
-
     }
 
     private void verificarEmailBanco() {
@@ -64,7 +62,8 @@ public class CadastroActivity extends AppCompatActivity {
             Toast erro;
             erro = Toast.makeText(getApplicationContext(),"O Email já está cadastrado",Toast.LENGTH_SHORT);
             erro.show();
-        } else {
+        }
+        else {
             try {
                 Usuario usuario = this.servicoUsuario.criaUsuario(this.email, this.senha);
                 this.servicoUsuario.salvarUsuarioBanco(usuario, this);
