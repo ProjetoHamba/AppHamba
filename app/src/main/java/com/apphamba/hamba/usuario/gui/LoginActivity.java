@@ -12,8 +12,6 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.Sessao;
-import com.apphamba.hamba.titulos.gui.MainScreenActivity;
-import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoPessoa;
 import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
