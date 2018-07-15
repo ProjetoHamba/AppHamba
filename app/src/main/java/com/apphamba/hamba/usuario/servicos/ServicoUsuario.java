@@ -3,9 +3,8 @@ package com.apphamba.hamba.usuario.servicos;
 import android.content.Context;
 import android.util.Patterns;
 
-import com.apphamba.hamba.usuario.dominio.Pessoa;
+
 import com.apphamba.hamba.usuario.dominio.Usuario;
-import com.apphamba.hamba.usuario.persistencia.PessoaDAO;
 import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 public class ServicoUsuario {

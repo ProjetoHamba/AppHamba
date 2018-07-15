@@ -26,7 +26,7 @@ public class Sessao {
         return (Pessoa) values.get("sessao.Pessoa");
     }
 
-    public void setValor(String chave, Object valor){
+    private void setValor(String chave, Object valor){
         values.put(chave, valor);
     }
 
