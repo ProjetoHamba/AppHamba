@@ -60,5 +60,9 @@
     <string name="action_example">Example action</string>
     <string name="apresentacao">Bem Vindo</string>
 
+    <string name="title_tab_1">Tudo</string>
+    <string name="title_tab_2">Séries</string>
+    <string name="title_tab_3">Filmes</string>
+
 
 </resources>
