@@ -11,34 +11,30 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.ServicoValidacao;
+import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
-import com.apphamba.hamba.usuario.servicos.ServicoPessoa;
 import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
 
 public class LoginActivity extends AppCompatActivity {
-    private static Usuario usuarioLogado = new Usuario();
     private EditText campoEmail, campoSenha;
-    private String email, senha;
-    private ServicoUsuario servicoUsuario = new ServicoUsuario();
-    private ServicoPessoa servicoPessoa = new ServicoPessoa();
-
+    private ServicoValidacao servicoValidacao = new ServicoValidacao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        campoEmail = (EditText)findViewById(R.id.editTextEmail);
-        campoSenha = (EditText)findViewById(R.id.editTextSenha);
+        campoEmail = findViewById(R.id.editTextEmail);
+        campoSenha = findViewById(R.id.editTextSenha);
         campoEmail.requestFocus();
 
-        clicarBotaoEntrar();
+        iniciarLogin();
 
     }
 
-    private void clicarBotaoEntrar() {
-        Button botaoEntrar = (Button) findViewById(R.id.button_entrar);
+    private void iniciarLogin() {
+        Button botaoEntrar = findViewById(R.id.button_entrar);
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,36 +44,33 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verificarLogin() {
-        email = campoEmail.getText().toString().trim();
-        senha = campoSenha.getText().toString().trim();
         if (verificarCampos()){
-            logarUsuario();
+            solicitarLogin();
         }
     }
 
-    private void logarUsuario(){
-        email = campoEmail.getText().toString().trim();
-        senha = campoSenha.getText().toString().trim();
-        if (servicoUsuario.confirmarUsuario(email, senha,this)){
-            usuarioLogado = servicoUsuario.criaUsuarioCompleto(email,this);
-            Sessao.instance.setUsuario(usuarioLogado);
-            Sessao.instance.setPessoa(servicoPessoa.getPessoa(usuarioLogado.getId(),this));
-            Toast Logado;
-            Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
-            Logado.show();
-            proximaTela();
+    private void solicitarLogin(){
+        ServicoUsuario servicoUsuario = new ServicoUsuario(this);
+        String email = campoEmail.getText().toString().trim();
+        String senha = campoSenha.getText().toString().trim();
+        Usuario usuario = servicoUsuario.confirmarUsuario(email , senha);
+        if (usuario == null){
+            Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         } else{
-            Toast Erro;
-            Erro = Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
-            Erro.show();
+            Pessoa pessoa = servicoUsuario.getPessoa(usuario.getId());
+            servicoUsuario.logar(pessoa);
+            Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
+            proximaTela();
         }
     }
 
     private boolean verificarCampos(){
-        if(servicoUsuario.validarCampoEmail(email)){
+        String email = campoEmail.getText().toString().trim();
+        String senha = campoSenha.getText().toString().trim();
+        if(servicoValidacao.verificarCampoEmail(email)){
             campoEmail.setError("Email Inválido");
         }
-        if(servicoUsuario.verificarCampoVazio(senha)){
+        if(servicoValidacao.verificarCampoVazio(senha)){
             campoSenha.setError("Senha Inválida");
         } else {
             return true;
@@ -86,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void proximaTela(){
-        startActivity(new Intent(LoginActivity.this,tela_mostrar_nome.class));
+        startActivity(new Intent(LoginActivity.this,TelaInicialActivity.class));
     }
 
 }

@@ -7,13 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
-import com.apphamba.hamba.usuario.dominio.Usuario;
 
 public class PessoaDAO {
     private DataBase bancoDados;
+    private UsuarioDAO usuarioDAO;
+
 
     public PessoaDAO(Context context) {
         bancoDados = new DataBase(context);
+        usuarioDAO = new UsuarioDAO(context);
+
     }
 
 
@@ -21,12 +24,12 @@ public class PessoaDAO {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("nome", pessoa.getNome());
-        valores.put("id_usuario", pessoa.getIdUsuario());
+        valores.put("id_usuario", pessoa.getUsuario().getId());
         escritorBanco.insert("pessoa", null, valores);
         escritorBanco.close();
     }
 
-    public Pessoa getByIdUsuario(int id) {
+    public Pessoa getByIdUsuario(long id) {
         String query = "SELECT * FROM pessoa " +
                 "WHERE id_usuario = ?";
         String[] args = {String.valueOf(id)};
@@ -50,17 +53,17 @@ public class PessoaDAO {
 
     private Pessoa criarPessoa(Cursor cursor) {
         int indexId = cursor.getColumnIndex("id");
-        int id = cursor.getInt(indexId);
+        long id = cursor.getInt(indexId);
 
         int indexNome = cursor.getColumnIndex("nome");
         String nome = cursor.getString(indexNome);
 
-        int indexIdUsuario = cursor.getColumnIndex("id_usuario");
-        int idUsuario = cursor.getInt(indexIdUsuario);
+        int indexUsuario = cursor.getColumnIndex("id_usuario");
+        String idUsuario = cursor.getString(indexUsuario);
 
         Pessoa pessoa = new Pessoa();
         pessoa.setId(id);
-        pessoa.setIdUsuario(idUsuario);
+        pessoa.setUsuario(usuarioDAO.getByID(idUsuario));
         pessoa.setNome(nome);
 
         return pessoa;

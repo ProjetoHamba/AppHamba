@@ -18,7 +18,7 @@ public class UsuarioDAO {
 
     private Usuario criarUsuario(Cursor cursor) {
         int indexId = cursor.getColumnIndex("id");
-        int id = cursor.getInt(indexId);
+        long id = cursor.getLong(indexId);
 
         int indexEmail = cursor.getColumnIndex("email");
         String email = cursor.getString(indexEmail);
@@ -57,13 +57,30 @@ public class UsuarioDAO {
         return  usuario;
     }
 
-    public void inserir(Usuario usuario){
+    public Usuario getByID(String id) {
+        String query =  "SELECT * FROM usuario " +
+                "WHERE id = ?";
+        String[] args = {id};
+        Usuario usuario = this.load(query, args);
+        return  usuario;
+    }
+
+    public Usuario getByEmailSenha(String email, String senha) {
+        String query =  "SELECT * FROM usuario " +
+                "WHERE email = ? AND senha = ?";
+        String[] args = {email, senha};
+        Usuario usuario = this.load(query, args);
+        return  usuario;
+    }
+
+    public long inserir(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("email", usuario.getEmail());
         valores.put("senha", usuario.getSenha());
-        escritorBanco.insert("usuario",null,valores);
+        long id = escritorBanco.insert("usuario",null,valores);
         escritorBanco.close();
+        return id;
     }
 
     public void update(Usuario usuario){

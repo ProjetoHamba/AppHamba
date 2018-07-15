@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.Sessao;
 
-public class tela_mostrar_nome extends AppCompatActivity {
+public class TelaInicialActivity extends AppCompatActivity {
     private TextView textoNome,textoSaudacao;
 
     @Override

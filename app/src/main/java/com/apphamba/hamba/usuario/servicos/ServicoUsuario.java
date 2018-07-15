@@ -1,23 +1,24 @@
 package com.apphamba.hamba.usuario.servicos;
 
 import android.content.Context;
-import android.util.Patterns;
 
 
+import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
+import com.apphamba.hamba.usuario.persistencia.PessoaDAO;
 import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 public class ServicoUsuario {
+    private PessoaDAO pessoaDAO;
+    private UsuarioDAO usuarioDAO;
 
-    public boolean verificarCampoVazio(String campo) {
-        if (campo.isEmpty()) {
-            return true;
-        }
-        return false;
+    public ServicoUsuario(Context context) {
+        pessoaDAO = new PessoaDAO(context);
+        usuarioDAO = new UsuarioDAO(context);
     }
 
-    public boolean verificarEmailExistente(String email, Context context){
-        UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+    public boolean verificarEmailExistente(String email){
         Usuario usuario = usuarioDAO.getByEmail(email);
         if (usuario != null) {
             return true;
@@ -32,41 +33,47 @@ public class ServicoUsuario {
         return usuario;
     }
 
-    public Usuario criaUsuarioCompleto(String email, Context context){
-        UsuarioDAO usuarioDAO = new UsuarioDAO(context);
-        Usuario usuario = usuarioDAO.getByEmail(email);
+    public void logar(Pessoa pessoa){
+        Sessao.instance.setPessoa(pessoa);
+
+    }
+
+    public Usuario confirmarUsuario(String email, String senha){
+        Usuario usuario = usuarioDAO.getByEmailSenha(email, senha);
         return usuario;
     }
 
-    public void salvarUsuarioBanco(Usuario usuario, Context context){
-        UsuarioDAO usuarioDAO = new UsuarioDAO(context);
-        usuarioDAO.inserir(usuario);
-    }
-
-    public boolean validarCampoEmail(String email){
-        if(verificarCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            return true;
-        } else {
+    public boolean cadastrar(String nome, String email, String senha){
+        if (verificarEmailExistente(email)){
             return false;
+        }else {
+            Usuario usuario = criaUsuario(email,senha);
+            long id = usuarioDAO.inserir(usuario);
+            Pessoa pessoa = criarPessoa(nome, usuarioDAO.getByID(String.valueOf(id)));
+            pessoaDAO.inserirPessoa(pessoa);
+            return  true;
         }
-    }
 
-    public boolean confirmarUsuario(String email, String senha, Context context){
-        UsuarioDAO usuarioDAO = new UsuarioDAO(context);
-        Usuario usuario = usuarioDAO.getByEmail(email);
-        if (usuario == null){
-            return false;
-        }
-        String senhaUsuario = usuario.getSenha();
-        if (senha.equals(senhaUsuario)) {
-            return true;
-        }
-        return false;
     }
-
-    public void alterarNoBanco(Usuario usuario,Context context){
-        UsuarioDAO usuarioDAO = new UsuarioDAO(context);
+    public void alterarNoBanco(Usuario usuario){
         usuarioDAO.update(usuario);
+    }
+
+    public Pessoa criarPessoa(String nome, Usuario usuario) {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome(nome);
+        pessoa.setUsuario(usuario);
+        return pessoa;
+    }
+
+    public void salvarPessoaBanco(Pessoa pessoa) {
+        pessoaDAO.inserirPessoa(pessoa);
+    }
+
+    public Pessoa getPessoa(long idUsuario){
+        Pessoa pessoa = pessoaDAO.getByIdUsuario(idUsuario);
+        return pessoa;
+
     }
 
 }
