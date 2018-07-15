@@ -66,8 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
             Logado.show();
             proximaTela();
-        }
-        else{
+        } else{
             Toast Erro;
             Erro = Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
             Erro.show();
@@ -80,8 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         if(servicoUsuario.verificarCampoVazio(senha)){
             campoSenha.setError("Senha Inválida");
-        }
-        else {
+        } else {
             return true;
         }
         return false;

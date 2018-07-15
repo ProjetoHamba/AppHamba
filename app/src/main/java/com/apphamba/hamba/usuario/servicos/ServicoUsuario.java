@@ -46,8 +46,7 @@ public class ServicoUsuario {
     public boolean validarCampoEmail(String email){
         if(verificarCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }

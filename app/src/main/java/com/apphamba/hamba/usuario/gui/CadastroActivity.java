@@ -62,8 +62,7 @@ public class CadastroActivity extends AppCompatActivity {
             Toast erro;
             erro = Toast.makeText(getApplicationContext(),"O Email já está cadastrado",Toast.LENGTH_SHORT);
             erro.show();
-        }
-        else {
+        } else {
             try {
                 Usuario usuario = this.servicoUsuario.criaUsuario(this.email, this.senha);
                 this.servicoUsuario.salvarUsuarioBanco(usuario, this);
@@ -84,24 +83,19 @@ public class CadastroActivity extends AppCompatActivity {
         if (this.servicoUsuario.verificarCampoVazio(this.nome)){
             this.campoNome.setError("Campo vazio");
             return false;
-        }
-        else if (this.servicoUsuario.validarCampoEmail(this.email)) {
+        } else if (this.servicoUsuario.validarCampoEmail(this.email)) {
             this.campoEmail.setError("Formato de email inválido");
             return false;
-        }
-        else if (this.servicoUsuario.verificarCampoVazio(this.senha)){
+        } else if (this.servicoUsuario.verificarCampoVazio(this.senha)){
             this.campoSenha.setError("Campo vazio");
             return false;
-        }
-        else if (this.servicoUsuario.verificarCampoVazio(this.repetirSenha)) {
+        } else if (this.servicoUsuario.verificarCampoVazio(this.repetirSenha)) {
             this.campoResenha.setError("Campo vazio");
             return false;
-        }
-        else if (!this.repetirSenha.equals(this.senha)){
+        } else if (!this.repetirSenha.equals(this.senha)){
             this.campoResenha.setError("Senhas diferentes");
             return false;
-        }
-        else{
+        } else{
             return true;
         }
     }
