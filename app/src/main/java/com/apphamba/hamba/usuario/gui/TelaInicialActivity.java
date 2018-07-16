@@ -15,8 +15,8 @@ public class TelaInicialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_mostrar_nome);
 
-        textoNome = (TextView) findViewById(R.id.textViewNomeUser);
-        textoSaudacao = (TextView) findViewById(R.id.textView2);
+        textoNome = findViewById(R.id.textViewNomeUser);
+        textoSaudacao = findViewById(R.id.textView2);
         textoNome.setText(Sessao.instance.getPessoa().getNome());
         textoSaudacao.setText("Bem Vindo");
     }
