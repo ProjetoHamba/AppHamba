@@ -29,48 +29,57 @@ public class LoginActivity extends AppCompatActivity {
         campoSenha = findViewById(R.id.editTextSenha);
         campoEmail.requestFocus();
 
-        iniciarLogin();
-
-    }
-
-    private void iniciarLogin() {
         Button botaoEntrar = findViewById(R.id.button_entrar);
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verificarLogin();
+                login();
             }
         });
+
     }
 
-    private void verificarLogin() {
-        if (verificarCampos()){
-            solicitarLogin();
+    private void login() {
+        if (!verificarCampos()){
+            return;
         }
-    }
 
-    private void solicitarLogin(){
         ServicoUsuario servicoUsuario = new ServicoUsuario(this);
         String email = campoEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
-        Usuario usuario = servicoUsuario.confirmarUsuario(email , senha);
+        Usuario usuario = servicoUsuario.logar(email , senha);
         if (usuario == null){
             Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
-        } else{
+        } else {
             Pessoa pessoa = servicoUsuario.getPessoa(usuario.getId());
-            servicoUsuario.logar(pessoa);
+            servicoUsuario.iniciarSessao(pessoa);
             Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             proximaTela();
         }
+
     }
+
+//    private void solicitarLogin(){
+//        ServicoUsuario servicoUsuario = new ServicoUsuario(this);
+//        String email = campoEmail.getText().toString().trim();
+//        String senha = campoSenha.getText().toString().trim();
+//        Usuario usuario = servicoUsuario.confirmarUsuario(email , senha);
+//        if (usuario == null){
+//            Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
+//        } else{
+//            Pessoa pessoa = servicoUsuario.getPessoa(usuario.getId());
+//            servicoUsuario.logar(pessoa);
+//            Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
+//            proximaTela();
+//        }
+//    }
 
     private boolean verificarCampos(){
         String email = campoEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
         if(servicoValidacao.verificarCampoEmail(email)){
             campoEmail.setError("Email Inválido");
-        }
-        if(servicoValidacao.verificarCampoVazio(senha)){
+        } if(servicoValidacao.verificarCampoVazio(senha)){
             campoSenha.setError("Senha Inválida");
         } else {
             return true;

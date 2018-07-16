@@ -33,12 +33,11 @@ public class ServicoUsuario {
         return usuario;
     }
 
-    public void logar(Pessoa pessoa){
+    public void iniciarSessao(Pessoa pessoa){
         Sessao.instance.setPessoa(pessoa);
-
     }
 
-    public Usuario confirmarUsuario(String email, String senha){
+    public Usuario logar(String email, String senha){
         Usuario usuario = usuarioDAO.getByEmailSenha(email, senha);
         return usuario;
     }
@@ -46,7 +45,7 @@ public class ServicoUsuario {
     public boolean cadastrar(String nome, String email, String senha){
         if (verificarEmailExistente(email)){
             return false;
-        }else {
+        } else {
             Usuario usuario = criaUsuario(email,senha);
             long id = usuarioDAO.inserir(usuario);
             Pessoa pessoa = criarPessoa(nome, usuarioDAO.getByID(String.valueOf(id)));
@@ -55,6 +54,7 @@ public class ServicoUsuario {
         }
 
     }
+
     public void alterarNoBanco(Usuario usuario){
         usuarioDAO.update(usuario);
     }
