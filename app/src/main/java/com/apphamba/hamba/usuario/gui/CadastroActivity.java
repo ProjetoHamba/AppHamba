@@ -72,16 +72,16 @@ public class CadastroActivity extends AppCompatActivity {
         String email = campoEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
         String repetirSenha = campoResenha.getText().toString().trim();
-        if (verificarCampoVazio(nome)){
+        if (servicoValidacao.verificarCampoVazio(nome)){
             this.campoNome.setError("Campo vazio");
             return false;
-        } else if (verificarCampoEmail(email)) {
+        } else if (servicoValidacao.verificarCampoEmail(email)) {
             this.campoEmail.setError("Formato de email inválido");
             return false;
-        } else if (verificarCampoVazio(senha)){
+        } else if (servicoValidacao.verificarCampoVazio(senha)){
             this.campoSenha.setError("Campo vazio");
             return false;
-        } else if (verificarCampoVazio(repetirSenha)) {
+        } else if (servicoValidacao.verificarCampoVazio(repetirSenha)) {
             this.campoResenha.setError("Campo vazio");
             return false;
         } else if (!repetirSenha.equals(senha)){
@@ -89,21 +89,6 @@ public class CadastroActivity extends AppCompatActivity {
             return false;
         } else{
             return true;
-        }
-    }
-
-    public boolean verificarCampoVazio(String campo) {
-        if (campo.isEmpty()) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean verificarCampoEmail(String email){
-        if(verificarCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            return true;
-        } else {
-            return false;
         }
     }
 
