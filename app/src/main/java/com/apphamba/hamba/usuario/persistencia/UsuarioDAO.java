@@ -12,8 +12,8 @@ import com.apphamba.hamba.infra.DataBase;
 public class UsuarioDAO {
     private DataBase bancoDados;
 
-    public UsuarioDAO(Context context) {
-        bancoDados = new DataBase(context);
+    public UsuarioDAO() {
+        bancoDados = new DataBase();
     }
 
     private Usuario criarUsuario(Cursor cursor) {

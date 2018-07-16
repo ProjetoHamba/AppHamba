@@ -14,7 +14,7 @@ import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ServicoValidacao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
-import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
+import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText campoEmail, campoSenha;
@@ -25,9 +25,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        campoEmail = findViewById(R.id.editTextEmail);
-        campoSenha = findViewById(R.id.editTextSenha);
-        campoEmail.requestFocus();
+        this.campoEmail = findViewById(R.id.editTextEmail);
+        this.campoSenha = findViewById(R.id.editTextSenha);
+        this.campoEmail.requestFocus();
 
         Button botaoEntrar = findViewById(R.id.button_entrar);
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
@@ -40,54 +40,44 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-        if (!verificarCampos()){
+        if (!this.verificarCampos()) {
             return;
         }
 
-        ServicoUsuario servicoUsuario = new ServicoUsuario(this);
-        String email = campoEmail.getText().toString().trim();
-        String senha = campoSenha.getText().toString().trim();
-        Usuario usuario = servicoUsuario.logar(email , senha);
-        if (usuario == null){
-            Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
-        } else {
-            Pessoa pessoa = servicoUsuario.getPessoa(usuario.getId());
-            servicoUsuario.iniciarSessao(pessoa);
+        ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro(this);
+        boolean isLogado = servicoLoginCadastro.logar(this.criarUsuario());
+
+        if (isLogado) {
             Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             proximaTela();
+        } else {
+            Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         }
-
     }
 
-//    private void solicitarLogin(){
-//        ServicoUsuario servicoUsuario = new ServicoUsuario(this);
-//        String email = campoEmail.getText().toString().trim();
-//        String senha = campoSenha.getText().toString().trim();
-//        Usuario usuario = servicoUsuario.confirmarUsuario(email , senha);
-//        if (usuario == null){
-//            Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
-//        } else{
-//            Pessoa pessoa = servicoUsuario.getPessoa(usuario.getId());
-//            servicoUsuario.logar(pessoa);
-//            Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
-//            proximaTela();
-//        }
-//    }
+    private Usuario criarUsuario() {
+        String email = this.campoEmail.getText().toString().trim();
+        String senha = this.campoSenha.getText().toString().trim();
+        Usuario usuario = new Usuario();
+        usuario.setEmail(email);
+        usuario.setSenha(senha);
+        return usuario;
+    }
 
-    private boolean verificarCampos(){
-        String email = campoEmail.getText().toString().trim();
-        String senha = campoSenha.getText().toString().trim();
-        if(servicoValidacao.verificarCampoEmail(email)){
-            campoEmail.setError("Email Inválido");
-        } if(servicoValidacao.verificarCampoVazio(senha)){
-            campoSenha.setError("Senha Inválida");
+    private boolean verificarCampos() {
+        String email = this.campoEmail.getText().toString().trim();
+        String senha = this.campoSenha.getText().toString().trim();
+        if (this.servicoValidacao.verificarCampoEmail(email)) {
+            this.campoEmail.setError("Email Inválido");
+        } if (this.servicoValidacao.verificarCampoVazio(senha)) {
+            this.campoSenha.setError("Senha Inválida");
         } else {
             return true;
         }
         return false;
     }
 
-    private void proximaTela(){
+    private void proximaTela() {
         startActivity(new Intent(LoginActivity.this,TelaInicialActivity.class));
     }
 

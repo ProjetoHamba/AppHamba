@@ -9,8 +9,8 @@ public class DataBase extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "dbapphamba";
 
-    public DataBase(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    public DataBase() {
+        super(HambaApp.getContext(), DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override

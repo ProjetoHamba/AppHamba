@@ -13,9 +13,9 @@ public class PessoaDAO {
     private UsuarioDAO usuarioDAO;
 
 
-    public PessoaDAO(Context context) {
-        bancoDados = new DataBase(context);
-        usuarioDAO = new UsuarioDAO(context);
+    public PessoaDAO() {
+        bancoDados = new DataBase();
+        usuarioDAO = new UsuarioDAO();
 
     }
 
