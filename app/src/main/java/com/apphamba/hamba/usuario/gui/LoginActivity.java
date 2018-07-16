@@ -79,12 +79,13 @@ public class LoginActivity extends AppCompatActivity {
         String senha = campoSenha.getText().toString().trim();
         if(servicoValidacao.verificarCampoEmail(email)){
             campoEmail.setError("Email Inválido");
-        } if(servicoValidacao.verificarCampoVazio(senha)){
+            return false;
+        } else if(servicoValidacao.verificarCampoVazio(senha)){
             campoSenha.setError("Senha Inválida");
+            return false;
         } else {
             return true;
         }
-        return false;
     }
 
     private void proximaTela(){
