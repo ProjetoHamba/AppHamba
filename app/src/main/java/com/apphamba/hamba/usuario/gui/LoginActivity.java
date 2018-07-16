@@ -1,6 +1,5 @@
 package com.apphamba.hamba.usuario.gui;
 
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ServicoValidacao;
-import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 
@@ -44,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro(this);
+        ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
         boolean isLogado = servicoLoginCadastro.logar(this.criarUsuario());
 
         if (isLogado) {

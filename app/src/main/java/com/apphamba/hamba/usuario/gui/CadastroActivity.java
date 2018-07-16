@@ -1,6 +1,5 @@
 package com.apphamba.hamba.usuario.gui;
 
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,7 +45,7 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
-        ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro(this);
+        ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
 
         if (servicoLoginCadastro.cadastrar(this.criarPessoa())) {
             Toast.makeText(getApplicationContext(),"Conta Criada",Toast.LENGTH_SHORT).show();

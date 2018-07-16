@@ -1,7 +1,6 @@
 package com.apphamba.hamba.usuario.persistencia;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -32,11 +31,10 @@ public class PessoaDAO {
         String query = "SELECT * FROM pessoa " +
                 "WHERE id_usuario = ?";
         String[] args = {String.valueOf(id)};
-        Pessoa pessoa = this.load(query, args);
-        return pessoa;
+        return this.load(query, args);
     }
 
-    public Pessoa load(String query, String[] args) {
+    private Pessoa load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Pessoa pessoa = null;

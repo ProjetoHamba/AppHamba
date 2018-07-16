@@ -1,13 +1,10 @@
 package com.apphamba.hamba.usuario.persistencia;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.infra.DataBase;
-
 
 public class UsuarioDAO {
     private DataBase bancoDados;
@@ -35,7 +32,7 @@ public class UsuarioDAO {
 
     }
 
-    public Usuario load(String query, String[] args) {
+    private Usuario load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Usuario usuario = null;
@@ -53,24 +50,21 @@ public class UsuarioDAO {
         String query =  "SELECT * FROM usuario " +
                         "WHERE email = ?";
         String[] args = {email};
-        Usuario usuario = this.load(query, args);
-        return  usuario;
+        return this.load(query, args);
     }
 
     public Usuario getByID(String id) {
         String query =  "SELECT * FROM usuario " +
                 "WHERE id = ?";
         String[] args = {id};
-        Usuario usuario = this.load(query, args);
-        return  usuario;
+        return this.load(query, args);
     }
 
     public Usuario getByEmailSenha(String email, String senha) {
         String query =  "SELECT * FROM usuario " +
                 "WHERE email = ? AND senha = ?";
         String[] args = {email, senha};
-        Usuario usuario = this.load(query, args);
-        return  usuario;
+        return this.load(query, args);
     }
 
     public long inserir(Usuario usuario){

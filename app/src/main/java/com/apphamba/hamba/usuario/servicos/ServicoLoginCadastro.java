@@ -1,8 +1,5 @@
 package com.apphamba.hamba.usuario.servicos;
 
-import android.content.Context;
-
-
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
@@ -13,7 +10,7 @@ public class ServicoLoginCadastro {
     private PessoaDAO pessoaDAO;
     private UsuarioDAO usuarioDAO;
 
-    public ServicoLoginCadastro(Context context) {
+    public ServicoLoginCadastro() {
         pessoaDAO = new PessoaDAO();
         usuarioDAO = new UsuarioDAO();
     }
@@ -47,12 +44,8 @@ public class ServicoLoginCadastro {
 
     private boolean verificarEmailExistente(String email){
         Usuario usuario = this.usuarioDAO.getByEmail(email);
+        return usuario != null;
 
-        if (usuario != null) {
-            return true;
-        }
-
-        return  false;
     }
 
 }
