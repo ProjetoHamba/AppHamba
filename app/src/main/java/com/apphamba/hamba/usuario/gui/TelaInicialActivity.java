@@ -13,7 +13,7 @@ public class TelaInicialActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_mostrar_nome);
+        setContentView(R.layout.activity_tela_inicial);
 
         textoNome = findViewById(R.id.textViewNomeUser);
         textoSaudacao = findViewById(R.id.textView2);

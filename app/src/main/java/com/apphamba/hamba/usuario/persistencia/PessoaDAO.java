@@ -19,7 +19,6 @@ public class PessoaDAO {
 
     }
 
-
     public void inserirPessoa(Pessoa pessoa) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();

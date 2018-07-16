@@ -64,17 +64,18 @@ public class LoginActivity extends AppCompatActivity {
         return usuario;
     }
 
-    private boolean verificarCampos() {
+    private boolean verificarCampos(){
         String email = this.campoEmail.getText().toString().trim();
         String senha = this.campoSenha.getText().toString().trim();
         if (this.servicoValidacao.verificarCampoEmail(email)) {
             this.campoEmail.setError("Email Inválido");
-        } if (this.servicoValidacao.verificarCampoVazio(senha)) {
+            return false;
+        } else if (this.servicoValidacao.verificarCampoVazio(senha)) {
             this.campoSenha.setError("Senha Inválida");
+            return false;
         } else {
             return true;
         }
-        return false;
     }
 
     private void proximaTela() {
