@@ -7,8 +7,8 @@ public class Titulo {
     private String nome;
     private String sinopse;
     private int avaliacao;
-    private ArrayList<String> generos;
-    private ArrayList<String> criadores;
+    private String generos;
+    private String criadores;
 
     public String getNome() {
         return nome;
@@ -34,19 +34,19 @@ public class Titulo {
         this.avaliacao = avaliacao;
     }
 
-    public ArrayList<String> getGeneros() {
+    public String getGeneros() {
         return generos;
     }
 
-    public void setGeneros(ArrayList<String> generos) {
+    public void setGeneros(String generos) {
         this.generos = generos;
     }
 
-    public ArrayList<String> getCriadores() {
+    public String getCriadores() {
         return criadores;
     }
 
-    public void setCriadores(ArrayList<String> criadores) {
+    public void setCriadores(String criadores) {
         this.criadores = criadores;
     }
 
