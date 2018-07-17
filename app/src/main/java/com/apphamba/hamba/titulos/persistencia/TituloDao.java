@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class TituloDao {
     private DataBase bancoDados;
 
-    public TituloDao(Context context){bancoDados = new DataBase(context);}
+    public TituloDao(Context context){bancoDados = new DataBase();}
 
     private Titulo createTitulo(Cursor cursor){
         int indexId = cursor.getColumnIndex("id");//Enum
