@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ServicoValidacao;
+import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 
@@ -77,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void proximaTela() {
-        startActivity(new Intent(LoginActivity.this,EscolhaConfiguracaoActivity.class));
+        startActivity(new Intent(LoginActivity.this,TelaComMenuActivity.class));
     }
 
 }

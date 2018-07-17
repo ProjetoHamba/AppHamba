@@ -22,8 +22,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.apphamba.hamba.CalendarioActivity;
+import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.gui.ConfiguracaoActivity;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulos.servicos.ServiceTitulos;
@@ -48,6 +51,7 @@ public class TelaComMenuActivity extends AppCompatActivity
      */
     private ViewPager mViewPager;
     private ServiceTitulos serviceTitulos= new ServiceTitulos();
+    private TextView nomePessoa, emailUsuario;
     public static ArrayList<String> arrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,7 @@ public class TelaComMenuActivity extends AppCompatActivity
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
 
 
         //era fab
@@ -95,6 +100,12 @@ public class TelaComMenuActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        this.nomePessoa = findViewById(R.id.NomeMenu);
+        this.emailUsuario = findViewById(R.id.EmailMenu);
+        Pessoa pessoa = Sessao.instance.getPessoa();
+        nomePessoa.setText(pessoa.getNome());
+        emailUsuario.setText(pessoa.getUsuario().getEmail());
+
         getMenuInflater().inflate(R.menu.tela_com_menu, menu);
         return true;
     }

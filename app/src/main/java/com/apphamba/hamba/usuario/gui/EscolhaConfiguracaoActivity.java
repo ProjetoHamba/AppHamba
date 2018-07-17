@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toolbar;
 
 import com.apphamba.hamba.R;
 
@@ -13,7 +14,9 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escolha_configuracao);
+    }
 
+    private void setSupportActionBar(Toolbar toolbar) {
     }
 
     public void mudarTela(Class tela){
