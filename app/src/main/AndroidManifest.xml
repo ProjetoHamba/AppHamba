@@ -3,14 +3,14 @@
     package="com.apphamba.hamba">
 
     <application
+        android:name=".infra.HambaApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_logo_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".infra.HambaApp">
+        android:theme="@style/AppTheme">
         <activity android:name=".usuario.gui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,10 @@
         <activity
             android:name=".usuario.gui.EscolhaCadOuLoginActivity"
             android:label="@string/label_escolha" />
-        <activity android:name=".usuario.gui.TelaInicialActivity"></activity>
+        <activity android:name=".usuario.gui.TelaInicialActivity" />
+        <activity android:name=".usuario.gui.EscolhaConfiguracaoActivity" />
+        <activity android:name=".usuario.gui.AlterarEmailActivity" />
+        <activity android:name=".usuario.gui.AlterarSenhaActivity"></activity>
     </application>
 
 </manifest>

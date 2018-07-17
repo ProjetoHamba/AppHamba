@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".usuario.gui.EscolhaConfiguracaoActivity">
+
+    <Button
+        android:id="@+id/button_entrar4"
+        android:layout_width="336dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorButoes"
+        android:onClick="cliqueBotaoAlterarDados"
+        android:text="@string/button_apagar_contaA"
+        android:textColor="@color/colorTextoBut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_AlterarDados" />
+
+    <Button
+        android:id="@+id/button_AlterarDados"
+        android:layout_width="336dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorButoes"
+        android:onClick="cliqueBotaoAlterarDados"
+        android:text="@string/button_mudar_email"
+        android:textColor="@color/colorTextoBut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_entrar2" />
+
+    <Button
+        android:id="@+id/button_entrar2"
+        android:layout_width="336dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
+        android:background="@color/colorButoes"
+        android:onClick="cliqueBotaoAlterarSenha"
+        android:text="@string/button_mudar_senha"
+        android:textColor="@color/colorTextoBut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void proximaTela() {
-        startActivity(new Intent(LoginActivity.this,TelaInicialActivity.class));
+        startActivity(new Intent(LoginActivity.this,EscolhaConfiguracaoActivity.class));
     }
 
 }
