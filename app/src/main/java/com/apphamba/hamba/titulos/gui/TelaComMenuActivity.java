@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.apphamba.hamba.CalendarioActivity;
+import com.apphamba.hamba.infra.PopularBanco;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.gui.ConfiguracaoActivity;
@@ -59,6 +60,7 @@ public class TelaComMenuActivity extends AppCompatActivity
         setContentView(R.layout.activity_tela_com_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         arrayList = serviceTitulos.getAllTitulos(this);
 
         // Create the adapter that will return a fragment for each of the three
@@ -100,8 +102,7 @@ public class TelaComMenuActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        this.nomePessoa = findViewById(R.id.NomeMenu);
-        this.emailUsuario = findViewById(R.id.EmailMenu);
+
         Pessoa pessoa = Sessao.instance.getPessoa();
         nomePessoa.setText(pessoa.getNome());
         emailUsuario.setText(pessoa.getUsuario().getEmail());

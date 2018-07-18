@@ -1,12 +1,13 @@
 package com.apphamba.hamba.titulos.persistencia;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
 import com.apphamba.hamba.infra.DataBase;
 import com.apphamba.hamba.titulos.dominio.Titulo;
+import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,9 @@ public class TituloDao {
         int indexCriadores = cursor.getColumnIndex("criadores");
         String criadores = cursor.getString(indexCriadores);
 
+        int indexImagem = cursor.getColumnIndex("imagem");
+        byte[] imagem = cursor.getBlob(indexImagem);
+
         Titulo titulo = new Titulo();
         titulo.setId(id);
         titulo.setNome(nome);
@@ -45,6 +49,7 @@ public class TituloDao {
         titulo.setAvaliacao(avaliacao);
         titulo.setCriadores(criadores);
         titulo.setGeneros(generos);
+        titulo.setImagem(imagem);
 
         return titulo;
     }
@@ -59,13 +64,45 @@ public class TituloDao {
             cursor.moveToFirst();
             do {
                 //cursor.moveToNext();
-                titulos.add( this.createTitulo( cursor ) );
+                titulos.add(this.createTitulo( cursor ) );
             }while(cursor.moveToNext());
         }
         return titulos;
 
-
     }
 
+    public void inserir (Titulo titulo) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("nome", titulo.getNome());
+        valores.put("sinopse", titulo.getSinopse());
+        valores.put("avaliacao", titulo.getAvaliacao(55));
+        valores.put("generos", titulo.getGeneros());
+        valores.put("criadores", titulo.getCriadores());
+        valores.put("imagem", titulo.getImagem());
+        escritorBanco.insert("titulo", null, valores);
+        escritorBanco.close();
+    }
+
+    public Titulo getByNome(String nome){
+        String query =  "SELECT * FROM titulo " +
+                "WHERE nome = ?";
+        String[] args = {nome};
+        return this.load(query, args);
+    }
+
+    private Titulo load(String query, String[] args) {
+        SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Titulo titulo = null;
+
+        if (cursor.moveToNext()) {
+            titulo = createTitulo(cursor);
+        }
+
+        cursor.close();
+        leitorBanco.close();
+        return titulo;
+    }
 }
 

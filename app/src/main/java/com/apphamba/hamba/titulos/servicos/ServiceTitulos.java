@@ -1,10 +1,15 @@
 package com.apphamba.hamba.titulos.servicos;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 
 import com.apphamba.hamba.titulos.dominio.Titulo;
 import com.apphamba.hamba.titulos.persistencia.TituloDao;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
 /**
@@ -12,6 +17,7 @@ import java.util.ArrayList;
  */
 
 public class ServiceTitulos {
+
     public ArrayList<String> getAllTitulos(Context context){
         TituloDao tituloDao = new TituloDao(context);
         ArrayList<Titulo> titulos = tituloDao.loadTitulos();
@@ -22,5 +28,19 @@ public class ServiceTitulos {
         }
 
         return titulosNome;
+    }
+
+    public Titulo buscarTituloPorNome(String nome, Context context) {
+        TituloDao tituloDao = new TituloDao(context);
+        return tituloDao.getByNome(nome);
+
+
+    }
+
+    public Bitmap byteArrayToBitmap(Titulo titulo) {
+        byte[] byteArray =titulo.getImagem();
+        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArray);
+        Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
+        return bitmap;
     }
 }

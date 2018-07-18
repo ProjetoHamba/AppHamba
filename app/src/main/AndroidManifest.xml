@@ -30,7 +30,7 @@
         <activity android:name=".usuario.gui.TelaInicialActivity" />
         <activity android:name=".usuario.gui.EscolhaConfiguracaoActivity" />
         <activity android:name=".usuario.gui.AlterarEmailActivity" />
-        <activity android:name=".usuario.gui.AlterarSenhaActivity"></activity>
+        <activity android:name=".usuario.gui.AlterarSenhaActivity" />
         <activity
             android:name=".titulos.gui.TelaComMenuActivity"
             android:label=""
@@ -40,7 +40,8 @@
             android:label="@string/app_name" />
         <activity android:name=".usuario.gui.ConfiguracaoActivity" />
         <activity android:name=".titulos.gui.RecomendacoesActivity" />
-        <activity android:name=".CalendarioActivity"></activity>
+        <activity android:name=".CalendarioActivity" />
+        <activity android:name=".TesteImagem"></activity>
     </application>
 
 </manifest>
