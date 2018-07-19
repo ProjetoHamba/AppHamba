@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
+import com.apphamba.hamba.infra.EnumUsuarioPessoa;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 
 public class PessoaDAO {
@@ -21,9 +22,9 @@ public class PessoaDAO {
     public void inserirPessoa(Pessoa pessoa) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put("nome", pessoa.getNome());
-        valores.put("id_usuario", pessoa.getUsuario().getId());
-        escritorBanco.insert("pessoa", null, valores);
+        valores.put(String.valueOf(EnumUsuarioPessoa.NOME), pessoa.getNome());
+        valores.put(String.valueOf(EnumUsuarioPessoa.ID_USUARIO), pessoa.getUsuario().getId());
+        escritorBanco.insert(String.valueOf(EnumUsuarioPessoa.TABELA_PESSOA), null, valores);
         escritorBanco.close();
     }
 
@@ -49,13 +50,13 @@ public class PessoaDAO {
     }
 
     private Pessoa criarPessoa(Cursor cursor) {
-        int indexId = cursor.getColumnIndex("id");
+        int indexId = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.ID));
         long id = cursor.getInt(indexId);
 
-        int indexNome = cursor.getColumnIndex("nome");
+        int indexNome = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.NOME));
         String nome = cursor.getString(indexNome);
 
-        int indexUsuario = cursor.getColumnIndex("id_usuario");
+        int indexUsuario = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.ID_USUARIO));
         String idUsuario = cursor.getString(indexUsuario);
 
         Pessoa pessoa = new Pessoa();

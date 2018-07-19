@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
+import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.titulos.dominio.Titulo;
 
 import java.util.ArrayList;
@@ -16,25 +17,25 @@ public class TituloDao {
     public TituloDao(Context context){bancoDados = new DataBase();}
 
     private Titulo criarTitulo(Cursor cursor){
-        int indexId = cursor.getColumnIndex("id");//Enum
+        int indexId = cursor.getColumnIndex(String.valueOf(EnumTitulos.ID));//Enum
         int id = cursor.getInt(indexId);//0
 
-        int indexNome = cursor.getColumnIndex("nome");
+        int indexNome = cursor.getColumnIndex(String.valueOf(EnumTitulos.NOME));
         String nome = cursor.getString(indexNome);//1
 
-        int indexSinopse = cursor.getColumnIndex("sinopse");
+        int indexSinopse = cursor.getColumnIndex(String.valueOf(EnumTitulos.SINOPSE));
         String sinopse = cursor.getString(indexSinopse);
 
-        int indexAvaliacao = cursor.getColumnIndex("avaliacao");
+        int indexAvaliacao = cursor.getColumnIndex(String.valueOf(EnumTitulos.AVALIACAO));
         int avaliacao = cursor.getInt(indexAvaliacao);
 
-        int indexGeneros = cursor.getColumnIndex("generos");
+        int indexGeneros = cursor.getColumnIndex(String.valueOf(EnumTitulos.GENEROS));
         String generos = cursor.getString(indexGeneros);
 
-        int indexCriadores = cursor.getColumnIndex("criadores");
+        int indexCriadores = cursor.getColumnIndex(String.valueOf(EnumTitulos.CRIADORES));
         String criadores = cursor.getString(indexCriadores);
 
-        int indexImagem = cursor.getColumnIndex("imagem");
+        int indexImagem = cursor.getColumnIndex(String.valueOf(EnumTitulos.IMAGEM));
         byte[] imagem = cursor.getBlob(indexImagem);
 
         Titulo titulo = new Titulo();
@@ -68,13 +69,13 @@ public class TituloDao {
     public void inserir(Titulo titulo) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put("nome", titulo.getNome());
-        valores.put("sinopse", titulo.getSinopse());
-        valores.put("avaliacao", titulo.getAvaliacao());
-        valores.put("generos", titulo.getGeneros());
-        valores.put("criadores", titulo.getCriadores());
-        valores.put("imagem", titulo.getImagem());
-        escritorBanco.insert("titulo", null, valores);
+        valores.put(String.valueOf(EnumTitulos.NOME), titulo.getNome());
+        valores.put(String.valueOf(EnumTitulos.SINOPSE), titulo.getSinopse());
+        valores.put(String.valueOf(EnumTitulos.AVALIACAO), titulo.getAvaliacao());
+        valores.put(String.valueOf(EnumTitulos.GENEROS), titulo.getGeneros());
+        valores.put(String.valueOf(EnumTitulos.CRIADORES), titulo.getCriadores());
+        valores.put(String.valueOf(EnumTitulos.IMAGEM), titulo.getImagem());
+        escritorBanco.insert(String.valueOf(EnumTitulos.TABELA_TITULOS), null, valores);
         escritorBanco.close();
     }
 
