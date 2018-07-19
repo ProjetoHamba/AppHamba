@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.fragContainer,new TituloListFragment(),null).commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.fragContainer, new TituloListFragment(), null).commit();
         }
     }
 
@@ -110,8 +110,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_configuracoes) {
             //TODO para sexta cria tela
-            //startActivity(new Intent(this,EscolhaConfiguracaoActivity.class));
-            finish();
+            startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
 
         } else if (id == R.id.nav_noticias) {
 

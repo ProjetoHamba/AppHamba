@@ -14,6 +14,7 @@ import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.fragments.adapter.TituloAdapter;
 import com.apphamba.hamba.titulos.dominio.Titulo;
 import com.apphamba.hamba.titulos.gui.TituloActivity;
+import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class TituloListFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<Titulo> titulos;
+    private ServicoTitulo servicoTitulo = new ServicoTitulo();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class TituloListFragment extends Fragment {
 
         //Função abaixo pega os titulos pela função do dominio e get()
         //titulos = Titulo.getTitulos();
+        titulos = servicoTitulo.getTitulos();
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulos, onClickTitulo()));
 
         return view;
@@ -47,13 +50,13 @@ public class TituloListFragment extends Fragment {
             @Override
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int idx) {
 
-                Titulo p = titulos.get(idx);
+                //Titulo p = titulos.get(idx);
 
-                Intent intent = new Intent(getContext(), TituloActivity.class);
+                //Intent intent = new Intent(getContext(), TituloActivity.class);
                 //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
                 //intent.putExtra("imgTitulo", p.img);
 
-                startActivity(intent);
+                //startActivity(intent);
 
                 // (1) Start activity com animação
 //                String key = getString(R.string.transition_key);

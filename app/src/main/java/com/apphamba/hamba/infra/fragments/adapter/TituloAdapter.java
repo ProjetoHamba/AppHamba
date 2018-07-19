@@ -2,6 +2,7 @@ package com.apphamba.hamba.infra.fragments.adapter;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulos.dominio.Titulo;
+import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     private final List<Titulo> titulos;
     private final Context context;
     private final TituloOnClickListener onClickListener;
+    ServicoTitulo servicoTitulo = new ServicoTitulo();
 
     public interface TituloOnClickListener {
         void onClickTitulo(TitulosViewHolder holder, int idx);
@@ -44,11 +47,12 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     @Override
     public void onBindViewHolder(final TitulosViewHolder holder, final int position) {
         // Atualizada a view
-        Titulo c = titulos.get(position);
+        Titulo titulo = titulos.get(position);
         //setando as infos do dom
-        holder.tNome.setText(c.getNome());
+        holder.tNome.setText(titulo.getNome());
         //rECLAMANDO DO BYTE -- KKKK, TOU AJEITANDO A FUNÇÃO AINDA MAS.. ABAIXOOOOOOOO
-        //holder.img.setImageResource(c.getImagem());
+        Bitmap imagemTitilo = servicoTitulo.byteArrayToBitmap(titulo);
+        holder.img.setImageBitmap(imagemTitilo);
 
 
         if (onClickListener != null) {
