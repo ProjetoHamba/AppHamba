@@ -10,10 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.TesteImagem;
-import com.apphamba.hamba.infra.PopularBanco;
+import com.apphamba.hamba.titulos.gui.TesteImagem;
 import com.apphamba.hamba.infra.ServicoValidacao;
-import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 

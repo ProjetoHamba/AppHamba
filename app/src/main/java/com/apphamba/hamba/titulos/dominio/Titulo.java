@@ -28,7 +28,7 @@ public class Titulo {
         this.sinopse = sinopse;
     }
 
-    public int getAvaliacao(int i) {
+    public int getAvaliacao() {
         return avaliacao;
     }
 
