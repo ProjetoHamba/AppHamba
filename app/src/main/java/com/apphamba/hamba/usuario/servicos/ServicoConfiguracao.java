@@ -40,6 +40,7 @@ public class ServicoConfiguracao {
         if (usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())) {
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
             usuarioDAO.desativarUsuario(usuario);
+            Sessao.instance.reset();
             return true;
         }
         return false;
