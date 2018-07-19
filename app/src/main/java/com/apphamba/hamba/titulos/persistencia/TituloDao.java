@@ -90,7 +90,6 @@ public class TituloDao {
         return this.load(query, args);
     }
 
-
     private Titulo load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
