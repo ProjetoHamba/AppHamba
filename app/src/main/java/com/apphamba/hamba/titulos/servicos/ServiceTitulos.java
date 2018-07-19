@@ -12,10 +12,6 @@ import com.apphamba.hamba.titulos.persistencia.TituloDao;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
-/**
- * Created by Aluno on 10/07/2018.
- */
-
 public class ServiceTitulos {
 
     public ArrayList<String> getAllTitulos(Context context){

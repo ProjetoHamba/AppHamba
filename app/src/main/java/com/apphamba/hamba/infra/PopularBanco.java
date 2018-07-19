@@ -2,6 +2,9 @@ package com.apphamba.hamba.infra;
 
 
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulos.dominio.Titulo;
 import com.apphamba.hamba.titulos.persistencia.TituloDao;
@@ -12,7 +15,31 @@ public class PopularBanco {
     private FormatadorImagem formatadorImagem = new FormatadorImagem();
     private TituloDao tituloDao = new TituloDao(HambaApp.getContext());
 
-    public void popularBanco(){
+    public void popularBanco() {
+        if (!this.bancoIsPopulado()) {
+            this.inserirTitulos();
+        }
+    }
+
+    private boolean bancoIsPopulado() {
+        String query = "SELECT * FROM titulo";
+        Cursor cursor = this.execQuery(query);
+        boolean populado = false;
+        if (cursor.moveToFirst()) {
+            populado = true;
+        }
+        return populado;
+    }
+
+    private Cursor execQuery(String query) {
+        DataBase bancoDados;
+        bancoDados = new DataBase();
+        SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, null);
+        return cursor;
+    }
+
+    private void inserirTitulos() {
         Titulo Vikings = new Titulo();
         Vikings.setNome("Vikings");
         Vikings.setSinopse("O mundo dos Vikings é trazido à vida através da jornada de Ragnar Lothbrok, o primeiro Viking a emergir da lenda nórdica e nas páginas da história - um homem à beira do do mito");
@@ -84,9 +111,6 @@ public class PopularBanco {
         PrisonBreak.setCriadores("Paul Scheuring");
         PrisonBreak.setImagem(formatadorImagem.gerarFoto(R.drawable.prisonbreak));
         tituloDao.inserir(PrisonBreak);
-
-
-
-
     }
+
 }

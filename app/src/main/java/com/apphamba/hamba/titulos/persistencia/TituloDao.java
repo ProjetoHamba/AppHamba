@@ -7,20 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
 import com.apphamba.hamba.titulos.dominio.Titulo;
-import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
-
-/**
- * Created by Bruno on 10/07/2018.
- */
 
 public class TituloDao {
     private DataBase bancoDados;
 
     public TituloDao(Context context){bancoDados = new DataBase();}
 
-    private Titulo createTitulo(Cursor cursor){
+    private Titulo criarTitulo(Cursor cursor){
         int indexId = cursor.getColumnIndex("id");//Enum
         int id = cursor.getInt(indexId);//0
 
@@ -55,7 +50,7 @@ public class TituloDao {
     }
     //TODO loadtitulos falta verificar se esta null da responda.
 
-    public ArrayList<Titulo> loadTitulos(){
+    public ArrayList<Titulo> loadTitulos() {
         ArrayList<Titulo> titulos = new ArrayList<Titulo>();
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
         String query = "SELECT * FROM titulo";
@@ -63,14 +58,14 @@ public class TituloDao {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                titulos.add(this.createTitulo( cursor ) );
-            }while(cursor.moveToNext());
+                titulos.add(this.criarTitulo( cursor ));
+            } while(cursor.moveToNext());
         }
         return titulos;
 
     }
 
-    public void inserir (Titulo titulo) {
+    public void inserir(Titulo titulo) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("nome", titulo.getNome());
@@ -85,11 +80,10 @@ public class TituloDao {
 
     public Titulo getByNome(String nome){
         String query =  "SELECT * FROM titulo " +
-                "WHERE nome = ?";
+                        "WHERE nome = ?";
         String[] args = {nome};
         return this.load(query, args);
     }
-
 
     private Titulo load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
@@ -97,7 +91,7 @@ public class TituloDao {
         Titulo titulo = null;
 
         if (cursor.moveToNext()) {
-            titulo = createTitulo(cursor);
+            titulo = criarTitulo(cursor);
         }
 
         cursor.close();
