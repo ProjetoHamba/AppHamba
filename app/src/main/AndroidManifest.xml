@@ -36,13 +36,12 @@
             android:name=".titulos.gui.TelaComMenuActivity"
             android:label=""
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".titulos.gui.MainScreenActivity"
-            android:label="@string/app_name" />
         <activity android:name=".titulos.gui.RecomendacoesActivity" />
         <activity android:name=".titulos.gui.CalendarioActivity" />
         <activity android:name=".titulos.gui.TesteImagem" />
         <activity android:name=".usuario.gui.DesativarContaActivity"></activity>
+        <activity android:name=".titulos.gui.TituloActivity"/>
+        <activity android:name=".titulos.gui.MainActivity"/>
     </application>
 
 </manifest>
