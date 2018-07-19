@@ -13,7 +13,7 @@ public class PopularBanco {
     public static final PopularBanco criador = new PopularBanco();
 
     private FormatadorImagem formatadorImagem = new FormatadorImagem();
-    private TituloDao tituloDao = new TituloDao(HambaApp.getContext());
+    private TituloDao tituloDao = new TituloDao();
 
     public void popularBanco() {
         if (!this.bancoIsPopulado()) {

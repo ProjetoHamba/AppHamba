@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.titulos.servicos.ServiceTitulos;
+import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class TelaComMenuActivity extends AppCompatActivity
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private ServiceTitulos serviceTitulos= new ServiceTitulos();
+    private ServicoTitulo servicoTitulo = new ServicoTitulo();
     private TextView nomePessoa, emailUsuario;
     public static ArrayList<String> arrayList;
     @Override
@@ -58,7 +58,7 @@ public class TelaComMenuActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        arrayList = serviceTitulos.getAllTitulos(this);
+        arrayList = servicoTitulo.getTitulos();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.

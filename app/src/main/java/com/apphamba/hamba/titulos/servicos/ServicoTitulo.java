@@ -11,21 +11,26 @@ import com.apphamba.hamba.titulos.persistencia.TituloDao;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
-public class ServiceTitulos {
+public class ServicoTitulo {
+    private TituloDao tituloDao;
 
-    public ArrayList<String> getAllTitulos(){
-        TituloDao tituloDao = new TituloDao(HambaApp.getContext());
+    public ServicoTitulo() {
+        tituloDao = new TituloDao();
+    }
+
+    public ArrayList<String> getTitulos(){
+        TituloDao tituloDao = new TituloDao();
         ArrayList<Titulo> titulos = tituloDao.loadTitulos();
         ArrayList<String> titulosNome = new ArrayList();
         for (Titulo titulo: titulos) {
-           String s =  titulo.getNome();
-            titulosNome.add(s);
+            String nomeTitulo =  titulo.getNome();
+            titulosNome.add(nomeTitulo);
         }
         return titulosNome;
     }
 
-    public Titulo buscarTituloPorNome(String nome, Context context) {
-        TituloDao tituloDao = new TituloDao(context);
+    public Titulo buscarTituloPorNome(String nome) {
+        TituloDao tituloDao = new TituloDao();
         return tituloDao.getByNome(nome);
 
     }
@@ -36,4 +41,5 @@ public class ServiceTitulos {
         Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
         return bitmap;
     }
+
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class TituloDao {
     private DataBase bancoDados;
 
-    public TituloDao(Context context){bancoDados = new DataBase();}
+    public TituloDao(){bancoDados = new DataBase();}
 
     private Titulo criarTitulo(Cursor cursor){
         int indexId = cursor.getColumnIndex("id");//Enum
@@ -98,5 +98,6 @@ public class TituloDao {
         leitorBanco.close();
         return titulo;
     }
+
 }
 
