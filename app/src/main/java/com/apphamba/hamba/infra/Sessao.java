@@ -10,16 +10,8 @@ public class Sessao {
     public static final Sessao instance = new Sessao();
     private final Map<String,Object> values = new HashMap<>();
 
-    public void setUsuario(Usuario usuario) {
-        setValor("sessao.Usuario", usuario);
-    }
-
     public void setPessoa(Pessoa pessoa) {
         setValor("sessao.Pessoa", pessoa);
-    }
-
-    public Usuario getUsuario() {
-        return (Usuario)values.get("sessao.Usuario");
     }
 
     public Pessoa getPessoa() {

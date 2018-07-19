@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
         ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
         boolean isLogado = servicoLoginCadastro.logar(this.criarUsuario());
-
         if (isLogado) {
             Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             proximaTela();
