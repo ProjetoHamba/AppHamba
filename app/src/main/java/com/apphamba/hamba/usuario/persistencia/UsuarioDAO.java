@@ -89,4 +89,13 @@ public class UsuarioDAO {
         escritorBanco.close();
     }
 
+    public void delete(Usuario usuario){
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        String query = "id =  '" + usuario.getId() + "'";
+        ContentValues values = new ContentValues();
+        values.put(String.valueOf(EnumUsuarioPessoa.INATIVO), usuario.getAtivo());
+        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query,null);
+        escritorBanco.close();
+    }
+
 }

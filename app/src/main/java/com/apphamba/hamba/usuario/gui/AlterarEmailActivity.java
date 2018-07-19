@@ -48,7 +48,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
             this.campoSenha.requestFocus();
             this.campoSenha.setError("Senha inválida");
         }
-        }
+    }
 
 
     private boolean verificarCampos() {

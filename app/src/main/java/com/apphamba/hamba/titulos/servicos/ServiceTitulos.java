@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 
 import com.apphamba.hamba.infra.HambaApp;
 import com.apphamba.hamba.titulos.dominio.Titulo;
+import com.apphamba.hamba.titulos.gui.TelaComMenuActivity;
 import com.apphamba.hamba.titulos.persistencia.TituloDao;
 
 import java.io.ByteArrayInputStream;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 public class ServiceTitulos {
 
-    public ArrayList<String> getAllTitulos(){
+    public ArrayList<String> getAllTitulos(TelaComMenuActivity telaComMenuActivity){
         TituloDao tituloDao = new TituloDao(HambaApp.getContext());
         ArrayList<Titulo> titulos = tituloDao.loadTitulos();
         ArrayList<String> titulosNome = new ArrayList();

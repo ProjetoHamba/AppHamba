@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.EnumUsuarioPessoa;
 import com.apphamba.hamba.infra.ServicoValidacao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
+import com.apphamba.hamba.usuario.servicos.ServicoConfiguracao;
 
 public class DesativarContaActivity extends AppCompatActivity {
     private Button botaoDesativar;
@@ -36,7 +39,14 @@ public class DesativarContaActivity extends AppCompatActivity {
         if (!this.verificarCampos()) {
             return;
         }
+        Usuario usuario = this.criarUsuario();
+        ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
+        if (servicoConfiguracao.desativarConta(usuario)){
+            Toast.makeText(getApplicationContext(),"Conta desativada com sucesso", Toast.LENGTH_SHORT).show();
+            //Logout e ir para alguma tela
+        }
     }
+
     private boolean verificarCampos () {
         String senha = campoSenha.getText().toString().trim();
         String confirmarSenha = campoConfirmarSenha.getText().toString().trim();
@@ -58,9 +68,10 @@ public class DesativarContaActivity extends AppCompatActivity {
     }
 
     private Usuario criarUsuario() {
-        String status = "inativo";
+        String senha = campoSenha.getText().toString().trim();
         Usuario usuario = new Usuario();
-        usuario.setEmail(status);
+        usuario.setSenha(senha);
+        usuario.setAtivo(String.valueOf(EnumUsuarioPessoa.INATIVO));
         return usuario;
     }
 }

@@ -3,6 +3,7 @@
     package="com.apphamba.hamba">
 
     <application
+        android:debuggable="true"
         android:name=".infra.HambaApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo_launcher"

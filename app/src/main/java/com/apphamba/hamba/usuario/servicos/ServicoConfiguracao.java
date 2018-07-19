@@ -36,12 +36,10 @@ public class ServicoConfiguracao {
         return false;
     }
 
-    public boolean desativarConta(Usuario usuario, String novaSenha){
+    public boolean desativarConta(Usuario usuario) {
         if(usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())){
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
-            usuario.setSenha(novaSenha);
-            usuario.setEmail(Sessao.instance.getPessoa().getUsuario().getEmail());
-            usuarioDAO.update(usuario);
+            usuarioDAO.delete(usuario);
             Sessao.instance.getPessoa().setUsuario(usuario);
             return true;
         }
