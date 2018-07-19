@@ -1,5 +1,6 @@
 package com.apphamba.hamba.titulos.gui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -15,7 +16,7 @@ import android.view.View;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
-
+import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 
 public class MainActivity extends AppCompatActivity
@@ -86,34 +87,35 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        switch (menuItem.getItemId()) {
-            case (R.id.nav_inicio):
-                // Nada aqui pois somente a MainActivity possui menu lateral
-                break;
-            case R.id.nav_meu_hamba:
-                //Intent intent = new Intent(getContext(), MeuHambaActivity.class);
-                //intent.putExtra("tipo", R.string.nav_meu_hamba_text);
-                //startActivity(intent);
-                break;
-            case R.id.nav_calendario:
-                //intent = new Intent(getContext(), CalendarioActivity.class);
-                //intent.putExtra("tipo", R.string.nav_calendario_text);
-                //startActivity(intent);
-                break;
-            case R.id.nav_favoritos:
-                //intent = new Intent(getContext(), FavoritosActivity.class);
-                //intent.putExtra("tipo", R.string.nav_favoritos_text);
-                //startActivity(intent);
-                break;
-            case R.id.nav_recomendacoes:
-                //startActivity(new Intent(getContext(), RecomendacoesActivity.class));
-                break;
-            case(R.id.nav_configuracoes):
-                //startActivity(new Intent(this, ConfiguracoesActivity.class));
-                break;
-            case(R.id.nav_noticias):
-                //startActivity(new Intent(this, NoticiasActivity.class));
-                break;
+        int id = item.getItemId();
+
+        if (id == R.id.nav_inicio) {
+            // Handle inicio action
+
+
+        } else if (id == R.id.nav_meu_hamba) {
+            //colocar aq a ação do clique
+
+        } else if (id == R.id.nav_calendario) {
+            //TODO PROXIMA SPRINT
+            //startActivity(new Intent(this,CalendarioActivity.class));
+
+
+        } else if (id == R.id.nav_favoritos) {
+
+        } else if (id == R.id.nav_recomendacoes) {
+            //TODO RECOMENDAÇÕES
+            //startActivity(new Intent(this,RecomendacoesActivity.class));
+            finish();
+
+        } else if (id == R.id.nav_configuracoes) {
+            //TODO para sexta cria tela
+            //startActivity(new Intent(this,EscolhaConfiguracaoActivity.class));
+            finish();
+
+        } else if (id == R.id.nav_noticias) {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
