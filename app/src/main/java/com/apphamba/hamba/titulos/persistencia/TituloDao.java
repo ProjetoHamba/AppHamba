@@ -63,7 +63,6 @@ public class TituloDao {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                //cursor.moveToNext();
                 titulos.add(this.createTitulo( cursor ) );
             }while(cursor.moveToNext());
         }
@@ -90,6 +89,7 @@ public class TituloDao {
         String[] args = {nome};
         return this.load(query, args);
     }
+
 
     private Titulo load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
