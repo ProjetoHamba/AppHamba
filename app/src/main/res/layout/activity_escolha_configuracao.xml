@@ -16,7 +16,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:background="@color/colorButoes"
-        android:onClick="cliqueBotaoAlterarDados"
+        android:onClick="cliqueBotaoDestivarConta"
         android:text="@string/button_apagar_contaA"
         android:textColor="@color/colorTextoBut"
         app:layout_constraintEnd_toEndOf="parent"

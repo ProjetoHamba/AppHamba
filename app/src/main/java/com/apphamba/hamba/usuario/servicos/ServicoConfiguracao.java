@@ -39,7 +39,7 @@ public class ServicoConfiguracao {
     public boolean desativarConta(Usuario usuario) {
         if(usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())){
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
-            usuarioDAO.delete(usuario);
+            usuarioDAO.desativarUsuario(usuario);
             Sessao.instance.getPessoa().setUsuario(usuario);
             return true;
         }

@@ -61,7 +61,7 @@
     <string name="apresentacao">Bem Vindo</string>
     <string name="button_mudar_email">ALTERAR DADOS PESSOAIS</string>
     <string name="button_mudar_senha">ALTERAR SENHA</string>
-    <string name="button_apagar_contaA">APAGAR CONTA</string>
+    <string name="button_apagar_contaA">DESATIVAR CONTA</string>
     <string name="text_view_novo_nome">Novo nome</string>
     <string name="text_view_novo_email">Novo Email</string>
     <string name="text_view_senha_atual">Senha Atual</string>
@@ -69,6 +69,7 @@
     <string name="text_view_confirmar_nova_senha">Confirmar Nova Senha</string>
     <string name="button_desativar_conta">Desativar Conta</string>
     <string name="text_view_confirmar_senha">Confirmar senha</string>
+    <string name="desativar_conta">DESATIVAR CONTA</string>
 
 
 </resources>

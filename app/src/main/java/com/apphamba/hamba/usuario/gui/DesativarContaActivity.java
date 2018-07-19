@@ -15,7 +15,7 @@ import com.apphamba.hamba.usuario.servicos.ServicoConfiguracao;
 
 public class DesativarContaActivity extends AppCompatActivity {
     private Button botaoDesativar;
-    private EditText campoSenha, campoConfirmarSenha;
+    private EditText campoSenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
 
 
@@ -25,7 +25,6 @@ public class DesativarContaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_desativar_conta);
 
         this.campoSenha = findViewById(R.id.editTextSenhaAtual);
-        this.campoConfirmarSenha = findViewById(R.id.editTextConfirmarSenha);
         this.botaoDesativar = findViewById(R.id.button_desativar_conta);
         this.botaoDesativar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,23 +42,15 @@ public class DesativarContaActivity extends AppCompatActivity {
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
         if (servicoConfiguracao.desativarConta(usuario)){
             Toast.makeText(getApplicationContext(),"Conta desativada com sucesso", Toast.LENGTH_SHORT).show();
-            //Logout e ir para alguma tela
+            finish();
+
         }
     }
 
     private boolean verificarCampos () {
         String senha = campoSenha.getText().toString().trim();
-        String confirmarSenha = campoConfirmarSenha.getText().toString().trim();
         if (servicoValidacao.verificarCampoVazio(senha)) {
             this.campoSenha.setError("Campo Vazio");
-            campoSenha.requestFocus();
-            return false;
-        } else if (servicoValidacao.verificarCampoVazio(confirmarSenha)) {
-            this.campoConfirmarSenha.setError("Campo Vazio");
-            campoConfirmarSenha.requestFocus();
-            return false;
-        } else if (!confirmarSenha.equals(senha)) {
-            campoSenha.setError("Senhas diferentes");
             campoSenha.requestFocus();
             return false;
         } else {

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toolbar;
+
 
 import com.apphamba.hamba.R;
 
@@ -16,8 +16,6 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_escolha_configuracao);
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
 
     public void mudarTela(Class tela){
         Intent intent = new Intent(this, tela);
@@ -25,9 +23,20 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
     }
     public void cliqueBotaoAlterarDados(View view){
         this.mudarTela(AlterarEmailActivity.class);
+        finish();
     }
 
-    public void cliqueBotaoAlterarSenha(View view) {this.mudarTela(AlterarSenhaActivity.class);}
+    public void cliqueBotaoAlterarSenha(View view) {
+        this.mudarTela(AlterarSenhaActivity.class);
+        finish();
+    }
+
+    public void cliqueBotaoDestivarConta(View view) {
+        this.mudarTela(DesativarContaActivity.class);
+        finish();
+    }
+
+
 
 
 }

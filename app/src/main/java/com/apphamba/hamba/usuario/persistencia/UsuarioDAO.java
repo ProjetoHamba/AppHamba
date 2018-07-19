@@ -25,10 +25,14 @@ public class UsuarioDAO {
         int indexSenha = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.SENHA));
         String senha = cursor.getString(indexSenha);
 
+        int indexAtivo = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.ATIVO));
+        String ativo = cursor.getString(indexAtivo);
+
         Usuario usuario = new Usuario();
         usuario.setId(id);
         usuario.setEmail(email);
         usuario.setSenha(senha);
+        usuario.setAtivo(ativo);
 
         return usuario;
 
@@ -74,6 +78,7 @@ public class UsuarioDAO {
         ContentValues valores = new ContentValues();
         valores.put(String.valueOf(EnumUsuarioPessoa.EMAIL), usuario.getEmail());
         valores.put(String.valueOf(EnumUsuarioPessoa.SENHA), usuario.getSenha());
+        valores.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.ATIVO));
         long id = escritorBanco.insert(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO),null,valores);
         escritorBanco.close();
         return id;
@@ -89,13 +94,21 @@ public class UsuarioDAO {
         escritorBanco.close();
     }
 
-    public void delete(Usuario usuario){
+    public void desativarUsuario(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         String query = "id =  '" + usuario.getId() + "'";
         ContentValues values = new ContentValues();
-        values.put(String.valueOf(EnumUsuarioPessoa.INATIVO), usuario.getAtivo());
+        values.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.INATIVO));
         escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query,null);
         escritorBanco.close();
     }
 
+    public void ativarUsuario(Usuario usuario) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        String query = "id =  '" + usuario.getId() + "'";
+        ContentValues values = new ContentValues();
+        values.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.ATIVO));
+        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query,null);
+        escritorBanco.close();
+    }
 }

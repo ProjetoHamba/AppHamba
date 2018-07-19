@@ -30,4 +30,8 @@ public class Sessao {
         values.put(chave, valor);
     }
 
+    public void reset() {
+        this.values.clear();
+    }
+
 }

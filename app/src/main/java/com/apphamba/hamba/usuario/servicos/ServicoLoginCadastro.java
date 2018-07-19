@@ -1,5 +1,6 @@
 package com.apphamba.hamba.usuario.servicos;
 
+import com.apphamba.hamba.infra.EnumUsuarioPessoa;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
@@ -18,8 +19,10 @@ public class ServicoLoginCadastro {
     public boolean logar(Usuario usuario){
         Usuario usuarioLogado = this.usuarioDAO.getByEmailSenha(usuario.getEmail(), usuario.getSenha());
         boolean isLogado = false;
-
         if (usuarioLogado != null) {
+            if (usuarioLogado.getAtivo().equals(String.valueOf(EnumUsuarioPessoa.INATIVO))){
+                this.usuarioDAO.ativarUsuario(usuarioLogado);
+        }
             Pessoa pessoa = this.pessoaDAO.getByIdUsuario(usuarioLogado.getId());
             this.iniciarSessao(pessoa);
             isLogado = true;

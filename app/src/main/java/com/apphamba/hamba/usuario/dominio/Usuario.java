@@ -4,7 +4,6 @@ public class Usuario {
     private long id;
     private String email;
     private String senha;
-
     private String ativo;
 
     public long getId() {

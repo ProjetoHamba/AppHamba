@@ -58,7 +58,6 @@ public class TelaComMenuActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        arrayList = serviceTitulos.getAllTitulos(this);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.

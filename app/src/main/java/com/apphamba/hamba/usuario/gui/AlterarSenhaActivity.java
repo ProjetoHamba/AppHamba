@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ServicoValidacao;
+import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoConfiguracao;
 

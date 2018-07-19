@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         if (isLogado) {
             Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             proximaTela();
+            finish();
         } else {
             Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         }
@@ -78,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void proximaTela() {
-        startActivity(new Intent(LoginActivity.this,TesteImagem.class));
+        startActivity(new Intent(LoginActivity.this,EscolhaConfiguracaoActivity.class));
     }
 
 }
