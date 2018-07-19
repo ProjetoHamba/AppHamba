@@ -1,7 +1,7 @@
 package com.apphamba.hamba.infra;
 
 public enum EnumTitulos {
-    ID("id"), ID_USUARIO("id_usuario"), NOME("nome"),SINOPSE("sinopse"), AVALIACAO("avaliacao"),
+    ID("id"), ID_USUARIO("id_usuario"), NOME("nome"), SINOPSE("sinopse"), AVALIACAO("avaliacao"),
     GENEROS("generos"), CRIADORES("criadores"), IMAGEM("imagem"), TABELA_TITULOS("titulo"), DISTRIBUIDOR("distribuidor");
 
     private final String descricao;

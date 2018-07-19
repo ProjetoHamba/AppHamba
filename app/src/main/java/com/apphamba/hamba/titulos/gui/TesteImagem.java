@@ -10,7 +10,7 @@ import com.apphamba.hamba.titulos.dominio.Titulo;
 import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
 
 public class TesteImagem extends AppCompatActivity {
-    private ImageView imageView,imageView2,imageView3,imageView4;
+    private ImageView imageView, imageView2, imageView3, imageView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

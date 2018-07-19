@@ -14,14 +14,16 @@ import java.util.ArrayList;
 public class TituloDao {
     private DataBase bancoDados;
 
-    public TituloDao(){bancoDados = new DataBase();}
+    public TituloDao(){
+        bancoDados = new DataBase();
+    }
 
     private Titulo criarTitulo(Cursor cursor){
-        int indexId = cursor.getColumnIndex(String.valueOf(EnumTitulos.ID));//Enum
-        int id = cursor.getInt(indexId);//0
+        int indexId = cursor.getColumnIndex(String.valueOf(EnumTitulos.ID));
+        int id = cursor.getInt(indexId);
 
         int indexNome = cursor.getColumnIndex(String.valueOf(EnumTitulos.NOME));
-        String nome = cursor.getString(indexNome);//1
+        String nome = cursor.getString(indexNome);
 
         int indexSinopse = cursor.getColumnIndex(String.valueOf(EnumTitulos.SINOPSE));
         String sinopse = cursor.getString(indexSinopse);
@@ -49,18 +51,17 @@ public class TituloDao {
 
         return titulo;
     }
-    //TODO loadtitulos falta verificar se esta null da responda.
 
     public ArrayList<Titulo> loadTitulos() {
         ArrayList<Titulo> titulos = new ArrayList<Titulo>();
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
         String query = "SELECT * FROM titulo";
-        Cursor cursor = leitorBanco.rawQuery(query,null);
+        Cursor cursor = leitorBanco.rawQuery(query, null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                titulos.add(this.criarTitulo( cursor ));
-            } while(cursor.moveToNext());
+                titulos.add(this.criarTitulo(cursor));
+            } while (cursor.moveToNext());
         }
         return titulos;
 

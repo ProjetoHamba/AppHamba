@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ServicoValidacao;
-import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoConfiguracao;
 
@@ -36,13 +35,13 @@ public class AlterarEmailActivity extends AppCompatActivity {
     }
 
     private void alterarEmail() {
-        if (!this.verificarCampos()){
+        if (!this.verificarCampos()) {
             return;
         }
         Usuario usuario = this.criarUsuario();
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
-        if (servicoConfiguracao.atualizarEmail(usuario)){
-            Toast.makeText(getApplicationContext(),"Email atualizado com sucesso", Toast.LENGTH_SHORT).show();
+        if (servicoConfiguracao.atualizarEmail(usuario)) {
+            Toast.makeText(getApplicationContext(), "Email atualizado com sucesso", Toast.LENGTH_SHORT).show();
             finish();
         } else {
             this.campoSenha.requestFocus();
@@ -54,15 +53,15 @@ public class AlterarEmailActivity extends AppCompatActivity {
     private boolean verificarCampos() {
         String email = campoAlterarEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
-        if (servicoValidacao.verificarCampoEmail(email)){
+        if (servicoValidacao.verificarCampoEmail(email)) {
             this.campoAlterarEmail.setError("Formato de email inválido");
             campoAlterarEmail.requestFocus();
             return false;
-        } else if(servicoValidacao.verificarCampoVazio(senha)){
+        } else if (servicoValidacao.verificarCampoVazio(senha)){
             this.campoSenha.requestFocus();
             this.campoSenha.setError("Campo Vazio");
             return false;
-        } else{
+        } else {
             return true;
         }
     }

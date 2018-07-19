@@ -1,8 +1,5 @@
 package com.apphamba.hamba.titulos.dominio;
 
-
-import android.graphics.Bitmap;
-
 public class Titulo {
     private int id;
     private String nome;

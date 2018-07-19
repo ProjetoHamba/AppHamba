@@ -3,7 +3,7 @@ package com.apphamba.hamba.titulos.servicos;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.apphamba.hamba.infra.HambaApp;
+
 import com.apphamba.hamba.titulos.dominio.Titulo;
 import com.apphamba.hamba.titulos.persistencia.TituloDao;
 

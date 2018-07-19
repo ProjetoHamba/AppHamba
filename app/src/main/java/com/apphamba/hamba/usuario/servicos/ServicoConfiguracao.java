@@ -9,13 +9,13 @@ public class ServicoConfiguracao {
     private PessoaDAO pessoaDAO;
     private UsuarioDAO usuarioDAO;
 
-    public ServicoConfiguracao(){
+    public ServicoConfiguracao() {
         pessoaDAO = new PessoaDAO();
         usuarioDAO = new UsuarioDAO();
     }
 
     public boolean atualizarEmail(Usuario usuario) {
-        if(usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())){
+        if (usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())) {
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
             usuarioDAO.update(usuario);
             Sessao.instance.getPessoa().setUsuario(usuario);
@@ -24,8 +24,8 @@ public class ServicoConfiguracao {
         return false;
     }
 
-    public boolean atualizarSenha(Usuario usuario, String novaSenha){
-        if(usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())){
+    public boolean atualizarSenha(Usuario usuario, String novaSenha) {
+        if (usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())) {
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
             usuario.setSenha(novaSenha);
             usuario.setEmail(Sessao.instance.getPessoa().getUsuario().getEmail());
@@ -37,10 +37,9 @@ public class ServicoConfiguracao {
     }
 
     public boolean desativarConta(Usuario usuario) {
-        if(usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())){
+        if (usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())) {
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
             usuarioDAO.desativarUsuario(usuario);
-            Sessao.instance.getPessoa().setUsuario(usuario);
             return true;
         }
         return false;

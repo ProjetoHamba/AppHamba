@@ -8,7 +8,7 @@ import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.Sessao;
 
 public class TelaInicialActivity extends AppCompatActivity {
-    private TextView textoNome,textoSaudacao;
+    private TextView textoNome, textoSaudacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

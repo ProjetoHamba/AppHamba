@@ -10,13 +10,13 @@ import java.io.ByteArrayOutputStream;
 public class FormatadorImagem {
 
     private Bitmap gerarBitmMap(int id){
-        Bitmap bitmap = BitmapFactory.decodeResource(HambaApp.getContext().getResources(), id ,new BitmapFactory.Options());
+        Bitmap bitmap = BitmapFactory.decodeResource(HambaApp.getContext().getResources(), id , new BitmapFactory.Options());
         return  bitmap;
     }
 
     private byte[] bitMapParaByte(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte imagemBytes[] = stream.toByteArray();
         return imagemBytes;
     }

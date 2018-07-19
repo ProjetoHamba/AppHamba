@@ -38,14 +38,14 @@ public class AlterarSenhaActivity extends AppCompatActivity {
     }
 
     private void alterarSenha() {
-        if (!this.verificarCampos()){
+        if (!this.verificarCampos()) {
             return;
         }
         Usuario usuario = this.criarUsuario();
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
         String novaSenha = campoNovaSenha.getText().toString().trim();
-        if (servicoConfiguracao.atualizarSenha(usuario,novaSenha)){
-            Toast.makeText(getApplicationContext(),"Senha atualizada com sucesso", Toast.LENGTH_SHORT).show();
+        if (servicoConfiguracao.atualizarSenha(usuario, novaSenha)) {
+            Toast.makeText(getApplicationContext(), "Senha atualizada com sucesso", Toast.LENGTH_SHORT).show();
             finish();
         } else {
             this.campoSenhaAtual.requestFocus();
@@ -57,23 +57,23 @@ public class AlterarSenhaActivity extends AppCompatActivity {
         String senhaAtual = campoSenhaAtual.getText().toString().trim();
         String novaSenha = campoNovaSenha.getText().toString().trim();
         String confirmarNovaSenha = campoConfirmNovaSenha.getText().toString().trim();
-        if(servicoValidacao.verificarCampoVazio(senhaAtual)){
+        if (servicoValidacao.verificarCampoVazio(senhaAtual)) {
             this.campoSenhaAtual.setError("Campo Vazio");
             campoSenhaAtual.requestFocus();
             return false;
-        } else if (servicoValidacao.verificarCampoVazio(novaSenha)){
+        } else if (servicoValidacao.verificarCampoVazio(novaSenha)) {
             this.campoNovaSenha.setError("Campo Vazio");
             campoSenhaAtual.requestFocus();
             return false;
-        } else if (servicoValidacao.verificarCampoVazio(confirmarNovaSenha)){
+        } else if (servicoValidacao.verificarCampoVazio(confirmarNovaSenha)) {
             this.campoConfirmNovaSenha.setError("Campo Vazio");
             campoConfirmNovaSenha.requestFocus();
             return false;
-        } else if (!confirmarNovaSenha.equals(novaSenha)){
+        } else if (!confirmarNovaSenha.equals(novaSenha)) {
             campoConfirmNovaSenha.setError("Senhas diferentes");
             campoConfirmNovaSenha.requestFocus();
             return false;
-        } else{
+        } else {
             return true;
         }
     }
