@@ -1,6 +1,7 @@
 package com.apphamba.hamba.titulos.dominio;
 
-import java.util.ArrayList;
+
+import android.graphics.Bitmap;
 
 public class Titulo {
     private int id;
@@ -9,6 +10,7 @@ public class Titulo {
     private int avaliacao;
     private String generos;
     private String criadores;
+    private byte[] imagem;
 
     public String getNome() {
         return nome;
@@ -57,6 +59,16 @@ public class Titulo {
     public void setId(int id) {
         this.id = id;
     }
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
+
+
 
 
 

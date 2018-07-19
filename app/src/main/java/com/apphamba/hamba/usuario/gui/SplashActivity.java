@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Bundle;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.PopularBanco;
 
 public class SplashActivity extends Activity implements Runnable {
 
@@ -16,6 +17,7 @@ public class SplashActivity extends Activity implements Runnable {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        PopularBanco.criador.popularBanco();
 
         Handler handler = new Handler();
         handler.postDelayed(this, 3000);

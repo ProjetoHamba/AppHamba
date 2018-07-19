@@ -29,7 +29,7 @@ public class PessoaDAO {
 
     public Pessoa getByIdUsuario(long id) {
         String query = "SELECT * FROM pessoa " +
-                "WHERE id_usuario = ?";
+                       "WHERE id_usuario = ?";
         String[] args = {String.valueOf(id)};
         return this.load(query, args);
     }
