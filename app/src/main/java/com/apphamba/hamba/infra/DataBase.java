@@ -27,7 +27,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE usuario(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "senha text NOT NULL, " +
-                "email text NOT NULL); ");
+                "email text NOT NULL, " +
+                "ativo text NOT NULL); ");
 
         db.execSQL("CREATE TABLE pessoa (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +

@@ -67,6 +67,8 @@
     <string name="text_view_senha_atual">Senha Atual</string>
     <string name="text_view_nova_senha">Nova Senha</string>
     <string name="text_view_confirmar_nova_senha">Confirmar Nova Senha</string>
+    <string name="button_desativar_conta">Desativar Conta</string>
+    <string name="text_view_confirmar_senha">Confirmar senha</string>
 
 
 </resources>

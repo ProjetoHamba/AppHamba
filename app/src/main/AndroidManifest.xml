@@ -41,7 +41,8 @@
         <activity android:name=".usuario.gui.ConfiguracaoActivity" />
         <activity android:name=".titulos.gui.RecomendacoesActivity" />
         <activity android:name=".titulos.gui.CalendarioActivity" />
-        <activity android:name=".titulos.gui.TesteImagem"></activity>
+        <activity android:name=".titulos.gui.TesteImagem" />
+        <activity android:name=".usuario.gui.DesativarContaActivity"></activity>
     </application>
 
 </manifest>
