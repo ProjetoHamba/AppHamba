@@ -1,10 +1,11 @@
-package com.apphamba.hamba;
+package com.apphamba.hamba.titulos.gui;
 
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.PopularBanco;
 import com.apphamba.hamba.titulos.dominio.Titulo;
 import com.apphamba.hamba.titulos.servicos.ServiceTitulos;

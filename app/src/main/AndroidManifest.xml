@@ -40,8 +40,8 @@
             android:label="@string/app_name" />
         <activity android:name=".usuario.gui.ConfiguracaoActivity" />
         <activity android:name=".titulos.gui.RecomendacoesActivity" />
-        <activity android:name=".CalendarioActivity" />
-        <activity android:name=".TesteImagem"></activity>
+        <activity android:name=".titulos.gui.CalendarioActivity" />
+        <activity android:name=".titulos.gui.TesteImagem"></activity>
     </application>
 
 </manifest>

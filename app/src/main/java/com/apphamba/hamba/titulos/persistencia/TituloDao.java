@@ -70,7 +70,7 @@ public class TituloDao {
         ContentValues valores = new ContentValues();
         valores.put("nome", titulo.getNome());
         valores.put("sinopse", titulo.getSinopse());
-        valores.put("avaliacao", titulo.getAvaliacao(55));
+        valores.put("avaliacao", titulo.getAvaliacao());
         valores.put("generos", titulo.getGeneros());
         valores.put("criadores", titulo.getCriadores());
         valores.put("imagem", titulo.getImagem());

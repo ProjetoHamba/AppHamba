@@ -24,11 +24,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.apphamba.hamba.CalendarioActivity;
-import com.apphamba.hamba.infra.PopularBanco;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
-import com.apphamba.hamba.usuario.gui.ConfiguracaoActivity;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulos.servicos.ServiceTitulos;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;

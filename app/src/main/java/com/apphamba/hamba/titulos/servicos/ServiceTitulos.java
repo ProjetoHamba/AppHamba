@@ -3,9 +3,8 @@ package com.apphamba.hamba.titulos.servicos;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 
+import com.apphamba.hamba.infra.HambaApp;
 import com.apphamba.hamba.titulos.dominio.Titulo;
 import com.apphamba.hamba.titulos.persistencia.TituloDao;
 
@@ -14,22 +13,20 @@ import java.util.ArrayList;
 
 public class ServiceTitulos {
 
-    public ArrayList<String> getAllTitulos(Context context){
-        TituloDao tituloDao = new TituloDao(context);
+    public ArrayList<String> getAllTitulos(){
+        TituloDao tituloDao = new TituloDao(HambaApp.getContext());
         ArrayList<Titulo> titulos = tituloDao.loadTitulos();
         ArrayList<String> titulosNome = new ArrayList();
         for (Titulo titulo: titulos) {
            String s =  titulo.getNome();
             titulosNome.add(s);
         }
-
         return titulosNome;
     }
 
     public Titulo buscarTituloPorNome(String nome, Context context) {
         TituloDao tituloDao = new TituloDao(context);
         return tituloDao.getByNome(nome);
-
 
     }
 
