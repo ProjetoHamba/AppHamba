@@ -9,10 +9,11 @@ import android.widget.ImageView;
 
 import com.apphamba.hamba.R;
 
-public class TituloActivity extends BaseActivity {
+public class TituloActivity extends android.support.v7.app.AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbar;
 
     private ImageView appBarImg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,13 @@ public class TituloActivity extends BaseActivity {
         // Header
         appBarImg = (ImageView) findViewById(R.id.appBarImg);
         ViewCompat.setTransitionName(appBarImg, getString(R.string.transition_key));
+    }
+    // Configura a Toolbar
+    protected void setUpToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
     }
 
     public void setAppBarTitle(String title) {
