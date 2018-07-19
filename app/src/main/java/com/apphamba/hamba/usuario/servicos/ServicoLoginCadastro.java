@@ -16,11 +16,11 @@ public class ServicoLoginCadastro {
         usuarioDAO = new UsuarioDAO();
     }
 
-    public boolean logar(Usuario usuario){
+    public boolean logar(Usuario usuario) {
         Usuario usuarioLogado = this.usuarioDAO.getByEmailSenha(usuario.getEmail(), usuario.getSenha());
         boolean isLogado = false;
         if (usuarioLogado != null) {
-            if (usuarioLogado.getAtivo().equals(String.valueOf(EnumUsuarioPessoa.INATIVO))){
+            if (usuarioLogado.getAtivo().equals(String.valueOf(EnumUsuarioPessoa.INATIVO))) {
                 this.usuarioDAO.ativarUsuario(usuarioLogado);
         }
             Pessoa pessoa = this.pessoaDAO.getByIdUsuario(usuarioLogado.getId());
@@ -30,12 +30,12 @@ public class ServicoLoginCadastro {
         return isLogado;
     }
 
-    private void iniciarSessao(Pessoa pessoa){
+    private void iniciarSessao(Pessoa pessoa) {
         Sessao.instance.setPessoa(pessoa);
     }
 
-    public boolean cadastrar(Pessoa pessoa){
-        if (verificarEmailExistente(pessoa.getUsuario().getEmail())){
+    public boolean cadastrar(Pessoa pessoa) {
+        if (verificarEmailExistente(pessoa.getUsuario().getEmail())) {
             return false;
         } else {
             long id = this.usuarioDAO.inserir(pessoa.getUsuario());
@@ -45,7 +45,7 @@ public class ServicoLoginCadastro {
         }
     }
 
-    private boolean verificarEmailExistente(String email){
+    private boolean verificarEmailExistente(String email) {
         Usuario usuario = this.usuarioDAO.getByEmail(email);
         return usuario != null;
 

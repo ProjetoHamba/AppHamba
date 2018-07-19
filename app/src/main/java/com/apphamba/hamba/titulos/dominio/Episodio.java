@@ -2,7 +2,7 @@ package com.apphamba.hamba.titulos.dominio;
 
 public class Episodio {
     private int id;
-    private int idTemoporada;//TODO relação de objeto não de inteiro
+    private int idTemoporada;
     private String nome;
     private int numeroEpisodio;
 

@@ -40,77 +40,77 @@ public class PopularBanco {
     }
 
     private void inserirTitulos() {
-        Titulo Vikings = new Titulo();
-        Vikings.setNome("Vikings");
-        Vikings.setSinopse("O mundo dos Vikings é trazido à vida através da jornada de Ragnar Lothbrok, o primeiro Viking a emergir da lenda nórdica e nas páginas da história - um homem à beira do do mito");
-        Vikings.setAvaliacao(8);
-        Vikings.setGeneros("Ação, Aventura, Drama");
-        Vikings.setCriadores("Michael Hirst");
-        Vikings.setImagem(formatadorImagem.gerarFoto(R.drawable.vikings_hamba));
-        tituloDao.inserir(Vikings);
+        Titulo vikings = new Titulo();
+        vikings.setNome("Vikings");
+        vikings.setSinopse("O mundo dos Vikings é trazido à vida através da jornada de Ragnar Lothbrok, o primeiro Viking a emergir da lenda nórdica e nas páginas da história - um homem à beira do do mito");
+        vikings.setAvaliacao(8);
+        vikings.setGeneros("Ação, Aventura, Drama");
+        vikings.setCriadores("Michael Hirst");
+        vikings.setImagem(formatadorImagem.gerarFoto(R.drawable.vikings_hamba));
+        tituloDao.inserir(vikings);
 
-        Titulo Narcos = new Titulo();
-        Narcos.setNome("Narcos");
-        Narcos.setSinopse("Um olhar narrado sobre as façanhas criminosas do traficante colombiano Pablo Escobar, bem como dos muitos outros chefões do tráfico de drogas que assolaram o país ao longo dos anos.");
-        Narcos.setAvaliacao(8);
-        Narcos.setGeneros("Biografia, Crime, Drama");
-        Narcos.setCriadores("Carlo Bernard, Chris Brancato, Doug Miro");
-        Narcos.setImagem(formatadorImagem.gerarFoto(R.drawable.narcos));
-        tituloDao.inserir(Narcos);
+        Titulo narcos = new Titulo();
+        narcos.setNome("Narcos");
+        narcos.setSinopse("Um olhar narrado sobre as façanhas criminosas do traficante colombiano Pablo Escobar, bem como dos muitos outros chefões do tráfico de drogas que assolaram o país ao longo dos anos.");
+        narcos.setAvaliacao(8);
+        narcos.setGeneros("Biografia, Crime, Drama");
+        narcos.setCriadores("Carlo Bernard, Chris Brancato, Doug Miro");
+        narcos.setImagem(formatadorImagem.gerarFoto(R.drawable.narcos));
+        tituloDao.inserir(narcos);
 
-        Titulo GameOfThrones = new Titulo();
-        GameOfThrones.setNome("Game of Thrones");
-        GameOfThrones.setSinopse("Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de ficar adormecido por milhares de anos.");
-        GameOfThrones.setAvaliacao(9);
-        GameOfThrones.setGeneros("Ação, Aventura, Drama");
-        GameOfThrones.setCriadores("David Benioff, D.B. Weiss");
-        GameOfThrones.setImagem(formatadorImagem.gerarFoto(R.drawable.got));
-        tituloDao.inserir(GameOfThrones);
+        Titulo gameOfThrones = new Titulo();
+        gameOfThrones.setNome("Game of Thrones");
+        gameOfThrones.setSinopse("Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de ficar adormecido por milhares de anos.");
+        gameOfThrones.setAvaliacao(9);
+        gameOfThrones.setGeneros("Ação, Aventura, Drama");
+        gameOfThrones.setCriadores("David Benioff, D.B. Weiss");
+        gameOfThrones.setImagem(formatadorImagem.gerarFoto(R.drawable.got));
+        tituloDao.inserir(gameOfThrones);
 
-        Titulo StrangerThings = new Titulo();
-        StrangerThings.setNome("Stranger Things");
-        StrangerThings.setSinopse("Quando um menino desaparece, sua mãe, um chefe de polícia e seus amigos precisam confrontar forças aterrorizantes para recuperá-lo.");
-        StrangerThings.setAvaliacao(8);
-        StrangerThings.setGeneros("Drama, Ficção, Terror");
-        StrangerThings.setCriadores("Matt Duffer, Ross Duffer");
-        StrangerThings.setImagem(formatadorImagem.gerarFoto(R.drawable.strangerthings));
-        tituloDao.inserir(StrangerThings);
+        Titulo strangerThings = new Titulo();
+        strangerThings.setNome("Stranger Things");
+        strangerThings.setSinopse("Quando um menino desaparece, sua mãe, um chefe de polícia e seus amigos precisam confrontar forças aterrorizantes para recuperá-lo.");
+        strangerThings.setAvaliacao(8);
+        strangerThings.setGeneros("Drama, Ficção, Terror");
+        strangerThings.setCriadores("Matt Duffer, Ross Duffer");
+        strangerThings.setImagem(formatadorImagem.gerarFoto(R.drawable.strangerthings));
+        tituloDao.inserir(strangerThings);
 
-        Titulo BreakingBad = new Titulo();
-        BreakingBad.setNome("Breaking Bad");
-        BreakingBad.setSinopse("Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperante se transforma em fabricação e venda de metanfetamina, a fim de garantir o futuro de sua família.");
-        BreakingBad.setAvaliacao(10);
-        BreakingBad.setGeneros("Chute na cara e porrada");
-        BreakingBad.setCriadores("eu");
-        BreakingBad.setImagem(formatadorImagem.gerarFoto(R.drawable.breakingbad));
-        tituloDao.inserir(BreakingBad);
+        Titulo breakingBad = new Titulo();
+        breakingBad.setNome("Breaking Bad");
+        breakingBad.setSinopse("Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperante se transforma em fabricação e venda de metanfetamina, a fim de garantir o futuro de sua família.");
+        breakingBad.setAvaliacao(10);
+        breakingBad.setGeneros("Chute na cara e porrada");
+        breakingBad.setCriadores("eu");
+        breakingBad.setImagem(formatadorImagem.gerarFoto(R.drawable.breakingbad));
+        tituloDao.inserir(breakingBad);
 
-        Titulo LaCasaDePapel = new Titulo();
-        LaCasaDePapel.setNome("La Casa de Papel");
-        LaCasaDePapel.setSinopse("Oito ladrões fazem reféns e se trancam na Casa da Moeda Real da Espanha, enquanto um gênio do crime manipula a polícia para executar seu plano.");
-        LaCasaDePapel.setAvaliacao(8);
-        LaCasaDePapel.setGeneros("Crime, Drama, Suspense");
-        LaCasaDePapel.setCriadores("Vince Gilligan");
-        LaCasaDePapel.setImagem(formatadorImagem.gerarFoto(R.drawable.lacasa));
-        tituloDao.inserir(LaCasaDePapel);
+        Titulo laCasaDePapel = new Titulo();
+        laCasaDePapel.setNome("La Casa de Papel");
+        laCasaDePapel.setSinopse("Oito ladrões fazem reféns e se trancam na Casa da Moeda Real da Espanha, enquanto um gênio do crime manipula a polícia para executar seu plano.");
+        laCasaDePapel.setAvaliacao(8);
+        laCasaDePapel.setGeneros("Crime, Drama, Suspense");
+        laCasaDePapel.setCriadores("Vince Gilligan");
+        laCasaDePapel.setImagem(formatadorImagem.gerarFoto(R.drawable.lacasa));
+        tituloDao.inserir(laCasaDePapel);
 
-        Titulo HouseOfCards = new Titulo();
-        HouseOfCards.setNome("House of Cards");
-        HouseOfCards.setSinopse("Um congressista trabalha com sua esposa igualmente conivente para se vingar das pessoas que o traíram.");
-        HouseOfCards.setAvaliacao(8);
-        HouseOfCards.setGeneros("Drama");
-        HouseOfCards.setCriadores("Beau Willimo");
-        HouseOfCards.setImagem(formatadorImagem.gerarFoto(R.drawable.houseofcards));
-        tituloDao.inserir(HouseOfCards);
+        Titulo houseOfCards = new Titulo();
+        houseOfCards.setNome("House of Cards");
+        houseOfCards.setSinopse("Um congressista trabalha com sua esposa igualmente conivente para se vingar das pessoas que o traíram.");
+        houseOfCards.setAvaliacao(8);
+        houseOfCards.setGeneros("Drama");
+        houseOfCards.setCriadores("Beau Willimo");
+        houseOfCards.setImagem(formatadorImagem.gerarFoto(R.drawable.houseofcards));
+        tituloDao.inserir(houseOfCards);
 
-        Titulo PrisonBreak = new Titulo();
-        PrisonBreak.setNome("Prison Break");
-        PrisonBreak.setSinopse("Devido a uma conspiração política, um homem inocente é enviado para o corredor da morte e sua única esperança é seu irmão, que tem como missão deliberadamente ser enviado para a mesma prisão, a fim de derrubá-los por dentro.");
-        PrisonBreak.setAvaliacao(8);
-        PrisonBreak.setGeneros("Ação, Crime, Drama");
-        PrisonBreak.setCriadores("Paul Scheuring");
-        PrisonBreak.setImagem(formatadorImagem.gerarFoto(R.drawable.prisonbreak));
-        tituloDao.inserir(PrisonBreak);
+        Titulo prisonBreak = new Titulo();
+        prisonBreak.setNome("Prison Break");
+        prisonBreak.setSinopse("Devido a uma conspiração política, um homem inocente é enviado para o corredor da morte e sua única esperança é seu irmão, que tem como missão deliberadamente ser enviado para a mesma prisão, a fim de derrubá-los por dentro.");
+        prisonBreak.setAvaliacao(8);
+        prisonBreak.setGeneros("Ação, Crime, Drama");
+        prisonBreak.setCriadores("Paul Scheuring");
+        prisonBreak.setImagem(formatadorImagem.gerarFoto(R.drawable.prisonbreak));
+        tituloDao.inserir(prisonBreak);
     }
 
 }

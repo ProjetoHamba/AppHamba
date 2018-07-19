@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.titulos.gui.TesteImagem;
 import com.apphamba.hamba.infra.ServicoValidacao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
@@ -46,11 +45,11 @@ public class LoginActivity extends AppCompatActivity {
         ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
         boolean isLogado = servicoLoginCadastro.logar(this.criarUsuario());
         if (isLogado) {
-            Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             proximaTela();
             finish();
         } else {
-            Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -63,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         return usuario;
     }
 
-    private boolean verificarCampos(){
+    private boolean verificarCampos() {
         String email = this.campoEmail.getText().toString().trim();
         String senha = this.campoSenha.getText().toString().trim();
         if (this.servicoValidacao.verificarCampoEmail(email)) {
@@ -78,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void proximaTela() {
-        startActivity(new Intent(LoginActivity.this,EscolhaConfiguracaoActivity.class));
+        startActivity(new Intent(LoginActivity.this, EscolhaConfiguracaoActivity.class));
     }
 
 }

@@ -15,7 +15,7 @@ import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 
 public class CadastroActivity extends AppCompatActivity {
     private Button botaoCriar;
-    private EditText campoNome,campoEmail, campoSenha, campoResenha;
+    private EditText campoNome, campoEmail, campoSenha, campoResenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
 
 
@@ -48,10 +48,10 @@ public class CadastroActivity extends AppCompatActivity {
         ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
 
         if (servicoLoginCadastro.cadastrar(this.criarPessoa())) {
-            Toast.makeText(getApplicationContext(),"Conta Criada",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Conta Criada", Toast.LENGTH_SHORT).show();
             finish();
         } else {
-            Toast.makeText(getApplicationContext(),"O Email já está cadastrado",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "O Email já está cadastrado", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -78,22 +78,22 @@ public class CadastroActivity extends AppCompatActivity {
         String email = campoEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
         String repetirSenha = campoResenha.getText().toString().trim();
-        if (servicoValidacao.verificarCampoVazio(nome)){
+        if (servicoValidacao.verificarCampoVazio(nome)) {
             this.campoNome.setError("Campo vazio");
             return false;
         } else if (servicoValidacao.verificarCampoEmail(email)) {
             this.campoEmail.setError("Formato de email inválido");
             return false;
-        } else if (servicoValidacao.verificarCampoVazio(senha)){
+        } else if (servicoValidacao.verificarCampoVazio(senha)) {
             this.campoSenha.setError("Campo vazio");
             return false;
         } else if (servicoValidacao.verificarCampoVazio(repetirSenha)) {
             this.campoResenha.setError("Campo vazio");
             return false;
-        } else if (!repetirSenha.equals(senha)){
+        } else if (!repetirSenha.equals(senha)) {
             this.campoResenha.setError("Senhas diferentes");
             return false;
-        } else{
+        } else {
             return true;
         }
     }

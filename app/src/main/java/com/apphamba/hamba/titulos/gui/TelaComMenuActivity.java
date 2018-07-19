@@ -54,11 +54,8 @@ public class TelaComMenuActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_com_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        arrayList = servicoTitulo.getTitulos();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -140,18 +137,18 @@ public class TelaComMenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_calendario) {
             //TODO PROXIMA SPRINT
-            startActivity(new Intent(TelaComMenuActivity.this,CalendarioActivity.class));
+            startActivity(new Intent(TelaComMenuActivity.this, CalendarioActivity.class));
 
 
         } else if (id == R.id.nav_favoritos) {
 
         } else if (id == R.id.nav_recomendacoes) {
                 //TODO RECOMENDAÇÕES
-            startActivity(new Intent(TelaComMenuActivity.this,RecomendacoesActivity.class));
+            startActivity(new Intent(TelaComMenuActivity.this, RecomendacoesActivity.class));
 
         } else if (id == R.id.nav_configuracoes) {
                 //TODO para sexta cria tela
-            startActivity(new Intent(TelaComMenuActivity.this,EscolhaConfiguracaoActivity.class));
+            startActivity(new Intent(TelaComMenuActivity.this, EscolhaConfiguracaoActivity.class));
 
         } else if (id == R.id.nav_noticias) {
 
@@ -193,7 +190,7 @@ public class TelaComMenuActivity extends AppCompatActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tela_com_menu, container, false);
-            if(getArguments().getInt( ARG_SECTION_NUMBER )==1){
+            if (getArguments().getInt(ARG_SECTION_NUMBER) ==1) {
 
                 listaSeries = (ListView) rootView.findViewById(R.id.list_viewFrag);
 

@@ -40,14 +40,14 @@ public class DesativarContaActivity extends AppCompatActivity {
         }
         Usuario usuario = this.criarUsuario();
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
-        if (servicoConfiguracao.desativarConta(usuario)){
-            Toast.makeText(getApplicationContext(),"Conta desativada com sucesso", Toast.LENGTH_SHORT).show();
+        if (servicoConfiguracao.desativarConta(usuario)) {
+            Toast.makeText(getApplicationContext(), "Conta desativada com sucesso", Toast.LENGTH_SHORT).show();
             finish();
 
         }
     }
 
-    private boolean verificarCampos () {
+    private boolean verificarCampos() {
         String senha = campoSenha.getText().toString().trim();
         if (servicoValidacao.verificarCampoVazio(senha)) {
             this.campoSenha.setError("Campo Vazio");

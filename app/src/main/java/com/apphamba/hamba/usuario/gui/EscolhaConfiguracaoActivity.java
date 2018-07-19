@@ -17,11 +17,11 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
     }
 
 
-    public void mudarTela(Class tela){
+    public void mudarTela(Class tela) {
         Intent intent = new Intent(this, tela);
         startActivity(intent);
     }
-    public void cliqueBotaoAlterarDados(View view){
+    public void cliqueBotaoAlterarDados(View view) {
         this.mudarTela(AlterarEmailActivity.class);
         finish();
     }

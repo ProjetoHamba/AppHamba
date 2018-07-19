@@ -79,7 +79,7 @@ public class UsuarioDAO {
         valores.put(String.valueOf(EnumUsuarioPessoa.EMAIL), usuario.getEmail());
         valores.put(String.valueOf(EnumUsuarioPessoa.SENHA), usuario.getSenha());
         valores.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.ATIVO));
-        long id = escritorBanco.insert(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO),null,valores);
+        long id = escritorBanco.insert(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), null, valores);
         escritorBanco.close();
         return id;
     }
@@ -89,8 +89,8 @@ public class UsuarioDAO {
         String query = "id =  '" + usuario.getId() + "'";
         ContentValues values = new ContentValues();
         values.put(String.valueOf(EnumUsuarioPessoa.EMAIL), usuario.getEmail());
-        values.put(String.valueOf(EnumUsuarioPessoa.SENHA),usuario.getSenha());
-        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query,null);
+        values.put(String.valueOf(EnumUsuarioPessoa.SENHA), usuario.getSenha());
+        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query, null);
         escritorBanco.close();
     }
 
@@ -99,7 +99,7 @@ public class UsuarioDAO {
         String query = "id =  '" + usuario.getId() + "'";
         ContentValues values = new ContentValues();
         values.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.INATIVO));
-        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query,null);
+        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query, null);
         escritorBanco.close();
     }
 
@@ -108,7 +108,7 @@ public class UsuarioDAO {
         String query = "id =  '" + usuario.getId() + "'";
         ContentValues values = new ContentValues();
         values.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.ATIVO));
-        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query,null);
+        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query, null);
         escritorBanco.close();
     }
 }
