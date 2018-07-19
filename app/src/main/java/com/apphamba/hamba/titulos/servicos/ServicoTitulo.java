@@ -1,6 +1,5 @@
 package com.apphamba.hamba.titulos.servicos;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -18,15 +17,9 @@ public class ServicoTitulo {
         tituloDao = new TituloDao();
     }
 
-    public ArrayList<String> getTitulos(){
-        TituloDao tituloDao = new TituloDao();
-        ArrayList<Titulo> titulos = tituloDao.loadTitulos();
-        ArrayList<String> titulosNome = new ArrayList();
-        for (Titulo titulo: titulos) {
-            String nomeTitulo =  titulo.getNome();
-            titulosNome.add(nomeTitulo);
-        }
-        return titulosNome;
+    public ArrayList<Titulo> getTitulos(){
+        ArrayList<Titulo> titulos = this.tituloDao.loadTitulos();
+        return titulos;
     }
 
     public Titulo buscarTituloPorNome(String nome) {
