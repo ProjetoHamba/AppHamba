@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.fragments.adapter.TituloAdapter;
@@ -49,8 +50,8 @@ public class TituloListFragment extends Fragment {
         return new TituloAdapter.TituloOnClickListener() {
             @Override
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int idx) {
-
-                //Titulo p = titulos.get(idx);
+                Titulo p = titulos.get(idx);
+                Toast.makeText(getContext(), p.getNome(), Toast.LENGTH_SHORT).show();
 
                 //Intent intent = new Intent(getContext(), TituloActivity.class);
                 //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO

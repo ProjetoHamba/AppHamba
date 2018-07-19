@@ -54,7 +54,6 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         Bitmap imagemTitilo = servicoTitulo.byteArrayToBitmap(titulo);
         holder.img.setImageBitmap(imagemTitilo);
 
-
         if (onClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
