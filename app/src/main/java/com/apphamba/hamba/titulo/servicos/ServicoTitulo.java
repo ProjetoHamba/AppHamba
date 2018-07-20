@@ -1,13 +1,9 @@
-package com.apphamba.hamba.titulos.servicos;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+package com.apphamba.hamba.titulo.servicos;
 
 
-import com.apphamba.hamba.titulos.dominio.Titulo;
-import com.apphamba.hamba.titulos.persistencia.TituloDao;
+import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.persistencia.TituloDao;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
 public class ServicoTitulo {

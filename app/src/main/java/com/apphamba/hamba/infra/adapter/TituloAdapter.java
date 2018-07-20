@@ -9,8 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.titulos.dominio.Titulo;
-import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
+import com.apphamba.hamba.titulo.dominio.Titulo;
 
 import java.util.List;
 

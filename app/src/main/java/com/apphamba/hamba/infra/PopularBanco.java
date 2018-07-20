@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.titulos.dominio.Titulo;
-import com.apphamba.hamba.titulos.persistencia.TituloDao;
+import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.persistencia.TituloDao;
 
 public class PopularBanco {
     public static final PopularBanco criador = new PopularBanco();

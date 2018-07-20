@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulos.dominio;
+package com.apphamba.hamba.titulo.dominio;
 
 import android.graphics.Bitmap;
 

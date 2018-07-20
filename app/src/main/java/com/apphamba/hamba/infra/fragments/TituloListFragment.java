@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adapter.TituloAdapter;
-import com.apphamba.hamba.titulos.dominio.Titulo;
-import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
+import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.List;
 

@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ServicoValidacao;
-import com.apphamba.hamba.titulos.gui.MainActivity;
+import com.apphamba.hamba.titulo.gui.MainActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 
