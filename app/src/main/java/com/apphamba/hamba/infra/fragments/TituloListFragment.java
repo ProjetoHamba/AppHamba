@@ -1,6 +1,5 @@
 package com.apphamba.hamba.infra.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,17 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.fragments.adapter.TituloAdapter;
-import com.apphamba.hamba.titulos.dominio.Titulo;
-import com.apphamba.hamba.titulos.gui.TituloActivity;
-import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
+import com.apphamba.hamba.infra.adapter.TituloAdapter;
+import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.List;
 
-
-/**
- * Created by rlech on 11-Nov-15.
- */
 public class TituloListFragment extends Fragment {
 
     private RecyclerView recyclerView;
@@ -49,9 +43,9 @@ public class TituloListFragment extends Fragment {
     private TituloAdapter.TituloOnClickListener onClickTitulo() {
         return new TituloAdapter.TituloOnClickListener() {
             @Override
-            public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int idx) {
-                Titulo p = titulos.get(idx);
-                Toast.makeText(getContext(), p.getNome(), Toast.LENGTH_SHORT).show();
+            public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
+                Titulo titulo = titulos.get(indexTitulo);
+                Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
 
                 //Intent intent = new Intent(getContext(), TituloActivity.class);
                 //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
@@ -67,6 +61,5 @@ public class TituloListFragment extends Fragment {
             }
         };
     }
-
 
 }

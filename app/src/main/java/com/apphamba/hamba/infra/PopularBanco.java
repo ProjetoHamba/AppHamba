@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.titulos.dominio.Titulo;
-import com.apphamba.hamba.titulos.persistencia.TituloDao;
+import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.persistencia.TituloDao;
 
 public class PopularBanco {
     public static final PopularBanco criador = new PopularBanco();
@@ -46,7 +46,7 @@ public class PopularBanco {
         vikings.setAvaliacao(8);
         vikings.setGeneros("Ação, Aventura, Drama");
         vikings.setCriadores("Michael Hirst");
-        vikings.setImagem(formatadorImagem.gerarFoto(R.drawable.vikings_hamba));
+        vikings.setImagem(formatadorImagem.getFotoByte(R.drawable.vikings_hamba));
         tituloDao.inserir(vikings);
 
         Titulo narcos = new Titulo();
@@ -55,7 +55,7 @@ public class PopularBanco {
         narcos.setAvaliacao(8);
         narcos.setGeneros("Biografia, Crime, Drama");
         narcos.setCriadores("Carlo Bernard, Chris Brancato, Doug Miro");
-        narcos.setImagem(formatadorImagem.gerarFoto(R.drawable.narcos));
+        narcos.setImagem(formatadorImagem.getFotoByte(R.drawable.narcos));
         tituloDao.inserir(narcos);
 
         Titulo gameOfThrones = new Titulo();
@@ -64,7 +64,7 @@ public class PopularBanco {
         gameOfThrones.setAvaliacao(9);
         gameOfThrones.setGeneros("Ação, Aventura, Drama");
         gameOfThrones.setCriadores("David Benioff, D.B. Weiss");
-        gameOfThrones.setImagem(formatadorImagem.gerarFoto(R.drawable.got));
+        gameOfThrones.setImagem(formatadorImagem.getFotoByte(R.drawable.got));
         tituloDao.inserir(gameOfThrones);
 
         Titulo strangerThings = new Titulo();
@@ -73,7 +73,7 @@ public class PopularBanco {
         strangerThings.setAvaliacao(8);
         strangerThings.setGeneros("Drama, Ficção, Terror");
         strangerThings.setCriadores("Matt Duffer, Ross Duffer");
-        strangerThings.setImagem(formatadorImagem.gerarFoto(R.drawable.strangerthings));
+        strangerThings.setImagem(formatadorImagem.getFotoByte(R.drawable.strangerthings));
         tituloDao.inserir(strangerThings);
 
         Titulo breakingBad = new Titulo();
@@ -82,7 +82,7 @@ public class PopularBanco {
         breakingBad.setAvaliacao(10);
         breakingBad.setGeneros("Chute na cara e porrada");
         breakingBad.setCriadores("eu");
-        breakingBad.setImagem(formatadorImagem.gerarFoto(R.drawable.breakingbad));
+        breakingBad.setImagem(formatadorImagem.getFotoByte(R.drawable.breakingbad));
         tituloDao.inserir(breakingBad);
 
         Titulo laCasaDePapel = new Titulo();
@@ -91,7 +91,7 @@ public class PopularBanco {
         laCasaDePapel.setAvaliacao(8);
         laCasaDePapel.setGeneros("Crime, Drama, Suspense");
         laCasaDePapel.setCriadores("Vince Gilligan");
-        laCasaDePapel.setImagem(formatadorImagem.gerarFoto(R.drawable.lacasa));
+        laCasaDePapel.setImagem(formatadorImagem.getFotoByte(R.drawable.lacasa));
         tituloDao.inserir(laCasaDePapel);
 
         Titulo houseOfCards = new Titulo();
@@ -100,7 +100,7 @@ public class PopularBanco {
         houseOfCards.setAvaliacao(8);
         houseOfCards.setGeneros("Drama");
         houseOfCards.setCriadores("Beau Willimo");
-        houseOfCards.setImagem(formatadorImagem.gerarFoto(R.drawable.houseofcards));
+        houseOfCards.setImagem(formatadorImagem.getFotoByte(R.drawable.houseofcards));
         tituloDao.inserir(houseOfCards);
 
         Titulo prisonBreak = new Titulo();
@@ -109,7 +109,7 @@ public class PopularBanco {
         prisonBreak.setAvaliacao(8);
         prisonBreak.setGeneros("Ação, Crime, Drama");
         prisonBreak.setCriadores("Paul Scheuring");
-        prisonBreak.setImagem(formatadorImagem.gerarFoto(R.drawable.prisonbreak));
+        prisonBreak.setImagem(formatadorImagem.getFotoByte(R.drawable.prisonbreak));
         tituloDao.inserir(prisonBreak);
 
         Titulo mrRobot = new Titulo();
@@ -118,7 +118,7 @@ public class PopularBanco {
         mrRobot.setAvaliacao(10);
         mrRobot.setGeneros("Crime, Drama");
         mrRobot.setCriadores("Sam Esmail");
-        mrRobot.setImagem(formatadorImagem.gerarFoto(R.drawable.mrbot));
+        mrRobot.setImagem(formatadorImagem.getFotoByte(R.drawable.mrbot));
         tituloDao.inserir(mrRobot);
 
         Titulo jurassic = new Titulo();

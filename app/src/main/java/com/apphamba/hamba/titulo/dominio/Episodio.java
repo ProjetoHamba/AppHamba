@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulos.dominio;
+package com.apphamba.hamba.titulo.dominio;
 
 public class Episodio {
     private int id;

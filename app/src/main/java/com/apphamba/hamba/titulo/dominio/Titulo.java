@@ -1,4 +1,8 @@
-package com.apphamba.hamba.titulos.dominio;
+package com.apphamba.hamba.titulo.dominio;
+
+import android.graphics.Bitmap;
+
+import com.apphamba.hamba.infra.FormatadorImagem;
 
 public class Titulo {
     private int id;
@@ -58,16 +62,16 @@ public class Titulo {
     }
 
     public byte[] getImagem() {
-        return imagem;
+        return this.imagem;
+    }
+
+    public Bitmap getImagemBitmap() {
+        FormatadorImagem formatadorImagem = new FormatadorImagem();
+        return formatadorImagem.byteArrayToBitmap(this.imagem);
     }
 
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
-
-
-
-
-
-
+    
 }

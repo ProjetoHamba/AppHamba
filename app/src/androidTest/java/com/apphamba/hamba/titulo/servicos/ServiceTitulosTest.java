@@ -1,8 +1,6 @@
-package com.apphamba.hamba.titulos.servicos;
+package com.apphamba.hamba.titulo.servicos;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ServiceTitulosTest {
 

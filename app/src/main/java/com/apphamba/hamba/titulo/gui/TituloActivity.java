@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulos.gui;
+package com.apphamba.hamba.titulo.gui;
 
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;

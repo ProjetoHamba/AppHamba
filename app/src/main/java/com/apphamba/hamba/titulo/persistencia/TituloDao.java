@@ -1,13 +1,12 @@
-package com.apphamba.hamba.titulos.persistencia;
+package com.apphamba.hamba.titulo.persistencia;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
 import com.apphamba.hamba.infra.EnumTitulos;
-import com.apphamba.hamba.titulos.dominio.Titulo;
+import com.apphamba.hamba.titulo.dominio.Titulo;
 
 import java.util.ArrayList;
 

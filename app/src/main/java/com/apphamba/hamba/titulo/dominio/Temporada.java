@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulos.dominio;
+package com.apphamba.hamba.titulo.dominio;
 
 import java.util.Date;
 
