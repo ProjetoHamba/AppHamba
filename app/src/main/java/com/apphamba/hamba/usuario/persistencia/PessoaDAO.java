@@ -5,13 +5,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
-import com.apphamba.hamba.infra.EnumUsuarioPessoa;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 
 public class PessoaDAO {
     private DataBase bancoDados;
     private UsuarioDAO usuarioDAO;
-
 
     public PessoaDAO() {
         bancoDados = new DataBase();
@@ -22,9 +20,9 @@ public class PessoaDAO {
     public void inserirPessoa(Pessoa pessoa) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put(String.valueOf(EnumUsuarioPessoa.NOME), pessoa.getNome());
-        valores.put(String.valueOf(EnumUsuarioPessoa.ID_USUARIO), pessoa.getUsuario().getId());
-        escritorBanco.insert(String.valueOf(EnumUsuarioPessoa.TABELA_PESSOA), null, valores);
+        valores.put(EnumUsuarioPessoa.NOME.getDescricao(), pessoa.getNome());
+        valores.put(EnumUsuarioPessoa.ID_USUARIO.getDescricao(), pessoa.getUsuario().getId());
+        escritorBanco.insert(EnumUsuarioPessoa.TABELA_PESSOA.getDescricao(), null, valores);
         escritorBanco.close();
     }
 
@@ -50,13 +48,13 @@ public class PessoaDAO {
     }
 
     private Pessoa criarPessoa(Cursor cursor) {
-        int indexId = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.ID));
+        int indexId = cursor.getColumnIndex(EnumUsuarioPessoa.ID.getDescricao());
         long id = cursor.getInt(indexId);
 
-        int indexNome = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.NOME));
+        int indexNome = cursor.getColumnIndex(EnumUsuarioPessoa.NOME.getDescricao());
         String nome = cursor.getString(indexNome);
 
-        int indexUsuario = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.ID_USUARIO));
+        int indexUsuario = cursor.getColumnIndex(EnumUsuarioPessoa.ID_USUARIO.getDescricao());
         String idUsuario = cursor.getString(indexUsuario);
 
         Pessoa pessoa = new Pessoa();
@@ -66,4 +64,5 @@ public class PessoaDAO {
 
         return pessoa;
     }
+
 }

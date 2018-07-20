@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.apphamba.hamba.infra.EnumUsuarioPessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.infra.DataBase;
 
@@ -16,23 +15,19 @@ public class UsuarioDAO {
     }
 
     private Usuario criarUsuario(Cursor cursor) {
-        int indexId = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.ID));
+        int indexId = cursor.getColumnIndex(EnumUsuarioPessoa.ID.getDescricao());
         long id = cursor.getLong(indexId);
 
-        int indexEmail = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.EMAIL));
+        int indexEmail = cursor.getColumnIndex(EnumUsuarioPessoa.EMAIL.getDescricao());
         String email = cursor.getString(indexEmail);
 
-        int indexSenha = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.SENHA));
+        int indexSenha = cursor.getColumnIndex(EnumUsuarioPessoa.SENHA.getDescricao());
         String senha = cursor.getString(indexSenha);
-
-        int indexAtivo = cursor.getColumnIndex(String.valueOf(EnumUsuarioPessoa.ATIVO));
-        String ativo = cursor.getString(indexAtivo);
 
         Usuario usuario = new Usuario();
         usuario.setId(id);
         usuario.setEmail(email);
         usuario.setSenha(senha);
-        usuario.setAtivo(ativo);
 
         return usuario;
 
@@ -54,21 +49,24 @@ public class UsuarioDAO {
 
     public Usuario getByEmail(String email) {
         String query =  "SELECT * FROM usuario " +
-                        "WHERE email = ?";
+                        "WHERE email = ?" +
+                        "AND excluido = 'nao'";
         String[] args = {email};
         return this.load(query, args);
     }
 
     public Usuario getByID(String id) {
         String query =  "SELECT * FROM usuario " +
-                "WHERE id = ?";
+                        "WHERE id = ?" +
+                        "AND excluido = 'nao'";
         String[] args = {id};
         return this.load(query, args);
     }
 
     public Usuario getByEmailSenha(String email, String senha) {
         String query =  "SELECT * FROM usuario " +
-                "WHERE email = ? AND senha = ?";
+                        "WHERE email = ? AND senha = ?" +
+                        "AND excluido = 'nao'";
         String[] args = {email, senha};
         return this.load(query, args);
     }
@@ -76,39 +74,43 @@ public class UsuarioDAO {
     public long inserir(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put(String.valueOf(EnumUsuarioPessoa.EMAIL), usuario.getEmail());
-        valores.put(String.valueOf(EnumUsuarioPessoa.SENHA), usuario.getSenha());
-        valores.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.ATIVO));
-        long id = escritorBanco.insert(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), null, valores);
+        valores.put(EnumUsuarioPessoa.EMAIL.getDescricao(), usuario.getEmail());
+        valores.put(EnumUsuarioPessoa.SENHA.getDescricao(), usuario.getSenha());
+        valores.put(EnumUsuarioPessoa.EXCLUIDO.getDescricao(), String.valueOf(EnumUsuarioPessoa.NAO_EXCLUIDO));
+        long id = escritorBanco.insert(EnumUsuarioPessoa.TABELA_USUARIO.getDescricao(), null, valores);
         escritorBanco.close();
         return id;
     }
 
     public void update(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
-        String query = "id =  '" + usuario.getId() + "'";
+        String query = "id = ?";
         ContentValues values = new ContentValues();
-        values.put(String.valueOf(EnumUsuarioPessoa.EMAIL), usuario.getEmail());
-        values.put(String.valueOf(EnumUsuarioPessoa.SENHA), usuario.getSenha());
-        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query, null);
+        values.put(EnumUsuarioPessoa.EMAIL.getDescricao(), usuario.getEmail());
+        values.put(EnumUsuarioPessoa.SENHA.getDescricao(), usuario.getSenha());
+        String[] args = {String.valueOf(usuario.getId())};
+        escritorBanco.update(EnumUsuarioPessoa.TABELA_USUARIO.getDescricao(), values, query, args);
         escritorBanco.close();
     }
 
     public void desativarUsuario(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
-        String query = "id =  '" + usuario.getId() + "'";
+        String query = "id = ?";
         ContentValues values = new ContentValues();
-        values.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.INATIVO));
-        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query, null);
+        values.put(EnumUsuarioPessoa.EXCLUIDO.getDescricao(), EnumUsuarioPessoa.SIM_EXCLUIDO.getDescricao());
+        String[] args = {String.valueOf(usuario.getId())};
+        escritorBanco.update(EnumUsuarioPessoa.TABELA_USUARIO.getDescricao(), values, query, args);
         escritorBanco.close();
     }
 
     public void ativarUsuario(Usuario usuario) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
-        String query = "id =  '" + usuario.getId() + "'";
+        String query = "id =  ?";
         ContentValues values = new ContentValues();
-        values.put(String.valueOf(EnumUsuarioPessoa.ATIVO), String.valueOf(EnumUsuarioPessoa.ATIVO));
-        escritorBanco.update(String.valueOf(EnumUsuarioPessoa.TABELA_USUARIO), values, query, null);
+        values.put(EnumUsuarioPessoa.EXCLUIDO.getDescricao(), EnumUsuarioPessoa.NAO_EXCLUIDO.getDescricao());
+        String[] args = {String.valueOf(usuario.getId())};
+        escritorBanco.update(EnumUsuarioPessoa.TABELA_USUARIO.getDescricao(), values, query, args);
         escritorBanco.close();
     }
+
 }

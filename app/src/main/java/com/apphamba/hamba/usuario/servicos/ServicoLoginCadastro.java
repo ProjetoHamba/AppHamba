@@ -20,9 +20,6 @@ public class ServicoLoginCadastro {
         Usuario usuarioLogado = this.usuarioDAO.getByEmailSenha(usuario.getEmail(), usuario.getSenha());
         boolean isLogado = false;
         if (usuarioLogado != null) {
-            if (usuarioLogado.getAtivo().equals(String.valueOf(EnumUsuarioPessoa.INATIVO))) {
-                this.usuarioDAO.ativarUsuario(usuarioLogado);
-        }
             Pessoa pessoa = this.pessoaDAO.getByIdUsuario(usuarioLogado.getId());
             this.iniciarSessao(pessoa);
             isLogado = true;

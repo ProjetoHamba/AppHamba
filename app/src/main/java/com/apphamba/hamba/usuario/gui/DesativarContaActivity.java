@@ -70,7 +70,7 @@ public class DesativarContaActivity extends AppCompatActivity {
         String senha = campoSenha.getText().toString().trim();
         Usuario usuario = new Usuario();
         usuario.setSenha(senha);
-        usuario.setAtivo(String.valueOf(EnumUsuarioPessoa.INATIVO));
         return usuario;
     }
+
 }
