@@ -1,5 +1,6 @@
 package com.apphamba.hamba.usuario.gui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.EnumUsuarioPessoa;
 import com.apphamba.hamba.infra.ServicoValidacao;
+import com.apphamba.hamba.titulo.gui.MainActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.servicos.ServicoConfiguracao;
 
@@ -42,6 +44,10 @@ public class DesativarContaActivity extends AppCompatActivity {
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
         if (servicoConfiguracao.desativarConta(usuario)) {
             Toast.makeText(getApplicationContext(), "Conta desativada com sucesso", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), EscolhaCadOuLoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("EXIT", true);
+            startActivity(intent);
             finish();
         } else {
             campoSenha.setError("Senha inválida");

@@ -127,7 +127,7 @@ public class PopularBanco {
         jurassic.setAvaliacao(7);
         jurassic.setGeneros("Ação, Aventura, Ficção Científica");
         jurassic.setCriadores("Derek Connolly, Colin Trevorrow");
-        jurassic.setImagem(formatadorImagem.gerarFoto(R.drawable.juras));
+        jurassic.setImagem(formatadorImagem.getFotoByte(R.drawable.juras));
         tituloDao.inserir(jurassic);
 
         Titulo incriveis = new Titulo();
@@ -136,7 +136,7 @@ public class PopularBanco {
         incriveis.setAvaliacao(9);
         incriveis.setGeneros("Ação, Aventura, Animação, Família");
         incriveis.setCriadores("Brad Bird");
-        incriveis.setImagem(formatadorImagem.gerarFoto(R.drawable.inc2));
+        incriveis.setImagem(formatadorImagem.getFotoByte(R.drawable.inc2));
         tituloDao.inserir(incriveis);
 
         Titulo logan = new Titulo();
@@ -145,7 +145,7 @@ public class PopularBanco {
         logan.setAvaliacao(10);
         logan.setGeneros("Ação, Drama, Ficção Científica");
         logan.setCriadores("Brad Bird");
-        logan.setImagem(formatadorImagem.gerarFoto(R.drawable.logan));
+        logan.setImagem(formatadorImagem.getFotoByte(R.drawable.logan));
         tituloDao.inserir(logan);
 
         Titulo sexy = new Titulo();
@@ -154,7 +154,7 @@ public class PopularBanco {
         sexy.setAvaliacao(7);
         sexy.setGeneros("Comédia");
         sexy.setCriadores("Marc Silverstein, Abby Kohn");
-        sexy.setImagem(formatadorImagem.gerarFoto(R.drawable.sexy));
+        sexy.setImagem(formatadorImagem.getFotoByte(R.drawable.sexy));
         tituloDao.inserir(sexy);
 
         Titulo vingadores = new Titulo();
@@ -163,7 +163,7 @@ public class PopularBanco {
         vingadores.setAvaliacao(10);
         vingadores.setGeneros("Ação, Fantasia, Aventura, Ficção Científica");
         vingadores.setCriadores("Joe Russo, Anthony Russo");
-        vingadores.setImagem(formatadorImagem.gerarFoto(R.drawable.vinga));
+        vingadores.setImagem(formatadorImagem.getFotoByte(R.drawable.vinga));
         tituloDao.inserir(vingadores);
 
         Titulo friends = new Titulo();
@@ -172,7 +172,7 @@ public class PopularBanco {
         friends.setAvaliacao(10);
         friends.setGeneros("Comédia");
         friends.setCriadores("Marta Kauffman, David Crane");
-        friends.setImagem(formatadorImagem.gerarFoto(R.drawable.friends));
+        friends.setImagem(formatadorImagem.getFotoByte(R.drawable.friends));
         tituloDao.inserir(friends);
 
     }
