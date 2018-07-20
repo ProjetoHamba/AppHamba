@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulos.dominio.Titulo;
@@ -49,7 +48,6 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         // Atualizada a view
         Titulo titulo = titulos.get(position);
         //setando as infos do dom
-        holder.tNome.setText(titulo.getNome());
         //rECLAMANDO DO BYTE -- KKKK, TOU AJEITANDO A FUNÇÃO AINDA MAS.. ABAIXOOOOOOOO
         Bitmap imagemTitilo = servicoTitulo.byteArrayToBitmap(titulo);
         holder.img.setImageBitmap(imagemTitilo);
@@ -71,7 +69,6 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     }
 
     public static class TitulosViewHolder extends RecyclerView.ViewHolder {
-        public TextView tNome;
         public ImageView img;
         public View view;
 
@@ -79,7 +76,6 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
             super(view);
             this.view = view;
             // Cria as views para salvar no ViewHolder
-            tNome = (TextView) view.findViewById(R.id.tNome);
             img = (ImageView) view.findViewById(R.id.img);
 
 
