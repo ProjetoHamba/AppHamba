@@ -44,8 +44,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Email atualizado com sucesso", Toast.LENGTH_SHORT).show();
             finish();
         } else {
-            this.campoSenha.requestFocus();
-            this.campoSenha.setError("Senha inválida");
+            Toast.makeText(getApplicationContext(), "Dados inválidos: Email já cadastrado ou senha inválida", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -15,7 +15,7 @@ public class ServicoConfiguracao {
     }
 
     public boolean atualizarEmail(Usuario usuario) {
-        if (usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())) {
+        if (usuarioDAO.getByEmail(usuario.getEmail()) == null && usuario.getSenha().equals(Sessao.instance.getPessoa().getUsuario().getSenha())) {
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
             usuarioDAO.update(usuario);
             Sessao.instance.getPessoa().setUsuario(usuario);
