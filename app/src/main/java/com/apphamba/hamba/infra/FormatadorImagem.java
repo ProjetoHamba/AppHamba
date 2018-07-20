@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 public class FormatadorImagem {
 
     private Bitmap gerarBitmMap(int id){
-        Bitmap bitmap = BitmapFactory.decodeResource(HambaApp.getContext().getResources(), id , new BitmapFactory.Options());
+        Bitmap bitmap = BitmapFactory.decodeResource(HambaApp.getContext().getResources(), id, new BitmapFactory.Options());
         return  bitmap;
     }
 

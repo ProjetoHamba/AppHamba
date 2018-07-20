@@ -111,6 +111,15 @@ public class PopularBanco {
         prisonBreak.setCriadores("Paul Scheuring");
         prisonBreak.setImagem(formatadorImagem.gerarFoto(R.drawable.prisonbreak));
         tituloDao.inserir(prisonBreak);
+
+        Titulo mrRobot = new Titulo();
+        mrRobot.setNome("Mr. Robot ");
+        mrRobot.setSinopse("Elliot é um jovem programador que sofre de uma desordem que o torna anti-social. Acreditando que a única forma de se conectar com as pessoas é hackeando suas vidas, ele alia seu conhecimento ao fato de trabalhar em uma empresa de segurança online para proteger aqueles que ele ama daqueles que tentam, de alguma forma, prejudicá-los. Suas atividades chamam a atenção de Mr. Robot, um misterioso anarquista que convida Elliot a fazer parte de uma organização que atua na ilegalidade com o objetivo de derrubar as corporações americanas.");
+        mrRobot.setAvaliacao(10);
+        mrRobot.setGeneros("Crime, Drama");
+        mrRobot.setCriadores("Sam Esmail");
+        mrRobot.setImagem(formatadorImagem.gerarFoto(R.drawable.mrbot));
+        tituloDao.inserir(mrRobot);
     }
 
 }

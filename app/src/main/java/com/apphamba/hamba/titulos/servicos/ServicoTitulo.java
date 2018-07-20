@@ -29,7 +29,7 @@ public class ServicoTitulo {
     }
 
     public Bitmap byteArrayToBitmap(Titulo titulo) {
-        byte[] byteArray =titulo.getImagem();
+        byte[] byteArray = titulo.getImagem();
         ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArray);
         Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
         return bitmap;

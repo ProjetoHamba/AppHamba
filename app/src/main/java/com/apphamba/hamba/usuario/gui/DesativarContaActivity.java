@@ -43,7 +43,9 @@ public class DesativarContaActivity extends AppCompatActivity {
         if (servicoConfiguracao.desativarConta(usuario)) {
             Toast.makeText(getApplicationContext(), "Conta desativada com sucesso", Toast.LENGTH_SHORT).show();
             finish();
-
+        } else {
+            campoSenha.setError("Senha inválida");
+            campoSenha.requestFocus();
         }
     }
 
