@@ -25,14 +25,6 @@ public class ServicoTitulo {
     public Titulo buscarTituloPorNome(String nome) {
         TituloDao tituloDao = new TituloDao();
         return tituloDao.getByNome(nome);
-
-    }
-
-    public Bitmap byteArrayToBitmap(Titulo titulo) {
-        byte[] byteArray =titulo.getImagem();
-        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArray);
-        Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
-        return bitmap;
     }
 
 }

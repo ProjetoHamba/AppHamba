@@ -5,13 +5,25 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 public class FormatadorImagem {
 
-    private Bitmap gerarBitmMap(int id){
-        Bitmap bitmap = BitmapFactory.decodeResource(HambaApp.getContext().getResources(), id , new BitmapFactory.Options());
-        return  bitmap;
+    public byte[] gerarFoto(int idResource){
+        byte[] fotoByte = this.bitMapParaByte(gerarBitmMap(idResource));
+        return fotoByte;
+    }
+
+    public Bitmap byteArrayToBitmap(byte[] byteArray) {
+        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArray);
+        Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
+        return bitmap;
+    }
+
+    private Bitmap gerarBitmMap(int idResource){
+        Bitmap bitmap = BitmapFactory.decodeResource(HambaApp.getContext().getResources(), idResource, new BitmapFactory.Options());
+        return bitmap;
     }
 
     private byte[] bitMapParaByte(Bitmap bitmap) {
@@ -21,8 +33,4 @@ public class FormatadorImagem {
         return imagemBytes;
     }
 
-    public byte[] gerarFoto(int id){
-        byte[] fotoByte = this.bitMapParaByte(gerarBitmMap(id));
-        return fotoByte;
-    }
 }
