@@ -120,6 +120,61 @@ public class PopularBanco {
         mrRobot.setCriadores("Sam Esmail");
         mrRobot.setImagem(formatadorImagem.gerarFoto(R.drawable.mrbot));
         tituloDao.inserir(mrRobot);
+
+        Titulo jurassic = new Titulo();
+        jurassic.setNome("Jurassic World: Reino Ameaçado");
+        jurassic.setSinopse("Quatro anos após o fechamento do Jurassic World, um vulcão prestes a entrar em erupção põe em risco a vida na ilha Nublar. No local não há mais qualquer presença humana, com os dinossauros vivendo livremente. Diante da situação, é preciso tomar uma decisão: deve-se retornar à ilha para salvar os animais ou abandoná-los para uma nova extinção? Decidida a resgatá-los, Claire (Bryce Dallas Howard) convoca Owen (Chris Pratt) a retornar à ilha com ela.");
+        jurassic.setAvaliacao(7);
+        jurassic.setGeneros("Ação, Aventura, Ficção Científica");
+        jurassic.setCriadores("Derek Connolly, Colin Trevorrow");
+        jurassic.setImagem(formatadorImagem.gerarFoto(R.drawable.juras));
+        tituloDao.inserir(jurassic);
+
+        Titulo incriveis = new Titulo();
+        incriveis.setNome("Os Incríveis 2");
+        incriveis.setSinopse("A família de super-heróis favorita de todo mundo está de volta em Os Incríveis 2 — mas dessa vez, Helena está sendo o destaque, deixando Bob em casa com Violeta e Flecha para se aventurar no dia a dia heroico de vida “normal”. É uma transição difícil para todo mundo, sendo os super poderes emergentes de Zezé o fator mais complicado. Quando um novo vilão traça uma trama brilhante e perigosa, a família e Gelado devem encontrar uma maneira de trabalhar juntos novamente — o que é mais fácil dizer do que fazer, mesmo quando são incríveis.");
+        incriveis.setAvaliacao(9);
+        incriveis.setGeneros("Ação, Aventura, Animação, Família");
+        incriveis.setCriadores("Brad Bird");
+        incriveis.setImagem(formatadorImagem.gerarFoto(R.drawable.inc2));
+        tituloDao.inserir(incriveis);
+
+        Titulo logan = new Titulo();
+        logan.setNome("Logan");
+        logan.setSinopse("Em 2029, Logan (Hugh Jackman) ganha a vida como chofer de limousine para cuidar do nonagenário Charles Xavier (Patrick Stewart). Debilitado fisicamente e esgotado emocionalmente, ele é procurado por Gabriela (Elizabeth Rodriguez), uma mexicana que precisa da ajuda do ex-X-Men para defender a pequena Laura Kinney / X-23 (Dafne Keen). Ao mesmo tempo em que se recusa a voltar à ativa, Logan é perseguido pelo mercenário Donald Pierce (Boyd Holbrook), interessado na menina.");
+        logan.setAvaliacao(10);
+        logan.setGeneros("Ação, Drama, Ficção Científica");
+        logan.setCriadores("Brad Bird");
+        logan.setImagem(formatadorImagem.gerarFoto(R.drawable.logan));
+        tituloDao.inserir(logan);
+
+        Titulo sexy = new Titulo();
+        sexy.setNome("Sexy por Acidente");
+        sexy.setSinopse("Renee (Amy Schumer), uma mulher comum, luta diariamente com sua insegurança. Depois de cair de bicicleta e bater a cabeça, ela de repente acorda acreditando ser a mulher maiz capaz e bonita do mundo. E com isso Renee começa a viver a vida mais confiante e sem medo das falhas.");
+        sexy.setAvaliacao(7);
+        sexy.setGeneros("Comédia");
+        sexy.setCriadores("Marc Silverstein, Abby Kohn");
+        sexy.setImagem(formatadorImagem.gerarFoto(R.drawable.sexy));
+        tituloDao.inserir(sexy);
+
+        Titulo vingadores = new Titulo();
+        vingadores.setNome("Vingadores: Guerra Infinita");
+        vingadores.setSinopse("Como os Vingadores e seus aliados continuaram a proteger o mundo de ameaças muito grandes para qualquer herói, uma nova ameaça emergiu das sombras cósmicas: Thanos. Um déspota da infâmia intergalática, seu objetivo é coletar todas as seis Joias do Infinito, artefatos de poder inimaginável, e usá-las para infligir sua vontade distorcida em toda a realidade. Tudo o que os Vingadores lutaram levou até este momento - o destino da Terra e da própria existência nunca foi tão incerto.");
+        vingadores.setAvaliacao(10);
+        vingadores.setGeneros("Ação, Fantasia, Aventura, Ficção Científica");
+        vingadores.setCriadores("Joe Russo, Anthony Russo");
+        vingadores.setImagem(formatadorImagem.gerarFoto(R.drawable.vinga));
+        tituloDao.inserir(vingadores);
+
+        Titulo friends = new Titulo();
+        friends.setNome("Friends");
+        friends.setSinopse("Seis jovens são unidos por laços familiares, românticos e, principalmente, de amizade, enquanto tentam vingar em Nova York. Rachel é a garota mimada que deixa o noivo no altar para viver com a amiga dos tempos de escola Monica, sistemática e apaixonada pela culinária. Monica é irmã de Ross, um paleontólogo que é abandonado pela esposa, que descobriu ser lésbica. Do outro lado do corredor do apartamento de Monica e Rachel, moram Joey, um ator frustrado, e Chandler, de profissão misteriosa. A turma é completa pela exótica Phoebe. ");
+        friends.setAvaliacao(10);
+        friends.setGeneros("Comédia");
+        friends.setCriadores("Marta Kauffman, David Crane");
+        friends.setImagem(formatadorImagem.gerarFoto(R.drawable.friends));
+        tituloDao.inserir(friends);
+
     }
 
 }

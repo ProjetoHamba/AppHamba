@@ -13,8 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
@@ -55,6 +57,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        TextView nomeUsuario, email;
+        nomeUsuario = findViewById(R.id.nomeView);
+        email = findViewById(R.id.emailView);
+        nomeUsuario.setText(Sessao.instance.getPessoa().getNome());
+        email.setText(Sessao.instance.getPessoa().getUsuario().getEmail());
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
