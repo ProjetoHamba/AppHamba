@@ -44,8 +44,8 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         Titulo titulo = titulos.get(position);
         //setando as infos do dom
         //rECLAMANDO DO BYTE -- KKKK, TOU AJEITANDO A FUNÇÃO AINDA MAS.. ABAIXOOOOOOOO
-        Bitmap imagemTitilo = titulo.getImagem();
-        holder.imageView.setImageBitmap(imagemTitilo);
+        Bitmap imagemTitulo = titulo.getImagemBitmap();
+        holder.imageView.setImageBitmap(imagemTitulo);
 
         if (onClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {

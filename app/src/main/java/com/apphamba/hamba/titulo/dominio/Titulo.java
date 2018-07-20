@@ -61,7 +61,11 @@ public class Titulo {
         this.id = id;
     }
 
-    public Bitmap getImagem() {
+    public byte[] getImagem() {
+        return this.imagem;
+    }
+
+    public Bitmap getImagemBitmap() {
         FormatadorImagem formatadorImagem = new FormatadorImagem();
         return formatadorImagem.byteArrayToBitmap(this.imagem);
     }
