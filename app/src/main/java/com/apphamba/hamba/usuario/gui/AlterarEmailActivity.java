@@ -48,7 +48,6 @@ public class AlterarEmailActivity extends AppCompatActivity {
         }
     }
 
-
     private boolean verificarCampos() {
         String email = campoAlterarEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();

@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.Sessao;
-import com.apphamba.hamba.infra.fragments.TituloListFragment;
+import com.apphamba.hamba.titulo.gui.fragments.TituloListFragment;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         TextView nomeUsuario, email;
         nomeUsuario = findViewById(R.id.nomeView);
         email = findViewById(R.id.emailView);
@@ -65,12 +64,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -81,34 +75,10 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_inicio) {
-            // Handle inicio action
-
-
-        } else if (id == R.id.nav_meu_hamba) {
-            //colocar aq a ação do clique
-
-        } else if (id == R.id.nav_calendario) {
-            //TODO PROXIMA SPRINT
-            //startActivity(new Intent(this,CalendarioActivity.class));
-
-
-        } else if (id == R.id.nav_favoritos) {
-
-        } else if (id == R.id.nav_recomendacoes) {
-            //TODO RECOMENDAÇÕES
-            //startActivity(new Intent(this,RecomendacoesActivity.class));
-            finish();
-
-        } else if (id == R.id.nav_configuracoes) {
-            //TODO para sexta cria tela
+        if (id == R.id.nav_configuracoes) {
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
-
-        } else if (id == R.id.nav_noticias) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

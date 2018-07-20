@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
-import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
 import java.util.ArrayList;
@@ -18,25 +17,25 @@ public class TituloDao {
     }
 
     private Titulo criarTitulo(Cursor cursor){
-        int indexId = cursor.getColumnIndex(String.valueOf(EnumTitulos.ID));
+        int indexId = cursor.getColumnIndex(EnumTitulos.ID.getDescricao());
         int id = cursor.getInt(indexId);
 
-        int indexNome = cursor.getColumnIndex(String.valueOf(EnumTitulos.NOME));
+        int indexNome = cursor.getColumnIndex(EnumTitulos.NOME.getDescricao());
         String nome = cursor.getString(indexNome);
 
-        int indexSinopse = cursor.getColumnIndex(String.valueOf(EnumTitulos.SINOPSE));
+        int indexSinopse = cursor.getColumnIndex(EnumTitulos.SINOPSE.getDescricao());
         String sinopse = cursor.getString(indexSinopse);
 
-        int indexAvaliacao = cursor.getColumnIndex(String.valueOf(EnumTitulos.AVALIACAO));
+        int indexAvaliacao = cursor.getColumnIndex(EnumTitulos.AVALIACAO.getDescricao());
         int avaliacao = cursor.getInt(indexAvaliacao);
 
-        int indexGeneros = cursor.getColumnIndex(String.valueOf(EnumTitulos.GENEROS));
+        int indexGeneros = cursor.getColumnIndex(EnumTitulos.GENEROS.getDescricao());
         String generos = cursor.getString(indexGeneros);
 
-        int indexCriadores = cursor.getColumnIndex(String.valueOf(EnumTitulos.CRIADORES));
+        int indexCriadores = cursor.getColumnIndex(EnumTitulos.CRIADORES.getDescricao());
         String criadores = cursor.getString(indexCriadores);
 
-        int indexImagem = cursor.getColumnIndex(String.valueOf(EnumTitulos.IMAGEM));
+        int indexImagem = cursor.getColumnIndex(EnumTitulos.IMAGEM.getDescricao());
         byte[] imagem = cursor.getBlob(indexImagem);
 
         Titulo titulo = new Titulo();
@@ -69,13 +68,13 @@ public class TituloDao {
     public void inserir(Titulo titulo) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put(String.valueOf(EnumTitulos.NOME), titulo.getNome());
-        valores.put(String.valueOf(EnumTitulos.SINOPSE), titulo.getSinopse());
-        valores.put(String.valueOf(EnumTitulos.AVALIACAO), titulo.getAvaliacao());
-        valores.put(String.valueOf(EnumTitulos.GENEROS), titulo.getGeneros());
-        valores.put(String.valueOf(EnumTitulos.CRIADORES), titulo.getCriadores());
-        valores.put(String.valueOf(EnumTitulos.IMAGEM), titulo.getImagem());
-        escritorBanco.insert(String.valueOf(EnumTitulos.TABELA_TITULOS), null, valores);
+        valores.put(EnumTitulos.NOME.getDescricao(), titulo.getNome());
+        valores.put(EnumTitulos.SINOPSE.getDescricao(), titulo.getSinopse());
+        valores.put(EnumTitulos.AVALIACAO.getDescricao(), titulo.getAvaliacao());
+        valores.put(EnumTitulos.GENEROS.getDescricao(), titulo.getGeneros());
+        valores.put(EnumTitulos.CRIADORES.getDescricao(), titulo.getCriadores());
+        valores.put(EnumTitulos.IMAGEM.getDescricao(), titulo.getImagem());
+        escritorBanco.insert(EnumTitulos.TABELA_TITULOS.getDescricao(), null, valores);
         escritorBanco.close();
     }
 

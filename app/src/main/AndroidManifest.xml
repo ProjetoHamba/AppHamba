@@ -28,14 +28,10 @@
         <activity
             android:name=".usuario.gui.EscolhaCadOuLoginActivity"
             android:label="@string/label_escolha" />
-        <activity android:name=".usuario.gui.TelaInicialActivity" />
         <activity android:name=".usuario.gui.EscolhaConfiguracaoActivity" />
         <activity android:name=".usuario.gui.AlterarEmailActivity" />
         <activity android:name=".usuario.gui.AlterarSenhaActivity" />
-        <activity android:name=".titulo.gui.RecomendacoesActivity" />
-        <activity android:name=".titulo.gui.CalendarioActivity" />
         <activity android:name=".usuario.gui.DesativarContaActivity"></activity>
-        <activity android:name=".titulo.gui.TituloActivity"/>
         <activity android:name=".titulo.gui.MainActivity"/>
     </application>
 

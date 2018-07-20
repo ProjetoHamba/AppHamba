@@ -16,7 +16,6 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_escolha_configuracao);
     }
 
-
     public void mudarTela(Class tela) {
         Intent intent = new Intent(this, tela);
         startActivity(intent);

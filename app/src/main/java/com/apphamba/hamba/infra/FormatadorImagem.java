@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 
 public class FormatadorImagem {
 
-    public byte[] getFotoByte(int idResource){
+    public byte[] getFotoByte(int idResource) {
         byte[] fotoByte = this.bitMapParaByte(gerarBitMap(idResource));
         return fotoByte;
     }
@@ -21,7 +21,7 @@ public class FormatadorImagem {
         return bitmap;
     }
 
-    private Bitmap gerarBitMap(int idResource){
+    private Bitmap gerarBitMap(int idResource) {
         Bitmap bitmap = BitmapFactory.decodeResource(HambaApp.getContext().getResources(), idResource, new BitmapFactory.Options());
         return bitmap;
     }

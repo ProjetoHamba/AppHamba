@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adapter;
+package com.apphamba.hamba.titulo.gui.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -33,17 +33,12 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     public TitulosViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_titulo, viewGroup, false);
         TitulosViewHolder holder = new TitulosViewHolder(view);
-        // (1) Chave da animação
-        //ViewCompat.setTransitionName(holder.img, context.getString(R.string.transition_key));
         return holder;
     }
 
     @Override
     public void onBindViewHolder(final TitulosViewHolder holder, final int position) {
-        // Atualizada a view
         Titulo titulo = titulos.get(position);
-        //setando as infos do dom
-        //rECLAMANDO DO BYTE -- KKKK, TOU AJEITANDO A FUNÇÃO AINDA MAS.. ABAIXOOOOOOOO
         Bitmap imagemTitulo = titulo.getImagemBitmap();
         holder.imageView.setImageBitmap(imagemTitulo);
 
@@ -51,7 +46,6 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Chama o listener para informar que clicou no Titulo
                     onClickListener.onClickTitulo(holder, position);
                 }
             });
@@ -71,7 +65,6 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         public TitulosViewHolder(View view) {
             super(view);
             this.view = view;
-            // Cria as views para salvar no ViewHolder
             imageView = (ImageView) view.findViewById(R.id.img);
         }
     }
