@@ -1,5 +1,4 @@
-package com.apphamba.hamba.infra.fragments.adapter;
-
+package com.apphamba.hamba.infra.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,17 +14,14 @@ import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
 
 import java.util.List;
 
-
-
 public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosViewHolder> {
     protected static final String TAG = "hamba";
     private final List<Titulo> titulos;
     private final Context context;
     private final TituloOnClickListener onClickListener;
-    ServicoTitulo servicoTitulo = new ServicoTitulo();
 
     public interface TituloOnClickListener {
-        void onClickTitulo(TitulosViewHolder holder, int idx);
+        void onClickTitulo(TitulosViewHolder holder, int indexTitulo);
     }
 
     public TituloAdapter(Context context, List<Titulo> titulos, TituloOnClickListener onClickListener) {
@@ -50,7 +46,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         //setando as infos do dom
         //rECLAMANDO DO BYTE -- KKKK, TOU AJEITANDO A FUNÇÃO AINDA MAS.. ABAIXOOOOOOOO
         Bitmap imagemTitilo = titulo.getImagem();
-        holder.img.setImageBitmap(imagemTitilo);
+        holder.imageView.setImageBitmap(imagemTitilo);
 
         if (onClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +57,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
                 }
             });
         }
+
     }
 
     @Override
@@ -69,18 +66,15 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     }
 
     public static class TitulosViewHolder extends RecyclerView.ViewHolder {
-        public ImageView img;
+        public ImageView imageView;
         public View view;
 
         public TitulosViewHolder(View view) {
             super(view);
             this.view = view;
             // Cria as views para salvar no ViewHolder
-            img = (ImageView) view.findViewById(R.id.img);
-
-
+            imageView = (ImageView) view.findViewById(R.id.img);
         }
     }
-
 
 }
