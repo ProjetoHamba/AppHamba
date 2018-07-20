@@ -4,7 +4,6 @@ public class Usuario {
     private long id;
     private String email;
     private String senha;
-    private String ativo;
 
     public long getId() {
         return id;
@@ -28,14 +27,6 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(String ativo) {
-        this.ativo = ativo;
     }
 
 }
