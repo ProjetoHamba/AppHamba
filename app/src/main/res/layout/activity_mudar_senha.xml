@@ -6,17 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".usuario.gui.AlterarSenhaActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarConfig"
-        android:layout_width="384dp"
-        android:layout_height="57dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ToolBarWithNavigationBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/materialup.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/materialup.toolbar"
+            style="@style/ToolBarWithNavigationBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/label_mudar_senha"
+            app:titleTextColor="@color/colorFundo" />
+    </android.support.design.widget.AppBarLayout>
 
     <Button
         android:id="@+id/button_criar_AlterarSenha2"
@@ -124,24 +130,8 @@
         android:layout_marginTop="84dp"
         android:text="@string/text_view_senha_atual"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarConfig" />
+        app:layout_constraintTop_toBottomOf="@+id/materialup.appbar" />
 
-    <TextView
-        android:id="@+id/textViewAlterarDadosPessoais2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/button_mudar_senha"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarConfig"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toStartOf="@+id/toolbarConfig"
-        app:layout_constraintTop_toTopOf="@+id/toolbarConfig" />
 </android.support.constraint.ConstraintLayout>

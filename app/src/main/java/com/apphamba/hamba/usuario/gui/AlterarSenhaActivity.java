@@ -1,7 +1,9 @@
 package com.apphamba.hamba.usuario.gui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +34,13 @@ public class AlterarSenhaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 alterarSenha();
+            }
+        });
+        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 
@@ -84,4 +93,11 @@ public class AlterarSenhaActivity extends AppCompatActivity {
         usuario.setSenha(senha);
         return usuario;
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, EscolhaConfiguracaoActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

@@ -100,6 +100,14 @@
 \n\nMaecenas non nulla ac odio molestie aliquam. Nunc eleifend, felis a condimentum viverra, est quam consequat justo, a dignissim justo nisl eget est. Maecenas mollis, lorem a vulputate congue, odio eros dictum sem, eget vulputate sapien risus sed augue. Sed blandit sem et nunc maximus, ut pretium est lacinia. Nulla facilisi. Nunc a faucibus sem. Phasellus rutrum, neque rhoncus tincidunt fermentum, mi risus tincidunt nisi, a viverra nunc neque in nunc. Phasellus ac luctus neque. In pharetra interdum leo vitae maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit felis a consectetur porta.
     </string>
 
+    <string name="label_desativar_conta">Desativar conta</string>
+    <string name="label_mudar_senha">Alterar senha</string>
+    <string name="label_escolha_configuracao">Configuração</string>
+    <string name="label_alterar_email">Alterar e-mail</string>
+    <string name="label_tela_inicial">Home</string>
+
+
+
 
 
 </resources>

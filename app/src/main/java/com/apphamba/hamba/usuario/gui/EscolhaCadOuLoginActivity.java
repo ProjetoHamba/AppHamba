@@ -13,6 +13,7 @@ public class EscolhaCadOuLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escolha_cad_ou_login);
+
     }
 
     protected  void onResume(){
