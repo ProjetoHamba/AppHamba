@@ -73,5 +73,4 @@ public class Titulo {
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
-    
 }

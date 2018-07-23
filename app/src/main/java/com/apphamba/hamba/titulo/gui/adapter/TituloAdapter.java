@@ -14,7 +14,6 @@ import com.apphamba.hamba.titulo.dominio.Titulo;
 import java.util.List;
 
 public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosViewHolder> {
-    protected static final String TAG = "hamba";
     private final List<Titulo> titulos;
     private final Context context;
     private final TituloOnClickListener onClickListener;
@@ -62,10 +61,10 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         public ImageView imageView;
         public View view;
 
-        public TitulosViewHolder(View view) {
+        private TitulosViewHolder(View view) {
             super(view);
             this.view = view;
-            imageView = (ImageView) view.findViewById(R.id.img);
+            imageView =  view.findViewById(R.id.img);
         }
     }
 

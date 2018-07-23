@@ -26,8 +26,8 @@ public class TituloListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_titulos_list, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3 ));
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         titulos = servicoTitulo.getTitulos();

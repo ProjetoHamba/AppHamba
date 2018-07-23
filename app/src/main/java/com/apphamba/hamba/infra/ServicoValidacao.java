@@ -12,10 +12,10 @@ public class ServicoValidacao {
     }
 
     public boolean verificarCampoEmail(String email) {
-        if (verificarCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            return true;
-        } else {
+        if (!verificarCampoVazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return false;
+        } else {
+            return true;
         }
     }
 

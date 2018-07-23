@@ -6,11 +6,9 @@ import com.apphamba.hamba.usuario.persistencia.PessoaDAO;
 import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 public class ServicoConfiguracao {
-    private PessoaDAO pessoaDAO;
     private UsuarioDAO usuarioDAO;
 
     public ServicoConfiguracao() {
-        pessoaDAO = new PessoaDAO();
         usuarioDAO = new UsuarioDAO();
     }
 

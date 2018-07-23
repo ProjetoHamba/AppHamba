@@ -55,7 +55,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
             this.campoAlterarEmail.setError("Formato de email inválido");
             campoAlterarEmail.requestFocus();
             return false;
-        } else if (servicoValidacao.verificarCampoVazio(senha)){
+        } else if (servicoValidacao.verificarCampoVazio(senha)) {
             this.campoSenha.requestFocus();
             this.campoSenha.setError("Campo Vazio");
             return false;
