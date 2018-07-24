@@ -53,9 +53,11 @@ public class TituloListFragment extends Fragment {
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int idx) {
                 Titulo p = titulos.get(idx);
                 Toast.makeText(getContext(), p.getNome(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TituloListFragment.this, DetalhesActivity.class);
-                intent.putExtra("titulo", p);
-                startActivity(intent);
+                //ALTERAÇÃO ANDERSON
+                //Intent intent = new Intent(TituloListFragment.this, DetalhesActivity.class);
+                //intent.putExtra("titulo", p);
+                //startActivity(intent);
+                //ATÉ AQUI
                 //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
                 //intent.putExtra("imgTitulo", p.img);
 
