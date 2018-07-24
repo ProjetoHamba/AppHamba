@@ -34,7 +34,7 @@ public class TituloListFragment extends Fragment {
 
         //Função abaixo pega os titulos pela função do dominio e get()
         //titulos = Titulo.getTitulos();
-        titulos = servicoTitulo.getTitulos();
+        titulos = servicoTitulo.getFavoritos();
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulos, onClickTitulo()));
 
         return view;

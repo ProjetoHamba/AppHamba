@@ -22,48 +22,56 @@ public class DataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE usuario(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "senha text NOT NULL, " +
-                "email text NOT NULL, " +
-                "excluido text NOT NULL); ");
+                "senha TEXT NOT NULL, " +
+                "email TEXT NOT NULL, " +
+                "excluido TEXT NOT NULL); ");
 
         db.execSQL("CREATE TABLE pessoa (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nome text NOT NULL, " +
-                "id_usuario interger NOT NULL);");
+                "nome TEXT NOT NULL, " +
+                "id_usuario INTEGER NOT NULL);");
 
-        db.execSQL("CREATE TABLE titulo(" +
+        db.execSQL("CREATE TABLE titulo (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nome text NOT NULL, " +
-                "sinopse text, " +
-                "avaliacao int, " +
-                "generos text, " +
-                "criadores text, " +
+                "nome TEXT NOT NULL, " +
+                "sinopse TEXT, " +
+                "avaliacao INTEGER, " +
+                "generos TEXT, " +
+                "criadores TEXT, " +
                 "imagem BLOB);");
+
+        db.execSQL("CREATE TABLE favorito (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER," +
+                "id_titulo INTEGER);");
 
         db.execSQL("CREATE TABLE serie(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "id_titulo interger, " +
-                "distribuidor text, " +
-                "quantidade_temporada int);");
+                "id_titulo INTEGER, " +
+                "distribuidor TEXT, " +
+                "quantidade_temporada INTEGER);");
 
         db.execSQL("CREATE TABLE temporada(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "id_serie interger, " +
-                "nome text, " +
-                "numero_temporada int, " +
-                "quantidade_episodio int, " +
-                "data_lancamento text ); ");
+                "id_serie INTEGER, " +
+                "nome TEXT, " +
+                "numero_temporada INTEGER, " +
+                "quantidade_episodio INTEGER, " +
+                "data_lancamento TEXT ); ");
 
         db.execSQL("CREATE TABLE episodio(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "id_temporada interger, " +
-                "nome text, " +
-                "numero_episodio int);");
+                "id_temporada INTEGER, " +
+                "nome TEXT, " +
+                "numero_episodio INTEGER);");
 
         db.execSQL("CREATE TABLE filme(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "id_titulo interger, " +
-                "duracao int);");
+                "id_titulo INTEGER, " +
+                "duracao INTEGER);");
+
+        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`) VALUES (1,1)");
+        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`) VALUES (1,2)");
 
     }
 
