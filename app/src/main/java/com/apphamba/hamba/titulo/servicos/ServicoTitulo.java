@@ -33,4 +33,10 @@ public class ServicoTitulo {
         return favoritoDao.loadFavoritos(usuario);
     }
 
+    public void adicionarFavorito(Titulo titulo) {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        FavoritoDao favoritoDao = new FavoritoDao();
+        favoritoDao.inserirFavorito(titulo, usuario);
+    }
+
 }

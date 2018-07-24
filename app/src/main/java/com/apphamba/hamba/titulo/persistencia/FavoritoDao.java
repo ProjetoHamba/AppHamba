@@ -1,6 +1,10 @@
 package com.apphamba.hamba.titulo.persistencia;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
 import com.apphamba.hamba.infra.DataBase;
+import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Usuario;
@@ -27,9 +31,14 @@ public class FavoritoDao {
     }
 
     public void inserirFavorito(Titulo titulo, Usuario usuario) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         String idUsuario = String.valueOf(usuario.getId());
         String idTitulo = String.valueOf(titulo.getId());
-        // TODO terminar inserir
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_USUARIO.getDescricao(), idUsuario);
+        valores.put(EnumTitulos.ID_TITULO.getDescricao(), idTitulo);
+        escritorBanco.insert(EnumTitulos.TABELA_FAVORITO.getDescricao(), null, valores);
+        escritorBanco.close();
     }
 
 }
