@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.fragments.adapter.TituloAdapter;
 import com.apphamba.hamba.titulos.dominio.Titulo;
+import com.apphamba.hamba.titulos.gui.DetalhesActivity;
 import com.apphamba.hamba.titulos.gui.TituloActivity;
 import com.apphamba.hamba.titulos.servicos.ServicoTitulo;
 
@@ -52,8 +53,9 @@ public class TituloListFragment extends Fragment {
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int idx) {
                 Titulo p = titulos.get(idx);
                 Toast.makeText(getContext(), p.getNome(), Toast.LENGTH_SHORT).show();
-
-                //Intent intent = new Intent(getContext(), TituloActivity.class);
+                Intent intent = new Intent(TituloListFragment.this, DetalhesActivity.class);
+                intent.putExtra("titulo", p);
+                startActivity(intent);
                 //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
                 //intent.putExtra("imgTitulo", p.img);
 
@@ -67,6 +69,4 @@ public class TituloListFragment extends Fragment {
             }
         };
     }
-
-
 }

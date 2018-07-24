@@ -1,6 +1,10 @@
 package com.apphamba.hamba.titulos.dominio;
 
-public class Titulo {
+import android.graphics.Bitmap;
+
+import java.io.Serializable;
+
+public class Titulo implements Serializable {
     private int id;
     private String nome;
     private String sinopse;
@@ -57,7 +61,7 @@ public class Titulo {
         this.id = id;
     }
 
-    public byte[] getImagem() {
+    public Bitmap getImagem() {
         return imagem;
     }
 
