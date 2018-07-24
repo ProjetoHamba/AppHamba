@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.titulos.dominio.Titulo;
+import com.apphamba.hamba.titulo.dominio.Titulo;
 
 public class DetalhesActivity extends AppCompatActivity {
     @Override
@@ -18,7 +18,7 @@ public class DetalhesActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Titulo dados = (Titulo) intent.getSerializableExtra("titulo");
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setImageBitmap(dados.getImagem());
+        imageView.setImageBitmap(dados.getImagemBitmap());
         TextView nome = (TextView) findViewById(R.id.textView);
         nome.setText(dados.getNome());
         TextView avaliacao = (TextView) findViewById(R.id.textView7);

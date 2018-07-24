@@ -2,6 +2,7 @@ package com.apphamba.hamba.infra.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,8 @@ public class TituloFragment extends Fragment {
         if (imgTitulo > 0) {
             ImageView img = (ImageView) view.findViewById(R.id.img);
 			// (1) Chave da animação
-            // ViewCompat.setTransitionName(img, getString(R.string.transition_key));
+            //Aq embaixo pega a string
+            ViewCompat.setTransitionName(img, getString(R.string.transition_key));
             img.setImageResource(imgTitulo);
         }
 
