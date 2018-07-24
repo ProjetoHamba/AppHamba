@@ -1,5 +1,7 @@
 package com.apphamba.hamba.titulo.gui;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -100,8 +102,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_favoritos) {
-            getSupportFragmentManager().beginTransaction().add(R.id.fragContainer, new FavoritoListFragment(), null).commit();
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragContainer, new FavoritoListFragment(), null).commit();
         } else if (id == R.id.nav_recomendacoes) {
             //TODO RECOMENDAÇÕES
             //startActivity(new Intent(this,RecomendacoesActivity.class));
