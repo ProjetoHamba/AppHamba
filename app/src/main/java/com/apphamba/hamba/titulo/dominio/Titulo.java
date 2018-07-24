@@ -4,7 +4,9 @@ import android.graphics.Bitmap;
 
 import com.apphamba.hamba.infra.FormatadorImagem;
 
-public class Titulo {
+import java.io.Serializable;
+
+public class Titulo implements Serializable {
     private int id;
     private String nome;
     private String sinopse;
@@ -62,10 +64,10 @@ public class Titulo {
     }
 
     public byte[] getImagem() {
-        return this.imagem;
+        return imagem;
     }
 
-    public Bitmap getImagemBitmap() {
+    public Bitmap getImagemBitmap(){
         FormatadorImagem formatadorImagem = new FormatadorImagem();
         return formatadorImagem.byteArrayToBitmap(this.imagem);
     }
@@ -73,5 +75,5 @@ public class Titulo {
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
-    
+
 }
