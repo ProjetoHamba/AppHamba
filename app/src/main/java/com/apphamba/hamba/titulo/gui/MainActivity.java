@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.fragments.FavoritoListFragment;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_favoritos) {
+            getSupportFragmentManager().beginTransaction().add(R.id.fragContainer, new FavoritoListFragment(), null).commit();
 
         } else if (id == R.id.nav_recomendacoes) {
             //TODO RECOMENDAÇÕES

@@ -1,6 +1,5 @@
 package com.apphamba.hamba.infra.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,22 +13,17 @@ import android.widget.Toast;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
-import com.apphamba.hamba.titulo.gui.DetalhesActivity;
-import com.apphamba.hamba.titulo.gui.TituloActivity;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.List;
 
+import static com.apphamba.hamba.infra.HambaApp.getContext;
 
-/**
- * Created by rlech on 11-Nov-15.
- */
-public class TituloListFragment extends Fragment {
+public class FavoritoListFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<Titulo> titulos;
     private ServicoTitulo servicoTitulo = new ServicoTitulo();
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +36,7 @@ public class TituloListFragment extends Fragment {
 
         //Função abaixo pega os titulos pela função do dominio e get()
         //titulos = Titulo.getTitulos();
-        titulos = servicoTitulo.getTitulos();
+        titulos = servicoTitulo.getFavoritos();
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulos, onClickTitulo()));
 
         return view;
@@ -51,12 +45,11 @@ public class TituloListFragment extends Fragment {
     private TituloAdapter.TituloOnClickListener onClickTitulo() {
         return new TituloAdapter.TituloOnClickListener() {
             @Override
-            public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int idx) {
-                Titulo p = titulos.get(idx);
-                Toast.makeText(getContext(), p.getNome(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(), DetalhesActivity.class);
-                intent.putExtra("titulo", p);
-                startActivity(intent);
+            public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
+                Titulo titulo = titulos.get(indexTitulo);
+                Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
+
+                //Intent intent = new Intent(getContext(), TituloActivity.class);
                 //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
                 //intent.putExtra("imgTitulo", p.img);
 
@@ -70,4 +63,6 @@ public class TituloListFragment extends Fragment {
             }
         };
     }
+
 }
+
