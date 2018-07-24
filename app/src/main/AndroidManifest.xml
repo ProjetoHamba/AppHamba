@@ -41,6 +41,8 @@
         <activity android:name=".titulo.gui.TituloActivity"/>
         <activity android:name=".titulo.gui.MainActivity"
             android:label="@string/label_tela_inicial"/>
+        <activity android:name=".titulos.gui.DetalhesActivity">
+        </activity>
     </application>
 
 </manifest>

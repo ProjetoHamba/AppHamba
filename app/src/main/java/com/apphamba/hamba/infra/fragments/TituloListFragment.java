@@ -1,5 +1,6 @@
 package com.apphamba.hamba.infra.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,7 +14,9 @@ import android.widget.Toast;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.gui.TituloActivity;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
+import com.apphamba.hamba.titulos.gui.DetalhesActivity;
 
 import java.util.List;
 
@@ -46,12 +49,16 @@ public class TituloListFragment extends Fragment {
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
                 Titulo titulo = titulos.get(indexTitulo);
                 Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
-
-                //Intent intent = new Intent(getContext(), TituloActivity.class);
-                //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
-                //intent.putExtra("imgTitulo", p.img);
-
+                //abaixo modif Anderson + mandando o objeto titulo
+                //Intent intent = new Intent(getContext(), DetalhesActivity.class);
+                //intent.putExtra("Titulo", titulo);
                 //startActivity(intent);
+
+                Intent intent = new Intent(getContext(), TituloActivity.class);
+                //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
+                intent.putExtra("imgTitulo", titulo.getImagem());
+
+                startActivity(intent);
 
                 // (1) Start activity com animação
 //                String key = getString(R.string.transition_key);
