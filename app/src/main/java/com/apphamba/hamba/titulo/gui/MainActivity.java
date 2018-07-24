@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         email = findViewById(R.id.emailView);
         nomeUsuario.setText(Sessao.instance.getPessoa().getNome());
         email.setText(Sessao.instance.getPessoa().getUsuario().getEmail());
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.search_com_settings_menu, menu);
         return true;
     }
 
@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_search) {
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_meu_hamba) {
-            //colocar aq a ação do clique
+            //startActivity(new Intent(this, MeuHambaActivity.class));
 
         } else if (id == R.id.nav_calendario) {
             //TODO PROXIMA SPRINT
@@ -108,6 +110,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
 
         } else if (id == R.id.nav_noticias) {
+            //startActivity(new Intent(this, NoticiasActivity.class));
 
         }
 

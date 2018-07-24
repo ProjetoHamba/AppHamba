@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".usuario.gui.EscolhaConfiguracaoActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/materialup.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/materialup.toolbar"
+            style="@style/ToolBarWithNavigationBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/label_escolha_configuracao"
+            app:titleTextColor="@color/colorFundo" />
+    </android.support.design.widget.AppBarLayout>
+
     <Button
         android:id="@+id/button_entrar4"
         android:layout_width="336dp"
@@ -46,41 +64,15 @@
         android:layout_height="62dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="68dp"
         android:background="@color/colorButoes"
         android:onClick="cliqueBotaoAlterarSenha"
         android:text="@string/button_mudar_senha"
         android:textColor="@color/colorTextoBut"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarConfig" />
+        app:layout_constraintTop_toBottomOf="@+id/materialup.appbar" />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarConfig"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ToolBarWithNavigationBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/label_configuracoes"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarConfig"
-        app:layout_constraintEnd_toEndOf="@+id/toolbarConfig"
-        app:layout_constraintHorizontal_bias="0.23"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
