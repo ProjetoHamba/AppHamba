@@ -54,24 +54,26 @@ public class TituloListFragment extends Fragment {
         return new TituloAdapter.TituloOnClickListener() {
             @Override
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
+
                 Titulo titulo = titulos.get(indexTitulo);
-                Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
-                //abaixo modif Anderson + mandando o objeto titulo
-                //Intent intent = new Intent(getContext(), DetalhesActivity.class);
-                //intent.putExtra("Titulo", titulo);
-                //startActivity(intent);
+                if (actionMode == null) {
+                    Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), TituloActivity.class);
+                    //intent.putExtra("titulo", titulo);
+                    //abaixo modif Anderson + mandando o objeto titulo
+                    //Intent intent = new Intent(getContext(), DetalhesActivity.class);
+                    //intent.putExtra("Titulo", titulo);
+                    //startActivity(intent);
+                    startActivity(intent);
+                } else { // Se a CAB está ativada
+                    // Seleciona o carro
+                    titulo.selected = !titulo.selected;
+                    // Atualiza o título com a quantidade de carros selecionados
+                    updateActionModeTitle();
+                    // Redesenha a lista
+                    recyclerView.getAdapter().notifyDataSetChanged();
+                }
 
-                Intent intent = new Intent(getContext(), TituloActivity.class);
-                //AJEITAR AQUI EMBAIXO INTEIRO ---------- CHAMAR A FUNÇÃO
-                intent.putExtra("imgTitulo", titulo.getImagem());
-
-                startActivity(intent);
-
-                // (1) Start activity com animação
-//                String key = getString(R.string.transition_key);
-//                ImageView img = holder.img;
-//                ActivityOptionsCompat opts = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), img, key);
-//                ActivityCompat.startActivity(getActivity(), intent, opts.toBundle());
             }
 
             @Override
@@ -125,13 +127,6 @@ public class TituloListFragment extends Fragment {
                 // Infla o menu específico da action bar de contexto (CAB)
                 MenuInflater inflater = getActivity().getMenuInflater();
                 inflater.inflate(R.menu.menu_frag_titulos_cab, menu);
-                MenuItem shareItem = menu.findItem(R.id.action_share);
-//                ShareActionProvider share = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-//                shareIntent = new Intent(Intent.ACTION_SEND);
-//                shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-//                shareIntent.setType("text/plain");
-//                share.setShareIntent(shareIntent);
-
                 return true;
             }
 

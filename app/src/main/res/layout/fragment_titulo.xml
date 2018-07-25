@@ -47,11 +47,6 @@
         android:layout_margin="10dp"
         android:text="@string/texto_lorem_5" />
 
-    <TextView
-        android:id="@+id/text6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/texto_lorem_6" />
+
 
 </LinearLayout>
