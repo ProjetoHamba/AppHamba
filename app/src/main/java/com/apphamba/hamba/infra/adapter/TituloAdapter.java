@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulo.gui.adapter;
+package com.apphamba.hamba.infra.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -86,7 +86,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         public View view;
         CardView cardView;
 
-        private TitulosViewHolder(View view) {
+        public TitulosViewHolder(View view) {
             super(view);
             this.view = view;
             // Cria as views para salvar no ViewHolder

@@ -3,7 +3,7 @@ package com.apphamba.hamba.infra;
 import android.app.Application;
 import android.content.Context;
 
-public class HambaApp extends Application {
+public class HambaApp extends Application{
 
     private static Context mContext;
 
@@ -13,7 +13,7 @@ public class HambaApp extends Application {
         mContext = this;
     }
 
-    public static Context getContext() {
+    public static Context getContext(){
         return mContext;
     }
 

@@ -56,6 +56,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
         }
     }
 
+
     private boolean verificarCampos() {
         String email = campoAlterarEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
@@ -63,7 +64,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
             this.campoAlterarEmail.setError("Formato de email inválido");
             campoAlterarEmail.requestFocus();
             return false;
-        } else if (servicoValidacao.verificarCampoVazio(senha)) {
+        } else if (servicoValidacao.verificarCampoVazio(senha)){
             this.campoSenha.requestFocus();
             this.campoSenha.setError("Campo Vazio");
             return false;

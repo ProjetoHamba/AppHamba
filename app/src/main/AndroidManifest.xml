@@ -28,6 +28,7 @@
         <activity
             android:name=".usuario.gui.EscolhaCadOuLoginActivity"
             android:label="@string/label_escolha" />
+        <activity android:name=".usuario.gui.TelaInicialActivity" />
         <activity android:name=".usuario.gui.EscolhaConfiguracaoActivity" />
         <activity
             android:name=".usuario.gui.AlterarEmailActivity"

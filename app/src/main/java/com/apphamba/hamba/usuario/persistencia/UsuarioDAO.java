@@ -71,7 +71,7 @@ public class UsuarioDAO {
         return this.load(query, args);
     }
 
-    public long inserir(Usuario usuario) {
+    public long inserir(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put(EnumUsuarioPessoa.EMAIL.getDescricao(), usuario.getEmail());
@@ -82,7 +82,7 @@ public class UsuarioDAO {
         return id;
     }
 
-    public void update(Usuario usuario) {
+    public void update(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         String query = "id = ?";
         ContentValues values = new ContentValues();
@@ -93,7 +93,7 @@ public class UsuarioDAO {
         escritorBanco.close();
     }
 
-    public void desativarUsuario(Usuario usuario) {
+    public void desativarUsuario(Usuario usuario){
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         String query = "id = ?";
         ContentValues values = new ContentValues();

@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulo.persistencia;
+package com.apphamba.hamba.infra;
 
 public enum EnumTitulos {
     ID("id"), ID_USUARIO("id_usuario"), NOME("nome"), SINOPSE("sinopse"), AVALIACAO("avaliacao"),

@@ -18,6 +18,8 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText campoNome, campoEmail, campoSenha, campoResenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
