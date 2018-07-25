@@ -46,6 +46,12 @@ public class DataBase extends SQLiteOpenHelper {
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
 
+        db.execSQL("CREATE TABLE meu_hamba (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_titulo INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
+
         db.execSQL("CREATE TABLE serie(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_titulo INTEGER, " +

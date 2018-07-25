@@ -5,20 +5,19 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
 import com.apphamba.hamba.infra.EnumTitulos;
-import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
 
-public class FavoritoDao {
+public class MeuHambaDao {
     private DataBase bancoDados;
 
-    public FavoritoDao() {
+    public MeuHambaDao() {
         this.bancoDados = new DataBase();
     }
 
-    public ArrayList<Titulo> loadFavoritos(Usuario usuario) {
+    public ArrayList<Titulo> loadMeuHamba(Usuario usuario) {
         String idUsuario = String.valueOf(usuario.getId());
         String query = "SELECT * FROM favorito AS f " +
                        "JOIN titulo AS t " +
@@ -26,8 +25,8 @@ public class FavoritoDao {
                        "WHERE f.id_usuario = ?;";
         String[] args = {idUsuario};
         TituloDao tituloDao = new TituloDao();
-        ArrayList<Titulo> favoritos = tituloDao.loadTitulos(query, args);
-        return favoritos;
+        ArrayList<Titulo> meuHamba = tituloDao.loadTitulos(query, args);
+        return meuHamba;
     }
 
     public void inserir(Titulo titulo, Usuario usuario) {
@@ -38,7 +37,7 @@ public class FavoritoDao {
         valores.put(EnumTitulos.ID_USUARIO.getDescricao(), idUsuario);
         valores.put(EnumTitulos.ID_TITULO.getDescricao(), idTitulo);
         valores.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.NAO_EXCLUIDO.getDescricao());
-        escritorBanco.insert(EnumTitulos.TABELA_FAVORITO.getDescricao(), null, valores);
+        escritorBanco.insert(EnumTitulos.TABELA_MEU_HAMBA.getDescricao(), null, valores);
         escritorBanco.close();
     }
 
@@ -48,7 +47,7 @@ public class FavoritoDao {
         ContentValues values = new ContentValues();
         values.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.SIM_EXCLUIDO.getDescricao());
         String[] args = {String.valueOf(usuario.getId()), String.valueOf(titulo.getId())};
-        escritorBanco.update(EnumTitulos.TABELA_FAVORITO.getDescricao(), values, query, args);
+        escritorBanco.update(EnumTitulos.TABELA_MEU_HAMBA.getDescricao(), values, query, args);
         escritorBanco.close();
     }
 

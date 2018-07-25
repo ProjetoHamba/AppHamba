@@ -4,6 +4,7 @@ package com.apphamba.hamba.titulo.servicos;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.persistencia.FavoritoDao;
+import com.apphamba.hamba.titulo.persistencia.MeuHambaDao;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 
@@ -38,6 +39,18 @@ public class ServicoTitulo {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         FavoritoDao favoritoDao = new FavoritoDao();
         favoritoDao.remover(titulo, usuario);
+    }
+
+    public void adicionarMeuHamba(Titulo titulo) {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        MeuHambaDao meuHambaDao = new MeuHambaDao();
+        meuHambaDao.inserir(titulo, usuario);
+    }
+
+    public void removerMeuHamba(Titulo titulo) {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        MeuHambaDao meuHambaDao = new MeuHambaDao();
+        meuHambaDao.remover(titulo, usuario);
     }
 
 }
