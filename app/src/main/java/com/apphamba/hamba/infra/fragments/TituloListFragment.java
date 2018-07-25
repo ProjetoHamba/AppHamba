@@ -138,24 +138,42 @@ public class TituloListFragment extends Fragment {
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<Titulo> selectedTitulos = getSelectedTitulos();
-                if (item.getItemId() == R.id.action_remove) {
-                    //CarroDB db = new TituloDB(getContext());
+                if (item.getItemId() == R.id.action_adicionar_meu_hamba) {
+                    //TituloDB db = new TituloDB(getContext());
                     try {
                         for (Titulo titulo : selectedTitulos) {
-                           // db.delete(titulo); // Deleta o titulo do banco
-                            //titulos.remove(titulo); // Remove da lista
+                           // db.add(titulo); // Adiciona o titulo do banco
+                            //titulos.add(titulo); // adiciona na lista
                         }
                     } finally {
                        // db.close();
                     }
-                    snack(recyclerView, "Títulos excluídos com sucesso.");
+                    snack(recyclerView, "Títulos adicionados com sucesso.");
 
-                } else if (item.getItemId() == R.id.action_share) {
+                }else if (item.getItemId() == R.id.action_adicionar_meus_fav) {
+
+                }else if (item.getItemId() == R.id.action_share) {
                     // Dispara a tarefa para fazer download das fotos
                     //startTask("compartilhar", new CompartilharTask(selectedCarros));
+                    // Encerra o action mode
+                }else if (item.getItemId() == R.id.action_remove) {
+                    //TituloDB db = new TituloDB(getContext());
+                    try {
+                        for (Titulo titulo : selectedTitulos) {
+                            // db.delete(titulo); // Deleta o titulo do banco
+                            //titulos.remove(titulo); // Remove da lista
+                        }
+                    } finally {
+                        // db.close();
+                    }
+                    snack(recyclerView, "Títulos excluídos com sucesso.");
 
+                }else if (item.getItemId() == R.id.action_share) {
+                    // Dispara a tarefa para fazer download das fotos
+                    //startTask("compartilhar", new CompartilharTask(selectedCarros));
+                    // Encerra o action mode
                 }
-                // Encerra o action mode
+
                 mode.finish();
                 return true;
             }
