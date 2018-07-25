@@ -52,10 +52,14 @@ public class TituloDao {
     }
 
     public ArrayList<Titulo> loadTitulos() {
+        String query = "SELECT * FROM titulo";
+        return this.loadTitulos(query, null);
+    }
+
+    public ArrayList<Titulo> loadTitulos(String query, String[] args) {
         ArrayList<Titulo> titulos = new ArrayList<Titulo>();
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
-        String query = "SELECT * FROM titulo";
-        Cursor cursor = leitorBanco.rawQuery(query, null);
+        Cursor cursor = leitorBanco.rawQuery(query, args);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
@@ -63,7 +67,6 @@ public class TituloDao {
             } while (cursor.moveToNext());
         }
         return titulos;
-
     }
 
     public void inserir(Titulo titulo) {
