@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DataBase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "dbapphamba";
 
     public DataBase() {
@@ -64,6 +64,21 @@ public class DataBase extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_titulo interger, " +
                 "duracao int);");
+
+        db.execSQL("CREATE TABLE favorito (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_titulo INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
+
+        db.execSQL("CREATE TABLE meu_hamba (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_titulo INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
+
+        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`, `excluido` ) VALUES (1,1,'nao')");
+        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`, `excluido` ) VALUES (1,2,'nao')");
 
     }
 
