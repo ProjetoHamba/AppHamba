@@ -77,8 +77,8 @@ public class DataBase extends SQLiteOpenHelper {
                 "id_titulo INTEGER, " +
                 "duracao INTEGER);");
 
-        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`) VALUES (1,1)");
-        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`) VALUES (1,2)");
+        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`, `excluido` ) VALUES (1,1,'nao')");
+        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`, `excluido` ) VALUES (1,2,'nao')");
 
     }
 
