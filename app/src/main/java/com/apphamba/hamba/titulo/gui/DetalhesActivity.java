@@ -1,12 +1,13 @@
 package com.apphamba.hamba.titulo.gui;
 
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
 public class DetalhesActivity extends AppCompatActivity {
@@ -15,8 +16,7 @@ public class DetalhesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
 
-        Intent intent = getIntent();
-        Titulo dados = (Titulo) intent.getSerializableExtra("titulo");
+        Titulo dados = Sessao.instance.getTituloSelecionado(); //TODO ANDERSON VERIFICAR SE TA CERTO
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageBitmap(dados.getImagemBitmap());
         TextView nome = (TextView) findViewById(R.id.textView);

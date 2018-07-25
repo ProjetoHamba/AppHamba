@@ -1,5 +1,6 @@
 package com.apphamba.hamba.infra;
 
+import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 
 import java.util.HashMap;
@@ -15,6 +16,14 @@ public class Sessao {
 
     public Pessoa getPessoa() {
         return (Pessoa) values.get("sessao.Pessoa");
+    }
+
+    public Titulo getTituloSelecionado() {
+        return (Titulo) values.get("sessao.TituloSelecionado");
+    }
+
+    public void setTituloSelecionado(Titulo tituloSelecionado) {
+        setValor("sessao.TituloSelecionado", tituloSelecionado);
     }
 
     private void setValor(String chave, Object valor){
