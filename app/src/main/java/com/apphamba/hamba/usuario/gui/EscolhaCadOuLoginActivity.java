@@ -16,7 +16,7 @@ public class EscolhaCadOuLoginActivity extends AppCompatActivity {
 
     }
 
-    protected  void onResume(){
+    protected  void onResume() {
         super.onResume();
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();

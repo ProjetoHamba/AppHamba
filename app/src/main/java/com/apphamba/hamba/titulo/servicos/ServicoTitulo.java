@@ -13,14 +13,8 @@ public class ServicoTitulo {
         tituloDao = new TituloDao();
     }
 
-    public ArrayList<Titulo> getTitulos(){
+    public ArrayList<Titulo> getTitulos() {
         ArrayList<Titulo> titulos = this.tituloDao.loadTitulos();
         return titulos;
     }
-
-    public Titulo buscarTituloPorNome(String nome) {
-        TituloDao tituloDao = new TituloDao();
-        return tituloDao.getByNome(nome);
-    }
-
 }

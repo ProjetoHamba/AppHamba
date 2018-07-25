@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.Sessao;
-import com.apphamba.hamba.infra.fragments.TituloListFragment;
+import com.apphamba.hamba.titulo.gui.fragments.TituloListFragment;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 
@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_configuracoes) {
             //TODO para sexta cria tela
+        if (id == R.id.nav_configuracoes) {
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
 
         } else if (id == R.id.nav_noticias) {

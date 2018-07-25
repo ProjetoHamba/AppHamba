@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.fragments;
+package com.apphamba.hamba.titulo.gui.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.adapter.TituloAdapter;
+import com.apphamba.hamba.titulo.gui.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.TituloActivity;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
@@ -33,17 +33,15 @@ public class TituloListFragment extends Fragment {
     private ActionMode actionMode;
     private ServicoTitulo servicoTitulo = new ServicoTitulo();
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_titulos_list, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //recyclerView.setHasFixedSize(true);
-
-        //Função abaixo pega os titulos pela função do dominio e get()
-        //titulos = Titulo.getTitulos();
+        ServicoTitulo servicoTitulo = new ServicoTitulo();
         titulos = servicoTitulo.getTitulos();
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulos, onClickTitulo()));
 

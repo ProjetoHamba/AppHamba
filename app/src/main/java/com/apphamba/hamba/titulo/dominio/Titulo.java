@@ -78,5 +78,4 @@ public class Titulo implements Serializable {
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
-    
 }
