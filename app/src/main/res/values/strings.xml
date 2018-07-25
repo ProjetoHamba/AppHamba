@@ -105,8 +105,12 @@
     <string name="label_escolha_configuracao">Configuração</string>
     <string name="label_alterar_email">Alterar e-mail</string>
     <string name="label_tela_inicial">Home</string>
-
-
+    <string name="text_action_search">Procurar</string>
+    <string name="text_action_excluir">Excluir</string>
+    <string name="text_action_share">Compartilhar</string>
+    <string name="text_action_adicionar">Adicionar</string>
+    <string name="text_action_adicionar_meu_hamba">Adicionar ao "Meu hamba"</string>
+    <string name="text_action_adicionar_meus_fav">Adicionar aos "Favoritos"</string>
 
 
 

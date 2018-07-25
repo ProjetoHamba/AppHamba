@@ -2,6 +2,7 @@ package com.apphamba.hamba.infra.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
 
     public interface TituloOnClickListener {
         void onClickTitulo(TitulosViewHolder holder, int indexTitulo);
+        void onLongClickTitulo(TitulosViewHolder holder, int indexTitulo);
     }
 
     public TituloAdapter(Context context, List<Titulo> titulos, TituloOnClickListener onClickListener) {
@@ -55,7 +57,22 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
                     onClickListener.onClickTitulo(holder, position);
                 }
             });
+            // Click longo
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    onClickListener.onLongClickTitulo(holder, position);
+                    return true;
+                }
+            });
         }
+        // Pinta o fundo de azul se a linha estiver selecionada
+        int corFundo = context.getResources().getColor(titulo.selected ? R.color.colorBlue : R.color.colorWhite);
+        holder.cardView.setCardBackgroundColor(corFundo);
+        // A cor do texto é branca ou azul, depende da cor do fundo. - isso é para o texto dentro do card
+        //int corFonte = context.getResources().getColor(titulo.selected ? R.color.colorWhite : R.color.colorBlue);
+        //holder.tNome.setTextColor(corFonte);
+;
 
     }
 
@@ -67,12 +84,14 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     public static class TitulosViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public View view;
+        CardView cardView;
 
         public TitulosViewHolder(View view) {
             super(view);
             this.view = view;
             // Cria as views para salvar no ViewHolder
             imageView = (ImageView) view.findViewById(R.id.img);
+            cardView = (CardView) view.findViewById(R.id.card_view);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulos.gui;
+package com.apphamba.hamba.titulo.gui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

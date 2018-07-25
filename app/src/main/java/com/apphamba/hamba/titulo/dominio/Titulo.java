@@ -15,6 +15,9 @@ public class Titulo implements Serializable {
     private String criadores;
     private byte[] imagem;
 
+    //Metodo a ser retirado daq
+    public boolean selected; // Flag para indicar que o carro está selecionado
+
     public String getNome() {
         return nome;
     }
