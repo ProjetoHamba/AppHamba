@@ -1,11 +1,6 @@
 package com.apphamba.hamba.titulo.servicos;
 
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import com.apphamba.hamba.infra.DataBase;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.persistencia.FavoritoDao;
@@ -36,7 +31,13 @@ public class ServicoTitulo {
     public void adicionarFavorito(Titulo titulo) {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         FavoritoDao favoritoDao = new FavoritoDao();
-        favoritoDao.inserirFavorito(titulo, usuario);
+        favoritoDao.inserir(titulo, usuario);
+    }
+
+    public void removerFavorito(Titulo titulo) {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        FavoritoDao favoritoDao = new FavoritoDao();
+        favoritoDao.remover(titulo, usuario);
     }
 
 }

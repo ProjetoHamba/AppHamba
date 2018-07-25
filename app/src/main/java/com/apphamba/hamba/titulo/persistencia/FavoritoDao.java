@@ -30,13 +30,22 @@ public class FavoritoDao {
         return favoritos;
     }
 
-    public void inserirFavorito(Titulo titulo, Usuario usuario) {
+    public void inserir(Titulo titulo, Usuario usuario) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         String idUsuario = String.valueOf(usuario.getId());
         String idTitulo = String.valueOf(titulo.getId());
         ContentValues valores = new ContentValues();
         valores.put(EnumTitulos.ID_USUARIO.getDescricao(), idUsuario);
         valores.put(EnumTitulos.ID_TITULO.getDescricao(), idTitulo);
+        valores.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.NAO_EXCLUIDO.getDescricao());
+        escritorBanco.insert(EnumTitulos.TABELA_FAVORITO.getDescricao(), null, valores);
+        escritorBanco.close();
+    }
+
+    public void remover(Titulo titulo, Usuario usuario) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.SIM_EXCLUIDO.getDescricao());
         escritorBanco.insert(EnumTitulos.TABELA_FAVORITO.getDescricao(), null, valores);
         escritorBanco.close();
     }

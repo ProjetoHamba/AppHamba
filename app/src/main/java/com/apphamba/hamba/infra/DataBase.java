@@ -42,8 +42,9 @@ public class DataBase extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE favorito (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "id_usuario INTEGER," +
-                "id_titulo INTEGER);");
+                "id_usuario INTEGER NOT NULL," +
+                "id_titulo INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
 
         db.execSQL("CREATE TABLE serie(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
