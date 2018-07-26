@@ -22,6 +22,7 @@ import com.apphamba.hamba.infra.ComunicadorTitulo;
 import com.apphamba.hamba.infra.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
+import com.apphamba.hamba.titulo.gui.TituloActivity;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.ArrayList;
@@ -60,12 +61,12 @@ public class TituloListFragment extends Fragment {
                 if (actionMode == null) {
                     Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
                     ComunicadorTitulo.instance.setTituloSelecionado(titulo); //COLOCANDO O TITULO NA SESSÃO
-                    Intent intent = new Intent(getContext(), DetalhesActivity.class);
-                    startActivity(intent);
+                   Intent intent = new Intent(getContext(), DetalhesActivity.class);
+                   startActivity(intent);
                     //TODO ANDERSON: FAZER O INTENT PARA A TELA DE DETALHES
                     //intent.putExtra("titulo", titulo);
                     //abaixo modif Anderson + mandando o objeto titulo
-                    //Intent intent = new Intent(getContext(), DetalhesActivity.class);
+                    //Intent intent = new Intent(getContext(), TituloActivity.class);
                     //intent.putExtra("Titulo", titulo);
                     //startActivity(intent);
                     //startActivity(intent);
@@ -114,7 +115,7 @@ public class TituloListFragment extends Fragment {
            // updateShareIntent(selectedTitulos);
         }
     }
-    // Retorna a lista de carros selecionados
+    // Retorna a lista de titulos selecionados
     private List<Titulo> getSelectedTitulos() {
         List<Titulo> list = new ArrayList<Titulo>();
         for (Titulo titulo : titulos) {
@@ -155,11 +156,20 @@ public class TituloListFragment extends Fragment {
                     snack(recyclerView, "Títulos adicionados com sucesso.");
 
                 }else if (item.getItemId() == R.id.action_adicionar_meus_fav) {
+                    //TituloDB db = new TituloDB(getContext());
+                    try {
+                        for (Titulo titulo : selectedTitulos) {
+                            // db.add(titulo); // Adiciona o titulo do banco
+                            //titulos.add(titulo); // adiciona na lista
+                        }
+                    } finally {
+                        // db.close();
+                    }
+                    snack(recyclerView, "Títulos adicionados com sucesso.");
 
                 }else if (item.getItemId() == R.id.action_share) {
                     // Dispara a tarefa para fazer download das fotos
-                    //startTask("compartilhar", new CompartilharTask(selectedCarros));
-                    // Encerra o action mode
+                    //startTask("compartilhar", new CompartilharTask(selectedTitulos));
                 }else if (item.getItemId() == R.id.action_remove) {
                     //TituloDB db = new TituloDB(getContext());
                     try {
@@ -172,11 +182,8 @@ public class TituloListFragment extends Fragment {
                     }
                     snack(recyclerView, "Títulos excluídos com sucesso.");
 
-                }else if (item.getItemId() == R.id.action_share) {
-                    // Dispara a tarefa para fazer download das fotos
-                    //startTask("compartilhar", new CompartilharTask(selectedCarros));
-                    // Encerra o action mode
                 }
+                    // Encerra o action mode
 
                 mode.finish();
                 return true;

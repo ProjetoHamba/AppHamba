@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_meu_hamba) {
-            //startActivity(new Intent(this, MeuHambaActivity.class));
+            startActivity(new Intent(this, MeuHambaActivity.class));
 
         } else if (id == R.id.nav_calendario) {
             //TODO PROXIMA SPRINT

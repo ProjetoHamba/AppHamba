@@ -3,6 +3,8 @@ package com.apphamba.hamba.titulo.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,14 +12,17 @@ import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ComunicadorTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
-public class DetalhesActivity extends AppCompatActivity {
+public class DetalhesActivity extends CollapsingToolbarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
+        setUpToolbar();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Titulo dados = ComunicadorTitulo.instance.getTituloSelecionado(); //TODO ANDERSON VERIFICAR SE TA CERTO
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        ImageView imageView = (ImageView) findViewById(R.id.appBarImg);
         imageView.setImageBitmap(dados.getImagemBitmap());
         TextView nome = (TextView) findViewById(R.id.textView3);
         nome.setText(dados.getNome());
@@ -29,5 +34,23 @@ public class DetalhesActivity extends AppCompatActivity {
         criadores.setText(dados.getCriadores());
         TextView generos = (TextView) findViewById(R.id.textView6);
         generos.setText(dados.getGeneros());
+    }
+
+    // Configura a Toolbar
+    protected void setUpToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Up Navigation - voltando com animação
+            case android.R.id.home:
+                supportFinishAfterTransition();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
