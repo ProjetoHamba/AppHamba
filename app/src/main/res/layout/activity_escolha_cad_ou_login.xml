@@ -8,13 +8,13 @@
 
     <Button
         android:id="@+id/button_criar_conta"
-        android:layout_width="336dp"
+        android:layout_width="310dp"
         android:layout_height="62dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:background="@color/colorButoes"
         android:onClick="cliqueBotaoCadastrar"
         android:text="@string/button_criar_conta"
@@ -26,7 +26,7 @@
 
     <Button
         android:id="@+id/button_entrar"
-        android:layout_width="336dp"
+        android:layout_width="310dp"
         android:layout_height="62dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"

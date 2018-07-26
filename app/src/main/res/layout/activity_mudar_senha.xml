@@ -26,7 +26,7 @@
 
     <Button
         android:id="@+id/button_criar_AlterarSenha2"
-        android:layout_width="295dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
@@ -34,7 +34,7 @@
         android:layout_marginStart="16dp"
 
 
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:background="@color/colorButoes"
         android:text="@string/button_mudar_senha"
         android:textColor="@color/colorTextoBut"
@@ -45,7 +45,7 @@
 
     <EditText
         android:id="@+id/editTextConfirmarNovaSenha"
-        android:layout_width="295dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
@@ -53,30 +53,16 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="@string/text_view_confirmar_nova_senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewConfirmarSenha" />
-
-    <TextView
-        android:id="@+id/textViewConfirmarSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/text_view_confirmar_nova_senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSenhaNovaSenha" />
 
     <EditText
         android:id="@+id/editTextSenhaNovaSenha"
-        android:layout_width="295dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
@@ -84,53 +70,27 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="@string/text_view_nova_senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSenhaNova" />
-
-    <TextView
-        android:id="@+id/textViewSenhaNova"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/text_view_nova_senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSenhaAtual" />
 
     <EditText
         android:id="@+id/editTextSenhaAtual"
-        android:layout_width="295dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
+        android:hint="@string/text_view_senha_atual"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSenhaAtual" />
-
-    <TextView
-        android:id="@+id/textViewSenhaAtual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
-        android:text="@string/text_view_senha_atual"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialup.appbar" />
 

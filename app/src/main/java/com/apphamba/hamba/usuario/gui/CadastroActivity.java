@@ -26,6 +26,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         this.campoNome = findViewById(R.id.editTextNome);
+        this.campoNome.requestFocus();
         this.campoEmail = findViewById(R.id.editTextEmail);
         this.campoSenha = findViewById(R.id.editTextSenhaCad);
         this.campoResenha = findViewById(R.id.editTextConfSenha);

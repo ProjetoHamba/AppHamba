@@ -27,43 +27,30 @@
 
     <EditText
         android:id="@+id/editTextSenhaAtual"
-        android:layout_width="295dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="@string/edit_text_senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSenhaAtual" />
-
-    <TextView
-        android:id="@+id/textViewSenhaAtual"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="144dp"
-        android:text="@string/text_view_senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialup.appbar" />
+        app:layout_constraintTop_toBottomOf="@+id/mensagem_desativar_conta" />
 
     <Button
         android:id="@+id/button_desativar_conta"
-        android:layout_width="295dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:background="@color/colorButoes"
         android:text="@string/desativar_conta"
         android:textColor="@color/colorTextoBut"
@@ -71,5 +58,21 @@
         app:layout_constraintHorizontal_bias="0.554"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSenhaAtual" />
+
+    <TextView
+        android:id="@+id/mensagem_desativar_conta"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="#f8d7da"
+        android:gravity="center_horizontal"
+        android:text="@string/mensagem_desativar_conta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialup.appbar" />
 
 </android.support.constraint.ConstraintLayout>

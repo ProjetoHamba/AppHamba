@@ -15,7 +15,7 @@
     <string name="text_view_nome">Nome:</string>
     <string name="text_view_email">E-mail:</string>
     <string name="text_view_senha">Senha:</string>
-    <string name="text_view_conf_senha">Confirmar senha:</string>
+    <string name="edit_text_conf_senha">Confirmar senha</string>
     <string name="dialog_botao_ok">OK</string>
     <string name="dialog_titulo_erro">ERRO</string>
     <string name="title_activity_mainha">MainhaActivity</string>
@@ -113,5 +113,9 @@
     <string name="text_action_adicionar_meus_fav">Adicionar aos "Favoritos"</string>
 
 
+<!--MENSAGENS DO APP-->
+    <string name="mensagem_desativar_conta">
+        Você está prestes a excluir sua conta no Hamba. Esta ação não pode ser revertida. Pense bem antes de continuar. :'(
+    </string>
 
 </resources>
