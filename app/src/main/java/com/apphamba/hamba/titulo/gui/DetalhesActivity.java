@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.ComunicadorTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
 public class DetalhesActivity extends AppCompatActivity {
@@ -16,13 +16,13 @@ public class DetalhesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
 
-        Titulo dados = Sessao.instance.getTituloSelecionado(); //TODO ANDERSON VERIFICAR SE TA CERTO
+        Titulo dados = ComunicadorTitulo.instance.getTituloSelecionado(); //TODO ANDERSON VERIFICAR SE TA CERTO
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageBitmap(dados.getImagemBitmap());
         TextView nome = (TextView) findViewById(R.id.textView);
         nome.setText(dados.getNome());
         TextView avaliacao = (TextView) findViewById(R.id.textView7);
-        avaliacao.setText(dados.getAvaliacao());
+        avaliacao.setText(String.valueOf(dados.getAvaliacao()));
         TextView sinopse = (TextView) findViewById(R.id.textView);
         sinopse.setText(dados.getSinopse());
         TextView criadores = (TextView) findViewById(R.id.textView5);

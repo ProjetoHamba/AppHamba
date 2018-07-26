@@ -18,14 +18,6 @@ public class Sessao {
         return (Pessoa) values.get("sessao.Pessoa");
     }
 
-    public Titulo getTituloSelecionado() {
-        return (Titulo) values.get("sessao.TituloSelecionado");
-    }
-
-    public void setTituloSelecionado(Titulo tituloSelecionado) {
-        setValor("sessao.TituloSelecionado", tituloSelecionado);
-    }
-
     private void setValor(String chave, Object valor){
         values.put(chave, valor);
     }

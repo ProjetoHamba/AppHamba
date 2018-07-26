@@ -18,11 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.ComunicadorTitulo;
 import com.apphamba.hamba.infra.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
-import com.apphamba.hamba.titulo.gui.TituloActivity;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.ArrayList;
@@ -60,7 +59,9 @@ public class TituloListFragment extends Fragment {
                 Titulo titulo = titulos.get(indexTitulo);
                 if (actionMode == null) {
                     Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
-                    Sessao.instance.setTituloSelecionado(titulo); //COLOCANDO O TITULO NA SESSÃO
+                    ComunicadorTitulo.instance.setTituloSelecionado(titulo); //COLOCANDO O TITULO NA SESSÃO
+                    Intent intent = new Intent(getContext(), DetalhesActivity.class);
+                    startActivity(intent);
                     //TODO ANDERSON: FAZER O INTENT PARA A TELA DE DETALHES
                     //intent.putExtra("titulo", titulo);
                     //abaixo modif Anderson + mandando o objeto titulo
