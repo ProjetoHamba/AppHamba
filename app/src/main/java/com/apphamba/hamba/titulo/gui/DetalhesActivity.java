@@ -19,7 +19,7 @@ public class DetalhesActivity extends AppCompatActivity {
         Titulo dados = ComunicadorTitulo.instance.getTituloSelecionado(); //TODO ANDERSON VERIFICAR SE TA CERTO
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageBitmap(dados.getImagemBitmap());
-        TextView nome = (TextView) findViewById(R.id.textView);
+        TextView nome = (TextView) findViewById(R.id.textView3);
         nome.setText(dados.getNome());
         TextView avaliacao = (TextView) findViewById(R.id.textView7);
         avaliacao.setText(String.valueOf(dados.getAvaliacao()));
