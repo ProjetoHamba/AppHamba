@@ -75,6 +75,10 @@ public class MainActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.action_search) {
 
+        } else if (id==R.id.action_linear){
+
+        } else if (id == R.id.action_grid){
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -94,19 +98,17 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, MeuHambaActivity.class));
 
         } else if (id == R.id.nav_calendario) {
-            //TODO PROXIMA SPRINT
             //startActivity(new Intent(this,CalendarioActivity.class));
 
 
         } else if (id == R.id.nav_favoritos) {
+            startActivity(new Intent(this,FavoritosActivity.class));
 
         } else if (id == R.id.nav_recomendacoes) {
-            //TODO RECOMENDAÇÕES
             //startActivity(new Intent(this,RecomendacoesActivity.class));
             finish();
 
         } else if (id == R.id.nav_configuracoes) {
-            //TODO para sexta cria tela
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
 
         } else if (id == R.id.nav_noticias) {

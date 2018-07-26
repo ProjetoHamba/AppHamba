@@ -65,17 +65,11 @@ public class TituloListFragment extends Fragment {
                     ComunicadorTitulo.instance.setTituloSelecionado(titulo); //COLOCANDO O TITULO NA SESSÃO
                    Intent intent = new Intent(getContext(), DetalhesActivity.class);
                    startActivity(intent);
-                    //TODO ANDERSON: FAZER O INTENT PARA A TELA DE DETALHES
-                    //intent.putExtra("titulo", titulo);
-                    //abaixo modif Anderson + mandando o objeto titulo
-                    //Intent intent = new Intent(getContext(), TituloActivity.class);
-                    //intent.putExtra("Titulo", titulo);
-                    //startActivity(intent);
-                    //startActivity(intent);
+
                 } else { // Se a CAB está ativada
-                    // Seleciona o carro
+                    // Seleciona o titulo
                     titulosView.get(indexTitulo).setSelecionado(true); // SELECIONADO É UM ATRIBUTO DO TITLE VIEW
-                    // Atualiza o título com a quantidade de carros selecionados
+                    // Atualiza o título com a quantidade de titulos selecionados
                     updateActionModeTitle();
                     // Redesenha a lista
                     recyclerView.getAdapter().notifyDataSetChanged();
@@ -191,7 +185,7 @@ public class TituloListFragment extends Fragment {
                 } else if (item.getItemId() == R.id.action_share) {
                     // Dispara a tarefa para fazer download das fotos
                     //startTask("compartilhar", new CompartilharTask(selectedTitulos));
-                } else if (item.getItemId() == R.id.action_remove) {
+                } else if (item.getItemId() == R.id.action_remove_meu_hamba) {
                     //TituloDB db = new TituloDB(getContext());
                     try {
                         for (TituloView titulo : selectedTitulos) {

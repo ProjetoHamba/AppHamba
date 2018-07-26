@@ -12,5 +12,20 @@
         android:orderInCategory="200"
         android:title="@string/Search"
         app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="ifRoom|collapseActionView" />
+        app:showAsAction="always|collapseActionView" />
+    <item
+        android:id="@+id/action_linear"
+        android:icon="@drawable/ic_view_list_24dp"
+        android:orderInCategory="200"
+        android:title="@string/text_action_linear"
+        android:visible="true"
+        app:showAsAction="always|never" />
+    <item
+        android:id="@+id/action_grid"
+        android:icon="@drawable/ic_view_module_24dp"
+        android:orderInCategory="200"
+        android:title="@string/text_action_grid"
+        android:visible="false"
+        app:showAsAction="always" />
+
 </menu>

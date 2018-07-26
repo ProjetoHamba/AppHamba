@@ -121,11 +121,16 @@
     <string name="text_view_nome_do_titulo">Vikings</string>
     <string name="text_view_porcentagem_assistida">Assistido: ..%</string>
 
+    <string name="text_action_grid">Visualizar em grade</string>
+    <string name="text_action_linear">Visualizar em lista</string>
+
 
 
 <!--MENSAGENS DO APP-->
     <string name="mensagem_desativar_conta">
         Você está prestes a excluir sua conta no Hamba. Esta ação não pode ser revertida. Pense bem antes de continuar. :'(
     </string>
+    <string name="text_action_excluir_meu_hamba">Remover do \"Meu Hamba\"</string>
+    <string name="text_action_excluir_meus_fav">Remover dos Favoritos</string>
 
 </resources>
