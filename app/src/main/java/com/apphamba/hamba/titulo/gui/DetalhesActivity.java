@@ -1,7 +1,6 @@
 package com.apphamba.hamba.titulo.gui;
 
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -24,15 +23,15 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         Titulo dados = ComunicadorTitulo.instance.getTituloSelecionado(); //TODO ANDERSON VERIFICAR SE TA CERTO
         ImageView imageView = (ImageView) findViewById(R.id.appBarImg);
         imageView.setImageBitmap(dados.getImagemBitmap());
-        TextView nome = (TextView) findViewById(R.id.textView3);
+        TextView nome = (TextView) findViewById(R.id.textViewNome);
         nome.setText(dados.getNome());
-        TextView avaliacao = (TextView) findViewById(R.id.textView7);
+        TextView avaliacao = (TextView) findViewById(R.id.textViewAvaliacao);
         avaliacao.setText(String.valueOf(dados.getAvaliacao()));
-        TextView sinopse = (TextView) findViewById(R.id.textView);
+        TextView sinopse = (TextView) findViewById(R.id.textViewSinopse);
         sinopse.setText(dados.getSinopse());
-        TextView criadores = (TextView) findViewById(R.id.textView5);
+        TextView criadores = (TextView) findViewById(R.id.textViewCriadores);
         criadores.setText(dados.getCriadores());
-        TextView generos = (TextView) findViewById(R.id.textView6);
+        TextView generos = (TextView) findViewById(R.id.textViewGeneros);
         generos.setText(dados.getGeneros());
     }
 
