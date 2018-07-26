@@ -1,6 +1,7 @@
 package com.apphamba.hamba.titulo.persistencia;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.DataBase;
@@ -50,6 +51,26 @@ public class FavoritoDao {
         String[] args = {String.valueOf(usuario.getId()), String.valueOf(titulo.getId())};
         escritorBanco.update(EnumTitulos.TABELA_FAVORITO.getDescricao(), values, query, args);
         escritorBanco.close();
+    }
+
+    public boolean existeNosFavoritos(String idUsuario, String idTitulo) {
+        String query =  "SELECT * FROM favorito " +
+                "WHERE id_usuario = ? AND id_titulo = ?" +
+                "AND excluido = 'nao'";
+        String[] args = {idUsuario, idTitulo};
+        return this.load(query, args);
+    }
+
+    private boolean load(String query, String[] args) {
+        Boolean existe = false;
+        SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        if (cursor.moveToNext()) {
+            existe = true;
+        }
+        cursor.close();
+        leitorBanco.close();
+        return existe;
     }
 
 }

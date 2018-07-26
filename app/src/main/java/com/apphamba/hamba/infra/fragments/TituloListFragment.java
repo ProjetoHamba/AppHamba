@@ -160,7 +160,11 @@ public class TituloListFragment extends Fragment {
                 if (item.getItemId() == R.id.action_adicionar_meu_hamba) {
                     //TituloDB db = new TituloDB(getContext());
                     try {
-                        for (TituloView titulo : selectedTitulos) {
+                        for (TituloView tituloView : selectedTitulos) {
+                            if (!servicoTitulo.verificarMeuHamba(tituloView.getTitulo())){
+                                servicoTitulo.adicionarMeuHamba(tituloView.getTitulo());
+                            }
+
                            // db.add(titulo); // Adiciona o titulo do banco
                             //titulos.add(titulo); // adiciona na lista
                         }
@@ -169,10 +173,13 @@ public class TituloListFragment extends Fragment {
                     }
                     snack(recyclerView, "Títulos adicionados com sucesso.");
 
-                }else if (item.getItemId() == R.id.action_adicionar_meus_fav) {
+                } else if (item.getItemId() == R.id.action_adicionar_meus_fav) {
                     //TituloDB db = new TituloDB(getContext());
                     try {
-                        for (TituloView titulo : selectedTitulos) {
+                        for (TituloView tituloView : selectedTitulos) {
+                            if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())){
+                                servicoTitulo.adicionarFavorito(tituloView.getTitulo());
+                            }
                             // db.add(titulo); // Adiciona o titulo do banco
                             //titulos.add(titulo); // adiciona na lista
                         }
@@ -181,10 +188,10 @@ public class TituloListFragment extends Fragment {
                     }
                     snack(recyclerView, "Títulos adicionados com sucesso.");
 
-                }else if (item.getItemId() == R.id.action_share) {
+                } else if (item.getItemId() == R.id.action_share) {
                     // Dispara a tarefa para fazer download das fotos
                     //startTask("compartilhar", new CompartilharTask(selectedTitulos));
-                }else if (item.getItemId() == R.id.action_remove) {
+                } else if (item.getItemId() == R.id.action_remove) {
                     //TituloDB db = new TituloDB(getContext());
                     try {
                         for (TituloView titulo : selectedTitulos) {

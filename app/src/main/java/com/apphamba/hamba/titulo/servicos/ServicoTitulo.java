@@ -47,6 +47,18 @@ public class ServicoTitulo {
         meuHambaDao.inserir(titulo, usuario);
     }
 
+    public Boolean verificarMeuHamba(Titulo titulo) {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        MeuHambaDao meuHambaDao = new MeuHambaDao();
+        return meuHambaDao.existeNoMeuHamba(String.valueOf(usuario.getId()), String.valueOf(titulo.getId()));
+    }
+
+    public Boolean verificarFavorito(Titulo titulo) {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        FavoritoDao favoritoDao = new FavoritoDao();
+        return favoritoDao.existeNosFavoritos(String.valueOf(usuario.getId()), String.valueOf(titulo.getId()));
+    }
+
     public void removerMeuHamba(Titulo titulo) {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         MeuHambaDao meuHambaDao = new MeuHambaDao();
