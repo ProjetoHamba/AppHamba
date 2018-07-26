@@ -3,7 +3,7 @@ package com.apphamba.hamba;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class favoritos extends AppCompatActivity {
+public class FavoritosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

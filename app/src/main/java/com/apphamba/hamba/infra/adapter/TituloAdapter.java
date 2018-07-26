@@ -11,12 +11,13 @@ import android.widget.ImageView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.gui.TituloView;
 
 import java.util.List;
 
 public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosViewHolder> {
     protected static final String TAG = "hamba";
-    private final List<Titulo> titulos;
+    private final List<TituloView> titulos;
     private final Context context;
     private final TituloOnClickListener onClickListener;
 
@@ -25,7 +26,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         void onLongClickTitulo(TitulosViewHolder holder, int indexTitulo);
     }
 
-    public TituloAdapter(Context context, List<Titulo> titulos, TituloOnClickListener onClickListener) {
+    public TituloAdapter(Context context, List<TituloView> titulos, TituloOnClickListener onClickListener) {
         this.context = context;
         this.titulos = titulos;
         this.onClickListener = onClickListener;
@@ -43,7 +44,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     @Override
     public void onBindViewHolder(final TitulosViewHolder holder, final int position) {
         // Atualizada a view
-        Titulo titulo = titulos.get(position);
+        Titulo titulo = titulos.get(position).getTitulo();
         //setando as infos do dom
         //rECLAMANDO DO BYTE -- KKKK, TOU AJEITANDO A FUNÇÃO AINDA MAS.. ABAIXOOOOOOOO
         Bitmap imagemTitulo = titulo.getImagemBitmap();
@@ -67,7 +68,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
             });
         }
         // Pinta o fundo de azul se a linha estiver selecionada
-        int corFundo = context.getResources().getColor(titulo.selected ? R.color.colorBlue : R.color.colorWhite);
+        int corFundo = context.getResources().getColor(titulos.get(position).getSelecionado() ? R.color.colorBlue : R.color.colorWhite);
         holder.cardView.setCardBackgroundColor(corFundo);
         // A cor do texto é branca ou azul, depende da cor do fundo. - isso é para o texto dentro do card
         //int corFonte = context.getResources().getColor(titulo.selected ? R.color.colorWhite : R.color.colorBlue);

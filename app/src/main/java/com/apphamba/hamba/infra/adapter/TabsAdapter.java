@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.fragments.TituloListFragment;
 
 
 public class TabsAdapter extends FragmentPagerAdapter {
