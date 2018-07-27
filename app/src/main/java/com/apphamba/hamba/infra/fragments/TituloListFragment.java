@@ -30,8 +30,10 @@ import java.util.List;
 
 public class TituloListFragment extends Fragment {
 
+
+
     private RecyclerView recyclerView;
-    private List<TituloView> titulosView; //É UMA LISTA DE VIEWS AGR
+    private List<TituloView> titulosView;
     private ActionMode actionMode;
     private ServicoTitulo servicoTitulo = new ServicoTitulo();
 
@@ -42,14 +44,10 @@ public class TituloListFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //recyclerView.setHasFixedSize(true);
 
-        //Função abaixo pega os titulos pela função do dominio e get()
-        //titulos = Titulo.getTitulos();
-        //ArrayList<Titulo> titulos = servicoTitulo.getTitulos(); // PEGA OS TITULOS DO BANCO
-        //titulosView = tituloToTituloView(titulos); // TRANSFORMA EM TITULOVIEW CTRL+CLICK PRA VER A FUNÇÃO
         titulosView = this.tituloToTituloView(FiltroTitulo.instance.getTitulosList());
-        recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo())); //PASSO A LISTA NO ADAPTER
+        recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo()));
+
 
         return view;
     }
@@ -59,19 +57,16 @@ public class TituloListFragment extends Fragment {
             @Override
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
 
-                Titulo titulo = titulosView.get(indexTitulo).getTitulo(); //O TITULO AGR É UM ATRIBUTO DO TITULOVIEW
+                Titulo titulo = titulosView.get(indexTitulo).getTitulo();
                 if (actionMode == null) {
                     Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
-                    FiltroTitulo.instance.setTituloSelecionado(titulo); //COLOCANDO O TITULO NA SESSÃO
+                    FiltroTitulo.instance.setTituloSelecionado(titulo);
                    Intent intent = new Intent(getContext(), DetalhesActivity.class);
                    startActivity(intent);
 
-                } else { // Se a CAB está ativada
-                    // Seleciona o titulo
-                    titulosView.get(indexTitulo).setSelecionado(true); // SELECIONADO É UM ATRIBUTO DO TITLE VIEW
-                    // Atualiza o título com a quantidade de titulos selecionados
+                } else {
+                    titulosView.get(indexTitulo).setSelecionado(true);
                     updateActionModeTitle();
-                    // Redesenha a lista
                     recyclerView.getAdapter().notifyDataSetChanged();
                 }
 
@@ -82,21 +77,18 @@ public class TituloListFragment extends Fragment {
                 if (actionMode != null) {
                     return;
                 }
-                // Liga a action bar de contexto (CAB)
                 actionMode = getAppCompatActivity().
                         startSupportActionMode(getActionModeCallback());
                 TituloView titulo = titulosView.get(indexTitulo);
-                titulo.setSelecionado(true); // Seleciona o tituloVIEW
-                // Solicita ao Android para desenhar a lista novamente
+                titulo.setSelecionado(true);
                 recyclerView.getAdapter().notifyDataSetChanged();
-                // Atualiza o título para mostrar a quantidade de titulos selecionados
                 updateActionModeTitle();
 
 
             }
         };
     }
-    // Atualiza o título da action bar (CAB)
+
     private void updateActionModeTitle() {
         if (actionMode != null) {
             actionMode.setTitle("Selecione os titulos.");
@@ -107,12 +99,9 @@ public class TituloListFragment extends Fragment {
             } else if (selectedTitulos.size() > 1) {
                 actionMode.setSubtitle(selectedTitulos.size() + " titulos selecionados");
             }
-            //função abaixo que chama o metódo de compartilhamento, usando a lista de selecionados, ainda n colocado
-           // updateShareIntent(selectedTitulos);
+
         }
     }
-    // Retorna a lista de titulos selecionados
-    //MUDEI APENAS OS PARAMETROS DE ENTRA E DE SAÍDA
     private List<TituloView> getSelectedTitulos() {
         List<TituloView> list = new ArrayList<TituloView>();
         for (TituloView titulo : this.titulosView) {
@@ -128,7 +117,6 @@ public class TituloListFragment extends Fragment {
         return new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                // Infla o menu específico da action bar de contexto (CAB)
                 MenuInflater inflater = getActivity().getMenuInflater();
                 inflater.inflate(R.menu.menu_frag_titulos_cab, menu);
                 return true;
@@ -138,7 +126,7 @@ public class TituloListFragment extends Fragment {
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 return true;
             }
-            
+
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<TituloView> selectedTitulos = getSelectedTitulos();
@@ -150,12 +138,11 @@ public class TituloListFragment extends Fragment {
                             }
                         }
                     } finally {
-                        // db.close();
+
                     }
                     snack(recyclerView, "Títulos adicionados com sucesso.");
 
                 } else if (item.getItemId() == R.id.action_adicionar_meus_fav) {
-                    //TituloDB db = new TituloDB(getContext());
                     try {
                         for (TituloView tituloView : selectedTitulos) {
                             if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())){
@@ -163,13 +150,12 @@ public class TituloListFragment extends Fragment {
                             }
                         }
                     } finally {
-                        // db.close();
+
                     }
                     snack(recyclerView, "Títulos adicionados com sucesso.");
 
                 } else if (item.getItemId() == R.id.action_share) {
-                    // Dispara a tarefa para fazer download das fotos
-                    //startTask("compartilhar", new CompartilharTask(selectedTitulos));
+
                 } else if (item.getItemId() == R.id.action_remove_fav) {
                     try {
                         for (TituloView tituloView : selectedTitulos){
@@ -178,12 +164,12 @@ public class TituloListFragment extends Fragment {
                             }
                         }
                     } finally {
-                        // db.close();
+
                     }
                     snack(recyclerView, "Títulos excluídos com sucesso.");
 
                 } else if (item.getItemId() == R.id.action_remove_meu_hamba) {
-                    //TituloDB db = new TituloDB(getContext());
+
                     try {
                         for (TituloView tituloView : selectedTitulos) {
                             if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())) {
@@ -191,12 +177,11 @@ public class TituloListFragment extends Fragment {
                             }
                         }
                     } finally {
-                        // db.close();
+
                     }
                     snack(recyclerView, "Títulos excluídos com sucesso.");
 
                 }
-                // Encerra o action mode
 
                 mode.finish();
                 return true;
@@ -205,9 +190,7 @@ public class TituloListFragment extends Fragment {
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
-                // Limpa o estado
                 actionMode = null;
-                // Configura todos os titulos para não selecionados
                 for (TituloView titulo : titulosView) {
                     titulo.setSelecionado(false);
                 }
@@ -235,7 +218,7 @@ public class TituloListFragment extends Fragment {
                 .show();
     }
 
-    private ArrayList<TituloView> tituloToTituloView(ArrayList<Titulo> titulos){ //FUNÇÃO PARA TRANSFORMAR A LISTA QUE VEM DO SERVIÇO EM UMA LISTA DE VIEWS
+    private ArrayList<TituloView> tituloToTituloView(ArrayList<Titulo> titulos){
         ArrayList<TituloView> tituloViews = new ArrayList<>();
         for (Titulo titulo:titulos) {
             TituloView tituloView = new TituloView();
