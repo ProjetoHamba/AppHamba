@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DataBase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "dbapphamba";
 
     public DataBase() {
@@ -77,9 +77,6 @@ public class DataBase extends SQLiteOpenHelper {
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
 
-        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`, `excluido` ) VALUES (1,1,'nao')");
-        db.execSQL("INSERT INTO favorito (`id_usuario`, `id_titulo`, `excluido` ) VALUES (1,2,'nao')");
-
     }
 
     @Override
@@ -91,6 +88,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE temporada;");
         db.execSQL("DROP TABLE episodio;");
         db.execSQL("DROP TABLE filme;");
+        db.execSQL("DROP TABLE favorito;");
+        db.execSQL("DROP TABLE meu_hamba;");
         this.onCreate(db);
     }
 }

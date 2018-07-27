@@ -3,6 +3,7 @@ package com.apphamba.hamba.titulo.servicos;
 
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.gui.TituloView;
 import com.apphamba.hamba.titulo.persistencia.FavoritoDao;
 import com.apphamba.hamba.titulo.persistencia.MeuHambaDao;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
@@ -14,8 +15,7 @@ public class ServicoTitulo {
 
     public ArrayList<Titulo> getTitulos(){
         TituloDao tituloDao = new TituloDao();
-        ArrayList<Titulo> titulos = tituloDao.loadTitulos();
-        return titulos;
+        return tituloDao.loadTitulos();
     }
 
     public Titulo buscarTituloPorNome(String nome) {
@@ -57,6 +57,12 @@ public class ServicoTitulo {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         FavoritoDao favoritoDao = new FavoritoDao();
         return favoritoDao.existeNosFavoritos(String.valueOf(usuario.getId()), String.valueOf(titulo.getId()));
+    }
+
+    public ArrayList<Titulo> getMeuHamba() {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        MeuHambaDao meuHambaDao = new MeuHambaDao();
+        return meuHambaDao.loadMeuHamba(usuario);
     }
 
     public void removerMeuHamba(Titulo titulo) {

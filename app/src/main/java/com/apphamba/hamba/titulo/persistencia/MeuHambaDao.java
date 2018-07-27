@@ -20,10 +20,10 @@ public class MeuHambaDao {
 
     public ArrayList<Titulo> loadMeuHamba(Usuario usuario) {
         String idUsuario = String.valueOf(usuario.getId());
-        String query = "SELECT * FROM favorito AS f " +
+        String query = "SELECT * FROM meu_hamba AS mh " +
                        "JOIN titulo AS t " +
-                       "ON f.id_titulo = t.id " +
-                       "WHERE f.id_usuario = ?;";
+                       "ON mh.id_titulo = t.id " +
+                       "WHERE mh.id_usuario = ?;";
         String[] args = {idUsuario};
         TituloDao tituloDao = new TituloDao();
         ArrayList<Titulo> meuHamba = tituloDao.loadTitulos(query, args);
@@ -54,8 +54,8 @@ public class MeuHambaDao {
 
     public boolean existeNoMeuHamba(String idUsuario, String idTitulo) {
         String query =  "SELECT * FROM meu_hamba " +
-                "WHERE id_usuario = ? AND id_titulo = ?" +
-                "AND excluido = 'nao'";
+                        "WHERE id_usuario = ? AND id_titulo = ?" +
+                        "AND excluido = 'nao'";
         String[] args = {idUsuario, idTitulo};
         return this.load(query, args);
     }
