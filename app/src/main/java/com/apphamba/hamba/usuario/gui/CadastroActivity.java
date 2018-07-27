@@ -45,14 +45,16 @@ public class CadastroActivity extends AppCompatActivity {
         if (!this.verificarCampos()) {
             return;
         }
-
+        String resultado = "Conta Criada";
         ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
-
-        if (servicoLoginCadastro.cadastrar(this.criarPessoa())) {
-            Toast.makeText(getApplicationContext(), "Conta Criada", Toast.LENGTH_SHORT).show();
+        try {
+            servicoLoginCadastro.cadastrar(this.criarPessoa());
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
             finish();
-        } else {
-            Toast.makeText(getApplicationContext(), "O Email já está cadastrado", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultado = e.getMessage();
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -46,13 +46,17 @@ public class AlterarEmailActivity extends AppCompatActivity {
         if (!this.verificarCampos()) {
             return;
         }
+        String resultado = "Email atualizado com sucesso";
         Usuario usuario = this.criarUsuario();
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
-        if (servicoConfiguracao.atualizarEmail(usuario)) {
-            Toast.makeText(getApplicationContext(), "Email atualizado com sucesso", Toast.LENGTH_SHORT).show();
+        try {
+            servicoConfiguracao.atualizarEmail(usuario);
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
             finish();
-        } else {
-            Toast.makeText(getApplicationContext(), "Dados inválidos: Email já cadastrado ou senha inválida", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultado = e.getMessage();
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
         }
     }
 

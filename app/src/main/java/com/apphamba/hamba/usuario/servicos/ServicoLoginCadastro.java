@@ -1,6 +1,7 @@
 package com.apphamba.hamba.usuario.servicos;
 
 import com.apphamba.hamba.infra.EnumUsuarioPessoa;
+import com.apphamba.hamba.infra.HambaAppException;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 import com.apphamba.hamba.usuario.dominio.Usuario;
@@ -16,29 +17,28 @@ public class ServicoLoginCadastro {
         usuarioDAO = new UsuarioDAO();
     }
 
-    public boolean logar(Usuario usuario) {
+    public void logar(Usuario usuario) throws HambaAppException {
         Usuario usuarioLogado = this.usuarioDAO.getByEmailSenha(usuario.getEmail(), usuario.getSenha());
-        boolean isLogado = false;
         if (usuarioLogado != null) {
             Pessoa pessoa = this.pessoaDAO.getByIdUsuario(usuarioLogado.getId());
             this.iniciarSessao(pessoa);
-            isLogado = true;
+        } else {
+            throw new HambaAppException("Usuário ou senha inválidos");
         }
-        return isLogado;
+
     }
 
     private void iniciarSessao(Pessoa pessoa) {
         Sessao.instance.setPessoa(pessoa);
     }
 
-    public boolean cadastrar(Pessoa pessoa) {
+    public void cadastrar(Pessoa pessoa) throws HambaAppException {
         if (verificarEmailExistente(pessoa.getUsuario().getEmail())) {
-            return false;
+            throw new HambaAppException("Usuário já cadastrado");
         } else {
             long id = this.usuarioDAO.inserir(pessoa.getUsuario());
             pessoa.getUsuario().setId(id);
             this.pessoaDAO.inserirPessoa(pessoa);
-            return true;
         }
     }
 

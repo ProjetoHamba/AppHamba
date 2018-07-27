@@ -55,7 +55,7 @@ public class MeuHambaActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_search) {
 
-        } else if (id==R.id.action_linear){
+        } else if (id == R.id.action_linear){
 
         } else if (id == R.id.action_grid){
 

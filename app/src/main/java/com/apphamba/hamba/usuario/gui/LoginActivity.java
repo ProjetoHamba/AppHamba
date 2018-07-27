@@ -42,15 +42,16 @@ public class LoginActivity extends AppCompatActivity {
         if (!this.verificarCampos()) {
             return;
         }
-
+        String resultado;
         ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
-        boolean isLogado = servicoLoginCadastro.logar(this.criarUsuario());
-        if (isLogado) {
-            Toast.makeText(getApplicationContext(), "Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
+        try {
+            servicoLoginCadastro.logar(this.criarUsuario());
             proximaTela();
             finish();
-        } else {
-            Toast.makeText(getApplicationContext(), "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
+        } catch (Exception e){
+            e.printStackTrace();
+            resultado = e.getMessage();
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
         }
     }
 

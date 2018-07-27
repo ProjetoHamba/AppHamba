@@ -48,18 +48,21 @@ public class DesativarContaActivity extends AppCompatActivity {
         if (!this.verificarCampos()) {
             return;
         }
+        String resultado = "Usuário desativado";
         Usuario usuario = this.criarUsuario();
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
-        if (servicoConfiguracao.desativarConta(usuario)) {
-            Toast.makeText(getApplicationContext(), "Conta desativada com sucesso", Toast.LENGTH_SHORT).show();
+        try {
+            servicoConfiguracao.desativarConta(usuario);
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), EscolhaCadOuLoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("EXIT", true);
             startActivity(intent);
             finish();
-        } else {
-            campoSenha.setError("Senha inválida");
-            campoSenha.requestFocus();
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultado = e.getMessage();
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
-import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
+
 
 public class FavoritosActivity extends AppCompatActivity {
 
@@ -55,7 +55,7 @@ public class FavoritosActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_search) {
 
-        } else if (id==R.id.action_linear){
+        } else if (id == R.id.action_linear){
 
         } else if (id == R.id.action_grid){
 

@@ -50,15 +50,19 @@ public class AlterarSenhaActivity extends AppCompatActivity {
         if (!this.verificarCampos()) {
             return;
         }
+        String novaSenha = campoNovaSenha.getText().toString().trim();
+        String resultado = "Senha atualizada com sucesso";
         Usuario usuario = this.criarUsuario();
         ServicoConfiguracao servicoConfiguracao = new ServicoConfiguracao();
-        String novaSenha = campoNovaSenha.getText().toString().trim();
-        if (servicoConfiguracao.atualizarSenha(usuario, novaSenha)) {
-            Toast.makeText(getApplicationContext(), "Senha atualizada com sucesso", Toast.LENGTH_SHORT).show();
+        try {
+            servicoConfiguracao.atualizarSenha(usuario, novaSenha);
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
             finish();
-        } else {
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultado = e.getMessage();
+            Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
             this.campoSenhaAtual.requestFocus();
-            this.campoSenhaAtual.setError("Senha inválida");
         }
     }
 
