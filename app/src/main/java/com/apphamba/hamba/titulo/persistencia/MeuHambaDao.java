@@ -23,7 +23,7 @@ public class MeuHambaDao {
         String query = "SELECT * FROM meu_hamba AS mh " +
                        "JOIN titulo AS t " +
                        "ON mh.id_titulo = t.id " +
-                       "WHERE mh.id_usuario = ?;";
+                       "WHERE (mh.id_usuario = ?) AND (mh.excluido LIKE \"nao\");";
         String[] args = {idUsuario};
         TituloDao tituloDao = new TituloDao();
         ArrayList<Titulo> meuHamba = tituloDao.loadTitulos(query, args);

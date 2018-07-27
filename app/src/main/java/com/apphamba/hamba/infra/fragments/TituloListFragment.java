@@ -159,8 +159,10 @@ public class TituloListFragment extends Fragment {
                 } else if (item.getItemId() == R.id.action_remove_fav) {
                     try {
                         for (TituloView tituloView : selectedTitulos){
-                            if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())) {
+                            if (servicoTitulo.verificarFavorito(tituloView.getTitulo())) {
                                 servicoTitulo.removerFavorito(tituloView.getTitulo());
+                                recyclerView.getAdapter().notifyDataSetChanged();
+
                             }
                         }
                     } finally {
@@ -172,8 +174,9 @@ public class TituloListFragment extends Fragment {
 
                     try {
                         for (TituloView tituloView : selectedTitulos) {
-                            if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())) {
+                            if (servicoTitulo.verificarMeuHamba(tituloView.getTitulo())) {
                                 servicoTitulo.removerMeuHamba(tituloView.getTitulo());
+                                recyclerView.getAdapter().notifyDataSetChanged();
                             }
                         }
                     } finally {
