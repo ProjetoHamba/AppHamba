@@ -1,7 +1,6 @@
-package com.apphamba.hamba.infra;
+package com.apphamba.hamba.infra.servicos;
 
 import com.apphamba.hamba.titulo.dominio.Titulo;
-import com.apphamba.hamba.titulo.gui.TituloView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,9 +14,16 @@ public class FiltroTitulo {
     public void setTitulosList(ArrayList<Titulo> titulosList) {
         setValor("FiltroTitulo.titulosList", titulosList);
     }
-
     public ArrayList<Titulo> getTitulosList() {
         return (ArrayList<Titulo>) values.get("FiltroTitulo.titulosList");
+    }
+
+    public Titulo getTituloSelecionado() {
+        return (Titulo) values.get("sessao.TituloSelecionado");
+    }
+
+    public void setTituloSelecionado(Titulo tituloSelecionado) {
+        setValor("sessao.TituloSelecionado", tituloSelecionado);
     }
 
     private void setValor(String chave, Object valor){

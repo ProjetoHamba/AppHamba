@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Bundle;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.PopularBanco;
+import com.apphamba.hamba.infra.persistencia.PopularBanco;
 
 public class SplashActivity extends Activity implements Runnable {
 

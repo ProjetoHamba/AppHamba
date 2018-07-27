@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.apphamba.hamba.infra.DataBase;
+import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
 
 public class PessoaDAO {

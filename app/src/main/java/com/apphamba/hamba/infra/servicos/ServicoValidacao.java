@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra;
+package com.apphamba.hamba.infra.servicos;
 
 import android.util.Patterns;
 

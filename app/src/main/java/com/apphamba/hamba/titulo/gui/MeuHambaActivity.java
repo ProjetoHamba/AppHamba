@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.FiltroTitulo;
-import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;

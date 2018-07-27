@@ -1,9 +1,11 @@
-package com.apphamba.hamba.infra;
+package com.apphamba.hamba.infra.servicos;
 
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+
+import com.apphamba.hamba.infra.HambaApp;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

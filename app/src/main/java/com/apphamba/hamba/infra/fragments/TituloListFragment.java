@@ -18,8 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.ComunicadorTitulo;
-import com.apphamba.hamba.infra.FiltroTitulo;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
@@ -63,7 +62,7 @@ public class TituloListFragment extends Fragment {
                 Titulo titulo = titulosView.get(indexTitulo).getTitulo(); //O TITULO AGR É UM ATRIBUTO DO TITULOVIEW
                 if (actionMode == null) {
                     Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
-                    ComunicadorTitulo.instance.setTituloSelecionado(titulo); //COLOCANDO O TITULO NA SESSÃO
+                    FiltroTitulo.instance.setTituloSelecionado(titulo); //COLOCANDO O TITULO NA SESSÃO
                    Intent intent = new Intent(getContext(), DetalhesActivity.class);
                    startActivity(intent);
 

@@ -1,9 +1,11 @@
-package com.apphamba.hamba.infra;
+package com.apphamba.hamba.infra.persistencia;
 
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.apphamba.hamba.infra.HambaApp;
 
 
 /**

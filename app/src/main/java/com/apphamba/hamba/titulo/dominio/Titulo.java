@@ -2,7 +2,7 @@ package com.apphamba.hamba.titulo.dominio;
 
 import android.graphics.Bitmap;
 
-import com.apphamba.hamba.infra.FormatadorImagem;
+import com.apphamba.hamba.infra.servicos.FormatadorImagem;
 
 import java.io.Serializable;
 

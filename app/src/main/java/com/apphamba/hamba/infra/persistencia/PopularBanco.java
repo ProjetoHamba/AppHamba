@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra;
+package com.apphamba.hamba.infra.persistencia;
 
 
 
@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.servicos.FormatadorImagem;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
 

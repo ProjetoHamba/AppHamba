@@ -8,11 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.FiltroTitulo;
-import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
-import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 public class FavoritosActivity extends AppCompatActivity {
 

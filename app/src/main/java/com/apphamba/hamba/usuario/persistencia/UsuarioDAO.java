@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.usuario.dominio.Usuario;
-import com.apphamba.hamba.infra.DataBase;
+import com.apphamba.hamba.infra.persistencia.DataBase;
 
 public class UsuarioDAO {
     private DataBase bancoDados;

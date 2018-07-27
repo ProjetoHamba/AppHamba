@@ -4,9 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.apphamba.hamba.infra.DataBase;
+import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.infra.EnumTitulos;
-import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 

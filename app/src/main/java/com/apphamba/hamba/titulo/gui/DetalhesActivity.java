@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.ComunicadorTitulo;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
 public class DetalhesActivity extends CollapsingToolbarActivity {
@@ -32,7 +32,7 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
     }
 
     private void setInformacoesTitulos(){
-        Titulo dados = ComunicadorTitulo.instance.getTituloSelecionado();
+        Titulo dados = FiltroTitulo.instance.getTituloSelecionado();
         imagemTitulo.setImageBitmap(dados.getImagemBitmap());
         nomeTitulo.setText(dados.getNome());
         avaliacaoTitulo.setText(String.valueOf(dados.getAvaliacao()));

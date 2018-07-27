@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra;
+package com.apphamba.hamba.infra.persistencia;
 
 //POPULAR BANCO COM EXEMPLOS DE
 public class ConstantesBanco {
