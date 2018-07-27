@@ -12,6 +12,8 @@ import com.apphamba.hamba.infra.ComunicadorTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
 public class DetalhesActivity extends CollapsingToolbarActivity {
+    private ImageView imagemTitulo;
+    private TextView nomeTitulo, avaliacaoTitulo, sinopseTitulo, criadoresTitulo, generosTitulo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,19 +22,23 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Titulo dados = ComunicadorTitulo.instance.getTituloSelecionado(); //TODO ANDERSON VERIFICAR SE TA CERTO
-        ImageView imageView = (ImageView) findViewById(R.id.appBarImg);
-        imageView.setImageBitmap(dados.getImagemBitmap());
-        TextView nome = (TextView) findViewById(R.id.textViewNome);
-        nome.setText(dados.getNome());
-        TextView avaliacao = (TextView) findViewById(R.id.textViewAvaliacao);
-        avaliacao.setText(String.valueOf(dados.getAvaliacao()));
-        TextView sinopse = (TextView) findViewById(R.id.textViewSinopse);
-        sinopse.setText(dados.getSinopse());
-        TextView criadores = (TextView) findViewById(R.id.textViewCriadores);
-        criadores.setText(dados.getCriadores());
-        TextView generos = (TextView) findViewById(R.id.textViewGeneros);
-        generos.setText(dados.getGeneros());
+        this.imagemTitulo = findViewById(R.id.appBarImg);
+        this.nomeTitulo = findViewById(R.id.textViewNome);
+        this.avaliacaoTitulo = findViewById(R.id.textViewAvaliacao);
+        this.sinopseTitulo = findViewById(R.id.textViewSinopse);
+        this.criadoresTitulo = findViewById(R.id.textViewCriadores);
+        this.generosTitulo = findViewById(R.id.textViewGeneros);
+        setInformacoesTitulos();
+    }
+
+    private void setInformacoesTitulos(){
+        Titulo dados = ComunicadorTitulo.instance.getTituloSelecionado();
+        imagemTitulo.setImageBitmap(dados.getImagemBitmap());
+        nomeTitulo.setText(dados.getNome());
+        avaliacaoTitulo.setText(String.valueOf(dados.getAvaliacao()));
+        sinopseTitulo.setText(dados.getSinopse());
+        criadoresTitulo.setText(dados.getCriadores());
+        generosTitulo.setText(dados.getGeneros());
     }
 
     // Configura a Toolbar
