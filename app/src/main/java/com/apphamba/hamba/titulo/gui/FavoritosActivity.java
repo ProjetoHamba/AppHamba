@@ -8,8 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.FiltroTitulo;
+import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
-
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
+import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 public class FavoritosActivity extends AppCompatActivity {
 
@@ -23,6 +26,10 @@ public class FavoritosActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
+            ServicoTitulo servicoTitulo = new ServicoTitulo();
+
+            FiltroTitulo.instance.setTitulosList(servicoTitulo.getFavoritos());
+
             TituloListFragment frag = new TituloListFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
@@ -55,7 +62,7 @@ public class FavoritosActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_search) {
 
-        } else if (id == R.id.action_linear){
+        } else if (id==R.id.action_linear){
 
         } else if (id == R.id.action_grid){
 

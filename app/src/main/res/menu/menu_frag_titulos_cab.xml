@@ -20,13 +20,13 @@
     <item
         android:id="@+id/action_remove_meu_hamba"
         android:title="@string/text_action_excluir_meu_hamba"
-        app:showAsAction="never"
-        android:visible="false"/>
+        android:visible="false"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_remove_fav"
         android:title="@string/text_action_excluir_meus_fav"
-        app:showAsAction="never"
-        android:visible="false"/>
+        android:visible="false"
+        app:showAsAction="never" />
 
 
 </menu>

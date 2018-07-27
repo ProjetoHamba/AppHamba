@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.ComunicadorTitulo;
+import com.apphamba.hamba.infra.FiltroTitulo;
 import com.apphamba.hamba.infra.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
@@ -46,9 +47,9 @@ public class TituloListFragment extends Fragment {
 
         //Função abaixo pega os titulos pela função do dominio e get()
         //titulos = Titulo.getTitulos();
-        ArrayList<Titulo> titulos = servicoTitulo.getTitulos(); // PEGA OS TITULOS DO BANCO
-        titulosView = tituloToTituloView(titulos); // TRANSFORMA EM TITULOVIEW CTRL+CLICK PRA VER A FUNÇÃO
-
+        //ArrayList<Titulo> titulos = servicoTitulo.getTitulos(); // PEGA OS TITULOS DO BANCO
+        //titulosView = tituloToTituloView(titulos); // TRANSFORMA EM TITULOVIEW CTRL+CLICK PRA VER A FUNÇÃO
+        titulosView = this.tituloToTituloView(FiltroTitulo.instance.getTitulosList());
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo())); //PASSO A LISTA NO ADAPTER
 
         return view;
@@ -123,15 +124,6 @@ public class TituloListFragment extends Fragment {
         return list;
     }
 
-    private ArrayList<TituloView> tituloToTituloView(ArrayList<Titulo> titulos){ //FUNÇÃO PARA TRANSFORMAR A LISTA QUE VEM DO SERVIÇO EM UMA LISTA DE VIEWS
-        ArrayList<TituloView> tituloViews = new ArrayList<>();
-        for (Titulo titulo:titulos) {
-            TituloView tituloView = new TituloView();
-            tituloView.setTitulo(titulo);
-            tituloViews.add(tituloView);
-        }
-        return tituloViews;
-    }
 
     private ActionMode.Callback getActionModeCallback() {
         return new ActionMode.Callback() {
@@ -234,6 +226,16 @@ public class TituloListFragment extends Fragment {
                     }
                 })
                 .show();
+    }
+
+    private ArrayList<TituloView> tituloToTituloView(ArrayList<Titulo> titulos){ //FUNÇÃO PARA TRANSFORMAR A LISTA QUE VEM DO SERVIÇO EM UMA LISTA DE VIEWS
+        ArrayList<TituloView> tituloViews = new ArrayList<>();
+        for (Titulo titulo:titulos) {
+            TituloView tituloView = new TituloView();
+            tituloView.setTitulo(titulo);
+            tituloViews.add(tituloView);
+        }
+        return tituloViews;
     }
 
 }

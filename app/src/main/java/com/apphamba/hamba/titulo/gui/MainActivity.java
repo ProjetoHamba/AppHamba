@@ -13,8 +13,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.FiltroTitulo;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 
@@ -37,6 +39,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState == null) {
+
+            ServicoTitulo servicoTitulo = new ServicoTitulo();
+            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
+
             getSupportFragmentManager().beginTransaction().add(R.id.fragContainer, new TituloListFragment(), null).commit();
         }
     }

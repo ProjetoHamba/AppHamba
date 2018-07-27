@@ -9,8 +9,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.FiltroTitulo;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
+import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
+
+import java.util.ArrayList;
 
 public class MeuHambaActivity extends AppCompatActivity {
 
@@ -24,6 +29,11 @@ public class MeuHambaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
+            ServicoTitulo servicoTitulo = new ServicoTitulo();
+            ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
+
+            FiltroTitulo.instance.setTitulosList(titulos);
+
             TituloListFragment frag = new TituloListFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
