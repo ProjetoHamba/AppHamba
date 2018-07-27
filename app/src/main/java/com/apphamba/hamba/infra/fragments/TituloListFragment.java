@@ -138,23 +138,19 @@ public class TituloListFragment extends Fragment {
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 return true;
             }
-
+            
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<TituloView> selectedTitulos = getSelectedTitulos();
                 if (item.getItemId() == R.id.action_adicionar_meu_hamba) {
-                    //TituloDB db = new TituloDB(getContext());
                     try {
                         for (TituloView tituloView : selectedTitulos) {
                             if (!servicoTitulo.verificarMeuHamba(tituloView.getTitulo())){
                                 servicoTitulo.adicionarMeuHamba(tituloView.getTitulo());
                             }
-
-                           // db.add(titulo); // Adiciona o titulo do banco
-                            //titulos.add(titulo); // adiciona na lista
                         }
                     } finally {
-                       // db.close();
+                        // db.close();
                     }
                     snack(recyclerView, "Títulos adicionados com sucesso.");
 
@@ -165,8 +161,6 @@ public class TituloListFragment extends Fragment {
                             if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())){
                                 servicoTitulo.adicionarFavorito(tituloView.getTitulo());
                             }
-                            // db.add(titulo); // Adiciona o titulo do banco
-                            //titulos.add(titulo); // adiciona na lista
                         }
                     } finally {
                         // db.close();
@@ -176,12 +170,25 @@ public class TituloListFragment extends Fragment {
                 } else if (item.getItemId() == R.id.action_share) {
                     // Dispara a tarefa para fazer download das fotos
                     //startTask("compartilhar", new CompartilharTask(selectedTitulos));
+                } else if (item.getItemId() == R.id.action_remove_fav) {
+                    try {
+                        for (TituloView tituloView : selectedTitulos){
+                            if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())) {
+                                servicoTitulo.removerFavorito(tituloView.getTitulo());
+                            }
+                        }
+                    } finally {
+                        // db.close();
+                    }
+                    snack(recyclerView, "Títulos excluídos com sucesso.");
+
                 } else if (item.getItemId() == R.id.action_remove_meu_hamba) {
                     //TituloDB db = new TituloDB(getContext());
                     try {
-                        for (TituloView titulo : selectedTitulos) {
-                            // db.delete(titulo); // Deleta o titulo do banco
-                            //titulos.remove(titulo); // Remove da lista
+                        for (TituloView tituloView : selectedTitulos) {
+                            if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())) {
+                                servicoTitulo.removerMeuHamba(tituloView.getTitulo());
+                            }
                         }
                     } finally {
                         // db.close();
@@ -189,11 +196,12 @@ public class TituloListFragment extends Fragment {
                     snack(recyclerView, "Títulos excluídos com sucesso.");
 
                 }
-                    // Encerra o action mode
+                // Encerra o action mode
 
                 mode.finish();
                 return true;
             }
+
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
