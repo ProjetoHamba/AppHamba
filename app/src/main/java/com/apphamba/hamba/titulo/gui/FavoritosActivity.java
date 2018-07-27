@@ -18,23 +18,18 @@ public class FavoritosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos);
-        //abaixo diz q tem uma toolbar e coloca uma de fundo
         setUpToolbar();
-        //diz q essa toolbar tem um botao de voltar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
             ServicoTitulo servicoTitulo = new ServicoTitulo();
-
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getFavoritos());
-
             TituloListFragment frag = new TituloListFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
         }
 
     }
-    // Configura a Toolbar
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -50,22 +45,17 @@ public class FavoritosActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_search) {
 
-        } else if (id==R.id.action_linear){
+        } else if (id == R.id.action_linear){
 
         } else if (id == R.id.action_grid){
 
         }
-
         return super.onOptionsItemSelected(item);
     }
     @Override

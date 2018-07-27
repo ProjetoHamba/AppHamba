@@ -26,7 +26,6 @@ public class ServicoConfiguracao {
             usuario.setId(Sessao.instance.getPessoa().getUsuario().getId());
             usuarioDAO.update(usuario);
             Sessao.instance.getPessoa().setUsuario(usuario);
-
         }
 
     }
@@ -41,7 +40,6 @@ public class ServicoConfiguracao {
         } else {
             throw new HambaAppException("Senha inválida");
         }
-
     }
 
     public void desativarConta(Usuario usuario) throws HambaAppException {
@@ -52,6 +50,5 @@ public class ServicoConfiguracao {
         } else {
             throw new HambaAppException("Senha inválida");
         }
-
     }
 }

@@ -20,7 +20,7 @@ public class TituloActivity extends CollapsingToolbarActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             TituloFragment frag = new TituloFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.fragContainer, frag, null).commit();
@@ -30,14 +30,12 @@ public class TituloActivity extends CollapsingToolbarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Up Navigation - voltando com animação
             case android.R.id.home:
                 supportFinishAfterTransition();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-    // Configura a Toolbar
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {

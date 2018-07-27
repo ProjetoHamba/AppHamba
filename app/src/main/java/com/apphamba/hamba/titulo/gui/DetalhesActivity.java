@@ -40,8 +40,6 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         criadoresTitulo.setText(dados.getCriadores());
         generosTitulo.setText(dados.getGeneros());
     }
-
-    // Configura a Toolbar
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {

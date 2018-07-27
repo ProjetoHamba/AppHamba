@@ -15,9 +15,6 @@ public class Titulo implements Serializable {
     private String criadores;
     private byte[] imagem;
 
-    //Metodo a ser retirado daq
-
-
     public String getNome() {
         return nome;
     }

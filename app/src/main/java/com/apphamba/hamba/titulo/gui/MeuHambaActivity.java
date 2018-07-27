@@ -21,23 +21,18 @@ public class MeuHambaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meu_hamba);
-        //abaixo diz q tem uma toolbar e coloca uma de fundo
         setUpToolbar();
-        //diz q essa toolbar tem um botao de voltar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
             ServicoTitulo servicoTitulo = new ServicoTitulo();
             ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
-
             FiltroTitulo.instance.setTitulosList(titulos);
-
             TituloListFragment frag = new TituloListFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
         }
     }
-    // Configura a Toolbar
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -46,19 +41,15 @@ public class MeuHambaActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.search_com_settings_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_search) {
@@ -68,7 +59,6 @@ public class MeuHambaActivity extends AppCompatActivity {
         } else if (id == R.id.action_grid){
 
         }
-
         return super.onOptionsItemSelected(item);
     }
     @Override
