@@ -22,7 +22,6 @@ public class Episodio {
         this.idTemoporada = idTemoporada;
     }
 
-
     public String getNome() {
         return nome;
     }

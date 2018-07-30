@@ -11,9 +11,7 @@ import com.apphamba.hamba.R;
 
 public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbar;
-
     private ImageView appBarImg;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +26,11 @@ public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatA
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-
         appBarImg = (ImageView) findViewById(R.id.appBarImg);
         ViewCompat.setTransitionName(appBarImg, getString(R.string.transition_key));
     }
+
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -57,5 +54,4 @@ public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatA
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

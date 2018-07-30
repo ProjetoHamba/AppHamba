@@ -20,7 +20,6 @@ public class TituloFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_titulo, container, false);
-
         int imgTitulo = getArguments().getInt("imgTitulo", 0);
         if (imgTitulo > 0) {
             ImageView img = (ImageView) view.findViewById(R.id.img);

@@ -13,13 +13,13 @@ public class TituloActivity extends CollapsingToolbarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_titulo);
-
         setUpToolbar();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        criarFragment(savedInstanceState);
+    }
 
+    private void criarFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             TituloFragment frag = new TituloFragment();
             frag.setArguments(getIntent().getExtras());
@@ -36,6 +36,7 @@ public class TituloActivity extends CollapsingToolbarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {

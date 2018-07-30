@@ -23,7 +23,10 @@ public class MeuHambaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meu_hamba);
         setUpToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        criarFragment(savedInstanceState);
+    }
 
+    private void criarFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             ServicoTitulo servicoTitulo = new ServicoTitulo();
             ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
@@ -33,6 +36,7 @@ public class MeuHambaActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
         }
     }
+
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {

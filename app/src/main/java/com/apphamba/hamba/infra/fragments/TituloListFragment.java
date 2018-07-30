@@ -29,9 +29,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TituloListFragment extends Fragment {
-
-
-
     private RecyclerView recyclerView;
     private List<TituloView> titulosView;
     private ActionMode actionMode;
@@ -83,8 +80,6 @@ public class TituloListFragment extends Fragment {
                 titulo.setSelecionado(true);
                 recyclerView.getAdapter().notifyDataSetChanged();
                 updateActionModeTitle();
-
-
             }
         };
     }
@@ -102,6 +97,7 @@ public class TituloListFragment extends Fragment {
 
         }
     }
+
     private List<TituloView> getSelectedTitulos() {
         List<TituloView> list = new ArrayList<TituloView>();
         for (TituloView titulo : this.titulosView) {
@@ -111,7 +107,6 @@ public class TituloListFragment extends Fragment {
         }
         return list;
     }
-
 
     private ActionMode.Callback getActionModeCallback() {
         return new ActionMode.Callback() {
@@ -131,65 +126,23 @@ public class TituloListFragment extends Fragment {
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<TituloView> selectedTitulos = getSelectedTitulos();
                 if (item.getItemId() == R.id.action_adicionar_meu_hamba) {
-                    try {
-                        for (TituloView tituloView : selectedTitulos) {
-                            if (!servicoTitulo.verificarMeuHamba(tituloView.getTitulo())){
-                                servicoTitulo.adicionarMeuHamba(tituloView.getTitulo());
-                            }
-                        }
-                    } finally {
-
-                    }
+                    adicionarMeuHamba(selectedTitulos);
                     snack(recyclerView, "Títulos adicionados com sucesso.");
-
                 } else if (item.getItemId() == R.id.action_adicionar_meus_fav) {
-                    try {
-                        for (TituloView tituloView : selectedTitulos) {
-                            if (!servicoTitulo.verificarFavorito(tituloView.getTitulo())){
-                                servicoTitulo.adicionarFavorito(tituloView.getTitulo());
-                            }
-                        }
-                    } finally {
-
-                    }
+                    adicionarFavorito(selectedTitulos);
                     snack(recyclerView, "Títulos adicionados com sucesso.");
-
                 } else if (item.getItemId() == R.id.action_share) {
 
                 } else if (item.getItemId() == R.id.action_remove_fav) {
-                    try {
-                        for (TituloView tituloView : selectedTitulos){
-                            if (servicoTitulo.verificarFavorito(tituloView.getTitulo())) {
-                                servicoTitulo.removerFavorito(tituloView.getTitulo());
-                                recyclerView.getAdapter().notifyDataSetChanged();
-
-                            }
-                        }
-                    } finally {
-
-                    }
+                    removerFavorito(selectedTitulos);
                     snack(recyclerView, "Títulos excluídos com sucesso.");
-
                 } else if (item.getItemId() == R.id.action_remove_meu_hamba) {
-
-                    try {
-                        for (TituloView tituloView : selectedTitulos) {
-                            if (servicoTitulo.verificarMeuHamba(tituloView.getTitulo())) {
-                                servicoTitulo.removerMeuHamba(tituloView.getTitulo());
-                                recyclerView.getAdapter().notifyDataSetChanged();
-                            }
-                        }
-                    } finally {
-
-                    }
+                    removerMeuHamba(selectedTitulos);
                     snack(recyclerView, "Títulos excluídos com sucesso.");
-
                 }
-
                 mode.finish();
                 return true;
             }
-
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
@@ -201,12 +154,49 @@ public class TituloListFragment extends Fragment {
             }
         };
     }
+
+    private void adicionarMeuHamba(List<TituloView> selectedTitulos){
+        for (TituloView tituloView : selectedTitulos) {
+            if (!servicoTitulo.isMeuHamba(tituloView.getTitulo())) {
+                servicoTitulo.adicionarMeuHamba(tituloView.getTitulo());
+            }
+        }
+    }
+
+    private void removerMeuHamba(List<TituloView> selectedTitulos){
+        for (TituloView tituloView : selectedTitulos) {
+            if (servicoTitulo.isMeuHamba(tituloView.getTitulo())) {
+                servicoTitulo.removerMeuHamba(tituloView.getTitulo());
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+        }
+    }
+
+    private void adicionarFavorito(List<TituloView> selectedTitulos){
+        for (TituloView tituloView : selectedTitulos) {
+            if (!servicoTitulo.isFavorito(tituloView.getTitulo())){
+                servicoTitulo.adicionarFavorito(tituloView.getTitulo());
+            }
+        }
+    }
+
+    private void removerFavorito(List<TituloView> selectedTitulos){
+        for (TituloView tituloView : selectedTitulos){
+            if (servicoTitulo.isFavorito(tituloView.getTitulo())) {
+                servicoTitulo.removerFavorito(tituloView.getTitulo());
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+        }
+    }
+
     public AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
     }
+
     protected void snack(View view, String msg) {
         snack(view, msg, null);
     }
+
     protected void snack(View view, String msg, final Runnable runnable) {
         Snackbar
                 .make(view, msg, Snackbar.LENGTH_LONG)

@@ -20,7 +20,10 @@ public class FavoritosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favoritos);
         setUpToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        criarFragment(savedInstanceState);
+    }
 
+    private void criarFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             ServicoTitulo servicoTitulo = new ServicoTitulo();
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getFavoritos());
@@ -28,14 +31,15 @@ public class FavoritosActivity extends AppCompatActivity {
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
         }
-
     }
+
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -58,6 +62,7 @@ public class FavoritosActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MainActivity.class);

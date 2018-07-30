@@ -19,7 +19,6 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
         setUpToolbar();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.imagemTitulo = findViewById(R.id.appBarImg);
@@ -40,16 +39,17 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         criadoresTitulo.setText(dados.getCriadores());
         generosTitulo.setText(dados.getGeneros());
     }
+
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Up Navigation - voltando com animação
             case android.R.id.home:
                 supportFinishAfterTransition();
                 return true;

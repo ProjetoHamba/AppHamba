@@ -12,7 +12,6 @@ import com.apphamba.hamba.titulo.persistencia.TituloDao;
 
 public class PopularBanco {
     public static final PopularBanco criador = new PopularBanco();
-
     private FormatadorImagem formatadorImagem = new FormatadorImagem();
     private TituloDao tituloDao = new TituloDao();
 
@@ -175,7 +174,6 @@ public class PopularBanco {
         friends.setCriadores("Marta Kauffman, David Crane");
         friends.setImagem(formatadorImagem.getFotoByte(R.drawable.friends));
         tituloDao.inserir(friends);
-
     }
 
 }
