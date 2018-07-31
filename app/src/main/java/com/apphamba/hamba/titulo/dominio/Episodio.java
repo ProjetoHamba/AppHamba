@@ -5,6 +5,15 @@ public class Episodio {
     private int idTemoporada;
     private String nome;
     private int numeroEpisodio;
+    private boolean assistido;
+
+    public boolean isAssistido() {
+        return assistido;
+    }
+
+    public void setAssistido(boolean assistido) {
+        this.assistido = assistido;
+    }
 
     public int getId() {
         return id;

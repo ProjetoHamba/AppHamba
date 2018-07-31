@@ -22,7 +22,6 @@ public class FilmeDao {
         int id = cursor.getInt(indexId);
         int indexDuracao = cursor.getColumnIndex((EnumTitulos.DURACAO.getDescricao()));
         int duracao = cursor.getInt(indexDuracao);
-
         int indexTitulo = cursor.getColumnIndex((EnumTitulos.ID_TITULO.getDescricao()));
         int idTitulo = cursor.getInt(indexTitulo);
         Titulo titulo = tituloDao.getByID(idTitulo);
