@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Serie {
     private int id;
-    private int idTitulo;
     private String distribuidor;
     private int quantidadeTemporada;
     private Titulo titulo;
@@ -15,20 +14,6 @@ public class Serie {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdTitulo() {
-        return idTitulo;
-    }
-
-    private Date dataEstreia;
-
-    public Date getDataEstreia() {
-        return dataEstreia;
-    }
-
-    public void setDataEstreia(Date dataEstreia) {
-        this.dataEstreia = dataEstreia;
     }
 
     public String getDistribuidor() {

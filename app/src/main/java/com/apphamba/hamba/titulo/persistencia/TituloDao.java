@@ -89,6 +89,12 @@ public class TituloDao {
         return this.load(query, args);
     }
 
+    public  Titulo getByID(int id){
+        String query =  "SELECT * FROM titulo " +
+                "WHERE id = ?";
+        String[] args = {String.valueOf(id)};
+        return this.load(query,args);
+    }
     private Titulo load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
