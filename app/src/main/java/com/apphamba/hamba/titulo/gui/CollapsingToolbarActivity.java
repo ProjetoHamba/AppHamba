@@ -21,28 +21,11 @@ public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatA
         setUpToolbar();
     }
 
-    public void initViews() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-        }
-        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        appBarImg = (ImageView) findViewById(R.id.appBarImg);
-        ViewCompat.setTransitionName(appBarImg, getString(R.string.transition_key));
-    }
-
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-    }
-    public void setAppBarTitle(String title) {
-        collapsingToolbar.setTitle(title);
-    }
-
-    public void setAppBarImage(int resId) {
-        appBarImg.setImageResource(resId);
     }
 
     @Override

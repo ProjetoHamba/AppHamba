@@ -194,22 +194,11 @@ public class TituloListFragment extends Fragment {
     }
 
     protected void snack(View view, String msg) {
-        snack(view, msg, null);
-    }
-
-    protected void snack(View view, String msg, final Runnable runnable) {
         Snackbar
                 .make(view, msg, Snackbar.LENGTH_LONG)
-                .setAction("Ok", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (runnable != null) {
-                            runnable.run();
-                        }
-                    }
-                })
                 .show();
     }
+
 
     private ArrayList<TituloView> tituloToTituloView(ArrayList<Titulo> titulos){
         ArrayList<TituloView> tituloViews = new ArrayList<>();

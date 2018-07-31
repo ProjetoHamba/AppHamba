@@ -21,13 +21,16 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         setUpToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        encontrandoItensView();
+        setInformacoesTitulos();
+    }
+    protected void encontrandoItensView(){
         this.imagemTitulo = findViewById(R.id.appBarImg);
         this.nomeTitulo = findViewById(R.id.textViewNome);
         this.avaliacaoTitulo = findViewById(R.id.textViewAvaliacao);
         this.sinopseTitulo = findViewById(R.id.textViewSinopse);
         this.criadoresTitulo = findViewById(R.id.textViewCriadores);
         this.generosTitulo = findViewById(R.id.textViewGeneros);
-        setInformacoesTitulos();
     }
 
     private void setInformacoesTitulos(){
