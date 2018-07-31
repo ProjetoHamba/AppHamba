@@ -5,14 +5,13 @@ public class Episodio {
     private int idTemoporada;
     private String nome;
     private int numeroEpisodio;
-    private boolean assistido;
 
-    public boolean isAssistido() {
-        return assistido;
+    public int getIdTemoporada() {
+        return idTemoporada;
     }
 
-    public void setAssistido(boolean assistido) {
-        this.assistido = assistido;
+    public void setIdTemoporada(int idTemoporada) {
+        this.idTemoporada = idTemoporada;
     }
 
     public int getId() {
@@ -21,14 +20,6 @@ public class Episodio {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdSerie() {
-        return idTemoporada;
-    }
-
-    public void setIdSerie(int idTemoporada) {
-        this.idTemoporada = idTemoporada;
     }
 
     public String getNome() {

@@ -1,14 +1,23 @@
 package com.apphamba.hamba.titulo.dominio;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Temporada {
     private int id;
     private int idSerie;
     private String nome;
-    private Date dataLancamento;
+    private String dataLancamento;
     private int numeroTemporada;
     private int quantidadeEdpisodios;
+    private ArrayList<Episodio> episodios;
+
+    public ArrayList<Episodio> getEpisodios() {
+        return episodios;
+    }
+
+    public void setEpisodios(ArrayList<Episodio> episodios) {
+        this.episodios = episodios;
+    }
 
     public int getId() {
         return id;
@@ -17,7 +26,6 @@ public class Temporada {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public int getIdSerie() {
         return idSerie;
@@ -36,11 +44,11 @@ public class Temporada {
         this.nome = nome;
     }
 
-    public Date getDataLancamento() {
+    public String getDataLancamento() {
         return dataLancamento;
     }
 
-    public void setDataLancamento(Date dataLancamento) {
+    public void setDataLancamento(String dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 
