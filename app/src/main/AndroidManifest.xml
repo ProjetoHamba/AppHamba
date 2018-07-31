@@ -35,8 +35,6 @@
         <activity
             android:name=".usuario.gui.AlterarSenhaActivity"
             android:label="@string/label_mudar_senha" />
-        <activity android:name=".titulo.gui.RecomendacoesActivity" />
-        <activity android:name=".titulo.gui.CalendarioActivity" />
         <activity android:name=".usuario.gui.DesativarContaActivity" />
         <activity android:name=".titulo.gui.TituloActivity" />
         <activity
