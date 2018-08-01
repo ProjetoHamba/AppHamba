@@ -18,10 +18,7 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adapter.TabsAdapter;
-import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.Sessao;
-import com.apphamba.hamba.infra.fragments.TituloListFragment;
-import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 
@@ -32,21 +29,25 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ToolbarComMenuNavAbreEFecha();
+        ViewDoMenuNavListaClicavel();
+        DefinindoViewPagerComTab();
+    }
+    private void ToolbarComMenuNavAbreEFecha(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
+    }
+    private void ViewDoMenuNavListaClicavel(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        setupViewPagerTabs();
     }
     // Configura o ViewPager + Tabs
-    private void setupViewPagerTabs() {
+    private void DefinindoViewPagerComTab() {
         // ViewPager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.fragContainer);
         //viewPager.setOffscreenPageLimit(2);
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setupWithViewPager(viewPager);
         int cor = ContextCompat.getColor(getContext(), R.color.colorWhite);
         tabLayout.setTabTextColors(cor, cor);
+        int corTabSelecionada= ContextCompat.getColor(getContext(), R.color.colorBlack);
+        tabLayout.setSelectedTabIndicatorColor(corTabSelecionada);
     }
 
     @Override
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_search) {
 
         } else if (id == R.id.action_linear){
+
 
         } else if (id == R.id.action_grid){
 
