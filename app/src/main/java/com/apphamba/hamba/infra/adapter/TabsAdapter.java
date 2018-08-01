@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.fragments.TituloListFragment;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 
 public class TabsAdapter extends FragmentPagerAdapter {
@@ -35,11 +38,17 @@ public class TabsAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Fragment f = null;
         if (position == 0) {
-           // f = TituloListFragment.newInstance(R.string.tab_text_1);
+            ServicoTitulo servicoTitulo = new ServicoTitulo();
+            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
+            f = TituloListFragment.newInstance(R.string.tab_text_1);
         } else if (position == 1) {
-           // f = TituloListFragment.newInstance(R.string.tab_text_2);
+            ServicoTitulo servicoTitulo = new ServicoTitulo();
+            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
+            f = TituloListFragment.newInstance(R.string.tab_text_2);
         } else {
-           // f = TituloListFragment.newInstance(R.string.tab_text_3);
+            ServicoTitulo servicoTitulo = new ServicoTitulo();
+            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
+            f = TituloListFragment.newInstance(R.string.tab_text_3);
         }
         return f;
     }

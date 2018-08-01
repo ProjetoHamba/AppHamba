@@ -1,9 +1,13 @@
 package com.apphamba.hamba.titulo.gui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.adapter.TabsAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
@@ -38,13 +43,20 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        if (savedInstanceState == null) {
-
-            ServicoTitulo servicoTitulo = new ServicoTitulo();
-            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
-
-            getSupportFragmentManager().beginTransaction().add(R.id.fragContainer, new TituloListFragment(), null).commit();
-        }
+        setupViewPagerTabs();
+    }
+    // Configura o ViewPager + Tabs
+    private void setupViewPagerTabs() {
+        // ViewPager
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.fragContainer);
+        //viewPager.setOffscreenPageLimit(2);
+        viewPager.setAdapter(new TabsAdapter(getContext(), getSupportFragmentManager()));
+        // Tabs
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        // Cria as tabs com o mesmo adapter utilizado pelo ViewPager
+        tabLayout.setupWithViewPager(viewPager);
+        int cor = ContextCompat.getColor(getContext(), R.color.colorWhite);
+        tabLayout.setTabTextColors(cor, cor);
     }
 
     @Override
@@ -125,5 +137,8 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    protected Context getContext() {
+        return this;
     }
 }
