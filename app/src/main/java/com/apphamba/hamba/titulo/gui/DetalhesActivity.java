@@ -1,31 +1,40 @@
 package com.apphamba.hamba.titulo.gui;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.adapter.ViewPagerAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
 public class DetalhesActivity extends CollapsingToolbarActivity {
-    private ImageView imagemTitulo;
+    //private ImageView imagemTitulo;
+    ViewPager viewPager;
+    ViewPagerAdapter adapter;
     private TextView nomeTitulo, avaliacaoTitulo, sinopseTitulo, criadoresTitulo, generosTitulo;
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
         setUpToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
         encontrandoItensView();
+        viewPager.setAdapter(viewPagerAdapter);
         setInformacoesTitulos();
     }
     protected void encontrandoItensView(){
-        this.imagemTitulo = findViewById(R.id.appBarImg);
+        //this.imagemTitulo = findViewById(R.id.appBarImg);
         this.nomeTitulo = findViewById(R.id.textViewNome);
         this.avaliacaoTitulo = findViewById(R.id.textViewAvaliacao);
         this.sinopseTitulo = findViewById(R.id.textViewSinopse);
@@ -35,7 +44,7 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
 
     private void setInformacoesTitulos(){
         Titulo dados = FiltroTitulo.instance.getTituloSelecionado();
-        imagemTitulo.setImageBitmap(dados.getImagemBitmap());
+        //imagemTitulo.setImageBitmap(dados.getImagemBitmap());
         nomeTitulo.setText(dados.getNome());
         avaliacaoTitulo.setText(String.valueOf(dados.getAvaliacao()));
         sinopseTitulo.setText(dados.getSinopse());
