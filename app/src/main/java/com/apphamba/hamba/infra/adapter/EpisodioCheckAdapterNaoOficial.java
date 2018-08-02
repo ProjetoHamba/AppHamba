@@ -13,16 +13,16 @@ import com.apphamba.hamba.R;
 import java.util.List;
 /* Versão ListView */
 
-public class EpisodioCheckAdapter extends BaseAdapter {
+public class EpisodioCheckAdapterNaoOficial extends BaseAdapter {
     Activity activity;
     List<EpisodioView> episodiosView;
     LayoutInflater inflater;
 
-    public EpisodioCheckAdapter(Activity activity){
+    public EpisodioCheckAdapterNaoOficial(Activity activity){
         this.activity = activity;
 
     }
-    public EpisodioCheckAdapter(Activity activity, List<EpisodioView> episodiosView){
+    public EpisodioCheckAdapterNaoOficial(Activity activity, List<EpisodioView> episodiosView){
         this.activity = activity;
         this.episodiosView = episodiosView;
         inflater = activity.getLayoutInflater();
@@ -47,7 +47,7 @@ public class EpisodioCheckAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder = null;
         if (view==null){
-            view = inflater.inflate(R.layout.list_item_episodio,viewGroup,false);
+            view = inflater.inflate(R.layout.adapter_episodio_check,viewGroup,false);
             holder = new ViewHolder();
 
             holder.textNumEpisodio = (TextView) view.findViewById(R.id.textViewNumEpisodio);

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorFundo"
-    tools:context=".infra.EpisodiosListCheckActivity">
+    tools:context=".infra.adapter.EpisodiosCheckListaActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/materialup.appbar"

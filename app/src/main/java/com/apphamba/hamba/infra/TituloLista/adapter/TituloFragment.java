@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.fragments;
+package com.apphamba.hamba.infra.TituloLista.adapter;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

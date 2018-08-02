@@ -5,7 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.fragments.TituloFragment;
+import com.apphamba.hamba.infra.TituloLista.adapter.TituloFragment;
 
 
 public class TituloActivity extends CollapsingToolbarActivity {
