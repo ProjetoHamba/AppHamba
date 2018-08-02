@@ -1,6 +1,5 @@
 package com.apphamba.hamba.usuario.gui;
 
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,87 +10,75 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.ServicoValidacao;
+import com.apphamba.hamba.titulo.gui.MainActivity;
 import com.apphamba.hamba.usuario.dominio.Usuario;
-import com.apphamba.hamba.usuario.servicos.ServicoPessoa;
-import com.apphamba.hamba.usuario.servicos.ServicoUsuario;
+import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 
 public class LoginActivity extends AppCompatActivity {
-    private static Usuario usuarioLogado = new Usuario();
     private EditText campoEmail, campoSenha;
-    private String email, senha;
-    private ServicoUsuario servicoUsuario = new ServicoUsuario();
-    private ServicoPessoa servicoPessoa = new ServicoPessoa();
-
+    private ServicoValidacao servicoValidacao = new ServicoValidacao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        campoEmail = (EditText)findViewById(R.id.editTextEmail);
-        campoSenha = (EditText)findViewById(R.id.editTextSenha);
-        campoEmail.requestFocus();
+        this.campoEmail = findViewById(R.id.editTextEmail);
+        this.campoSenha = findViewById(R.id.editTextSenha);
+        this.campoEmail.requestFocus();
 
-        clicarBotaoEntrar();
-
-    }
-
-    private void clicarBotaoEntrar() {
-        Button botaoEntrar = (Button) findViewById(R.id.button_entrar);
+        Button botaoEntrar = findViewById(R.id.button_entrar);
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verificarLogin();
+                login();
             }
         });
+
     }
 
-    private void verificarLogin() {
-        email = campoEmail.getText().toString().trim();
-        senha = campoSenha.getText().toString().trim();
-        if (verificarCampos()){
-            verificarEmailSenhaBanco();
+    private void login() {
+        if (!this.verificarCampos()) {
+            return;
         }
-    }
 
-    private void verificarEmailSenhaBanco(){
-        email=campoEmail.getText().toString().trim();
-        senha=campoSenha.getText().toString().trim();
-        if (servicoUsuario.confirmarUsuario(email,senha,this)){
-            usuarioLogado = servicoUsuario.criaUsuarioCompleto(email,this);
-            Sessao.instance.setUsuario(usuarioLogado);
-            Sessao.instance.setPessoa(servicoPessoa.getPessoa(usuarioLogado.getId(),this));
-            Toast Logado;
-            Logado = Toast.makeText(getApplicationContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT);
-            Logado.show();
+        ServicoLoginCadastro servicoLoginCadastro = new ServicoLoginCadastro();
+        boolean isLogado = servicoLoginCadastro.logar(this.criarUsuario());
+        if (isLogado) {
+            Toast.makeText(getApplicationContext(), "Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             proximaTela();
-        }
-        else{
-            Toast Erro;
-            Erro =Toast.makeText(getApplicationContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT);
-            Erro.show();
+            finish();
+        } else {
+            Toast.makeText(getApplicationContext(), "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean verificarCampos(){
-        if(servicoUsuario.validarCampoEmail(email)){
-            campoEmail.setError("Email Inválido");
-        }
-        if(servicoUsuario.verificarCampoVazio(senha)){
-            campoSenha.setError("Senha Inválida");
-        }
-        else {
+    private Usuario criarUsuario() {
+        String email = this.campoEmail.getText().toString().trim();
+        String senha = this.campoSenha.getText().toString().trim();
+        Usuario usuario = new Usuario();
+        usuario.setEmail(email);
+        usuario.setSenha(senha);
+        return usuario;
+    }
+
+    private boolean verificarCampos() {
+        String email = this.campoEmail.getText().toString().trim();
+        String senha = this.campoSenha.getText().toString().trim();
+        if (this.servicoValidacao.verificarCampoEmail(email)) {
+            this.campoEmail.setError("Email Inválido");
+            return false;
+        } else if (this.servicoValidacao.verificarCampoVazio(senha)) {
+            this.campoSenha.setError("Senha Inválida");
+            return false;
+        } else {
             return true;
         }
-        return false;
     }
 
-    private void proximaTela(){
-        startActivity(new Intent(LoginActivity.this,tela_mostrar_nome.class));
+    private void proximaTela() {
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 
-    public static Usuario getUsuarioLogado() {
-        return usuarioLogado;
-    }
 }

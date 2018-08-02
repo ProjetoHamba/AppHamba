@@ -4,7 +4,6 @@ import android.app.Application;
 import android.util.Log;
 
 import com.apphamba.hamba.usuario.dominio.Pessoa;
-import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +20,7 @@ import java.util.Map;
 public class Sessao extends Application {
     private static final String TAG ="Sessao";
     public static final Sessao instance = new Sessao();
+<<<<<<< HEAD
     private final Map<String,Object> values = new HashMap<>();
     
     
@@ -33,22 +33,22 @@ public class Sessao extends Application {
     public void setUsuario(Usuario usuario) {
         setValor("sessao.Usuario", usuario);
     }
+=======
+    private final Map<String, Object> values = new HashMap<>();
+>>>>>>> 084df1349b3a16a3be6d215cddd401050b43908c
 
     public void setPessoa(Pessoa pessoa) {
         setValor("sessao.Pessoa", pessoa);
-    }
-
-    public Usuario getUsuario() {
-        return (Usuario)values.get("sessao.Usuario");
     }
 
     public Pessoa getPessoa() {
         return (Pessoa) values.get("sessao.Pessoa");
     }
 
-    public void setValor(String chave, Object valor){
+    private void setValor(String chave, Object valor){
         values.put(chave, valor);
     }
+<<<<<<< HEAD
     
     @Override
     public void onCreate(){
@@ -62,4 +62,11 @@ public class Sessao extends Application {
         super.onTerminate();
         Log.d(TAG,"Sessao.onTerminate()");
     }
+=======
+
+    public void reset() {
+        this.values.clear();
+    }
+
+>>>>>>> 084df1349b3a16a3be6d215cddd401050b43908c
 }

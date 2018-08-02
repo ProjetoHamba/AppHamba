@@ -59,10 +59,63 @@
     <string name="button_apagar_conta">Apagar conta</string>
     <string name="action_example">Example action</string>
     <string name="apresentacao">Bem Vindo</string>
+    <string name="button_mudar_email">ALTERAR DADOS PESSOAIS</string>
+    <string name="button_mudar_senha">ALTERAR SENHA</string>
+    <string name="button_apagar_contaA">DESATIVAR CONTA</string>
+    <string name="text_view_novo_nome">Novo nome</string>
+    <string name="text_view_novo_email">Novo Email</string>
+    <string name="text_view_senha_atual">Senha Atual</string>
+    <string name="text_view_nova_senha">Nova Senha</string>
+    <string name="text_view_confirmar_nova_senha">Confirmar Nova Senha</string>
+    <string name="button_desativar_conta">Desativar Conta</string>
+    <string name="text_view_confirmar_senha">Confirmar senha</string>
+    <string name="desativar_conta">DESATIVAR CONTA</string>
 
+<<<<<<< HEAD
     <string name="title_tab_1">Tudo</string>
     <string name="title_tab_2">Séries</string>
     <string name="title_tab_3">Filmes</string>
+
+=======
+    <string name="transition_key">transition_key</string>
+>>>>>>> 084df1349b3a16a3be6d215cddd401050b43908c
+
+    <string name="texto_lorem" formatted="false">
+        Lorem %s ipsum dolor sit amet, mauris sollicitudin nostrud, ut nec, imperdiet eu sit in varius fringilla amet, congue fames id consectetuer vel. Vestibulum quis nunc nec in, sodales at integer. Ut porta nulla. Quis ultrices neque velit tortor, ipsum eros cras nam, est sodales quis pede, quisque vestibulum elit sit blandit eleifend. Elit urna feugiat, fermentum sem euismod vestibulum. Vestibulum nulla sed, nibh sed a in tristique lorem, diam pretium adipisci, in porttitor nulla nec, adipiscing arcu ligula a nulla mi. Quam vestibulum vel eu ante nec vel, enim ipsum sem scelerisque. Litora tincidunt dapibus varius vestibulum ullamcorper egestas. Hendrerit suspendisse consequat fames neque, diam egestas nam sed dui lacus sem. Morbi ligula nullam donec at. Nam vestibulum sed ullam sem habitasse sem, mollitia neque, id convallis aliquam tempor vel.
+\n\nElit %s wisi odio rhoncus luctus turpis, lacinia sed vel sed interdum donec, ornare tempus quam tellus aliquam bibendum vestibulum. Nulla mauris. Blandit vestibulum, consectetuer massa nulla congue diam, consectetuer justo volutpat, amet neque morbi nibh nunc nec. Sed suspendisse vestibulum donec, mauris ut egestas. Pede ducimus id in gravida tellus, tempor sociosqu ac accumsan, id non odio dapibus tempor tempor, mi mi. Justo turpis sit. Pulvinar fringilla ut, et ligula rhoncus semper vivamus elit sit, diam mauris diam dignissim ut sodales.
+\n\nPharetra %s mi sed vivamus, libero id libero vitae turpis in aenean, semper dui, euismod nonummy arcu integer odio, ipsum a. Sollicitudin nec mauris odio amet dolor amet, cras facilisis fuga cras facilisis, quis nulla dui ut suspendisse venenatis, rhoncus placerat sed in etiam, mi libero nullam scelerisque. Lacus reprehenderit velit, platea scelerisque libero, scelerisque feugiat gravida ridiculus faucibus sagittis, sed vel. Wisi dolor, convallis elit lectus nunc volutpat duis, tortor libero, proin in phasellus. Erat velit in ullamcorper massa. Nemo massa vestibulum est neque amet eros, netus congue faucibus. Pulvinar nibh aptent leo id eleifend, semper ac. Wisi integer commodo, commodo non duis leo.
+\n\nMagna %s convallis vestibulum velit eu vel, sed egestas scelerisque. Vestibulum viverra libero sed, aliquid bibendum platea diam sem id, id erat ligula, lacus hac wisi elit dolor, condimentum dui dui justo volutpat. Pede pede id vehicula facilisi blandit, urna luctus pharetra suscipit ut in erat, eu feugiat, maecenas sed adipiscing suscipit ante. Nunc orci mollis posuere sem integer. Urna quam nonummy velit, cras dignissim vestibulum nec feugiat. Montes consectetuer id felis et, rhoncus malesuada malesuada iaculis parturient, mauris quam odio libero tellus sed eleifend, a cras, et lorem magna sapien est pellentesque. Eget molestie wisi taciti litora luctus aenean, sed donec wisi, in iaculis
+
+    </string>
+    <string name="texto_lorem_1" formatted="false">
+        Lorem %s ipsum dolor sit amet, mauris sollicitudin nostrud, ut nec, imperdiet eu sit in varius fringilla amet, congue fames id consectetuer vel. Vestibulum quis nunc nec in, sodales at integer. Ut porta nulla. Quis ultrices neque velit tortor, ipsum eros cras nam, est sodales quis pede, quisque vestibulum elit sit blandit eleifend. Elit urna feugiat, fermentum sem euismod vestibulum. Vestibulum nulla sed, nibh sed a in tristique lorem, diam pretium adipisci, in porttitor nulla nec, adipiscing arcu ligula a nulla mi. Quam vestibulum vel eu ante nec vel, enim ipsum sem scelerisque. Litora tincidunt dapibus varius vestibulum ullamcorper egestas. Hendrerit suspendisse consequat fames neque, diam egestas nam sed dui lacus sem. Morbi ligula nullam donec at. Nam vestibulum sed ullam sem habitasse sem, mollitia neque, id convallis aliquam tempor vel.
+    </string>
+    <string name="texto_lorem_2" formatted="false">
+\n\nElit %s wisi odio rhoncus luctus turpis, lacinia sed vel sed interdum donec, ornare tempus quam tellus aliquam bibendum vestibulum. Nulla mauris. Blandit vestibulum, consectetuer massa nulla congue diam, consectetuer justo volutpat, amet neque morbi nibh nunc nec. Sed suspendisse vestibulum donec, mauris ut egestas. Pede ducimus id in gravida tellus, tempor sociosqu ac accumsan, id non odio dapibus tempor tempor, mi mi. Justo turpis sit. Pulvinar fringilla ut, et ligula rhoncus semper vivamus elit sit, diam mauris diam dignissim ut sodales.
+    </string>
+    <string name="texto_lorem_3" formatted="false">
+\n\nPharetra %s mi sed vivamus, libero id libero vitae turpis in aenean, semper dui, euismod nonummy arcu integer odio, ipsum a. Sollicitudin nec mauris odio amet dolor amet, cras facilisis fuga cras facilisis, quis nulla dui ut suspendisse venenatis, rhoncus placerat sed in etiam, mi libero nullam scelerisque. Lacus reprehenderit velit, platea scelerisque libero, scelerisque feugiat gravida ridiculus faucibus sagittis, sed vel. Wisi dolor, convallis elit lectus nunc volutpat duis, tortor libero, proin in phasellus. Erat velit in ullamcorper massa. Nemo massa vestibulum est neque amet eros, netus congue faucibus. Pulvinar nibh aptent leo id eleifend, semper ac. Wisi integer commodo, commodo non duis leo.
+    </string>
+    <string name="texto_lorem_4" formatted="false">
+\n\nMagna %s convallis vestibulum velit eu vel, sed egestas scelerisque. Vestibulum viverra libero sed, aliquid bibendum platea diam sem id, id erat ligula, lacus hac wisi elit dolor, condimentum dui dui justo volutpat. Pede pede id vehicula facilisi blandit, urna luctus pharetra suscipit ut in erat, eu feugiat, maecenas sed adipiscing suscipit ante. Nunc orci mollis posuere sem integer. Urna quam nonummy velit, cras dignissim vestibulum nec feugiat. Montes consectetuer id felis et, rhoncus malesuada malesuada iaculis parturient, mauris quam odio libero tellus sed eleifend, a cras, et lorem magna sapien est pellentesque. Eget molestie wisi taciti litora luctus aenean, sed donec wisi, in iaculis
+    </string>
+
+    <string name="texto_lorem_5" formatted="false">
+\n\nVestibulum quis dolor maximus, convallis odio rutrum, tempus metus. Praesent fermentum volutpat est, eu fermentum urna maximus eget. Nam eget metus semper, hendrerit ligula vitae, aliquam nunc. Integer pulvinar, ex in dictum venenatis, ex augue commodo libero, sit amet tincidunt justo massa sit amet est. Etiam nibh mauris, gravida ut massa vel, elementum tincidunt nunc. Aliquam erat volutpat. Suspendisse lorem neque, dapibus a mi id, congue dictum odio. Ut vel vulputate augue. In venenatis laoreet lacinia. Donec malesuada nunc tellus, non hendrerit sem pellentesque vitae.
+    </string>
+    <string name="texto_lorem_6" formatted="false">
+\n\nMaecenas non nulla ac odio molestie aliquam. Nunc eleifend, felis a condimentum viverra, est quam consequat justo, a dignissim justo nisl eget est. Maecenas mollis, lorem a vulputate congue, odio eros dictum sem, eget vulputate sapien risus sed augue. Sed blandit sem et nunc maximus, ut pretium est lacinia. Nulla facilisi. Nunc a faucibus sem. Phasellus rutrum, neque rhoncus tincidunt fermentum, mi risus tincidunt nisi, a viverra nunc neque in nunc. Phasellus ac luctus neque. In pharetra interdum leo vitae maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit felis a consectetur porta.
+    </string>
+
+    <string name="label_desativar_conta">Desativar conta</string>
+    <string name="label_mudar_senha">Alterar senha</string>
+    <string name="label_escolha_configuracao">Configuração</string>
+    <string name="label_alterar_email">Alterar e-mail</string>
+    <string name="label_tela_inicial">Home</string>
+
+
+
+
 
 
 </resources>

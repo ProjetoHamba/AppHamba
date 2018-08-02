@@ -1,15 +1,15 @@
 package com.apphamba.hamba.usuario.dominio;
 
 public class Pessoa {
-    private int id;
+    private long id;
     private String nome;
-    private int idUsuario;
+    private Usuario usuario;
 
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -21,12 +21,12 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public long getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

@@ -1,15 +1,15 @@
 package com.apphamba.hamba.usuario.dominio;
 
 public class Usuario {
-    private int id;
+    private long id;
     private String email;
     private String senha;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
