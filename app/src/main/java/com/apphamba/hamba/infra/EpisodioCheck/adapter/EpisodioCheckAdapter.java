@@ -1,7 +1,6 @@
 package com.apphamba.hamba.infra.EpisodioCheck.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.TituloView;
 
 import java.util.List;
