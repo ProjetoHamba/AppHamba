@@ -27,12 +27,24 @@ import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.ArrayList;
 import java.util.List;
+/* Alguns métodos retirados do Livro Android e adaptados /
+
+ */
 
 public class TituloListFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<TituloView> titulosView;
     private ActionMode actionMode;
     private ServicoTitulo servicoTitulo = new ServicoTitulo();
+
+    // Método para instanciar esse fragment pelo tipo.
+    public static TituloListFragment newInstance(int tipo) {
+        Bundle args = new Bundle();
+        args.putInt("tipo", tipo);
+        TituloListFragment f = new TituloListFragment();
+        f.setArguments(args);
+        return f;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
