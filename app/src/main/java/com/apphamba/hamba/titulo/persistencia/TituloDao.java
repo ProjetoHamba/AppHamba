@@ -92,7 +92,7 @@ public class TituloDao {
         titulo.setAvaliacao(avaliacao);
         titulo.setCriadores(criadores);
         titulo.setGeneros(generos);
-        titulo.setImagem(imagem);
+        titulo.setCartaz(imagem);
         return titulo;
     }
 
@@ -104,7 +104,7 @@ public class TituloDao {
         valores.put(String.valueOf(EnumTitulos.AVALIACAO), titulo.getAvaliacao());
         valores.put(String.valueOf(EnumTitulos.GENEROS), titulo.getGeneros());
         valores.put(String.valueOf(EnumTitulos.CRIADORES), titulo.getCriadores());
-        valores.put(String.valueOf(EnumTitulos.IMAGEM), titulo.getImagem());
+        valores.put(String.valueOf(EnumTitulos.IMAGEM), titulo.getCartaz());
         escritorBanco.insert(String.valueOf(EnumTitulos.TABELA_TITULOS), null, valores);
         escritorBanco.close();
     }

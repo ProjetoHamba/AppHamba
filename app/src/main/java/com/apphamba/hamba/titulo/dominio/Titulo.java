@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import com.apphamba.hamba.infra.servicos.FormatadorImagem;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Titulo implements Serializable {
     private int id;
@@ -13,7 +14,8 @@ public class Titulo implements Serializable {
     private int avaliacao;
     private String generos;
     private String criadores;
-    private byte[] imagem;
+    private byte[] cartaz;
+    private ArrayList<byte[]> imagens;
 
     public String getNome() {
         return nome;
@@ -63,17 +65,25 @@ public class Titulo implements Serializable {
         this.id = id;
     }
 
-    public byte[] getImagem() {
-        return this.imagem;
+    public byte[] getCartaz() {
+        return this.cartaz;
     }
 
     public Bitmap getImagemBitmap() {
         FormatadorImagem formatadorImagem = new FormatadorImagem();
-        return formatadorImagem.byteArrayToBitmap(this.imagem);
+        return formatadorImagem.byteArrayToBitmap(this.cartaz);
     }
 
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
+    public void setCartaz(byte[] cartaz) {
+        this.cartaz = cartaz;
     }
-    
+
+    public ArrayList<byte[]> getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(ArrayList<byte[]> imagens) {
+        this.imagens = imagens;
+    }
+
 }

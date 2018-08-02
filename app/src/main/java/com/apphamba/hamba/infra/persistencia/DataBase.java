@@ -40,6 +40,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "avaliacao int, " +
                 "generos text, " +
                 "criadores text, " +
+                "tipo text, " +
                 "imagem BLOB);");
 
         db.execSQL("CREATE TABLE serie(" +
@@ -79,6 +80,11 @@ public class DataBase extends SQLiteOpenHelper {
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
 
+        db.execSQL("CREATE TABLE titulo_imagem (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "imagem BLOB," +
+                "id_titulo INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
     }
 
     @Override
