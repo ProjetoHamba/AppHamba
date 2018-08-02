@@ -124,13 +124,19 @@
     <string name="text_action_grid">Visualizar em grade</string>
     <string name="text_action_linear">Visualizar em lista</string>
 
+    <string name="button_text_temporada">Temporada X</string>
 
 
-<!--MENSAGENS DO APP-->
+    <!--MENSAGENS DO APP-->
     <string name="mensagem_desativar_conta">
         Você está prestes a excluir sua conta no Hamba. Esta ação não pode ser revertida. Pense bem antes de continuar. :'(
     </string>
     <string name="text_action_excluir_meu_hamba">Remover do \"Meu Hamba\"</string>
     <string name="text_action_excluir_meus_fav">Remover dos Favoritos</string>
+    <string name="label_marcar_episodio_assistido">Marcar episódios assistidos</string>
+    <string name="text_atualizar_ep_assistidos">Atualizar episódios assistidos</string>
+    <string name="text_check_marcar_todos_ep">Marcar todos os episódios</string>
+    <string name="text_numero_episodio">Episódio X</string>
+    <string name="text_numero_episodio_desc">Descrição</string>
 
 </resources>

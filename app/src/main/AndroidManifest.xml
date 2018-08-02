@@ -51,12 +51,19 @@
         <activity
             android:name=".titulo.gui.MainActivity"
             android:label="@string/label_tela_inicial" />
-        <activity android:name=".titulo.gui.DetalhesActivity"
-            android:label="@string/label_tela_detalhes"/>
-        <activity android:name=".titulo.gui.FavoritosActivity"
-            android:label="@string/label_tela_favoritos"/>
-        <activity android:name=".titulo.gui.MeuHambaActivity"
+        <activity
+            android:name=".titulo.gui.DetalhesActivity"
+            android:label="@string/label_tela_detalhes" />
+        <activity
+            android:name=".titulo.gui.FavoritosActivity"
+            android:label="@string/label_tela_favoritos" />
+        <activity
+            android:name=".titulo.gui.MeuHambaActivity"
             android:label="@string/label_tela_meu_hamba">
+
+        </activity>
+        <activity android:name=".infra.EpisodiosListCheckActivity">
+
         </activity>
     </application>
 
