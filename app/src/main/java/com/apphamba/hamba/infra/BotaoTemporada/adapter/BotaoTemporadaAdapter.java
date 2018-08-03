@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAdapter.BotoesTempViewHolder> {
-    private final List<Temporada> botoesTemp;
+    private final List<Temporada> temporadas;
     private final Context context;
     private final BotaoTemporadaOnClickListener onClickListener;
 
@@ -24,9 +24,9 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
         void onClickBotaoTemporada(BotoesTempViewHolder holder, int indexBotaoTemporada);
     }
 
-    public BotaoTemporadaAdapter(Context context, ArrayList<Temporada> botoesTemp, BotaoTemporadaOnClickListener onClickListener) {
+    public BotaoTemporadaAdapter(Context context, ArrayList<Temporada> temporadas, BotaoTemporadaOnClickListener onClickListener) {
         this.context = context;
-        this.botoesTemp = botoesTemp;
+        this.temporadas = temporadas;
         this.onClickListener = onClickListener;
     }
 
@@ -41,7 +41,7 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
     public void onBindViewHolder(final BotoesTempViewHolder holder, final int position) {
         Titulo titulo = FiltroTitulo.instance.getTituloSelecionado();
         //Colocar abixo a função que retorna Temporada .X.
-        //holder.buttonTemp.setText();
+        holder.buttonTemp.setText("Temporada X+1");
 
         if (onClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +55,7 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
 
     @Override
     public int getItemCount() {
-        return this.botoesTemp != null ? this.botoesTemp.size() : 0;
+        return this.temporadas != null ? this.temporadas.size() : 0;
     }
 
     public static class BotoesTempViewHolder extends RecyclerView.ViewHolder {

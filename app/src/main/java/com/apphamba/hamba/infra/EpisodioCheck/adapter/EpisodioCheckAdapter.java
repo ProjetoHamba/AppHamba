@@ -21,7 +21,6 @@ public class EpisodioCheckAdapter extends RecyclerView.Adapter<EpisodioCheckAdap
 
     public interface EpisodioCheckOnClickListener {
         void onClickEpisodioCheck(EpisodiosCheckViewHolder holder, int indexTitulo);
-        void onLongClickEpisodioCheck(EpisodiosCheckViewHolder holder, int indexTitulo);
     }
 
     public EpisodioCheckAdapter(Context context, List<TituloView> titulos, EpisodioCheckOnClickListener onClickListener) {
@@ -52,14 +51,6 @@ public class EpisodioCheckAdapter extends RecyclerView.Adapter<EpisodioCheckAdap
                     // Chama o listener para informar que clicou no Titulo
                     onClickListener.onClickEpisodioCheck(holder, position);
 
-                }
-            });
-            // Click longo
-            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    onClickListener.onLongClickEpisodioCheck(holder, position);
-                    return true;
                 }
             });
         }

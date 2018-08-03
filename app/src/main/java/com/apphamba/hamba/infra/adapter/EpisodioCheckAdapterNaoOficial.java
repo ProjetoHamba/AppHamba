@@ -59,11 +59,11 @@ public class EpisodioCheckAdapterNaoOficial extends BaseAdapter {
         }else
             holder = (ViewHolder) view.getTag();
 
-        EpisodioView model = episodiosView.get(i);
+        EpisodioView episodioView = episodiosView.get(i);
         //holder.textNumEpisodio.setText(String"Episodio " + model.get);
         holder.textNumEpisodio.setText(episodiosView.get(i).toString());
-        holder.textDescEp.setText(model.getDescEp());
-        //if (model.isSelected())
+        holder.textDescEp.setText(episodioView.getDescEp());
+        //if (episodioView.isSelected())
         //    holder.checkBoxEp.setChecked(true);
         //else
         //    holder.checkBoxEp.setChecked(false);
