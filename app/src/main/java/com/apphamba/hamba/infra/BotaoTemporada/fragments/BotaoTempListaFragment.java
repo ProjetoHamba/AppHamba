@@ -13,16 +13,19 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.BotaoTemporada.adapter.BotaoTemporadaAdapter;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
+import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.servicos.ServicoSerie;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import static com.apphamba.hamba.infra.HambaApp.getContext;
 
 public class BotaoTempListaFragment extends Fragment {
     private RecyclerView recyclerView;
-    private List<BotaoTemporada> titulos;
+    private List<Temporada> temporadas;
 
 
     @Override
@@ -34,9 +37,11 @@ public class BotaoTempListaFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         //chamar abaixo temporadas do titulo
-        titulos = servicoTitulo.getTitulos();
+        Titulo titulo = FiltroTitulo.instance.getTituloSelecionado();
+        ServicoSerie servicoSerie = new ServicoSerie();
+        ArrayList<Temporada> temporadas = servicoSerie.getSerie(titulo).getTemporadas();
         //passar como parâmetro abaixo
-        recyclerView.setAdapter(new BotaoTemporadaAdapter(getContext(),titulos,onClickBotaoTemporada()));
+        recyclerView.setAdapter(new BotaoTemporadaAdapter(getContext(),temporadas,onClickBotaoTemporada()));
 
         return view;
     }
@@ -45,8 +50,8 @@ public class BotaoTempListaFragment extends Fragment {
         return new BotaoTemporadaAdapter.BotaoTemporadaOnClickListener() {
             @Override
             public void onClickBotaoTemporada(BotaoTemporadaAdapter.BotoesTempViewHolder holder, int indexBotaoTemporada) {
-                Titulo titulo = titulos.get(indexBotaoTemporada);
-                Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
+                Temporada temporada = temporadas.get(indexBotaoTemporada);
+                Toast.makeText(getContext(), temporada.getNome(), Toast.LENGTH_SHORT).show();
                 //Aqui vai enviar o título para a outra activity - dizendo qual temp escolhida
                 //P dps ser recuperado os episódios da temporada no episodiosCheckLisa
 

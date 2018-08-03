@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.EnumTitulos;
-import com.apphamba.hamba.infra.fragments.TituloListFragment;
 import com.apphamba.hamba.infra.TituloLista.fragments.TituloListFragment;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;

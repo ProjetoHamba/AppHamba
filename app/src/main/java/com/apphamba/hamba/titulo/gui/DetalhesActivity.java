@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.BotaoTemporada.fragments.BotaoTempListaFragment;
 import com.apphamba.hamba.infra.adapter.ViewPagerAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
@@ -57,7 +58,14 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         sinopseTitulo.setText(dados.getSinopse());
         criadoresTitulo.setText(dados.getCriadores());
         generosTitulo.setText(dados.getGeneros());
+        criarFragmento();
+
     }
+     private void criarFragmento(){
+         BotaoTempListaFragment botaoTempListaFragment = new BotaoTempListaFragment();
+         botaoTempListaFragment.setArguments(getIntent().getExtras());
+         getSupportFragmentManager().beginTransaction().add(R.id.containerbuttontemp,botaoTempListaFragment).commit();
+     }
 
     // Configura a Toolbar
     protected void setUpToolbar() {

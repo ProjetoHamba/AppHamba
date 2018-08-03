@@ -10,7 +10,8 @@ public enum EnumTitulos {
     ID_SERIE("id_serie"), DATA_LANCAMENTO("data_lancamento"),NUMERO_TEMPORADA("numero_temporada"),
     QUANTIDADE_EPISODIOS("quantidade_episodio"), ID_TEMPORADA("id_temporada"),
     NUMERO_EPISODIO("numero_episodio"), TABELA_IMAGEM("titulo_imagem"), TIPO("tipo"),
-    ID_EPISODIO("id_episodio"), TABELA_ASSISTIDO("episodio_assistido"), SERIE("Serie");
+    ID_EPISODIO("id_episodio"), TABELA_ASSISTIDO("episodio_assistido"), SERIE("Serie"),
+    TABELA_EP_ASSISTIDO("episodio_assistido"), ID_FILME("id_filme"), TABELA_FILME_ASSISTIDO("filme_assistido");
 
     private final String descricao;
 
