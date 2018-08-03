@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.fragments.TituloListFragment;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
@@ -30,8 +31,9 @@ public class TabsAdapter extends FragmentPagerAdapter {
             return context.getString(R.string.tab_text_1);
         } else if (position == 1) {
             return context.getString(R.string.tab_text_2);
+        }else {
+            return context.getString(R.string.tab_text_3);
         }
-        return context.getString(R.string.tab_text_3);
     }
 
     @Override
@@ -42,10 +44,10 @@ public class TabsAdapter extends FragmentPagerAdapter {
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
             f = TituloListFragment.newInstance(R.string.tab_text_1);
         } else if (position == 1) {
-            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
+            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos(EnumTitulos.SERIE.getDescricao()));
             f = TituloListFragment.newInstance(R.string.tab_text_2);
         } else {
-            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
+            FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos(EnumTitulos.FILME.getDescricao()));
             f = TituloListFragment.newInstance(R.string.tab_text_3);
         }
         return f;
