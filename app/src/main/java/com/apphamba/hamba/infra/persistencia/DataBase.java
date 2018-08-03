@@ -13,7 +13,7 @@ import com.apphamba.hamba.infra.HambaApp;
  */
 
 public class DataBase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 7;
     private static final String DATABASE_NAME = "dbapphamba";
 
     public DataBase() {
@@ -40,6 +40,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "avaliacao int, " +
                 "generos text, " +
                 "criadores text, " +
+                "tipo text, " +
                 "imagem BLOB);");
 
         db.execSQL("CREATE TABLE serie(" +
@@ -92,6 +93,9 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE filme;");
         db.execSQL("DROP TABLE favorito;");
         db.execSQL("DROP TABLE meu_hamba;");
+        db.execSQL("DROP TABLE titulo_imagem;");
+        db.execSQL("DROP TABLE filme_assistido;");
+        db.execSQL("DROP TABLE episodio_assistido;");
         this.onCreate(db);
     }
 }
