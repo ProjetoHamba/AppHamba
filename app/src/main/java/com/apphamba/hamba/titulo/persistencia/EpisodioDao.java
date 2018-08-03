@@ -89,9 +89,20 @@ public class EpisodioDao {
 
         Episodio episodio = new Episodio();
         episodio.setId(id);
+        episodio.setNome(nome);
         episodio.setIdTemoporada(idTemp);
         episodio.setNumeroEpisodio(numEp);
         return episodio;
+    }
+
+    public void inserirEpisodio(Episodio episodio) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_TEMPORADA.getDescricao(), episodio.getIdTemoporada());
+        valores.put(EnumTitulos.NOME.getDescricao(), episodio.getNome());
+        valores.put(EnumTitulos.NUMERO_EPISODIO.getDescricao(), episodio.getNumeroEpisodio());
+        escritorBanco.insert(EnumTitulos.TABELA_EPISODIOS.getDescricao(), null, valores);
+        escritorBanco.close();
     }
 
 }

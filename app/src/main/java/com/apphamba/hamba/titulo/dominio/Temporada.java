@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Temporada {
     private int id;
-    private int idSerie;
+    private long idSerie;
     private String nome;
     private String dataLancamento;
     private int numeroTemporada;
@@ -27,11 +27,11 @@ public class Temporada {
         this.id = id;
     }
 
-    public int getIdSerie() {
+    public long getIdSerie() {
         return idSerie;
     }
 
-    public void setIdSerie(int idSerie) {
+    public void setIdSerie(long idSerie) {
         this.idSerie = idSerie;
     }
 

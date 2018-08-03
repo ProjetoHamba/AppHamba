@@ -7,7 +7,7 @@ public class Serie {
     private int id;
     private String distribuidor;
     private ArrayList<Temporada> temporadas;
-    private Titulo titulo;
+    private long titulo;
 
     public int getId() {
         return id;
@@ -33,11 +33,11 @@ public class Serie {
         this.temporadas = temporadas;
     }
 
-    public Titulo getTitulo() {
+    public long getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(Titulo titulo) {
+    public void setTitulo(long titulo) {
         this.titulo = titulo;
     }
 

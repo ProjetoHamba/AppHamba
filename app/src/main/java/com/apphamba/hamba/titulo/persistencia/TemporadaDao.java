@@ -1,5 +1,6 @@
 package com.apphamba.hamba.titulo.persistencia;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -65,4 +66,16 @@ public class TemporadaDao {
         return temporada;
     }
 
+    public long inserirTemporada(Temporada temporada){
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_SERIE.getDescricao(),temporada.getIdSerie());
+        valores.put(EnumTitulos.NOME.getDescricao(), temporada.getNome());
+        valores.put(EnumTitulos.NUMERO_TEMPORADA.getDescricao(), temporada.getNumeroTemporada());
+        valores.put(EnumTitulos.QUANTIDADE_EPISODIOS.getDescricao(), temporada.getQuantidadeEdpisodios());
+        valores.put(EnumTitulos.DATA_LANCAMENTO.getDescricao(), temporada.getDataLancamento());
+        long id = escritorBanco.insert(EnumTitulos.TABELA_TEMPORADA.getDescricao(), null, valores);
+        escritorBanco.close();
+        return id;
+    }
 }

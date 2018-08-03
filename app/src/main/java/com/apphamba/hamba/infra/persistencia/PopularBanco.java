@@ -7,7 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FormatadorImagem;
+import com.apphamba.hamba.titulo.dominio.Episodio;
+import com.apphamba.hamba.titulo.dominio.Serie;
+import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.persistencia.EpisodioDao;
+import com.apphamba.hamba.titulo.persistencia.SerieDao;
+import com.apphamba.hamba.titulo.persistencia.TemporadaDao;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
 
 public class PopularBanco {
@@ -52,6 +58,60 @@ public class PopularBanco {
         tituloDao.inserirImagemTitulo((int) idVikings,formatadorImagem.getFotoByte(R.drawable.vk3));
         tituloDao.inserirImagemTitulo((int) idVikings,formatadorImagem.getFotoByte(R.drawable.vk4));
 
+        Serie vkSerie = new Serie();
+        vkSerie.setTitulo(idVikings);
+        vkSerie.setDistribuidor("History");
+        SerieDao serieDao = new SerieDao();
+        long idVkSerie = serieDao.inserirSerie(vkSerie);
+
+        Temporada temp1 = new Temporada();
+        temp1.setNome("Temporada 1");
+        temp1.setIdSerie(idVkSerie);
+        temp1.setNumeroTemporada(1);
+        temp1.setQuantidadeEdpisodios(3);
+        temp1.setDataLancamento("3 de Março de 2013");
+        TemporadaDao temporadaDao = new TemporadaDao();
+        long t1 =temporadaDao.inserirTemporada(temp1);
+        Temporada temp2 = new Temporada();
+        temp2.setNome("Temporada 2");
+        temp2.setIdSerie(idVkSerie);
+        temp2.setNumeroTemporada(2);
+        temp2.setQuantidadeEdpisodios(3);
+        temp2.setDataLancamento("3 de Março de 2014");
+        long t2 = temporadaDao.inserirTemporada(temp2);
+        EpisodioDao episodioDao = new EpisodioDao();
+
+        Episodio ep1T1 = new Episodio();
+        ep1T1.setIdTemoporada(t1);
+        ep1T1.setNome("Rituais de Passagem");
+        ep1T1.setNumeroEpisodio(1);
+        episodioDao.inserirEpisodio(ep1T1);
+        Episodio ep2T1 = new Episodio();
+        ep2T1.setIdTemoporada(t1);
+        ep2T1.setNome("A Ira dos Homens do Norte");
+        ep2T1.setNumeroEpisodio(2);
+        episodioDao.inserirEpisodio(ep2T1);
+        Episodio ep3T1 = new Episodio();
+        ep3T1.setIdTemoporada(t1);
+        ep3T1.setNome("Despossuídos");
+        ep3T1.setNumeroEpisodio(3);
+        episodioDao.inserirEpisodio(ep2T1);
+
+        Episodio ep1T2 = new Episodio();
+        ep1T2.setIdTemoporada(t2);
+        ep1T2.setNome("Guerra de Irmãos");
+        ep1T2.setNumeroEpisodio(1);
+        episodioDao.inserirEpisodio(ep1T2);
+        Episodio ep2T2 = new Episodio();
+        ep2T2.setIdTemoporada(t2);
+        ep2T2.setNome("Invasão");
+        ep2T2.setNumeroEpisodio(2);
+        episodioDao.inserirEpisodio(ep2T2);
+        Episodio ep3T2 = new Episodio();
+        ep3T2.setIdTemoporada(t2);
+        ep3T2.setNome("Traição");
+        ep3T2.setNumeroEpisodio(3);
+        episodioDao.inserirEpisodio(ep3T2);
 
         Titulo narcos = new Titulo();
         narcos.setNome("Narcos");

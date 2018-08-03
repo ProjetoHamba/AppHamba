@@ -1,5 +1,6 @@
 package com.apphamba.hamba.titulo.persistencia;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -53,7 +54,7 @@ public class SerieDao {
         int indexId = cursor.getColumnIndex(EnumTitulos.ID.getDescricao());
         int id = cursor.getInt(indexId);
 
-        int indexDistribuidores = cursor.getColumnIndex(EnumTitulos.DISTRIBUIDORES.getDescricao());
+        int indexDistribuidores = cursor.getColumnIndex(EnumTitulos.DISTRIBUIDOR.getDescricao());
         String distribuidores = cursor.getString(indexDistribuidores);
 
         int indexTitulo = cursor.getColumnIndex(EnumTitulos.ID_TITULO.getDescricao());
@@ -63,14 +64,20 @@ public class SerieDao {
         Serie serie = new Serie();
         serie.setId(id);
         serie.setDistribuidor(distribuidores);
-        serie.setTitulo(titulo);
+        serie.setTitulo(titulo.getId());
         TemporadaDao temporadaDao = new TemporadaDao();
         serie.setTemporadas(temporadaDao.loadTemporadas(id));
         return serie;
     }
 
-    private void inserirSerie(Serie serie) {
-
+    public long inserirSerie(Serie serie) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_TITULO.getDescricao(), serie.getTitulo());
+        valores.put(EnumTitulos.DISTRIBUIDOR.getDescricao(), serie.getDistribuidor());
+        long id = escritorBanco.insert(EnumTitulos.TABELA_SERIE.getDescricao(), null, valores);
+        escritorBanco.close();
+        return id;
     }
 
 }
