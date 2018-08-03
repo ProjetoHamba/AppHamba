@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.titulo.dominio.Episodio;
-import com.apphamba.hamba.titulo.dominio.Serie;
 import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 
@@ -45,7 +44,7 @@ public class EpisodioDao {
         valores.put(EnumTitulos.ID_USUARIO.getDescricao(), usuario.getId());
         valores.put(EnumTitulos.ID_TEMPORADA.getDescricao(), temporada.getId());
         valores.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.NAO_EXCLUIDO.getDescricao());
-        escritorBanco.insert(EnumTitulos.TABELA_ASSISTIDO.getDescricao(), null, valores);
+        escritorBanco.insert(EnumTitulos.TABELA_EP_ASSISTIDO.getDescricao(), null, valores);
         escritorBanco.close();
     }
 
@@ -57,7 +56,7 @@ public class EpisodioDao {
         String[] args = {idUsuario, idEpisodio};
         ContentValues values = new ContentValues();
         values.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.SIM_EXCLUIDO.getDescricao());
-        escritorBanco.update(EnumTitulos.TABELA_ASSISTIDO.getDescricao(), values, query, args);
+        escritorBanco.update(EnumTitulos.TABELA_EP_ASSISTIDO.getDescricao(), values, query, args);
         escritorBanco.close();
     }
 
@@ -67,9 +66,9 @@ public class EpisodioDao {
         String query =  "SELECT * FROM episodio_assistido AS ea " +
                         "JOIN episodio AS e " +
                         "ON ea.id_titulo = e.id " +
-                        "WHERE id_usuario = ? " +
-                        "AND id_temporada = ? " +
-                        "AND excluido = 'NAO'";
+                        "WHERE ea.id_usuario = ? " +
+                        "AND ea.id_temporada = ? " +
+                        "AND ea.excluido = 'NAO'";
         String[] args = {idUsuario, idTemporada};
         this.loadEpisodios(query, args);
         return this.loadEpisodios(query, args);

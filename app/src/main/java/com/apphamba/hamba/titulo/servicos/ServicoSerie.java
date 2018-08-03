@@ -36,4 +36,10 @@ public class ServicoSerie {
         return episodioDao.loadAssistidos(temporada, usuario);
     }
 
+    // Pode ser que seja melhor colocar isso na view, mas to fazendo pra vcs n precisarem pensar - brainstorm time
+    private boolean isAssistido(Episodio episodio, ArrayList<Episodio> episodiosAssistido) {
+        return episodiosAssistido.contains(episodio);
+    } // PODE SER QUE N FUNFE :(
+
+
 }

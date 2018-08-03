@@ -21,7 +21,7 @@ public class SerieDao {
 
     public Serie getById(int idSerie) {
         String query =  "SELECT * FROM serie " +
-                "WHERE id = ? ";
+                        "WHERE id = ? ";
         String[] args = {String.valueOf(idSerie)};
         return this.load(query, args);
     }

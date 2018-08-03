@@ -8,13 +8,46 @@ import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.titulo.dominio.Filme;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
 
 public class FilmeDao {
     private DataBase bancoDados;
 
-    private FilmeDao() { bancoDados = new DataBase(); }
+    public FilmeDao() { bancoDados = new DataBase(); }
+
+    public void inserirAssistido(Filme filme, Usuario usuario) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_FILME.getDescricao(), filme.getId());
+        valores.put(EnumTitulos.ID_USUARIO.getDescricao(), usuario.getId());
+        valores.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.NAO_EXCLUIDO.getDescricao());
+        escritorBanco.insert(EnumTitulos.TABELA_FILME.getDescricao(), null, valores);
+        escritorBanco.close();
+    }
+
+    public void removerAssistido(Filme filme, Usuario usuario) {
+        String idUsuario = String.valueOf(usuario.getId());
+        String idFilme = String.valueOf(filme.getId());
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        String query = "id_usuario = ? AND id_filme = ?";
+        String[] args = {idUsuario, idFilme};
+        ContentValues values = new ContentValues();
+        values.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.SIM_EXCLUIDO.getDescricao());
+        escritorBanco.update(EnumTitulos.TABELA_FILME_ASSISTIDO.getDescricao(), values, query, args);
+        escritorBanco.close();
+    }
+
+    public Filme getAssistido(Filme filme, Usuario usuario) {
+        String query =  "SELECT * FROM filme_assistido AS fa" +
+                        "JOIN filme AS f " +
+                        "WHERE fa.id_usuario = ? " +
+                        "AND excluido = 'NAO'";
+        String idUsuario = String.valueOf(usuario.getId());
+        String[] args = {idUsuario};
+        return this.load(query, args);
+    }
 
     private Filme criarFilme(Cursor cursor){
         TituloDao tituloDao = new TituloDao();
@@ -71,13 +104,15 @@ public class FilmeDao {
         escritorBanco.insert(EnumTitulos.TABELA_FILME.getDescricao(),null, valores);
         escritorBanco.close();
    }
-   public Filme getByIdTitulo(String idTitulo) {
-       String query = "SELECT * FROM filmes AS f " +
-               "JOIN titulos AS t " +
-               "ON f.id_titulo = t.id " +
-               "WHERE f.id_titulo = ?";
+
+   public Filme getByTitulo(Titulo titulo) {
+       String query =   "SELECT * FROM filmes AS f " +
+                        "JOIN titulos AS t " +
+                        "ON f.id_titulo = t.id " +
+                        "WHERE f.id_titulo = ?";
+       String idTitulo = String.valueOf(titulo.getId());
        String[] args = {idTitulo};
-       return this.load(query,args);
+       return this.load(query, args);
    }
 
 
