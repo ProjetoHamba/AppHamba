@@ -85,6 +85,20 @@ public class DataBase extends SQLiteOpenHelper {
                 "imagem BLOB," +
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
+
+        db.execSQL("CREATE TABLE episodio_assistido (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_episodio INTEGER NOT NULL," +
+                "id_temporada INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
+
+        db.execSQL("CREATE TABLE filme_assistido (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_filme INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
+
     }
 
     @Override

@@ -1,11 +1,15 @@
 package com.apphamba.hamba.titulo.persistencia;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.titulo.dominio.Episodio;
+import com.apphamba.hamba.titulo.dominio.Serie;
+import com.apphamba.hamba.titulo.dominio.Temporada;
+import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
 
@@ -32,6 +36,43 @@ public class EpisodioDao {
             } while (cursor.moveToNext());
         }
         return episodios;
+    }
+
+    public void inserirAssistido(Episodio episodio, Temporada temporada, Usuario usuario) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_EPISODIO.getDescricao(), episodio.getId());
+        valores.put(EnumTitulos.ID_USUARIO.getDescricao(), usuario.getId());
+        valores.put(EnumTitulos.ID_TEMPORADA.getDescricao(), temporada.getId());
+        valores.put(EnumTitulos.EXCLUIDO.getDescricao(), "NAO");
+        escritorBanco.insert(EnumTitulos.TABELA_ASSISTIDO.getDescricao(), null, valores);
+        escritorBanco.close();
+    }
+
+    public void removerAssistido(Episodio episodio, Usuario usuario) {
+        String idUsuario = String.valueOf(usuario.getId());
+        String idEpisodio = String.valueOf(episodio.getId());
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        String query = "id_usuario = ? AND id_episodio = ?";
+        String[] args = {idUsuario, idEpisodio};
+        ContentValues values = new ContentValues();
+        values.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.SIM_EXCLUIDO.getDescricao());
+        escritorBanco.update(EnumTitulos.TABELA_ASSISTIDO.getDescricao(), values, query, args);
+        escritorBanco.close();
+    }
+
+    private ArrayList<Episodio> loadAssistidos(Temporada temporada, Usuario usuario) {
+        String idUsuario = String.valueOf(usuario.getId());
+        String idTemporada = String.valueOf(temporada.getId());
+        String query =  "SELECT * FROM episodio_assistido AS ea " +
+                        "JOIN episodio AS e " +
+                        "ON ea.id_titulo = e.id " +
+                        "WHERE id_usuario = ? " +
+                        "AND id_temporada = ? " +
+                        "AND excluido = 'NAO'";
+        String[] args = {idUsuario, idTemporada};
+        this.loadEpisodios(query, args);
+        return this.loadEpisodios(query, args);
     }
 
     private Episodio criarEpisodio(Cursor cursor) {
