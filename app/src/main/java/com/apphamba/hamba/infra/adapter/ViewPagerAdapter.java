@@ -1,6 +1,7 @@
 package com.apphamba.hamba.infra.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -9,15 +10,25 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.servicos.FormatadorImagem;
+import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewPagerAdapter extends PagerAdapter{
     private Integer[] images = {R.drawable.got,R.drawable.breakingbad};
+    private List<Bitmap> imagens;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public ViewPagerAdapter(Context context){
+    public ViewPagerAdapter(Context context, ArrayList<Bitmap> imagens){
         this.context = context;
+        this.imagens = imagens;
+
     }
+
 
     @Override
     public int getCount() {
@@ -33,8 +44,10 @@ public class ViewPagerAdapter extends PagerAdapter{
     public Object instantiateItem(ViewGroup container, int position) {
         layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = layoutInflater.inflate(R.layout.viewpager_item, null);
+        ServicoTitulo servicoTitulo = new ServicoTitulo();
+        Bitmap imagemBitMap = imagens.get(position);//PEGA A POSIÇÃO?
         ImageView imageView = (ImageView) item_view.findViewById(R.id.imageDetalhe);
-        imageView.setImageResource(images[position]);
+        imageView.setImageBitmap(imagemBitMap);//SETA NO IMAGEVIEW
 
         ViewPager viewPager = (ViewPager) container;
         viewPager.addView(item_view,0);
@@ -47,4 +60,6 @@ public class ViewPagerAdapter extends PagerAdapter{
         View view = (View) object;
         viewPager.removeView(view);
     }
+
 }
+

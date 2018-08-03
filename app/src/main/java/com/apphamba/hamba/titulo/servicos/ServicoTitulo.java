@@ -1,15 +1,19 @@
 package com.apphamba.hamba.titulo.servicos;
 
 
+import android.graphics.Bitmap;
+
 import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
+import com.apphamba.hamba.infra.servicos.FormatadorImagem;
 import com.apphamba.hamba.titulo.dominio.Titulo;
-import com.apphamba.hamba.titulo.gui.TituloView;
 import com.apphamba.hamba.titulo.persistencia.FavoritoDao;
 import com.apphamba.hamba.titulo.persistencia.MeuHambaDao;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class ServicoTitulo {
 
@@ -69,6 +73,14 @@ public class ServicoTitulo {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         MeuHambaDao meuHambaDao = new MeuHambaDao();
         meuHambaDao.remover(titulo, usuario);
+    }
+
+    public ArrayList<Bitmap> getImagens(){
+        Titulo titulo = FiltroTitulo.instance.getTituloSelecionado();
+        TituloDao tituloDao = new TituloDao();
+        ArrayList<byte[]> imagensByte = tituloDao.getImagemByIdTitulo(titulo.getId());
+        FormatadorImagem formatadorImagem = new FormatadorImagem();
+        return formatadorImagem.listByteToListBitmap(imagensByte);
     }
 
 }

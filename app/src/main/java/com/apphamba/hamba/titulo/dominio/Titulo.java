@@ -13,9 +13,9 @@ public class Titulo implements Serializable {
     private String sinopse;
     private int avaliacao;
     private String generos;
+    private String tipo;
     private String criadores;
     private byte[] cartaz;
-    private ArrayList<byte[]> imagens;
 
     public String getNome() {
         return nome;
@@ -78,12 +78,12 @@ public class Titulo implements Serializable {
         this.cartaz = cartaz;
     }
 
-    public ArrayList<byte[]> getImagens() {
-        return imagens;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setImagens(ArrayList<byte[]> imagens) {
-        this.imagens = imagens;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
 }

@@ -14,6 +14,7 @@ import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adapter.ViewPagerAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 public class DetalhesActivity extends CollapsingToolbarActivity {
     //private ImageView imagemTitulo;
@@ -28,7 +29,8 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         setUpToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = (ViewPager)findViewById(R.id.viewPager);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        ServicoTitulo servicoTitulo = new ServicoTitulo();
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this, servicoTitulo.getImagens() );
         encontrandoItensView();
         viewPager.setAdapter(viewPagerAdapter);
         setInformacoesTitulos();
