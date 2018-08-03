@@ -9,6 +9,7 @@ import com.apphamba.hamba.infra.HambaApp;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 
 public class FormatadorImagem {
 
@@ -35,4 +36,11 @@ public class FormatadorImagem {
         return imagemBytes;
     }
 
+    public ArrayList<Bitmap> listByteToListBitmap (ArrayList<byte[]> imagens){
+        ArrayList<Bitmap> bitMapList = new ArrayList<>();
+        for (byte[] imagem: imagens) {
+            bitMapList.add(byteArrayToBitmap(imagem));
+        }
+        return bitMapList;
+    }
 }

@@ -51,7 +51,7 @@ public class TituloDao {
     }
 
     public ArrayList<Titulo> loadTitulos(String query, String[] args) {
-        ArrayList<Titulo> titulos = new ArrayList<Titulo>();
+        ArrayList<Titulo> titulos = new ArrayList<>();
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         if (cursor.getCount() > 0) {
@@ -79,6 +79,9 @@ public class TituloDao {
         int indexGeneros = cursor.getColumnIndex(String.valueOf(EnumTitulos.GENEROS));
         String generos = cursor.getString(indexGeneros);
 
+        int indexTipo = cursor.getColumnIndex(EnumTitulos.TIPO.getDescricao());
+        String tipo = cursor.getString(indexTipo);
+
         int indexCriadores = cursor.getColumnIndex(String.valueOf(EnumTitulos.CRIADORES));
         String criadores = cursor.getString(indexCriadores);
 
@@ -93,20 +96,60 @@ public class TituloDao {
         titulo.setCriadores(criadores);
         titulo.setGeneros(generos);
         titulo.setCartaz(imagem);
+        titulo.setTipo(tipo);
         return titulo;
     }
 
-    public void inserir(Titulo titulo) {
+    public long inserir(Titulo titulo) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put(String.valueOf(EnumTitulos.NOME), titulo.getNome());
-        valores.put(String.valueOf(EnumTitulos.SINOPSE), titulo.getSinopse());
-        valores.put(String.valueOf(EnumTitulos.AVALIACAO), titulo.getAvaliacao());
-        valores.put(String.valueOf(EnumTitulos.GENEROS), titulo.getGeneros());
-        valores.put(String.valueOf(EnumTitulos.CRIADORES), titulo.getCriadores());
+        valores.put(EnumTitulos.NOME.getDescricao(), titulo.getNome());
+        valores.put(EnumTitulos.SINOPSE.getDescricao(), titulo.getSinopse());
+        valores.put(EnumTitulos.AVALIACAO.getDescricao(), titulo.getAvaliacao());
+        valores.put(EnumTitulos.GENEROS.getDescricao(), titulo.getGeneros());
+        valores.put(EnumTitulos.CRIADORES.getDescricao(), titulo.getCriadores());
+        valores.put(EnumTitulos.TIPO.getDescricao(), titulo.getTipo());
         valores.put(String.valueOf(EnumTitulos.IMAGEM), titulo.getCartaz());
-        escritorBanco.insert(String.valueOf(EnumTitulos.TABELA_TITULOS), null, valores);
+        long id = escritorBanco.insert(String.valueOf(EnumTitulos.TABELA_TITULOS), null, valores);
+        escritorBanco.close();
+        return id;
+    }
+
+    public void inserirImagemTitulo(int idTitulo, byte[] imagem) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_TITULO.getDescricao(), idTitulo);
+        valores.put(EnumTitulos.IMAGEM.getDescricao(),imagem);
+        valores.put(EnumTitulos.EXCLUIDO.getDescricao(),EnumTitulos.NAO_EXCLUIDO.getDescricao());
+        escritorBanco.insert(EnumTitulos.TABELA_IMAGEM.getDescricao(),null, valores);
         escritorBanco.close();
     }
 
+    public ArrayList<byte[]> getImagemByIdTitulo(long idTitulo){
+       String query =  "SELECT * FROM titulo_imagem " +
+                        "WHERE id_titulo = ?";
+       String[] args = {String.valueOf(idTitulo)};
+       return loadImagens(query, args);
+    }
+
+    private ArrayList<byte[]> loadImagens(String query, String[] args) {
+        ArrayList<byte[]> imagens = new ArrayList<>();
+        SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                imagens.add(this.criarImagem(cursor));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        leitorBanco.close();
+        return imagens;
+    }
+
+    private byte[] criarImagem(Cursor cursor) {
+        int indexImagem = cursor.getColumnIndex(String.valueOf(EnumTitulos.IMAGEM));
+        byte[] imagem = cursor.getBlob(indexImagem);
+        return imagem;
+    }
 }
