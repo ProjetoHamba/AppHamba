@@ -204,7 +204,7 @@ public class PopularBanco {
         vingadores.setAvaliacao(10);
         vingadores.setGeneros("Ação, Fantasia, Aventura, Ficção Científica");
         vingadores.setCriadores("Joe Russo, Anthony Russo");
-        vikings.setTipo("Filme");
+        vingadores.setTipo("Filme");
         vingadores.setCartaz(formatadorImagem.getFotoByte(R.drawable.vinga));
         long idVing = tituloDao.inserir(vingadores);
         tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.vinga));
