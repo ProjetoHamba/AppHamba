@@ -44,7 +44,7 @@ public class EpisodioDao {
         valores.put(EnumTitulos.ID_EPISODIO.getDescricao(), episodio.getId());
         valores.put(EnumTitulos.ID_USUARIO.getDescricao(), usuario.getId());
         valores.put(EnumTitulos.ID_TEMPORADA.getDescricao(), temporada.getId());
-        valores.put(EnumTitulos.EXCLUIDO.getDescricao(), "NAO");
+        valores.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.NAO_EXCLUIDO.getDescricao());
         escritorBanco.insert(EnumTitulos.TABELA_ASSISTIDO.getDescricao(), null, valores);
         escritorBanco.close();
     }
