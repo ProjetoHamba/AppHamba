@@ -60,6 +60,10 @@ public class ViewPagerAdapter extends PagerAdapter{
         View view = (View) object;
         viewPager.removeView(view);
     }
+<<<<<<< HEAD
 
 }
 
+=======
+}
+>>>>>>> bruno2

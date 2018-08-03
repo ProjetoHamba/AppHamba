@@ -16,6 +16,8 @@ import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
+import me.relex.circleindicator.CircleIndicator;
+
 public class DetalhesActivity extends CollapsingToolbarActivity {
     //private ImageView imagemTitulo;
     ViewPager viewPager;
@@ -27,12 +29,15 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
         setUpToolbar();
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = (ViewPager)findViewById(R.id.viewPager);
         ServicoTitulo servicoTitulo = new ServicoTitulo();
+        CircleIndicator indicator = (CircleIndicator)findViewById(R.id.indicator);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this, servicoTitulo.getImagens() );
         encontrandoItensView();
         viewPager.setAdapter(viewPagerAdapter);
+        indicator.setViewPager(viewPager);
         setInformacoesTitulos();
     }
     protected void encontrandoItensView(){
@@ -54,6 +59,7 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         generosTitulo.setText(dados.getGeneros());
     }
 
+    // Configura a Toolbar
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -64,6 +70,7 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            // Up Navigation - voltando com animação
             case android.R.id.home:
                 supportFinishAfterTransition();
                 return true;

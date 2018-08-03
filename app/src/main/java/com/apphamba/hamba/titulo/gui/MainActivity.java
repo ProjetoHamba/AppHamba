@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.adapter.TabsAdapter;
+import com.apphamba.hamba.infra.TituloLista.adapter.TabsAdapter;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
