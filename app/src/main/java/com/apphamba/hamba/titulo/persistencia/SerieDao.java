@@ -26,6 +26,14 @@ public class SerieDao {
         return this.load(query, args);
     }
 
+    public Serie getByTitulo(Titulo titulo) {
+        String query =  "SELECT * FROM serie " +
+                        "WHERE id_titulo = ?";
+        String idTitulo = String.valueOf(titulo.getId());
+        String[] args = {idTitulo};
+        return this.load(query, args);
+    }
+
     private Serie load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);

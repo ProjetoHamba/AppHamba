@@ -61,7 +61,7 @@ public class EpisodioDao {
         escritorBanco.close();
     }
 
-    private ArrayList<Episodio> loadAssistidos(Temporada temporada, Usuario usuario) {
+    public ArrayList<Episodio> loadAssistidos(Temporada temporada, Usuario usuario) {
         String idUsuario = String.valueOf(usuario.getId());
         String idTemporada = String.valueOf(temporada.getId());
         String query =  "SELECT * FROM episodio_assistido AS ea " +
