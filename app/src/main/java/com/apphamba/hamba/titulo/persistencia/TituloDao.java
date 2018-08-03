@@ -45,9 +45,15 @@ public class TituloDao {
         return titulo;
     }
 
+    public ArrayList<Titulo> loadTitulos(String tipo) {
+        String query = "SELECT * FROM titulo " +
+                "WHERE tipo = ?";
+        String[] args = {tipo};
+        return this.loadTitulos(query, args);
+    }
     public ArrayList<Titulo> loadTitulos() {
         String query = "SELECT * FROM titulo";
-        return this.loadTitulos(query, null);
+        return this.loadTitulos(query,null);
     }
 
     public ArrayList<Titulo> loadTitulos(String query, String[] args) {

@@ -17,6 +17,10 @@ import java.util.BitSet;
 
 public class ServicoTitulo {
 
+    public ArrayList<Titulo> getTitulos(String tipo){
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.loadTitulos(tipo);
+    }
     public ArrayList<Titulo> getTitulos(){
         TituloDao tituloDao = new TituloDao();
         return tituloDao.loadTitulos();

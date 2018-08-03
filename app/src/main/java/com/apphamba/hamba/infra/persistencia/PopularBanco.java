@@ -216,7 +216,7 @@ public class PopularBanco {
         friends.setAvaliacao(10);
         friends.setGeneros("Comédia");
         friends.setCriadores("Marta Kauffman, David Crane");
-        friends.setTipo("Filme");
+        friends.setTipo("Serie");
         friends.setCartaz(formatadorImagem.getFotoByte(R.drawable.friends));
         long idFriends = tituloDao.inserir(friends);
         tituloDao.inserirImagemTitulo((int) idFriends, formatadorImagem.getFotoByte(R.drawable.friends));
