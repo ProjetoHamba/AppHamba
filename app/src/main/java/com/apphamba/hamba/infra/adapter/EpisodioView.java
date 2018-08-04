@@ -5,10 +5,6 @@ public class EpisodioView {
     String descEp;
     int numEp;
 
-    //public String getNumEp() {
-        //return ;
-    //}
-
     public void setNumEp(int numEp) {
         this.numEp = numEp;
     }
@@ -17,6 +13,7 @@ public class EpisodioView {
         this.isSelected = selecionado;
         this.descEp = eita;
     }
+
     public EpisodioView(int numEp, String descEp, Boolean isSelected) {
         this.numEp = numEp;
         this.descEp = descEp;
