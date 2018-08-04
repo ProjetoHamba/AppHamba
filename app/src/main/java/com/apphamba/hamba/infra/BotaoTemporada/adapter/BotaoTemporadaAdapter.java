@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.botaoTemporada.adapter;
+package com.apphamba.hamba.infra.BotaoTemporada.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -39,7 +39,10 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
 
     @Override
     public void onBindViewHolder(final BotoesTempViewHolder holder, final int position) {
-        holder.buttonTemp.setText(temporadas.get(position).getNome());
+        Titulo titulo = FiltroTitulo.instance.getTituloSelecionado();
+        //Colocar abixo a função que retorna Temporada .X.
+        holder.buttonTemp.setText("Temporada X+1");
+
         if (onClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

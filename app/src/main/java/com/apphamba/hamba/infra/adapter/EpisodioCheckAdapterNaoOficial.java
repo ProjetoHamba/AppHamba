@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.apphamba.hamba.R;
 
 import java.util.List;
-
+/* Versão ListView */
 
 public class EpisodioCheckAdapterNaoOficial extends BaseAdapter {
     Activity activity;
@@ -42,34 +42,43 @@ public class EpisodioCheckAdapterNaoOficial extends BaseAdapter {
         return i;
     }
 
-
+    //@SuppressLint("ViewHolder")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder = null;
         if (view==null){
             view = inflater.inflate(R.layout.adapter_episodio_check,viewGroup,false);
             holder = new ViewHolder();
+
             holder.textNumEpisodio = (TextView) view.findViewById(R.id.textViewNumEpisodio);
             holder.textDescEp =(TextView) view.findViewById(R.id.textViewEpisodioDescri);
             holder.checkBoxEp = (CheckBox) view.findViewById(R.id.checkBoxItemEpisodio);
+
             view.setTag(holder);
+
         }else
             holder = (ViewHolder) view.getTag();
-            EpisodioView episodioView = episodiosView.get(i);
-            holder.textNumEpisodio.setText(episodiosView.get(i).toString());
-            holder.textDescEp.setText(episodioView.getDescEp());
-            return view;
-    }
 
+        EpisodioView episodioView = episodiosView.get(i);
+        //holder.textNumEpisodio.setText(String"Episodio " + model.get);
+        holder.textNumEpisodio.setText(episodiosView.get(i).toString());
+        holder.textDescEp.setText(episodioView.getDescEp());
+        //if (episodioView.isSelected())
+        //    holder.checkBoxEp.setChecked(true);
+        //else
+        //    holder.checkBoxEp.setChecked(false);
+
+        return view;
+    }
     public void updateRecords(List<EpisodioView> episodiosView){
         this.episodiosView = episodiosView;
         notifyDataSetChanged();
 
     }
-
     class ViewHolder{
         TextView textNumEpisodio;
         TextView textDescEp;
         CheckBox checkBoxEp;
+
     }
 }

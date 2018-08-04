@@ -25,12 +25,17 @@ public class EpisodiosCheckListaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_episodios_check_lista);
+
         ListView listView =(ListView) findViewById(R.id.listView);
         Temporada temporada = FiltroTitulo.instance.getTemporadaSelecionada();
         ArrayList<Episodio> episodios = temporada.getEpisodios();
+
         ServicoSerie servicoSerie = new ServicoSerie();
         ArrayList<Episodio> episodiosAssistidos = servicoSerie.getAssistidos(temporada);
+
         final List<EpisodioView> checkEpisodios = this.epToEpView(episodios, episodiosAssistidos);
+
+        //Na vdd ja ta criado, n precisa recriar , só era um exemplo
         final EpisodioCheckAdapterNaoOficial adapter = new EpisodioCheckAdapterNaoOficial(this,checkEpisodios);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -42,7 +47,7 @@ public class EpisodiosCheckListaActivity extends AppCompatActivity {
                 else
                     model.setSelected(true);
                 checkEpisodios.set(position, model);
-
+                //now update adapter
                 adapter.updateRecords(checkEpisodios);
             }
         });
@@ -58,8 +63,9 @@ public class EpisodiosCheckListaActivity extends AppCompatActivity {
         return episodioViews;
     }
 
+    // Pode ser que seja melhor colocar isso na view, mas to fazendo pra vcs n precisarem pensar - brainstorm time
     private boolean isAssistido(Episodio episodio, ArrayList<Episodio> episodiosAssistido) {
         return episodiosAssistido.contains(episodio);
-    }
+    } // PODE SER QUE N FUNFE :(
 
 }

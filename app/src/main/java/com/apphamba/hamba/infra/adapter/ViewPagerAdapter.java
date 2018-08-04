@@ -29,6 +29,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     }
 
+
     @Override
     public int getCount() {
         return images.length;
@@ -44,9 +45,10 @@ public class ViewPagerAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = layoutInflater.inflate(R.layout.viewpager_item, null);
         ServicoTitulo servicoTitulo = new ServicoTitulo();
-        Bitmap imagemBitMap = imagens.get(position);
+        Bitmap imagemBitMap = imagens.get(position);//PEGA A POSIÇÃO?
         ImageView imageView = (ImageView) item_view.findViewById(R.id.imageDetalhe);
-        imageView.setImageBitmap(imagemBitMap);
+        imageView.setImageBitmap(imagemBitMap);//SETA NO IMAGEVIEW
+
         ViewPager viewPager = (ViewPager) container;
         viewPager.addView(item_view, 0);
         return item_view;

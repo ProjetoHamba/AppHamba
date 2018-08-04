@@ -38,15 +38,27 @@ public class EpisodioCheckAdapter extends RecyclerView.Adapter<EpisodioCheckAdap
 
     @Override
     public void onBindViewHolder(final EpisodiosCheckViewHolder holder, final int position) {
+        // Atualizada a view
+        //holder.textNumEpisodio.setText();
+        //if holder.checkBoxEp.isChecked()
+       // holder.checkBoxEp.setChecked(true);
+        //holder.checkBoxEp.isChecked();
+
         if (onClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    // Chama o listener para informar que clicou no Titulo
                     onClickListener.onClickEpisodioCheck(holder, position);
+
                 }
             });
         }
+        // Pinta o fundo de azul se a linha estiver selecionada
         int corFundo = context.getResources().getColor(titulos.get(position).getSelecionado() ? R.color.colorBlue : R.color.colorWhite);
+        //holder.cardView.setCardBackgroundColor(corFundo);
+
+
     }
 
     @Override
@@ -63,9 +75,12 @@ public class EpisodioCheckAdapter extends RecyclerView.Adapter<EpisodioCheckAdap
         public EpisodiosCheckViewHolder(View view) {
             super(view);
             this.view = view;
+            // Cria as views para salvar no ViewHolder
+
             textNumEpisodio = (TextView) view.findViewById(R.id.textViewNumEpisodio);
             textDescEp =(TextView) view.findViewById(R.id.textViewEpisodioDescri);
             checkBoxEp = (CheckBox) view.findViewById(R.id.checkBoxItemEpisodio);
+
         }
     }
 
