@@ -1,8 +1,6 @@
 package com.apphamba.hamba.infra;
 
-import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
-
 import java.util.HashMap;
 import java.util.Map;
 

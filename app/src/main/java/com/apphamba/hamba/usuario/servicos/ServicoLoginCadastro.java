@@ -1,6 +1,5 @@
 package com.apphamba.hamba.usuario.servicos;
 
-import com.apphamba.hamba.infra.EnumUsuarioPessoa;
 import com.apphamba.hamba.infra.HambaAppException;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
@@ -25,7 +24,6 @@ public class ServicoLoginCadastro {
         } else {
             throw new HambaAppException("Usuário ou senha inválidos");
         }
-
     }
 
     private void iniciarSessao(Pessoa pessoa) {

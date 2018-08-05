@@ -7,12 +7,17 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FormatadorImagem;
+import com.apphamba.hamba.titulo.dominio.Episodio;
+import com.apphamba.hamba.titulo.dominio.Serie;
+import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.persistencia.EpisodioDao;
+import com.apphamba.hamba.titulo.persistencia.SerieDao;
+import com.apphamba.hamba.titulo.persistencia.TemporadaDao;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
 
 public class PopularBanco {
     public static final PopularBanco criador = new PopularBanco();
-
     private FormatadorImagem formatadorImagem = new FormatadorImagem();
     private TituloDao tituloDao = new TituloDao();
 
@@ -47,8 +52,66 @@ public class PopularBanco {
         vikings.setAvaliacao(8);
         vikings.setGeneros("Ação, Aventura, Drama");
         vikings.setCriadores("Michael Hirst");
-        vikings.setImagem(formatadorImagem.getFotoByte(R.drawable.vikings_hamba));
-        tituloDao.inserir(vikings);
+        vikings.setTipo("Serie");
+        vikings.setCartaz(formatadorImagem.getFotoByte(R.drawable.vikings_hamba));
+        long idVikings = tituloDao.inserir(vikings);
+        tituloDao.inserirImagemTitulo((int) idVikings,formatadorImagem.getFotoByte(R.drawable.vk3));
+        tituloDao.inserirImagemTitulo((int) idVikings,formatadorImagem.getFotoByte(R.drawable.vk4));
+
+        Serie vkSerie = new Serie();
+        vkSerie.setTitulo(idVikings);
+        vkSerie.setDistribuidor("History");
+        SerieDao serieDao = new SerieDao();
+        long idVkSerie = serieDao.inserirSerie(vkSerie);
+
+        Temporada temp1 = new Temporada();
+        temp1.setNome("Temporada 1");
+        temp1.setIdSerie(idVkSerie);
+        temp1.setNumeroTemporada(1);
+        temp1.setQuantidadeEdpisodios(3);
+        temp1.setDataLancamento("3 de Março de 2013");
+        TemporadaDao temporadaDao = new TemporadaDao();
+        long t1 =temporadaDao.inserirTemporada(temp1);
+        Temporada temp2 = new Temporada();
+        temp2.setNome("Temporada 2");
+        temp2.setIdSerie(idVkSerie);
+        temp2.setNumeroTemporada(2);
+        temp2.setQuantidadeEdpisodios(3);
+        temp2.setDataLancamento("3 de Março de 2014");
+        long t2 = temporadaDao.inserirTemporada(temp2);
+        EpisodioDao episodioDao = new EpisodioDao();
+
+        Episodio ep1T1 = new Episodio();
+        ep1T1.setIdTemoporada(t1);
+        ep1T1.setNome("Rituais de Passagem");
+        ep1T1.setNumeroEpisodio(1);
+        episodioDao.inserirEpisodio(ep1T1);
+        Episodio ep2T1 = new Episodio();
+        ep2T1.setIdTemoporada(t1);
+        ep2T1.setNome("A Ira dos Homens do Norte");
+        ep2T1.setNumeroEpisodio(2);
+        episodioDao.inserirEpisodio(ep2T1);
+        Episodio ep3T1 = new Episodio();
+        ep3T1.setIdTemoporada(t1);
+        ep3T1.setNome("Despossuídos");
+        ep3T1.setNumeroEpisodio(3);
+        episodioDao.inserirEpisodio(ep2T1);
+
+        Episodio ep1T2 = new Episodio();
+        ep1T2.setIdTemoporada(t2);
+        ep1T2.setNome("Guerra de Irmãos");
+        ep1T2.setNumeroEpisodio(1);
+        episodioDao.inserirEpisodio(ep1T2);
+        Episodio ep2T2 = new Episodio();
+        ep2T2.setIdTemoporada(t2);
+        ep2T2.setNome("Invasão");
+        ep2T2.setNumeroEpisodio(2);
+        episodioDao.inserirEpisodio(ep2T2);
+        Episodio ep3T2 = new Episodio();
+        ep3T2.setIdTemoporada(t2);
+        ep3T2.setNome("Traição");
+        ep3T2.setNumeroEpisodio(3);
+        episodioDao.inserirEpisodio(ep3T2);
 
         Titulo narcos = new Titulo();
         narcos.setNome("Narcos");
@@ -56,8 +119,11 @@ public class PopularBanco {
         narcos.setAvaliacao(8);
         narcos.setGeneros("Biografia, Crime, Drama");
         narcos.setCriadores("Carlo Bernard, Chris Brancato, Doug Miro");
-        narcos.setImagem(formatadorImagem.getFotoByte(R.drawable.narcos));
-        tituloDao.inserir(narcos);
+        narcos.setTipo("Serie");
+        narcos.setCartaz(formatadorImagem.getFotoByte(R.drawable.narcos));
+        long idNarcos = tituloDao.inserir(narcos);
+        tituloDao.inserirImagemTitulo((int) idNarcos, formatadorImagem.getFotoByte(R.drawable.narcos));
+        tituloDao.inserirImagemTitulo((int) idNarcos, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo gameOfThrones = new Titulo();
         gameOfThrones.setNome("Game of Thrones");
@@ -65,8 +131,11 @@ public class PopularBanco {
         gameOfThrones.setAvaliacao(9);
         gameOfThrones.setGeneros("Ação, Aventura, Drama");
         gameOfThrones.setCriadores("David Benioff, D.B. Weiss");
-        gameOfThrones.setImagem(formatadorImagem.getFotoByte(R.drawable.got));
-        tituloDao.inserir(gameOfThrones);
+        gameOfThrones.setTipo("Serie");
+        gameOfThrones.setCartaz(formatadorImagem.getFotoByte(R.drawable.got));
+        long idGot = tituloDao.inserir(gameOfThrones);
+        tituloDao.inserirImagemTitulo((int) idGot, formatadorImagem.getFotoByte(R.drawable.got));
+        tituloDao.inserirImagemTitulo((int) idGot, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo strangerThings = new Titulo();
         strangerThings.setNome("Stranger Things");
@@ -74,17 +143,24 @@ public class PopularBanco {
         strangerThings.setAvaliacao(8);
         strangerThings.setGeneros("Drama, Ficção, Terror");
         strangerThings.setCriadores("Matt Duffer, Ross Duffer");
-        strangerThings.setImagem(formatadorImagem.getFotoByte(R.drawable.strangerthings));
-        tituloDao.inserir(strangerThings);
+        strangerThings.setTipo("Serie");
+        strangerThings.setCartaz(formatadorImagem.getFotoByte(R.drawable.strangerthings));
+        long idStranger = tituloDao.inserir(strangerThings);
+        tituloDao.inserirImagemTitulo((int) idStranger, formatadorImagem.getFotoByte(R.drawable.strangerthings));
+        tituloDao.inserirImagemTitulo((int) idStranger, formatadorImagem.getFotoByte(R.drawable.default2));
+
 
         Titulo breakingBad = new Titulo();
         breakingBad.setNome("Breaking Bad");
         breakingBad.setSinopse("Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperante se transforma em fabricação e venda de metanfetamina, a fim de garantir o futuro de sua família.");
         breakingBad.setAvaliacao(10);
-        breakingBad.setGeneros("Chute na cara e porrada");
-        breakingBad.setCriadores("eu");
-        breakingBad.setImagem(formatadorImagem.getFotoByte(R.drawable.breakingbad));
-        tituloDao.inserir(breakingBad);
+        breakingBad.setGeneros("Acão");
+        breakingBad.setCriadores("Cleto o rei delas");
+        breakingBad.setTipo("Serie");
+        breakingBad.setCartaz(formatadorImagem.getFotoByte(R.drawable.breakingbad));
+        long idBraking = tituloDao.inserir(breakingBad);
+        tituloDao.inserirImagemTitulo((int) idBraking, formatadorImagem.getFotoByte(R.drawable.breakingbad));
+        tituloDao.inserirImagemTitulo((int) idBraking, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo laCasaDePapel = new Titulo();
         laCasaDePapel.setNome("La Casa de Papel");
@@ -92,8 +168,11 @@ public class PopularBanco {
         laCasaDePapel.setAvaliacao(8);
         laCasaDePapel.setGeneros("Crime, Drama, Suspense");
         laCasaDePapel.setCriadores("Vince Gilligan");
-        laCasaDePapel.setImagem(formatadorImagem.getFotoByte(R.drawable.lacasa));
-        tituloDao.inserir(laCasaDePapel);
+        laCasaDePapel.setTipo("Serie");
+        laCasaDePapel.setCartaz(formatadorImagem.getFotoByte(R.drawable.lacasa));
+        long idLaCasa = tituloDao.inserir(laCasaDePapel);
+        tituloDao.inserirImagemTitulo((int) idLaCasa, formatadorImagem.getFotoByte(R.drawable.lacasa));
+        tituloDao.inserirImagemTitulo((int) idLaCasa, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo houseOfCards = new Titulo();
         houseOfCards.setNome("House of Cards");
@@ -101,8 +180,11 @@ public class PopularBanco {
         houseOfCards.setAvaliacao(8);
         houseOfCards.setGeneros("Drama");
         houseOfCards.setCriadores("Beau Willimo");
-        houseOfCards.setImagem(formatadorImagem.getFotoByte(R.drawable.houseofcards));
-        tituloDao.inserir(houseOfCards);
+        houseOfCards.setTipo("Serie");
+        houseOfCards.setCartaz(formatadorImagem.getFotoByte(R.drawable.houseofcards));
+        long idHouse = tituloDao.inserir(houseOfCards);
+        tituloDao.inserirImagemTitulo((int) idHouse, formatadorImagem.getFotoByte(R.drawable.houseofcards));
+        tituloDao.inserirImagemTitulo((int) idHouse, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo prisonBreak = new Titulo();
         prisonBreak.setNome("Prison Break");
@@ -110,8 +192,11 @@ public class PopularBanco {
         prisonBreak.setAvaliacao(8);
         prisonBreak.setGeneros("Ação, Crime, Drama");
         prisonBreak.setCriadores("Paul Scheuring");
-        prisonBreak.setImagem(formatadorImagem.getFotoByte(R.drawable.prisonbreak));
-        tituloDao.inserir(prisonBreak);
+        prisonBreak.setTipo("Serie");
+        prisonBreak.setCartaz(formatadorImagem.getFotoByte(R.drawable.prisonbreak));
+        long idPrision = tituloDao.inserir(prisonBreak);
+        tituloDao.inserirImagemTitulo((int) idPrision, formatadorImagem.getFotoByte(R.drawable.prisonbreak));
+        tituloDao.inserirImagemTitulo((int) idPrision, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo mrRobot = new Titulo();
         mrRobot.setNome("Mr. Robot ");
@@ -119,8 +204,11 @@ public class PopularBanco {
         mrRobot.setAvaliacao(10);
         mrRobot.setGeneros("Crime, Drama");
         mrRobot.setCriadores("Sam Esmail");
-        mrRobot.setImagem(formatadorImagem.getFotoByte(R.drawable.mrbot));
-        tituloDao.inserir(mrRobot);
+        mrRobot.setTipo("Serie");
+        mrRobot.setCartaz(formatadorImagem.getFotoByte(R.drawable.mrbot));
+        long idRobot = tituloDao.inserir(mrRobot);
+        tituloDao.inserirImagemTitulo((int) idRobot, formatadorImagem.getFotoByte(R.drawable.mrbot));
+        tituloDao.inserirImagemTitulo((int) idRobot, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo jurassic = new Titulo();
         jurassic.setNome("Jurassic World: Reino Ameaçado");
@@ -128,8 +216,11 @@ public class PopularBanco {
         jurassic.setAvaliacao(7);
         jurassic.setGeneros("Ação, Aventura, Ficção Científica");
         jurassic.setCriadores("Derek Connolly, Colin Trevorrow");
-        jurassic.setImagem(formatadorImagem.getFotoByte(R.drawable.juras));
-        tituloDao.inserir(jurassic);
+        jurassic.setTipo("Filme");
+        jurassic.setCartaz(formatadorImagem.getFotoByte(R.drawable.juras));
+        long idJurassic = tituloDao.inserir(jurassic);
+        tituloDao.inserirImagemTitulo((int) idJurassic, formatadorImagem.getFotoByte(R.drawable.juras));
+        tituloDao.inserirImagemTitulo((int) idJurassic, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo incriveis = new Titulo();
         incriveis.setNome("Os Incríveis 2");
@@ -137,8 +228,11 @@ public class PopularBanco {
         incriveis.setAvaliacao(9);
         incriveis.setGeneros("Ação, Aventura, Animação, Família");
         incriveis.setCriadores("Brad Bird");
-        incriveis.setImagem(formatadorImagem.getFotoByte(R.drawable.inc2));
-        tituloDao.inserir(incriveis);
+        incriveis.setTipo("Filme");
+        incriveis.setCartaz(formatadorImagem.getFotoByte(R.drawable.inc2));
+        long idIncrivei = tituloDao.inserir(incriveis);
+        tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.inc2));
+        tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo logan = new Titulo();
         logan.setNome("Logan");
@@ -146,8 +240,11 @@ public class PopularBanco {
         logan.setAvaliacao(10);
         logan.setGeneros("Ação, Drama, Ficção Científica");
         logan.setCriadores("Brad Bird");
-        logan.setImagem(formatadorImagem.getFotoByte(R.drawable.logan));
-        tituloDao.inserir(logan);
+        logan.setTipo("Filme");;
+        logan.setCartaz(formatadorImagem.getFotoByte(R.drawable.logan));
+        long idLogan = tituloDao.inserir(logan);
+        tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.logan));
+        tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo sexy = new Titulo();
         sexy.setNome("Sexy por Acidente");
@@ -155,8 +252,11 @@ public class PopularBanco {
         sexy.setAvaliacao(7);
         sexy.setGeneros("Comédia");
         sexy.setCriadores("Marc Silverstein, Abby Kohn");
-        sexy.setImagem(formatadorImagem.getFotoByte(R.drawable.sexy));
-        tituloDao.inserir(sexy);
+        sexy.setTipo("Filme");
+        sexy.setCartaz(formatadorImagem.getFotoByte(R.drawable.sexy));
+        long idSexy = tituloDao.inserir(sexy);
+        tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.sexy));
+        tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo vingadores = new Titulo();
         vingadores.setNome("Vingadores: Guerra Infinita");
@@ -164,8 +264,11 @@ public class PopularBanco {
         vingadores.setAvaliacao(10);
         vingadores.setGeneros("Ação, Fantasia, Aventura, Ficção Científica");
         vingadores.setCriadores("Joe Russo, Anthony Russo");
-        vingadores.setImagem(formatadorImagem.getFotoByte(R.drawable.vinga));
-        tituloDao.inserir(vingadores);
+        vingadores.setTipo("Filme");
+        vingadores.setCartaz(formatadorImagem.getFotoByte(R.drawable.vinga));
+        long idVing = tituloDao.inserir(vingadores);
+        tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.vinga));
+        tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.default2));
 
         Titulo friends = new Titulo();
         friends.setNome("Friends");
@@ -173,9 +276,11 @@ public class PopularBanco {
         friends.setAvaliacao(10);
         friends.setGeneros("Comédia");
         friends.setCriadores("Marta Kauffman, David Crane");
-        friends.setImagem(formatadorImagem.getFotoByte(R.drawable.friends));
-        tituloDao.inserir(friends);
-
+        friends.setTipo("Serie");
+        friends.setCartaz(formatadorImagem.getFotoByte(R.drawable.friends));
+        long idFriends = tituloDao.inserir(friends);
+        tituloDao.inserirImagemTitulo((int) idFriends, formatadorImagem.getFotoByte(R.drawable.friends));
+        tituloDao.inserirImagemTitulo((int) idFriends, formatadorImagem.getFotoByte(R.drawable.default2));
     }
 
 }

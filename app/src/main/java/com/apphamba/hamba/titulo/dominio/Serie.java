@@ -1,13 +1,13 @@
 package com.apphamba.hamba.titulo.dominio;
 
-import java.util.Date;
+
+import java.util.ArrayList;
 
 public class Serie {
     private int id;
-    private int idTitulo;
     private String distribuidor;
-    private int quantidadeTemporada;
-    private Titulo titulo;
+    private ArrayList<Temporada> temporadas;
+    private long titulo;
 
     public int getId() {
         return id;
@@ -15,20 +15,6 @@ public class Serie {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdTitulo() {
-        return idTitulo;
-    }
-
-    private Date dataEstreia;
-
-    public Date getDataEstreia() {
-        return dataEstreia;
-    }
-
-    public void setDataEstreia(Date dataEstreia) {
-        this.dataEstreia = dataEstreia;
     }
 
     public String getDistribuidor() {
@@ -39,19 +25,19 @@ public class Serie {
         this.distribuidor = distribuidor;
     }
 
-    public int getQuantidadeTemporada() {
-        return quantidadeTemporada;
+    public ArrayList<Temporada> getTemporadas() {
+        return temporadas;
     }
 
-    public void setQuantidadeTemporada(int quantidadeTemporada) {
-        this.quantidadeTemporada = quantidadeTemporada;
+    public void setTemporadas(ArrayList<Temporada> temporadas) {
+        this.temporadas = temporadas;
     }
 
-    public Titulo getTitulo() {
+    public long getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(Titulo titulo) {
+    public void setTitulo(long titulo) {
         this.titulo = titulo;
     }
 

@@ -2,9 +2,17 @@ package com.apphamba.hamba.titulo.dominio;
 
 public class Episodio {
     private int id;
-    private int idTemoporada;
+    private long idTemoporada;
     private String nome;
     private int numeroEpisodio;
+
+    public long getIdTemoporada() {
+        return idTemoporada;
+    }
+
+    public void setIdTemoporada(long idTemoporada) {
+        this.idTemoporada = idTemoporada;
+    }
 
     public int getId() {
         return id;
@@ -13,15 +21,6 @@ public class Episodio {
     public void setId(int id) {
         this.id = id;
     }
-
-    public int getIdSerie() {
-        return idTemoporada;
-    }
-
-    public void setIdSerie(int idTemoporada) {
-        this.idTemoporada = idTemoporada;
-    }
-
 
     public String getNome() {
         return nome;
