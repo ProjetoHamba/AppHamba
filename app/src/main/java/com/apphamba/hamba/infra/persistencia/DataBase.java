@@ -7,13 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.apphamba.hamba.infra.HambaApp;
 
-
-/**
- * Classe responsável por criar tabelas e o banco de dados
- */
-
 public class DataBase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
     private static final String DATABASE_NAME = "dbapphamba";
 
     public DataBase() {
@@ -80,6 +75,24 @@ public class DataBase extends SQLiteOpenHelper {
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
 
+        db.execSQL("CREATE TABLE titulo_imagem (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "imagem BLOB," +
+                "id_titulo INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
+
+        db.execSQL("CREATE TABLE episodio_assistido (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_episodio INTEGER NOT NULL," +
+                "id_temporada INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
+
+        db.execSQL("CREATE TABLE filme_assistido (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_filme INTEGER NOT NULL," +
+                "excluido TEXT NOT NULL);");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.BotaoTemporada.adapter;
+package com.apphamba.hamba.infra.adaptersEFragmentos.BotaoTemporada.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,9 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.titulo.dominio.Temporada;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAdapter.BotoesTempViewHolder> {
-    private final List<BotaoTemporada> botoesTemp;
+    private final List<Temporada> temporadas;
     private final Context context;
     private final BotaoTemporadaOnClickListener onClickListener;
 
@@ -18,9 +22,9 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
         void onClickBotaoTemporada(BotoesTempViewHolder holder, int indexBotaoTemporada);
     }
 
-    public BotaoTemporadaAdapter(Context context, List<BotaoTemporada> botoesTemp, BotaoTemporadaOnClickListener onClickListener) {
+    public BotaoTemporadaAdapter(Context context, ArrayList<Temporada> temporadas, BotaoTemporadaOnClickListener onClickListener) {
         this.context = context;
-        this.botoesTemp = botoesTemp;
+        this.temporadas = temporadas;
         this.onClickListener = onClickListener;
     }
 
@@ -33,12 +37,9 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
 
     @Override
     public void onBindViewHolder(final BotoesTempViewHolder holder, final int position) {
-        //Titulo titulo = titulo.get(position);
-        //Colocar abixo a função que retorna Temporada .X.
-        //holder.buttonTemp.setText();
-
+        holder.buttonTemp.setText(temporadas.get(position).getNome());
         if (onClickListener != null) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.buttonTemp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onClickListener.onClickBotaoTemporada(holder, position);
@@ -49,7 +50,7 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
 
     @Override
     public int getItemCount() {
-        return this.botoesTemp != null ? this.botoesTemp.size() : 0;
+        return this.temporadas != null ? this.temporadas.size() : 0;
     }
 
     public static class BotoesTempViewHolder extends RecyclerView.ViewHolder {

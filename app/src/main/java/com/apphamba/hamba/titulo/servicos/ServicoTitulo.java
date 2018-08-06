@@ -1,18 +1,26 @@
 package com.apphamba.hamba.titulo.servicos;
 
 
+import android.graphics.Bitmap;
+
 import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
+import com.apphamba.hamba.infra.servicos.FormatadorImagem;
 import com.apphamba.hamba.titulo.dominio.Titulo;
-import com.apphamba.hamba.titulo.gui.TituloView;
 import com.apphamba.hamba.titulo.persistencia.FavoritoDao;
 import com.apphamba.hamba.titulo.persistencia.MeuHambaDao;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class ServicoTitulo {
 
+    public ArrayList<Titulo> getTitulos(String tipo){
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.loadTitulos(tipo);
+    }
     public ArrayList<Titulo> getTitulos(){
         TituloDao tituloDao = new TituloDao();
         return tituloDao.loadTitulos();
@@ -47,13 +55,13 @@ public class ServicoTitulo {
         meuHambaDao.inserir(titulo, usuario);
     }
 
-    public Boolean verificarMeuHamba(Titulo titulo) {
+    public Boolean isMeuHamba(Titulo titulo) {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         MeuHambaDao meuHambaDao = new MeuHambaDao();
         return meuHambaDao.existeNoMeuHamba(String.valueOf(usuario.getId()), String.valueOf(titulo.getId()));
     }
 
-    public Boolean verificarFavorito(Titulo titulo) {
+    public Boolean isFavorito(Titulo titulo) {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         FavoritoDao favoritoDao = new FavoritoDao();
         return favoritoDao.existeNosFavoritos(String.valueOf(usuario.getId()), String.valueOf(titulo.getId()));
@@ -69,6 +77,14 @@ public class ServicoTitulo {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         MeuHambaDao meuHambaDao = new MeuHambaDao();
         meuHambaDao.remover(titulo, usuario);
+    }
+
+    public ArrayList<Bitmap> getImagens(){
+        Titulo titulo = FiltroTitulo.instance.getTituloSelecionado();
+        TituloDao tituloDao = new TituloDao();
+        ArrayList<byte[]> imagensByte = tituloDao.getImagemByIdTitulo(titulo.getId());
+        FormatadorImagem formatadorImagem = new FormatadorImagem();
+        return formatadorImagem.listByteToListBitmap(imagensByte);
     }
 
 }

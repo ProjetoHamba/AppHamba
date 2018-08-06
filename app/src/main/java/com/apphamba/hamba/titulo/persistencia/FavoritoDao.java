@@ -23,7 +23,8 @@ public class FavoritoDao {
         String query = "SELECT * FROM favorito AS f " +
                        "JOIN titulo AS t " +
                        "ON f.id_titulo = t.id " +
-                       "WHERE f.id_usuario = ?;";
+                       "WHERE (f.id_usuario = ?) AND (f.excluido LIKE \"nao\");";
+
         String[] args = {idUsuario};
         TituloDao tituloDao = new TituloDao();
         ArrayList<Titulo> favoritos = tituloDao.loadTitulos(query, args);

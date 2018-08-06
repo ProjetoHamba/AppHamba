@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.TituloLista.adapter;
+package com.apphamba.hamba.infra.adaptersEFragmentos.TituloLista.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,7 +16,6 @@ import com.apphamba.hamba.titulo.gui.TituloView;
 import java.util.List;
 
 public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosViewHolder> {
-    protected static final String TAG = "hamba";
     private final List<TituloView> titulos;
     private final Context context;
     private final TituloOnClickListener onClickListener;
@@ -36,17 +35,12 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
     public TitulosViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_titulo, viewGroup, false);
         TitulosViewHolder holder = new TitulosViewHolder(view);
-        // (1) Chave da animação
-        //ViewCompat.setTransitionName(holder.img, context.getString(R.string.transition_key));
         return holder;
     }
 
     @Override
     public void onBindViewHolder(final TitulosViewHolder holder, final int position) {
-        // Atualizada a view
         Titulo titulo = titulos.get(position).getTitulo();
-        //setando as infos do dom
-        //rECLAMANDO DO BYTE -- KKKK, TOU AJEITANDO A FUNÇÃO AINDA MAS.. ABAIXOOOOOOOO
         Bitmap imagemTitulo = titulo.getImagemBitmap();
         holder.imageView.setImageBitmap(imagemTitulo);
 
@@ -54,11 +48,9 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Chama o listener para informar que clicou no Titulo
                     onClickListener.onClickTitulo(holder, position);
                 }
             });
-            // Click longo
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
@@ -67,14 +59,8 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
                 }
             });
         }
-        // Pinta o fundo de azul se a linha estiver selecionada
         int corFundo = context.getResources().getColor(titulos.get(position).getSelecionado() ? R.color.colorBlue : R.color.colorWhite);
         holder.cardView.setCardBackgroundColor(corFundo);
-        // A cor do texto é branca ou azul, depende da cor do fundo. - isso é para o texto dentro do card
-        //int corFonte = context.getResources().getColor(titulo.selected ? R.color.colorWhite : R.color.colorBlue);
-        //holder.tNome.setTextColor(corFonte);
-;
-
     }
 
     @Override
@@ -86,14 +72,11 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         public ImageView imageView;
         public View view;
         CardView cardView;
-
         public TitulosViewHolder(View view) {
             super(view);
             this.view = view;
-            // Cria as views para salvar no ViewHolder
-            imageView = (ImageView) view.findViewById(R.id.img);
-            cardView = (CardView) view.findViewById(R.id.card_view);
+            imageView = view.findViewById(R.id.img);
+            cardView = view.findViewById(R.id.card_view);
         }
     }
-
 }

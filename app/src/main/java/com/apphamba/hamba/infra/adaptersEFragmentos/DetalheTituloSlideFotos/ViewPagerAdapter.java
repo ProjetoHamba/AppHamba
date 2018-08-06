@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adapter;
+package com.apphamba.hamba.infra.adaptersEFragmentos.DetalheTituloSlideFotos;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.servicos.FormatadorImagem;
-import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.ArrayList;
@@ -29,7 +27,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     }
 
-
     @Override
     public int getCount() {
         return images.length;
@@ -45,10 +42,9 @@ public class ViewPagerAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = layoutInflater.inflate(R.layout.viewpager_item, null);
         ServicoTitulo servicoTitulo = new ServicoTitulo();
-        Bitmap imagemBitMap = imagens.get(position);//PEGA A POSIÇÃO?
+        Bitmap imagemBitMap = imagens.get(position);
         ImageView imageView = (ImageView) item_view.findViewById(R.id.imageDetalhe);
-        imageView.setImageBitmap(imagemBitMap);//SETA NO IMAGEVIEW
-
+        imageView.setImageBitmap(imagemBitMap);
         ViewPager viewPager = (ViewPager) container;
         viewPager.addView(item_view, 0);
         return item_view;
