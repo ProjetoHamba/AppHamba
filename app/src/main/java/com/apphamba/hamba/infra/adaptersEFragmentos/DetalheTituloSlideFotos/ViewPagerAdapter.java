@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.SlideFotosDetalheTitulo;
+package com.apphamba.hamba.infra.adaptersEFragmentos.DetalheTituloSlideFotos;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.servicos.FormatadorImagem;
-import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import java.util.ArrayList;
