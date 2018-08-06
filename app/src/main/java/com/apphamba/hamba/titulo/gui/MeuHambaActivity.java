@@ -6,17 +6,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.TituloLista.fragments.TituloListFragment;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
-
 import java.util.ArrayList;
 
 public class MeuHambaActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +22,6 @@ public class MeuHambaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         criarFragment(savedInstanceState);
     }
-
     private void criarFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             ServicoTitulo servicoTitulo = new ServicoTitulo();
@@ -36,7 +32,6 @@ public class MeuHambaActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
         }
     }
-
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -48,12 +43,9 @@ public class MeuHambaActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.search_com_settings_menu, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_search) {
@@ -71,5 +63,4 @@ public class MeuHambaActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }

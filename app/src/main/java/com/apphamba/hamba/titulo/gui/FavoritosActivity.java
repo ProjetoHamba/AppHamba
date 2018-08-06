@@ -6,14 +6,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.TituloLista.fragments.TituloListFragment;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 public class FavoritosActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +20,6 @@ public class FavoritosActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         criarFragment(savedInstanceState);
     }
-
     private void criarFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             ServicoTitulo servicoTitulo = new ServicoTitulo();
@@ -32,25 +29,20 @@ public class FavoritosActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
         }
     }
-
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.search_com_settings_menu, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_search) {
@@ -62,12 +54,10 @@ public class FavoritosActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
-
 }

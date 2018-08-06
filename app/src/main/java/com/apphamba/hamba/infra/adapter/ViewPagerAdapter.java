@@ -8,12 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.servicos.FormatadorImagem;
-import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +22,6 @@ public class ViewPagerAdapter extends PagerAdapter {
     public ViewPagerAdapter(Context context, ArrayList<Bitmap> imagens) {
         this.context = context;
         this.imagens = imagens;
-
     }
 
     @Override

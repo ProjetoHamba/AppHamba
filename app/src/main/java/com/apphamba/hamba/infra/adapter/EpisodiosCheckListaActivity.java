@@ -7,11 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.EnumTitulos;
-import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Episodio;
-import com.apphamba.hamba.titulo.dominio.Serie;
 import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.servicos.ServicoSerie;
 
@@ -31,19 +28,16 @@ public class EpisodiosCheckListaActivity extends AppCompatActivity {
         ServicoSerie servicoSerie = new ServicoSerie();
         ArrayList<Episodio> episodiosAssistidos = servicoSerie.getAssistidos(temporada);
         final List<EpisodioView> checkEpisodios = this.epToEpView(episodios, episodiosAssistidos);
-        final EpisodioCheckAdapterNaoOficial adapter = new EpisodioCheckAdapterNaoOficial(this,checkEpisodios);
-        listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 EpisodioView model = checkEpisodios.get(position);
-                if (model.isSelected())
+                if (model.isSelected()) {
                     model.setSelected(false);
-                else
+                } else {
                     model.setSelected(true);
+                }
                 checkEpisodios.set(position, model);
-
-                adapter.updateRecords(checkEpisodios);
             }
         });
     }
@@ -61,5 +55,4 @@ public class EpisodiosCheckListaActivity extends AppCompatActivity {
     private boolean isAssistido(Episodio episodio, ArrayList<Episodio> episodiosAssistido) {
         return episodiosAssistido.contains(episodio);
     }
-
 }

@@ -5,13 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulo.gui.MainActivity;
 
 public class EscolhaConfiguracaoActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +19,7 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
-
     public void mudarTela(Class tela) {
         Intent intent = new Intent(this, tela);
         startActivity(intent);
@@ -33,12 +28,10 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
         this.mudarTela(AlterarEmailActivity.class);
         finish();
     }
-
     public void cliqueBotaoAlterarSenha(View view) {
         this.mudarTela(AlterarSenhaActivity.class);
         finish();
     }
-
     public void cliqueBotaoDestivarConta(View view) {
         this.mudarTela(DesativarContaActivity.class);
         finish();
@@ -49,5 +42,4 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }

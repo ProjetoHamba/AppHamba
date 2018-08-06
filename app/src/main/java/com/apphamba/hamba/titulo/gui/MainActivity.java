@@ -15,16 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.TituloLista.adapter.TabsAdapter;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,22 +43,16 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-    // Configura o ViewPager + Tabs
     private void DefinindoViewPagerComTab() {
-        // ViewPager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.fragContainer);
-        //viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(new TabsAdapter(getContext(), getSupportFragmentManager()));
-        // Tabs
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        // Cria as tabs com o mesmo adapter utilizado pelo ViewPager
         tabLayout.setupWithViewPager(viewPager);
         int cor = ContextCompat.getColor(getContext(), R.color.colorWhite);
         tabLayout.setTabTextColors(cor, cor);
         int corTabSelecionada= ContextCompat.getColor(getContext(), R.color.colorBlack);
         tabLayout.setSelectedTabIndicatorColor(corTabSelecionada);
     }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -71,7 +62,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         TextView nomeUsuario, email;
@@ -82,7 +72,6 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.search_com_settings_menu, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -93,13 +82,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.action_linear){
 
-
         } else if (id == R.id.action_grid){
 
         }
         return super.onOptionsItemSelected(item);
     }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -110,21 +97,17 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_meu_hamba) {
             startActivity(new Intent(this, MeuHambaActivity.class));
-
         } else if (id == R.id.nav_calendario) {
 
         } else if (id == R.id.nav_favoritos) {
             startActivity(new Intent(this, FavoritosActivity.class));
-
         } else if (id == R.id.nav_recomendacoes) {
 
         } else if (id == R.id.nav_configuracoes) {
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
-
         } else if (id == R.id.nav_noticias) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

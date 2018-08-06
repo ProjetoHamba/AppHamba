@@ -12,22 +12,18 @@ import com.apphamba.hamba.R;
 public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbar;
     private ImageView appBarImg;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_collapsing_toolbar);
         setUpToolbar();
     }
-
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

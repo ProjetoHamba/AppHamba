@@ -3,7 +3,6 @@ package com.apphamba.hamba.titulo.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.titulo.dominio.Episodio;
@@ -14,16 +13,13 @@ import java.util.ArrayList;
 
 public class EpisodioDao {
     private DataBase bancoDados;
-
     public EpisodioDao() { bancoDados = new DataBase(); }
-
     public ArrayList<Episodio> loadEpisodios(int idTemporada) {
         String query =  "SELECT * FROM episodio " +
                         "WHERE id_temporada = ?";
         String[] args = {String.valueOf(idTemporada)};
         return this.loadEpisodios(query, args);
     }
-
     public ArrayList<Episodio> loadEpisodios(String query, String[] args) {
         ArrayList<Episodio> episodios = new ArrayList<>();
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
@@ -36,7 +32,6 @@ public class EpisodioDao {
         }
         return episodios;
     }
-
     public void inserirAssistido(Episodio episodio, Temporada temporada, Usuario usuario) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -47,7 +42,6 @@ public class EpisodioDao {
         escritorBanco.insert(EnumTitulos.TABELA_EP_ASSISTIDO.getDescricao(), null, valores);
         escritorBanco.close();
     }
-
     public void removerAssistido(Episodio episodio, Usuario usuario) {
         String idUsuario = String.valueOf(usuario.getId());
         String idEpisodio = String.valueOf(episodio.getId());
@@ -59,7 +53,6 @@ public class EpisodioDao {
         escritorBanco.update(EnumTitulos.TABELA_EP_ASSISTIDO.getDescricao(), values, query, args);
         escritorBanco.close();
     }
-
     public ArrayList<Episodio> loadAssistidos(Temporada temporada, Usuario usuario) {
         String idUsuario = String.valueOf(usuario.getId());
         String idTemporada = String.valueOf(temporada.getId());
@@ -73,20 +66,15 @@ public class EpisodioDao {
         this.loadEpisodios(query, args);
         return this.loadEpisodios(query, args);
     }
-
     private Episodio criarEpisodio(Cursor cursor) {
         int indexId = cursor.getColumnIndex(EnumTitulos.ID.getDescricao());
         int id = cursor.getInt(indexId);
-
         int indexIdTemp = cursor.getColumnIndex(EnumTitulos.ID_TEMPORADA.getDescricao());
         int idTemp = cursor.getInt(indexIdTemp);
-
         int indexNome = cursor.getColumnIndex(EnumTitulos.NOME.getDescricao());
         String nome = cursor.getString(indexNome);
-
         int indexNumEp = cursor.getColumnIndex(EnumTitulos.NUMERO_EPISODIO.getDescricao());
         int numEp = cursor.getInt(indexNumEp);
-
         Episodio episodio = new Episodio();
         episodio.setId(id);
         episodio.setNome(nome);
@@ -94,7 +82,6 @@ public class EpisodioDao {
         episodio.setNumeroEpisodio(numEp);
         return episodio;
     }
-
     public void inserirEpisodio(Episodio episodio) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -104,5 +91,4 @@ public class EpisodioDao {
         escritorBanco.insert(EnumTitulos.TABELA_EPISODIOS.getDescricao(), null, valores);
         escritorBanco.close();
     }
-
 }

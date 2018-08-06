@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.ServicoValidacao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
@@ -18,13 +17,10 @@ public class DesativarContaActivity extends AppCompatActivity {
     private Button botaoDesativar;
     private EditText campoSenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desativar_conta);
-
         this.campoSenha = findViewById(R.id.editTextSenhaAtual);
         this.botaoDesativar = findViewById(R.id.button_desativar_conta);
         this.botaoDesativar.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +37,6 @@ public class DesativarContaActivity extends AppCompatActivity {
             }
         });
     }
-
     private void desativarConta() {
         if (!this.verificarCampos()) {
             return;
@@ -63,7 +58,6 @@ public class DesativarContaActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
         }
     }
-
     private boolean verificarCampos() {
         String senha = campoSenha.getText().toString().trim();
         if (servicoValidacao.verificarCampoVazio(senha)) {
@@ -74,7 +68,6 @@ public class DesativarContaActivity extends AppCompatActivity {
             return true;
         }
     }
-
     private Usuario criarUsuario() {
         String senha = campoSenha.getText().toString().trim();
         Usuario usuario = new Usuario();
@@ -87,5 +80,4 @@ public class DesativarContaActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }

@@ -1,11 +1,8 @@
 package com.apphamba.hamba.titulo.dominio;
 
 import android.graphics.Bitmap;
-
 import com.apphamba.hamba.infra.servicos.FormatadorImagem;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Titulo implements Serializable {
     private int id;
@@ -85,5 +82,4 @@ public class Titulo implements Serializable {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
 }

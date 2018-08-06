@@ -13,17 +13,14 @@ public enum EnumTitulos {
     ID_EPISODIO("id_episodio"), TABELA_ASSISTIDO("episodio_assistido"), SERIE("Serie"),
     TABELA_EP_ASSISTIDO("episodio_assistido"), ID_FILME("id_filme"), TABELA_FILME_ASSISTIDO("filme_assistido"),
     TABELA_TEMPORADA("temporada"), TABELA_EPISODIOS("episodio");
-
     private final String descricao;
 
     EnumTitulos(String descricao) {
         this.descricao = descricao;
     }
-
     public String getDescricao() {
         return descricao;
     }
-
     @Override
     public String toString() {
         return this.descricao;

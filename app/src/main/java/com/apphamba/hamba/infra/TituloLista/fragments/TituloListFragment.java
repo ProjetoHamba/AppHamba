@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.TituloLista.adapter.TituloAdapter;
@@ -24,7 +23,6 @@ import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
 import com.apphamba.hamba.titulo.gui.TituloView;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +32,6 @@ public class TituloListFragment extends Fragment {
     private List<TituloView> titulosView;
     private ActionMode actionMode;
     private ServicoTitulo servicoTitulo = new ServicoTitulo();
-
-
     public static TituloListFragment newInstance(int tipo) {
         Bundle args = new Bundle();
         args.putInt("tipo", tipo);
@@ -43,19 +39,14 @@ public class TituloListFragment extends Fragment {
         f.setArguments(args);
         return f;
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_titulos_list, container, false);
-
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         titulosView = this.tituloToTituloView(FiltroTitulo.instance.getTitulosList());
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo()));
-
-
         return view;
     }
 
@@ -63,20 +54,17 @@ public class TituloListFragment extends Fragment {
         return new TituloAdapter.TituloOnClickListener() {
             @Override
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
-
                 Titulo titulo = titulosView.get(indexTitulo).getTitulo();
                 if (actionMode == null) {
                     Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
                     FiltroTitulo.instance.setTituloSelecionado(titulo);
                    Intent intent = new Intent(getContext(), DetalhesActivity.class);
                    startActivity(intent);
-
                 } else {
                     titulosView.get(indexTitulo).setSelecionado(true);
                     updateActionModeTitle();
                     recyclerView.getAdapter().notifyDataSetChanged();
                 }
-
             }
 
             @Override
@@ -104,7 +92,6 @@ public class TituloListFragment extends Fragment {
             } else if (selectedTitulos.size() > 1) {
                 actionMode.setSubtitle(selectedTitulos.size() + " titulos selecionados");
             }
-
         }
     }
 
@@ -126,12 +113,10 @@ public class TituloListFragment extends Fragment {
                 inflater.inflate(R.menu.menu_frag_titulos_cab, menu);
                 return true;
             }
-
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 return true;
             }
-
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<TituloView> selectedTitulos = getSelectedTitulos();
@@ -219,5 +204,4 @@ public class TituloListFragment extends Fragment {
         }
         return tituloViews;
     }
-
 }

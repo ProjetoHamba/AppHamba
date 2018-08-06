@@ -1,10 +1,7 @@
 package com.apphamba.hamba.infra.persistencia;
 
-
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.apphamba.hamba.infra.HambaApp;
 
 public class DataBase extends SQLiteOpenHelper {
@@ -22,12 +19,10 @@ public class DataBase extends SQLiteOpenHelper {
                 "senha text NOT NULL, " +
                 "email text NOT NULL, " +
                 "excluido text NOT NULL); ");
-
         db.execSQL("CREATE TABLE pessoa (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome text NOT NULL, " +
                 "id_usuario interger NOT NULL);");
-
         db.execSQL("CREATE TABLE titulo(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nome text NOT NULL, " +
@@ -37,13 +32,11 @@ public class DataBase extends SQLiteOpenHelper {
                 "criadores text, " +
                 "tipo text, " +
                 "imagem BLOB);");
-
         db.execSQL("CREATE TABLE serie(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_titulo interger, " +
                 "distribuidor text, " +
                 "quantidade_temporada int);");
-
         db.execSQL("CREATE TABLE temporada(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_serie interger, " +
@@ -51,43 +44,36 @@ public class DataBase extends SQLiteOpenHelper {
                 "numero_temporada int, " +
                 "quantidade_episodio int, " +
                 "data_lancamento text ); ");
-
         db.execSQL("CREATE TABLE episodio(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_temporada interger, " +
                 "nome text, " +
                 "numero_episodio int);");
-
         db.execSQL("CREATE TABLE filme(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_titulo interger, " +
                 "duracao int);");
-
         db.execSQL("CREATE TABLE favorito (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "id_usuario INTEGER NOT NULL," +
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
-
         db.execSQL("CREATE TABLE meu_hamba (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "id_usuario INTEGER NOT NULL," +
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
-
         db.execSQL("CREATE TABLE titulo_imagem (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "imagem BLOB," +
                 "id_titulo INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
-
         db.execSQL("CREATE TABLE episodio_assistido (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "id_usuario INTEGER NOT NULL," +
                 "id_episodio INTEGER NOT NULL," +
                 "id_temporada INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
-
         db.execSQL("CREATE TABLE filme_assistido (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "id_usuario INTEGER NOT NULL," +

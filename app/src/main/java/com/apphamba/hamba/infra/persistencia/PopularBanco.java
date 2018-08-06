@@ -1,10 +1,7 @@
 package com.apphamba.hamba.infra.persistencia;
 
-
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FormatadorImagem;
 import com.apphamba.hamba.titulo.dominio.Episodio;
@@ -57,13 +54,11 @@ public class PopularBanco {
         long idVikings = tituloDao.inserir(vikings);
         tituloDao.inserirImagemTitulo((int) idVikings,formatadorImagem.getFotoByte(R.drawable.vk3));
         tituloDao.inserirImagemTitulo((int) idVikings,formatadorImagem.getFotoByte(R.drawable.vk4));
-
         Serie vkSerie = new Serie();
         vkSerie.setTitulo(idVikings);
         vkSerie.setDistribuidor("History");
         SerieDao serieDao = new SerieDao();
         long idVkSerie = serieDao.inserirSerie(vkSerie);
-
         Temporada temp1 = new Temporada();
         temp1.setNome("Temporada 1");
         temp1.setIdSerie(idVkSerie);
@@ -80,7 +75,6 @@ public class PopularBanco {
         temp2.setDataLancamento("3 de Março de 2014");
         long t2 = temporadaDao.inserirTemporada(temp2);
         EpisodioDao episodioDao = new EpisodioDao();
-
         Episodio ep1T1 = new Episodio();
         ep1T1.setIdTemoporada(t1);
         ep1T1.setNome("Rituais de Passagem");
@@ -96,7 +90,6 @@ public class PopularBanco {
         ep3T1.setNome("Despossuídos");
         ep3T1.setNumeroEpisodio(3);
         episodioDao.inserirEpisodio(ep2T1);
-
         Episodio ep1T2 = new Episodio();
         ep1T2.setIdTemoporada(t2);
         ep1T2.setNome("Guerra de Irmãos");
@@ -112,7 +105,6 @@ public class PopularBanco {
         ep3T2.setNome("Traição");
         ep3T2.setNumeroEpisodio(3);
         episodioDao.inserirEpisodio(ep3T2);
-
         Titulo narcos = new Titulo();
         narcos.setNome("Narcos");
         narcos.setSinopse("Um olhar narrado sobre as façanhas criminosas do traficante colombiano Pablo Escobar, bem como dos muitos outros chefões do tráfico de drogas que assolaram o país ao longo dos anos.");
@@ -124,7 +116,6 @@ public class PopularBanco {
         long idNarcos = tituloDao.inserir(narcos);
         tituloDao.inserirImagemTitulo((int) idNarcos, formatadorImagem.getFotoByte(R.drawable.narcos));
         tituloDao.inserirImagemTitulo((int) idNarcos, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo gameOfThrones = new Titulo();
         gameOfThrones.setNome("Game of Thrones");
         gameOfThrones.setSinopse("Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de ficar adormecido por milhares de anos.");
@@ -136,7 +127,6 @@ public class PopularBanco {
         long idGot = tituloDao.inserir(gameOfThrones);
         tituloDao.inserirImagemTitulo((int) idGot, formatadorImagem.getFotoByte(R.drawable.got));
         tituloDao.inserirImagemTitulo((int) idGot, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo strangerThings = new Titulo();
         strangerThings.setNome("Stranger Things");
         strangerThings.setSinopse("Quando um menino desaparece, sua mãe, um chefe de polícia e seus amigos precisam confrontar forças aterrorizantes para recuperá-lo.");
@@ -148,8 +138,6 @@ public class PopularBanco {
         long idStranger = tituloDao.inserir(strangerThings);
         tituloDao.inserirImagemTitulo((int) idStranger, formatadorImagem.getFotoByte(R.drawable.strangerthings));
         tituloDao.inserirImagemTitulo((int) idStranger, formatadorImagem.getFotoByte(R.drawable.default2));
-
-
         Titulo breakingBad = new Titulo();
         breakingBad.setNome("Breaking Bad");
         breakingBad.setSinopse("Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperante se transforma em fabricação e venda de metanfetamina, a fim de garantir o futuro de sua família.");
@@ -161,7 +149,6 @@ public class PopularBanco {
         long idBraking = tituloDao.inserir(breakingBad);
         tituloDao.inserirImagemTitulo((int) idBraking, formatadorImagem.getFotoByte(R.drawable.breakingbad));
         tituloDao.inserirImagemTitulo((int) idBraking, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo laCasaDePapel = new Titulo();
         laCasaDePapel.setNome("La Casa de Papel");
         laCasaDePapel.setSinopse("Oito ladrões fazem reféns e se trancam na Casa da Moeda Real da Espanha, enquanto um gênio do crime manipula a polícia para executar seu plano.");
@@ -173,7 +160,6 @@ public class PopularBanco {
         long idLaCasa = tituloDao.inserir(laCasaDePapel);
         tituloDao.inserirImagemTitulo((int) idLaCasa, formatadorImagem.getFotoByte(R.drawable.lacasa));
         tituloDao.inserirImagemTitulo((int) idLaCasa, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo houseOfCards = new Titulo();
         houseOfCards.setNome("House of Cards");
         houseOfCards.setSinopse("Um congressista trabalha com sua esposa igualmente conivente para se vingar das pessoas que o traíram.");
@@ -185,7 +171,6 @@ public class PopularBanco {
         long idHouse = tituloDao.inserir(houseOfCards);
         tituloDao.inserirImagemTitulo((int) idHouse, formatadorImagem.getFotoByte(R.drawable.houseofcards));
         tituloDao.inserirImagemTitulo((int) idHouse, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo prisonBreak = new Titulo();
         prisonBreak.setNome("Prison Break");
         prisonBreak.setSinopse("Devido a uma conspiração política, um homem inocente é enviado para o corredor da morte e sua única esperança é seu irmão, que tem como missão deliberadamente ser enviado para a mesma prisão, a fim de derrubá-los por dentro.");
@@ -197,7 +182,6 @@ public class PopularBanco {
         long idPrision = tituloDao.inserir(prisonBreak);
         tituloDao.inserirImagemTitulo((int) idPrision, formatadorImagem.getFotoByte(R.drawable.prisonbreak));
         tituloDao.inserirImagemTitulo((int) idPrision, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo mrRobot = new Titulo();
         mrRobot.setNome("Mr. Robot ");
         mrRobot.setSinopse("Elliot é um jovem programador que sofre de uma desordem que o torna anti-social. Acreditando que a única forma de se conectar com as pessoas é hackeando suas vidas, ele alia seu conhecimento ao fato de trabalhar em uma empresa de segurança online para proteger aqueles que ele ama daqueles que tentam, de alguma forma, prejudicá-los. Suas atividades chamam a atenção de Mr. Robot, um misterioso anarquista que convida Elliot a fazer parte de uma organização que atua na ilegalidade com o objetivo de derrubar as corporações americanas.");
@@ -209,7 +193,6 @@ public class PopularBanco {
         long idRobot = tituloDao.inserir(mrRobot);
         tituloDao.inserirImagemTitulo((int) idRobot, formatadorImagem.getFotoByte(R.drawable.mrbot));
         tituloDao.inserirImagemTitulo((int) idRobot, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo jurassic = new Titulo();
         jurassic.setNome("Jurassic World: Reino Ameaçado");
         jurassic.setSinopse("Quatro anos após o fechamento do Jurassic World, um vulcão prestes a entrar em erupção põe em risco a vida na ilha Nublar. No local não há mais qualquer presença humana, com os dinossauros vivendo livremente. Diante da situação, é preciso tomar uma decisão: deve-se retornar à ilha para salvar os animais ou abandoná-los para uma nova extinção? Decidida a resgatá-los, Claire (Bryce Dallas Howard) convoca Owen (Chris Pratt) a retornar à ilha com ela.");
@@ -221,7 +204,6 @@ public class PopularBanco {
         long idJurassic = tituloDao.inserir(jurassic);
         tituloDao.inserirImagemTitulo((int) idJurassic, formatadorImagem.getFotoByte(R.drawable.juras));
         tituloDao.inserirImagemTitulo((int) idJurassic, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo incriveis = new Titulo();
         incriveis.setNome("Os Incríveis 2");
         incriveis.setSinopse("A família de super-heróis favorita de todo mundo está de volta em Os Incríveis 2 — mas dessa vez, Helena está sendo o destaque, deixando Bob em casa com Violeta e Flecha para se aventurar no dia a dia heroico de vida “normal”. É uma transição difícil para todo mundo, sendo os super poderes emergentes de Zezé o fator mais complicado. Quando um novo vilão traça uma trama brilhante e perigosa, a família e Gelado devem encontrar uma maneira de trabalhar juntos novamente — o que é mais fácil dizer do que fazer, mesmo quando são incríveis.");
@@ -233,7 +215,6 @@ public class PopularBanco {
         long idIncrivei = tituloDao.inserir(incriveis);
         tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.inc2));
         tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo logan = new Titulo();
         logan.setNome("Logan");
         logan.setSinopse("Em 2029, Logan (Hugh Jackman) ganha a vida como chofer de limousine para cuidar do nonagenário Charles Xavier (Patrick Stewart). Debilitado fisicamente e esgotado emocionalmente, ele é procurado por Gabriela (Elizabeth Rodriguez), uma mexicana que precisa da ajuda do ex-X-Men para defender a pequena Laura Kinney / X-23 (Dafne Keen). Ao mesmo tempo em que se recusa a voltar à ativa, Logan é perseguido pelo mercenário Donald Pierce (Boyd Holbrook), interessado na menina.");
@@ -245,7 +226,6 @@ public class PopularBanco {
         long idLogan = tituloDao.inserir(logan);
         tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.logan));
         tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo sexy = new Titulo();
         sexy.setNome("Sexy por Acidente");
         sexy.setSinopse("Renee (Amy Schumer), uma mulher comum, luta diariamente com sua insegurança. Depois de cair de bicicleta e bater a cabeça, ela de repente acorda acreditando ser a mulher maiz capaz e bonita do mundo. E com isso Renee começa a viver a vida mais confiante e sem medo das falhas.");
@@ -257,7 +237,6 @@ public class PopularBanco {
         long idSexy = tituloDao.inserir(sexy);
         tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.sexy));
         tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo vingadores = new Titulo();
         vingadores.setNome("Vingadores: Guerra Infinita");
         vingadores.setSinopse("Como os Vingadores e seus aliados continuaram a proteger o mundo de ameaças muito grandes para qualquer herói, uma nova ameaça emergiu das sombras cósmicas: Thanos. Um déspota da infâmia intergalática, seu objetivo é coletar todas as seis Joias do Infinito, artefatos de poder inimaginável, e usá-las para infligir sua vontade distorcida em toda a realidade. Tudo o que os Vingadores lutaram levou até este momento - o destino da Terra e da própria existência nunca foi tão incerto.");
@@ -269,7 +248,6 @@ public class PopularBanco {
         long idVing = tituloDao.inserir(vingadores);
         tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.vinga));
         tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.default2));
-
         Titulo friends = new Titulo();
         friends.setNome("Friends");
         friends.setSinopse("Seis jovens são unidos por laços familiares, românticos e, principalmente, de amizade, enquanto tentam vingar em Nova York. Rachel é a garota mimada que deixa o noivo no altar para viver com a amiga dos tempos de escola Monica, sistemática e apaixonada pela culinária. Monica é irmã de Ross, um paleontólogo que é abandonado pela esposa, que descobriu ser lésbica. Do outro lado do corredor do apartamento de Monica e Rachel, moram Joey, um ator frustrado, e Chandler, de profissão misteriosa. A turma é completa pela exótica Phoebe. ");

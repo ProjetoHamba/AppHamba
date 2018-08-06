@@ -3,12 +3,10 @@ package com.apphamba.hamba.usuario.gui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.ServicoValidacao;
 import com.apphamba.hamba.titulo.gui.MainActivity;
@@ -18,16 +16,13 @@ import com.apphamba.hamba.usuario.servicos.ServicoLoginCadastro;
 public class LoginActivity extends AppCompatActivity {
     private EditText campoEmail, campoSenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         this.campoEmail = findViewById(R.id.editTextEmail);
         this.campoSenha = findViewById(R.id.editTextSenha);
         this.campoEmail.requestFocus();
-
         Button botaoEntrar = findViewById(R.id.button_entrar);
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,9 +30,7 @@ public class LoginActivity extends AppCompatActivity {
                 login();
             }
         });
-
     }
-
     private void login() {
         if (!this.verificarCampos()) {
             return;
@@ -77,9 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
-
     private void proximaTela() {
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
-
 }

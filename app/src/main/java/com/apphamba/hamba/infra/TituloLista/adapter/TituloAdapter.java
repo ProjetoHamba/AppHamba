@@ -8,11 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.TituloView;
-
 import java.util.List;
 
 public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosViewHolder> {
@@ -43,7 +41,6 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         Titulo titulo = titulos.get(position).getTitulo();
         Bitmap imagemTitulo = titulo.getImagemBitmap();
         holder.imageView.setImageBitmap(imagemTitulo);
-
         if (onClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -13,7 +13,6 @@ public class Filme {
         this.id = id;
     }
 
-
     public Titulo getTitulo() {
         return titulo;
     }
@@ -29,5 +28,4 @@ public class Filme {
     public void setDuracao(int duracao) {
         this.duracao = duracao;
     }
-
 }

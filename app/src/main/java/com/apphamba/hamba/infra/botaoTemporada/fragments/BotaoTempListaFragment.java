@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.botaoTemporada.adapter.BotaoTemporadaAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
@@ -18,8 +17,6 @@ import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.FavoritosActivity;
 import com.apphamba.hamba.titulo.servicos.ServicoSerie;
-import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +47,6 @@ public class BotaoTempListaFragment extends Fragment {
                 Toast.makeText(getContext(), temporada.getNome(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), FavoritosActivity.class);
                 startActivity(intent);
-
             }
         };
     }

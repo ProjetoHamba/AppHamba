@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.ServicoValidacao;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
@@ -17,26 +16,20 @@ public class CadastroActivity extends AppCompatActivity {
     private Button botaoCriar;
     private EditText campoNome, campoEmail, campoSenha, campoResenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
         this.campoNome = findViewById(R.id.editTextNome);
         this.campoNome.requestFocus();
         this.campoEmail = findViewById(R.id.editTextEmail);
         this.campoSenha = findViewById(R.id.editTextSenhaCad);
         this.campoResenha = findViewById(R.id.editTextConfSenha);
-
         this.botaoCriar = findViewById(R.id.button_criar_conta2);
         this.botaoCriar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 cadastrar();
-
             }
         });
     }
@@ -56,9 +49,7 @@ public class CadastroActivity extends AppCompatActivity {
             resultado = e.getMessage();
             Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
         }
-
     }
-
     private Pessoa criarPessoa() {
         String nome = campoNome.getText().toString().trim();
         Pessoa pessoa = new Pessoa();
@@ -66,7 +57,6 @@ public class CadastroActivity extends AppCompatActivity {
         pessoa.setUsuario(this.criarUsuario());
         return pessoa;
     }
-
     private Usuario criarUsuario() {
         String email = campoEmail.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
@@ -75,7 +65,6 @@ public class CadastroActivity extends AppCompatActivity {
         usuario.setSenha(senha);
         return usuario;
     }
-
     private boolean verificarCampos() {
         String nome = campoNome.getText().toString().trim();
         String email = campoEmail.getText().toString().trim();
@@ -100,5 +89,4 @@ public class CadastroActivity extends AppCompatActivity {
             return true;
         }
     }
-
 }

@@ -1,6 +1,5 @@
 package com.apphamba.hamba.titulo.dominio;
 
-
 import java.util.ArrayList;
 
 public class Serie {
@@ -40,5 +39,4 @@ public class Serie {
     public void setTitulo(long titulo) {
         this.titulo = titulo;
     }
-
 }

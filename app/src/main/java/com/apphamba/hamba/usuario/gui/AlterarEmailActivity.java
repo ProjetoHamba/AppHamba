@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.ServicoValidacao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
@@ -23,10 +22,8 @@ public class AlterarEmailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mudar_email);
-
         this.campoAlterarEmail = findViewById(R.id.editTextNovoEmail);
         this.campoSenha = findViewById(R.id.editTextSenhaMudarEmail);
-
         this.botaoAlterarDadosPessoais = findViewById(R.id.button_criar_AlterarDados2);
         this.botaoAlterarDadosPessoais.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +87,5 @@ public class AlterarEmailActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }
 

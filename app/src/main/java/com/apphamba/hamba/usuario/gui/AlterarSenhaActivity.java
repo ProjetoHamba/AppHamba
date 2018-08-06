@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.ServicoValidacao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
@@ -18,16 +17,13 @@ public class AlterarSenhaActivity extends AppCompatActivity {
     private Button botaoAterarSenha;
     private EditText campoSenhaAtual, campoNovaSenha, campoConfirmNovaSenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mudar_senha);
-
         this.campoSenhaAtual = findViewById(R.id.editTextSenhaAtual);
         this.campoNovaSenha = findViewById(R.id.editTextSenhaNovaSenha);
         this.campoConfirmNovaSenha = findViewById(R.id.editTextConfirmarNovaSenha);
-
         this.botaoAterarSenha = findViewById(R.id.button_criar_AlterarSenha2);
         this.botaoAterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +38,6 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 
     private void alterarSenha() {
@@ -89,7 +84,6 @@ public class AlterarSenhaActivity extends AppCompatActivity {
             return true;
         }
     }
-
     private Usuario criarUsuario() {
         String senha = campoSenhaAtual.getText().toString().trim();
         Usuario usuario = new Usuario();
@@ -102,5 +96,4 @@ public class AlterarSenhaActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulo.gui.TituloView;
 
@@ -68,5 +67,4 @@ public class EpisodioCheckAdapter extends RecyclerView.Adapter<EpisodioCheckAdap
             checkBoxEp = (CheckBox) view.findViewById(R.id.checkBoxItemEpisodio);
         }
     }
-
 }

@@ -28,5 +28,4 @@ public class Pessoa {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
 }

@@ -6,12 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Temporada;
-import com.apphamba.hamba.titulo.dominio.Titulo;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +15,6 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
     private final List<Temporada> temporadas;
     private final Context context;
     private final BotaoTemporadaOnClickListener onClickListener;
-
     public interface BotaoTemporadaOnClickListener {
         void onClickBotaoTemporada(BotoesTempViewHolder holder, int indexBotaoTemporada);
     }
@@ -65,5 +60,4 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
             buttonTemp = view.findViewById(R.id.button_temporada);
         }
     }
-
 }

@@ -18,5 +18,4 @@ public class ServicoValidacao {
             return false;
         }
     }
-
 }

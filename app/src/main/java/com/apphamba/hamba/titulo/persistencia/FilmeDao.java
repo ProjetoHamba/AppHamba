@@ -3,20 +3,16 @@ package com.apphamba.hamba.titulo.persistencia;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.titulo.dominio.Filme;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Usuario;
-
 import java.util.ArrayList;
 
 public class FilmeDao {
     private DataBase bancoDados;
-
     public FilmeDao() { bancoDados = new DataBase(); }
-
     public void inserirAssistido(Filme filme, Usuario usuario) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -26,7 +22,6 @@ public class FilmeDao {
         escritorBanco.insert(EnumTitulos.TABELA_FILME.getDescricao(), null, valores);
         escritorBanco.close();
     }
-
     public void removerAssistido(Filme filme, Usuario usuario) {
         String idUsuario = String.valueOf(usuario.getId());
         String idFilme = String.valueOf(filme.getId());
@@ -38,7 +33,6 @@ public class FilmeDao {
         escritorBanco.update(EnumTitulos.TABELA_FILME_ASSISTIDO.getDescricao(), values, query, args);
         escritorBanco.close();
     }
-
     public Filme getAssistido(Filme filme, Usuario usuario) {
         String query =  "SELECT * FROM filme_assistido AS fa" +
                         "JOIN filme AS f " +
@@ -48,7 +42,6 @@ public class FilmeDao {
         String[] args = {idUsuario};
         return this.load(query, args);
     }
-
     private Filme criarFilme(Cursor cursor){
         TituloDao tituloDao = new TituloDao();
         int indexId = cursor.getColumnIndex(EnumTitulos.ID.getDescricao());
@@ -58,14 +51,12 @@ public class FilmeDao {
         int indexTitulo = cursor.getColumnIndex((EnumTitulos.ID_TITULO.getDescricao()));
         int idTitulo = cursor.getInt(indexTitulo);
         Titulo titulo = tituloDao.getByID(idTitulo);
-
         Filme filme = new Filme();
         filme.setId(id);
         filme.setDuracao(duracao);
         filme.setTitulo(titulo);
         return filme;
     }
-
     private Filme load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
@@ -77,7 +68,6 @@ public class FilmeDao {
         leitorBanco.close();
         return filme;
     }
-
     public ArrayList<Filme> loadFilmes(String query, String[] args) {
         ArrayList<Filme> filmes = new ArrayList<>();
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
@@ -90,7 +80,6 @@ public class FilmeDao {
         }
         return filmes;
     }
-
    public void inserir(Filme filme) {
         TituloDao tituloDao = new TituloDao();
         tituloDao.inserir(filme.getTitulo());
@@ -104,7 +93,6 @@ public class FilmeDao {
         escritorBanco.insert(EnumTitulos.TABELA_FILME.getDescricao(),null, valores);
         escritorBanco.close();
    }
-
    public Filme getByTitulo(Titulo titulo) {
        String query =   "SELECT * FROM filmes AS f " +
                         "JOIN titulos AS t " +
@@ -114,6 +102,4 @@ public class FilmeDao {
        String[] args = {idTitulo};
        return this.load(query, args);
    }
-
-
 }
