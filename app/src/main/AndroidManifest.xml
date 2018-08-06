@@ -62,6 +62,10 @@
         <activity android:name=".infra.adapter.EpisodiosCheckListaActivity">
 
         </activity>
+        <activity android:name=".infra.EpisodioCheck.adapter.EpisodioCheckNewActivity"
+            android:label="@string/label_checkbox_ep_assistidos">
+
+        </activity>
     </application>
 
 </manifest>

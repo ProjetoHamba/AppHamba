@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.EpisodioCheck.adapter.EpisodioCheckNewActivity;
 import com.apphamba.hamba.infra.botaoTemporada.adapter.BotaoTemporadaAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Temporada;
@@ -48,7 +49,7 @@ public class BotaoTempListaFragment extends Fragment {
             public void onClickBotaoTemporada(BotaoTemporadaAdapter.BotoesTempViewHolder holder, int indexBotaoTemporada) {
                 Temporada temporada = temporadas.get(indexBotaoTemporada);
                 Toast.makeText(getContext(), temporada.getNome(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(), FavoritosActivity.class);
+                Intent intent = new Intent(getContext(), EpisodioCheckNewActivity.class);
                 startActivity(intent);
 
             }
