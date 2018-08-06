@@ -1,9 +1,9 @@
 package com.apphamba.hamba.noticias.gui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,9 +12,8 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.EnumNoticia;
-import com.apphamba.hamba.infra.adapter.ListaNoticiasAdapter;
+import com.apphamba.hamba.infra.adaptersEFragmentos.noticiasAdapter.ListaNoticiasAdapter;
 import com.apphamba.hamba.noticias.servico.ServicoNoticia;
-import com.apphamba.hamba.titulo.gui.DetalhesActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,7 +62,7 @@ public class NoticiasActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(String xml) {
-            if(xml.length()>10){//Verifica se o xml n ta vazio
+            if(xml.length()>10){ //Verifica se o xml n ta vazio
                 try {
                     JSONObject jsonResponse = new JSONObject(xml);
                     JSONArray jsonArray = jsonResponse.optJSONArray("articles");
