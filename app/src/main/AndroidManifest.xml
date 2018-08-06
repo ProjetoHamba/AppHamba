@@ -59,10 +59,7 @@
             android:label="@string/label_tela_meu_hamba">
 
         </activity>
-        <activity android:name=".infra.adapter.EpisodiosCheckListaActivity">
-
-        </activity>
-        <activity android:name=".infra.EpisodioCheck.adapter.EpisodioCheckNewActivity"
+        <activity android:name=".infra.adaptersEFragmentos.EpisodioCheck.EpisodioCheckNewActivity"
             android:label="@string/label_checkbox_ep_assistidos">
 
         </activity>

@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.BotaoTemporada.adapter;
+package com.apphamba.hamba.infra.adaptersEFragmentos.BotaoTemporada.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

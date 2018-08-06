@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
-import com.apphamba.hamba.infra.TituloLista.fragments.TituloListFragment;
+import com.apphamba.hamba.infra.adaptersEFragmentos.TituloLista.fragments.TituloListFragment;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 public class FavoritosActivity extends AppCompatActivity {

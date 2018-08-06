@@ -1,8 +1,7 @@
-package com.apphamba.hamba.infra.EpisodioCheck.adapter;
+package com.apphamba.hamba.infra.adaptersEFragmentos.EpisodioCheck;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 

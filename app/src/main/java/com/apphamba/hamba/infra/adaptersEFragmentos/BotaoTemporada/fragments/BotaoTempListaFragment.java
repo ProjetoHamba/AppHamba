@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
-import com.apphamba.hamba.infra.EpisodioCheck.adapter.EpisodioCheckNewActivity;
-import com.apphamba.hamba.infra.BotaoTemporada.adapter.BotaoTemporadaAdapter;
+import com.apphamba.hamba.infra.adaptersEFragmentos.EpisodioCheck.EpisodioCheckNewActivity;
+import com.apphamba.hamba.infra.adaptersEFragmentos.BotaoTemporada.adapter.BotaoTemporadaAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.dominio.Titulo;

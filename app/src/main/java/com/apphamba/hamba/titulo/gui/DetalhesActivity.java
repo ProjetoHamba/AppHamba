@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.botaoTemporada.fragments.BotaoTempListaFragment;
-import com.apphamba.hamba.infra.adapter.ViewPagerAdapter;
+import com.apphamba.hamba.infra.adaptersEFragmentos.ViewPagerAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
