@@ -41,7 +41,7 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
     public void onBindViewHolder(final BotoesTempViewHolder holder, final int position) {
         holder.buttonTemp.setText(temporadas.get(position).getNome());
         if (onClickListener != null) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.buttonTemp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onClickListener.onClickBotaoTemporada(holder, position);
