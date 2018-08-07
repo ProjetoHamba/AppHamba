@@ -59,9 +59,6 @@
             android:label="@string/label_tela_meu_hamba">
 
         </activity>
-        <activity android:name=".infra.adapter.EpisodiosCheckListaActivity">
-
-        </activity>
     </application>
 
 </manifest>
