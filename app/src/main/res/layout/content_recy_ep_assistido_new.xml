@@ -9,7 +9,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".infra.adaptersEFragmentos.EpisodioCheck.EpisodioCheckNewActivity"
+    tools:context=".infra.adaptersFragmentos.EpisodioCheck.EpisodioCheckNewActivity"
     tools:showIn="@layout/activity_episodio_check_new">
 
     <android.support.v7.widget.RecyclerView

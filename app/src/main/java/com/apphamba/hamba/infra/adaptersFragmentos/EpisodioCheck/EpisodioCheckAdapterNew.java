@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.EpisodioCheck;
+package com.apphamba.hamba.infra.adaptersFragmentos.EpisodioCheck;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.EnumNoticia;
-import com.apphamba.hamba.infra.adaptersEFragmentos.noticiasAdapter.ListaNoticiasAdapter;
+import com.apphamba.hamba.infra.adaptersFragmentos.noticiasAdapter.ListaNoticiasAdapter;
 import com.apphamba.hamba.noticias.servico.ServicoNoticia;
 
 import org.json.JSONArray;

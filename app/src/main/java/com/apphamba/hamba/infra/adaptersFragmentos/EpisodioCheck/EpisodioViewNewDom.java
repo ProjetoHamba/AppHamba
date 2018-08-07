@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.EpisodioCheck;
+package com.apphamba.hamba.infra.adaptersFragmentos.EpisodioCheck;
 
 public class EpisodioViewNewDom {
     private String descEpis, tituloEpComNumero;

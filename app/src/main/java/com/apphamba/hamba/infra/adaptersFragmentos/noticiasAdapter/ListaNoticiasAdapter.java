@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.noticiasAdapter;
+package com.apphamba.hamba.infra.adaptersFragmentos.noticiasAdapter;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;

@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.DetalheTituloSlideFotos;
+package com.apphamba.hamba.infra.adaptersFragmentos.DetalheTituloSlideFotos;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.TituloLista.fragments;
+package com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
-import com.apphamba.hamba.infra.adaptersEFragmentos.TituloLista.adapter.TituloAdapter;
+import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
 import com.apphamba.hamba.titulo.gui.TituloView;

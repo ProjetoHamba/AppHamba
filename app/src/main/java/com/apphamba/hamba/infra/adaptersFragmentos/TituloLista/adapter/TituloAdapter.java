@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.TituloLista.adapter;
+package com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;

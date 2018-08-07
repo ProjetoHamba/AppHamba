@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.adaptersEFragmentos.EpisodioCheck;
+package com.apphamba.hamba.infra.adaptersFragmentos.EpisodioCheck;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

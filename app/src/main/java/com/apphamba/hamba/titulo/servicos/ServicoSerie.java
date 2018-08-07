@@ -1,6 +1,7 @@
 package com.apphamba.hamba.titulo.servicos;
 
 import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Episodio;
 import com.apphamba.hamba.titulo.dominio.Serie;
 import com.apphamba.hamba.titulo.dominio.Temporada;
@@ -36,11 +37,15 @@ public class ServicoSerie {
         return episodioDao.loadAssistidos(temporada, usuario);
     }
 
-
     // Pode ser que seja melhor colocar isso na view, mas to fazendo pra vcs n precisarem pensar - brainstorm time
     private boolean isAssistido(Episodio episodio, ArrayList<Episodio> episodiosAssistido) {
         return episodiosAssistido.contains(episodio);
     } // PODE SER QUE N FUNFE :(
+
+    public void setSerieOnFiltro(Titulo titulo) {
+        Serie serie = this.getSerie(titulo);
+        FiltroTitulo.instance.setSerieSelecionada(serie);
+    }
 
 
 }

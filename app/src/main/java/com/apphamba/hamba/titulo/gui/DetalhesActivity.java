@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.EnumTitulos;
-import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.botaoTemporada.fragments.BotaoTempListaFragment;
-import com.apphamba.hamba.infra.adaptersEFragmentos.DetalheTituloSlideFotos.ViewPagerAdapter;
+import com.apphamba.hamba.infra.adaptersFragmentos.DetalheTituloSlideFotos.ViewPagerAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.titulo.servicos.ServicoSerie;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
 import me.relex.circleindicator.CircleIndicator;
@@ -52,18 +52,19 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
 
     private void setInformacoesTitulos(){
         Titulo dados = FiltroTitulo.instance.getTituloSelecionado();
-
         nomeTitulo.setText(dados.getNome());
         avaliacaoTitulo.setText(String.valueOf(dados.getAvaliacao()));
         sinopseTitulo.setText(dados.getSinopse());
         criadoresTitulo.setText(dados.getCriadores());
         generosTitulo.setText(dados.getGeneros());
-        mostrarTemporadas();
+        isSerie();
     }
 
-    private void mostrarTemporadas() {
+    private void isSerie() {
         String tipoTitulo = FiltroTitulo.instance.getTituloSelecionado().getTipo();
-        if (tipoTitulo.equals(EnumTitulos.SERIE)) {
+        if (tipoTitulo.equals(EnumTitulos.SERIE.getDescricao())) {
+            ServicoSerie servicoSerie = new ServicoSerie();
+            servicoSerie.setSerieOnFiltro(FiltroTitulo.instance.getTituloSelecionado());
             criarFragmento();
         }
     }
