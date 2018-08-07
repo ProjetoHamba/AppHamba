@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.EnumTitulos;
+import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.infra.botaoTemporada.fragments.BotaoTempListaFragment;
 import com.apphamba.hamba.infra.adaptersEFragmentos.DetalheTituloSlideFotos.ViewPagerAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
@@ -56,9 +58,16 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         sinopseTitulo.setText(dados.getSinopse());
         criadoresTitulo.setText(dados.getCriadores());
         generosTitulo.setText(dados.getGeneros());
-        criarFragmento();
-
+        mostrarTemporadas();
     }
+
+    private void mostrarTemporadas() {
+        String tipoTitulo = FiltroTitulo.instance.getTituloSelecionado().getTipo();
+        if (tipoTitulo.equals(EnumTitulos.SERIE)) {
+            criarFragmento();
+        }
+    }
+
      private void criarFragmento(){
          BotaoTempListaFragment botaoTempListaFragment = new BotaoTempListaFragment();
          botaoTempListaFragment.setArguments(getIntent().getExtras());
@@ -83,4 +92,5 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
