@@ -35,7 +35,6 @@ public class TituloListFragment extends Fragment {
     private ActionMode actionMode;
     private ServicoTitulo servicoTitulo = new ServicoTitulo();
 
-
     public static TituloListFragment newInstance(int tipo) {
         Bundle args = new Bundle();
         args.putInt("tipo", tipo);
@@ -54,8 +53,6 @@ public class TituloListFragment extends Fragment {
 
         titulosView = this.tituloToTituloView(FiltroTitulo.instance.getTitulosList());
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo()));
-
-
         return view;
     }
 

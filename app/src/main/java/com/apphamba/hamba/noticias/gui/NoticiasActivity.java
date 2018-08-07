@@ -57,7 +57,7 @@ public class NoticiasActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String xml;
             String urlParameters = "";
-            xml = ServicoNoticia.excuteGet("https://newsapi.org/v2/top-headlines?country=br&category=entertainment&apiKey=f7d880a8399949f4b8c350b2d157533c", urlParameters);
+            xml = ServicoNoticia.excuteGet("https://newsapi.org/v2/everything?q=filmes&apiKey=f7d880a8399949f4b8c350b2d157533c", urlParameters);
             return xml;
         }
         @Override

@@ -72,7 +72,7 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
      private void criarFragmento(){
          BotaoTempListaFragment botaoTempListaFragment = new BotaoTempListaFragment();
          botaoTempListaFragment.setArguments(getIntent().getExtras());
-         getSupportFragmentManager().beginTransaction().replace(R.id.containerbuttontemp,botaoTempListaFragment).commit();
+         getSupportFragmentManager().beginTransaction().replace(R.id.containerbuttontemp, botaoTempListaFragment).commit();
      }
 
 
