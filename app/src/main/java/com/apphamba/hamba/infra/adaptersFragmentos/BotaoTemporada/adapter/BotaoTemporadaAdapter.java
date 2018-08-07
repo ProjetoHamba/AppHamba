@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Temporada;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
 
     @Override
     public void onBindViewHolder(final BotoesTempViewHolder holder, final int position) {
+        FiltroTitulo.instance.setTemporadaSelecionada(temporadas.get(position));
         holder.buttonTemp.setText(temporadas.get(position).getNome());
         if (onClickListener != null) {
             holder.buttonTemp.setOnClickListener(new View.OnClickListener() {

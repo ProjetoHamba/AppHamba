@@ -23,17 +23,5 @@
 
     <include layout="@layout/content_recy_ep_assistido_new"/>
 
-    <Button
-        android:id="@+id/buttonMarcarEpAssist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:text="@string/button_marcar_ep_ass"
-        android:textColor="@color/colorTextoBut"
-        android:background="@color/colorButoes"
-
-        />
-
 
 </android.support.design.widget.CoordinatorLayout>

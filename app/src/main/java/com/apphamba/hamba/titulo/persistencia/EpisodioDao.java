@@ -65,7 +65,7 @@ public class EpisodioDao {
         String idTemporada = String.valueOf(temporada.getId());
         String query =  "SELECT * FROM episodio_assistido AS ea " +
                         "JOIN episodio AS e " +
-                        "ON ea.id_titulo = e.id " +
+                        "ON e.id = ea.id_episodio " +
                         "WHERE ea.id_usuario = ? " +
                         "AND ea.id_temporada = ? " +
                         "AND ea.excluido = 'NAO'";
