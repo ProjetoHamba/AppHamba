@@ -41,8 +41,8 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         indicator.setViewPager(viewPager);
         setInformacoesTitulos();
     }
-    protected void encontrandoItensView(){
 
+    protected void encontrandoItensView(){
         this.nomeTitulo = findViewById(R.id.textViewNome);
         this.avaliacaoTitulo = findViewById(R.id.textViewAvaliacao);
         this.sinopseTitulo = findViewById(R.id.textViewSinopse);
