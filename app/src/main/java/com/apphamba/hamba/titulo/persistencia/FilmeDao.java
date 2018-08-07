@@ -40,7 +40,7 @@ public class FilmeDao {
     }
 
     public Filme getAssistido(Filme filme, Usuario usuario) {
-        String query =  "SELECT * FROM filme_assistido AS fa" +
+        String query =  "SELECT * FROM filme_assistido AS fa " +
                         "JOIN filme AS f " +
                         "WHERE fa.id_usuario = ? " +
                         "AND excluido = 'NAO'";
@@ -106,8 +106,8 @@ public class FilmeDao {
    }
 
    public Filme getByTitulo(Titulo titulo) {
-       String query =   "SELECT * FROM filmes AS f " +
-                        "JOIN titulos AS t " +
+       String query =   "SELECT * FROM filme AS f " +
+                        "JOIN titulo AS t " +
                         "ON f.id_titulo = t.id " +
                         "WHERE f.id_titulo = ?";
        String idTitulo = String.valueOf(titulo.getId());
