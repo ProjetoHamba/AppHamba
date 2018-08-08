@@ -185,8 +185,38 @@ public class TituloDao {
         escritorBanco.update(EnumTitulos.TABELA_AVALIACAO.getDescricao(), valores, query, args);
     }
 
-//    public HashMap<Titulo, Double> getAvaliacaoTitulo(Usuario usuario) {
-//        String query =  "SELECT * FROM titulo_avaliacao";
-//    }
+    public HashMap<Titulo, Double> getAvaliacaoUsuario(Usuario usuario) {
+        String query =  "SELECT * FROM titulo_avaliacao AS ta " +
+                        "JOIN titulo AS t " +
+                        "ON t.id = ta.id_titulo " +
+                        "WHERE ta.id_usuario = ?";
+        String[] args = {String.valueOf(usuario.getId())};
+        return this.loadTituloAvaliacao(query, args);
+    }
+
+    public HashMap<Titulo, Double> getAvaliacaoTitulo(Titulo titulo) {
+        String query =  "SELECT * FROM titulo_avaliacao AS ta " +
+                        "JOIN titulo AS t " +
+                        "ON t.id = ta.id_titulo " +
+                        "WHERE ta.id_titulo = ?";
+        String[] args = {String.valueOf(titulo.getId())};
+        return this.loadTituloAvaliacao(query, args);
+    }
+
+    private HashMap<Titulo, Double> loadTituloAvaliacao(String query, String[] args) {
+        HashMap<Titulo, Double> avaliacaoUsuario = new HashMap<>();
+        SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                // AQUI PODE DA MERDA POR CAUSA DESSES GET NO CURSOR AE, NAO TESTEI - italo
+                int indexNota = cursor.getColumnIndex(String.valueOf(EnumTitulos.NOTA));
+                Double nota = cursor.getDouble(indexNota);
+                avaliacaoUsuario.put(this.criarTitulo(cursor), nota);
+            } while (cursor.moveToNext());
+        }
+        return avaliacaoUsuario;
+    }
 
 }

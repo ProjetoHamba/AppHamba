@@ -14,6 +14,7 @@ import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.HashMap;
 
 public class ServicoTitulo {
 
@@ -95,6 +96,17 @@ public class ServicoTitulo {
         } else {
             tituloDao.updateNota(titulo, usuario, nota);
         }
+    }
+
+    public HashMap<Titulo, Double> avaliacaoPorUsuario() {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.getAvaliacaoUsuario(usuario);
+    }
+
+    public HashMap<Titulo, Double> avaliacaoPorTitulo(Titulo titulo) {
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.getAvaliacaoTitulo(titulo);
     }
 
 }
