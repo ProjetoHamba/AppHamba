@@ -1,17 +1,15 @@
 package com.apphamba.hamba.titulo.dominio;
 
 import android.graphics.Bitmap;
-
 import com.apphamba.hamba.infra.servicos.FormatadorImagem;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Titulo implements Serializable {
     private int id;
     private String nome;
     private String sinopse;
     private int avaliacao;
+    private Double avaliacaoUsuario;
     private String generos;
     private String tipo;
     private String criadores;
@@ -39,6 +37,14 @@ public class Titulo implements Serializable {
 
     public void setAvaliacao(int avaliacao) {
         this.avaliacao = avaliacao;
+    }
+
+    public Double getAvaliacaoUsuario() {
+        return avaliacaoUsuario;
+    }
+
+    public void setAvaliacaoUsuario(Double avaliacaoUsuario) {
+        this.avaliacaoUsuario = avaliacaoUsuario;
     }
 
     public String getGeneros() {

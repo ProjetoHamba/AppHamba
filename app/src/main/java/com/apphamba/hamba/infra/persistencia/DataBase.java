@@ -92,6 +92,13 @@ public class DataBase extends SQLiteOpenHelper {
                 "id_usuario INTEGER NOT NULL," +
                 "id_filme INTEGER NOT NULL," +
                 "excluido TEXT NOT NULL);");
+
+        db.execSQL("CREATE TABLE titulo_avaliacao (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id_usuario INTEGER NOT NULL," +
+                "id_titulo INTEGER NOT NULL," +
+                "nota DOUBLE NOT NULL);");
+
     }
 
     @Override

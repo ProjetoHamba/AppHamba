@@ -87,4 +87,14 @@ public class ServicoTitulo {
         return formatadorImagem.listByteToListBitmap(imagensByte);
     }
 
+    public void avaliar(Titulo titulo, Double nota) {
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        TituloDao tituloDao = new TituloDao();
+        if (titulo.getAvaliacaoUsuario().equals(null)) {
+            tituloDao.inserirNota(titulo, usuario, nota);
+        } else {
+            tituloDao.updateNota(titulo, usuario, nota);
+        }
+    }
+
 }

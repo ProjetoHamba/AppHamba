@@ -7,8 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.titulo.dominio.Titulo;
+import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TituloDao {
     private DataBase bancoDados;
@@ -51,6 +53,7 @@ public class TituloDao {
         String[] args = {tipo};
         return this.loadTitulos(query, args);
     }
+
     public ArrayList<Titulo> loadTitulos() {
         String query = "SELECT * FROM titulo";
         return this.loadTitulos(query,null);
@@ -116,7 +119,7 @@ public class TituloDao {
         valores.put(EnumTitulos.CRIADORES.getDescricao(), titulo.getCriadores());
         valores.put(EnumTitulos.TIPO.getDescricao(), titulo.getTipo());
         valores.put(String.valueOf(EnumTitulos.IMAGEM), titulo.getCartaz());
-        long id = escritorBanco.insert(String.valueOf(EnumTitulos.TABELA_TITULOS), null, valores);
+        long id = escritorBanco.insert(EnumTitulos.TABELA_TITULOS.getDescricao(), null, valores);
         escritorBanco.close();
         return id;
     }
@@ -158,4 +161,32 @@ public class TituloDao {
         byte[] imagem = cursor.getBlob(indexImagem);
         return imagem;
     }
+
+    public void inserirNota(Titulo titulo, Usuario usuario, Double nota) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_USUARIO.getDescricao(), usuario.getId());
+        valores.put(EnumTitulos.ID_TITULO.getDescricao(), titulo.getId());
+        valores.put(EnumTitulos.NOTA.getDescricao(), nota);
+        escritorBanco.insert(EnumTitulos.TABELA_AVALIACAO.getDescricao(), null, valores);
+        escritorBanco.close();
+    }
+
+    public void updateNota(Titulo titulo, Usuario usuario, Double nota) {
+        SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
+        String query = "id_titulo = ? AND id_usuario = ? ";
+        ContentValues valores = new ContentValues();
+        valores.put(EnumTitulos.ID_USUARIO.getDescricao(), usuario.getId());
+        valores.put(EnumTitulos.ID_TITULO.getDescricao(), titulo.getId());
+        valores.put(EnumTitulos.NOTA.getDescricao(), nota);
+        String idTitulo = String.valueOf(titulo.getId());
+        String idUsuario = String.valueOf(usuario.getId());
+        String[] args = {idTitulo, idUsuario};
+        escritorBanco.update(EnumTitulos.TABELA_AVALIACAO.getDescricao(), valores, query, args);
+    }
+
+//    public HashMap<Titulo, Double> getAvaliacaoTitulo(Usuario usuario) {
+//        String query =  "SELECT * FROM titulo_avaliacao";
+//    }
+
 }
