@@ -1,9 +1,10 @@
-package com.apphamba.hamba.titulo.gui;
+package com.apphamba.hamba.titulo.servicos;
 
 
 
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Pessoa;
+import com.apphamba.hamba.usuario.dominio.Usuario;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,21 +18,22 @@ import java.util.Map.Entry;
  *      GitHub: https://github.com/eugenp/tutorials/tree/master/algorithms/src/main/java/com/baeldung/algorithms/slope_one
  */
 
-
+//MUDEI DE PESSOA PARA USUARIO AS CHAMADAS
+    //PRECISAMOS DE TESTES
 public class SlopeOne {
 
     private Map<Titulo, Map<Titulo, Double>> matrizDeDiferenca = new HashMap<>();
     private Map<Titulo, Map<Titulo, Integer>> matrizDeFrequencia = new HashMap<>();
-    private Map<Pessoa, HashMap<Titulo, Double>> dadosDeSaida = new HashMap<>();
+    private Map<Usuario, HashMap<Titulo, Double>> dadosDeSaida = new HashMap<>();
 
-    private Map<Pessoa, HashMap<Titulo, Double>> matrizFinal = new HashMap<>();
-    private Map<Pessoa, HashMap<Titulo, Double>> matrizInicial = new HashMap<>();
+    private Map<Usuario, HashMap<Titulo, Double>> matrizFinal = new HashMap<>();
+    private Map<Usuario, HashMap<Titulo, Double>> matrizInicial = new HashMap<>();
 
     private ArrayList<Titulo> listaTituloes = new ArrayList<>();
     private ArrayList<Titulo> listaRecomendados = new ArrayList<>();
 
 
-    public SlopeOne(Map<Pessoa, HashMap<Titulo, Double>> matriz, ArrayList<Titulo> listaTitulo) {
+    public SlopeOne(HashMap<Usuario, HashMap<Titulo, Double>> matriz, ArrayList<Titulo> listaTitulo) {
         matrizInicial = matriz;
         listaTituloes = listaTitulo;
     }
@@ -44,10 +46,10 @@ public class SlopeOne {
 
     /**
      * Com base nos dados disponíveis, é calculado as relações entre os
-     * usuários e número de ocorrências dos Tituloes
+     * usuários e número de ocorrências dos Titulos
      */
 
-    private void buildDifferencesMatrix(Map<Pessoa, HashMap<Titulo, Double>> data) {
+    private void buildDifferencesMatrix(Map<Usuario, HashMap<Titulo, Double>> data) {
         for (HashMap<Titulo, Double> user : data.values()) {
             for (Entry<Titulo, Double> e : user.entrySet()) {
                 if (!matrizDeDiferenca.containsKey(e.getKey())) {
@@ -82,10 +84,11 @@ public class SlopeOne {
 
     /**
      * Com base nos dados existentes, prevê todas as classificações faltantes.
-     * São dados de usuários existentes e classificações de seus Tituloes.
+     * São dados de usuários existentes e classificações de seus Titulos.
+     * @param data
      */
 
-    private void predict(Map<Pessoa, HashMap<Titulo, Double>> data) {
+    private void predict(Map<Usuario, HashMap<Titulo, Double>> data) {
         HashMap<Titulo, Double> uPred = new HashMap<Titulo, Double>();
         HashMap<Titulo, Integer> uFreq = new HashMap<Titulo, Integer>();
 
@@ -94,7 +97,7 @@ public class SlopeOne {
             uPred.put(j, 0.0);
         }
 
-        for (Entry<Pessoa, HashMap<Titulo, Double>> e : data.entrySet()) {
+        for (Entry<Usuario, HashMap<Titulo, Double>> e : data.entrySet()) {
             for (Titulo j : e.getValue().keySet()) {
                 for (Titulo k : matrizDeDiferenca.keySet()) {
                     try {
@@ -126,7 +129,7 @@ public class SlopeOne {
         matrizFinal = dadosDeSaida;
     }
 
-    public ArrayList<Titulo> getListaRecomendados(Pessoa pessoa) {
+    public ArrayList<Titulo> getListaRecomendados(Usuario pessoa) {
         HashMap<Titulo, Double> matrizF = matrizFinal.get(pessoa);
         getRecomendadosAux(matrizF);
         return listaRecomendados;
@@ -142,7 +145,7 @@ public class SlopeOne {
                 if (!l.contains(x)) {
                     l.add(Titulo.getId());
                     m.put(Titulo, matrizFinal.get(Titulo).doubleValue());
-                    Titulo.setAvaliacao((int) matrizFinal.get(Titulo).doubleValue());
+                    Titulo.setAvaliacaoUsuario(matrizFinal.get(Titulo).doubleValue());
                     listaRecomendados.add(Titulo);
                 }
             }

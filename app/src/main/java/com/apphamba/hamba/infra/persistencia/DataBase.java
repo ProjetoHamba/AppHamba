@@ -115,6 +115,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE titulo_imagem;");
         db.execSQL("DROP TABLE filme_assistido;");
         db.execSQL("DROP TABLE episodio_assistido;");
+        db.execSQL("DROP TABLE titulo_avaliacao;");
         this.onCreate(db);
     }
 }

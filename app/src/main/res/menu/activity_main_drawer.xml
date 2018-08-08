@@ -11,9 +11,6 @@
             android:id="@+id/nav_meu_hamba"
             android:title="@string/nav_meu_hamba_text" />
         <item
-            android:id="@+id/nav_calendario"
-            android:title="@string/nav_calendario_text" />
-        <item
             android:id="@+id/nav_favoritos"
             android:title="@string/nav_favoritos_text" />
         <item
@@ -25,6 +22,9 @@
         <item
             android:id="@+id/nav_noticias"
             android:title="@string/nav_noticias_text" />
+        <item
+            android:id="@+id/nav_sair"
+            android:title="@string/nav_Sair_text" />
     </group>
 
 </menu>

@@ -20,6 +20,7 @@ import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter.TabsAdapter;
 import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.noticias.gui.NoticiasActivity;
+import com.apphamba.hamba.usuario.gui.EscolhaCadOuLoginActivity;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
 
 
@@ -120,16 +121,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_meu_hamba) {
             startActivity(new Intent(this, MeuHambaActivity.class));
 
-        } else if (id == R.id.nav_calendario) {
-            //startActivity(new Intent(this,CalendarioActivity.class));
+        } else if (id == R.id.nav_sair) {
+            startActivity(new Intent(this,EscolhaCadOuLoginActivity.class));
 
 
         } else if (id == R.id.nav_favoritos) {
             startActivity(new Intent(this, FavoritosActivity.class));
 
         } else if (id == R.id.nav_recomendacoes) {
-            //startActivity(new Intent(this,RecomendacoesActivity.class));
-            finish();
+            startActivity(new Intent(this,RecomendacoesActivity.class));
 
         } else if (id == R.id.nav_configuracoes) {
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
