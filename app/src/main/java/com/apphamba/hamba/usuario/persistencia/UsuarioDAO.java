@@ -4,8 +4,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.infra.persistencia.DataBase;
+
+import java.util.ArrayList;
 
 public class UsuarioDAO {
     private DataBase bancoDados;
@@ -111,6 +114,25 @@ public class UsuarioDAO {
         String[] args = {String.valueOf(usuario.getId())};
         escritorBanco.update(EnumUsuarioPessoa.TABELA_USUARIO.getDescricao(), values, query, args);
         escritorBanco.close();
+    }
+
+    public ArrayList<Usuario> loadUsuarios(){
+        String query = "SELECT * FROM usuario";
+        return this.loadUsuarios(query, null);
+
+    }
+
+    private ArrayList<Usuario> loadUsuarios(String query, String[] args) {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                usuarios.add(this.criarUsuario(cursor));
+            } while (cursor.moveToNext());
+        }
+        return usuarios;
     }
 
 }

@@ -206,7 +206,6 @@ public class TituloListFragment extends Fragment {
                 .show();
     }
 
-
     private ArrayList<TituloView> tituloToTituloView(ArrayList<Titulo> titulos){
         ArrayList<TituloView> tituloViews = new ArrayList<>();
         for (Titulo titulo:titulos) {

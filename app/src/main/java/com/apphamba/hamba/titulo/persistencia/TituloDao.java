@@ -185,8 +185,25 @@ public class TituloDao {
         escritorBanco.update(EnumTitulos.TABELA_AVALIACAO.getDescricao(), valores, query, args);
     }
 
-//    public HashMap<Titulo, Double> getAvaliacaoTitulo(Usuario usuario) {
-//        String query =  "SELECT * FROM titulo_avaliacao";
-//    }
+   public HashMap<Titulo, Double> getAvaliacaoByUsuario(Usuario usuario) {
+       String query =  "SELECT * FROM titulo_avaliacao WHERE id_usuario = ?";
+       String[] args = {String.valueOf(usuario.getId())};
+       return getAvaliacaoByUsuario(query, args);
+   }
+
+    private HashMap<Titulo,Double> getAvaliacaoByUsuario(String query, String[] args) {
+        HashMap<Titulo,Double> hashMapUsuario = new HashMap<>();
+        SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        do{
+            int indexIdTitulo = cursor.getColumnIndex(EnumTitulos.ID_TITULO.getDescricao());
+            int indexNota = cursor.getColumnIndex(EnumTitulos.NOTA.getDescricao());
+            Titulo titulo = getByID(cursor.getInt(indexIdTitulo));
+            Double nota = cursor.getDouble(indexNota);
+            hashMapUsuario.put(titulo, nota);
+        } while (cursor.moveToNext());
+        leitorBanco.close();
+        return hashMapUsuario;
+    }
 
 }

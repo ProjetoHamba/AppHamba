@@ -11,9 +11,11 @@ import com.apphamba.hamba.titulo.persistencia.FavoritoDao;
 import com.apphamba.hamba.titulo.persistencia.MeuHambaDao;
 import com.apphamba.hamba.titulo.persistencia.TituloDao;
 import com.apphamba.hamba.usuario.dominio.Usuario;
+import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.HashMap;
 
 public class ServicoTitulo {
 
@@ -95,6 +97,41 @@ public class ServicoTitulo {
         } else {
             tituloDao.updateNota(titulo, usuario, nota);
         }
+    }
+    public HashMap<Titulo,Double> getAvaliacaoByUsuario(Usuario usuario){
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.getAvaliacaoByUsuario(usuario);
+
+    }
+    public ArrayList<Titulo> listaFiltrada(ArrayList<Titulo> titulos){//PEGAR TÍTULOS QUE N SAO FAVORITOS E N ESTÃO NO MEU HAMBA
+        ArrayList<Titulo> listaFiltrada = new ArrayList<>();
+        for(Titulo titulo : titulos){
+            if(!isFavorito(titulo) && !isMeuHamba(titulo)){
+                listaFiltrada.add(titulo);
+            }
+        }
+        return listaFiltrada;
+    }
+
+    public ArrayList<Titulo> getRecomendacao(){//TODO VERIFICAR SE TA CERTO
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuarioLogado = Sessao.instance.getPessoa().getUsuario();
+        HashMap<Usuario, HashMap<Titulo, Double>> matrizTotal = new HashMap<>();
+        ArrayList<Usuario> usuarios = usuarioDAO.loadUsuarios();
+        for(Usuario usuario : usuarios){
+            matrizTotal.put(usuario ,this.getAvaliacaoByUsuario(usuario));
+        }
+        ArrayList<Titulo> listaTitulos = this.getTitulos();
+
+        for(Titulo titulo : listaFiltrada(listaTitulos)){
+            HashMap<Titulo, Double> hashMap = new HashMap<>();
+            hashMap.put(titulo, (double)titulo.getAvaliacao());
+            matrizTotal.put(usuarioLogado,hashMap);
+        }
+        SlopeOne slope=new SlopeOne(matrizTotal, listaTitulos);
+        slope.slopeOne();
+        return slope.getListaRecomendados(usuarioLogado);
+
     }
 
 }
