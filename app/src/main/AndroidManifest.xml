@@ -56,15 +56,13 @@
             android:label="@string/label_tela_favoritos" />
         <activity
             android:name=".titulo.gui.MeuHambaActivity"
-            android:label="@string/label_tela_meu_hamba">
-
-        </activity>
-        <activity android:name=".infra.adaptersFragmentos.EpisodioCheck.EpisodioCheckNewActivity"
-            android:label="@string/label_checkbox_ep_assistidos"/>
+            android:label="@string/label_tela_meu_hamba"></activity>
+        <activity
+            android:name=".infra.adaptersFragmentos.EpisodioCheck.EpisodioCheckNewActivity"
+            android:label="@string/label_checkbox_ep_assistidos" />
         <activity android:name=".noticias.gui.NoticiasActivity" />
-        <activity android:name=".noticias.gui.DetalhesNoticiaAcitvity">
-
-        </activity>
+        <activity android:name=".noticias.gui.DetalhesNoticiaAcitvity"></activity>
+        <activity android:name=".titulo.gui.AvaliacaoActivity"></activity>
     </application>
 
 </manifest>

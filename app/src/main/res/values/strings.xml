@@ -140,5 +140,6 @@
     <string name="text_numero_episodio_desc">Descrição</string>
     <string name="button_marcar_ep_ass">Marcar episódios assistidos</string>
     <string name="label_checkbox_ep_assistidos">Marcar episódios assistidos</string>
+    <string name="Confirmar">CONFIRMAR</string>
 
 </resources>
