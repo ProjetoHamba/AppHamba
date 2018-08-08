@@ -22,7 +22,7 @@ public class AlterarSenhaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mudar_senha);
+        setContentView(R.layout.activity_alterar_senha);
 
         this.campoSenhaAtual = findViewById(R.id.editTextSenhaAtual);
         this.campoNovaSenha = findViewById(R.id.editTextSenhaNovaSenha);

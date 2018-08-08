@@ -2,6 +2,7 @@ package com.apphamba.hamba.titulo.gui;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
@@ -36,8 +37,6 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
         setUpToolbar();
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = (ViewPager)findViewById(R.id.viewPager);
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         CircleIndicator indicator = (CircleIndicator)findViewById(R.id.indicator);
@@ -110,10 +109,10 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
     private void setUpSerie() {
         ServicoSerie servicoSerie = new ServicoSerie();
         servicoSerie.setSerieOnFiltro(FiltroTitulo.instance.getTituloSelecionado());
-        criarFragmento();
+        criarFragmentoBotaoTemp();
     }
 
-    private void criarFragmento(){
+    private void criarFragmentoBotaoTemp(){
          BotaoTempListaFragment botaoTempListaFragment = new BotaoTempListaFragment();
          botaoTempListaFragment.setArguments(getIntent().getExtras());
          getSupportFragmentManager().beginTransaction().replace(R.id.containerbuttontemp, botaoTempListaFragment).commit();
@@ -125,6 +124,7 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -136,6 +136,9 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void telaAvaliar(View view){
+        startActivity(new Intent(this,AvaliacaoActivity.class));
     }
 
 }

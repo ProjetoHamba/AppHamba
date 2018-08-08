@@ -128,8 +128,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, FavoritosActivity.class));
 
         } else if (id == R.id.nav_recomendacoes) {
-            //startActivity(new Intent(this,RecomendacoesActivity.class));
-            finish();
+            startActivity(new Intent(this,RecomendacoesActivity.class));
 
         } else if (id == R.id.nav_configuracoes) {
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
