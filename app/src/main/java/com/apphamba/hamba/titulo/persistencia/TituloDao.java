@@ -219,4 +219,22 @@ public class TituloDao {
         return avaliacaoUsuario;
     }
 
+    public Double getNotaTitulo(Usuario usuario, Titulo titulo) {
+        String query =  "SELECT * FROM titulo_avaliacao " +
+                        "WHERE id_titulo = ? " +
+                        "AND id_usuario = ? ";
+        String idUsuario = String.valueOf(usuario.getId());
+        String idTitulo = String.valueOf(titulo.getId());
+        String[] args = {idTitulo, idUsuario};
+        SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Double nota = null;
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            int indexNota = cursor.getColumnIndex(String.valueOf(EnumTitulos.NOTA));
+            nota = cursor.getDouble(indexNota);
+        }
+        return nota;
+    }
+
 }

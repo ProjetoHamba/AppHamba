@@ -14,7 +14,6 @@ import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.HashMap;
 
 public class ServicoTitulo {
@@ -92,17 +91,13 @@ public class ServicoTitulo {
     public void avaliar(Titulo titulo, Double nota) {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         TituloDao tituloDao = new TituloDao();
-        if (titulo.getAvaliacaoUsuario().equals(null)) {
-            tituloDao.inserirNota(titulo, usuario, nota);
-        } else {
+        if (tituloDao.getNotaTitulo(usuario, titulo) != null) {
             tituloDao.updateNota(titulo, usuario, nota);
+        } else {
+            tituloDao.inserirNota(titulo, usuario, nota);
         }
     }
-    public HashMap<Titulo,Double> getAvaliacaoByUsuario(Usuario usuario){
-        TituloDao tituloDao = new TituloDao();
-        return tituloDao.getAvaliacaoByUsuario(usuario);
 
-    }
     public ArrayList<Titulo> listaFiltrada(ArrayList<Titulo> titulos){//PEGAR TÍTULOS QUE N SAO FAVORITOS E N ESTÃO NO MEU HAMBA
         ArrayList<Titulo> listaFiltrada = new ArrayList<>();
         for(Titulo titulo : titulos){
@@ -119,7 +114,7 @@ public class ServicoTitulo {
         HashMap<Usuario, HashMap<Titulo, Double>> matrizTotal = new HashMap<>();
         ArrayList<Usuario> usuarios = usuarioDAO.loadUsuarios();
         for(Usuario usuario : usuarios){
-            matrizTotal.put(usuario ,this.getAvaliacaoByUsuario(usuario));
+            matrizTotal.put(usuario ,this.avaliacaoPorUsuario(usuario));
         }
         ArrayList<Titulo> listaTitulos = this.getTitulos();
 
@@ -128,7 +123,7 @@ public class ServicoTitulo {
             hashMap.put(titulo, (double)titulo.getAvaliacao());
             matrizTotal.put(usuarioLogado,hashMap);
         }
-        SlopeOne slope=new SlopeOne(matrizTotal, listaTitulos);
+        SlopeOne slope = new SlopeOne(matrizTotal, listaTitulos);
         slope.slopeOne();
         return slope.getListaRecomendados(usuarioLogado);
 
@@ -138,6 +133,17 @@ public class ServicoTitulo {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         TituloDao tituloDao = new TituloDao();
         return tituloDao.getAvaliacaoUsuario(usuario);
+    }
+
+    public HashMap<Titulo,Double> avaliacaoPorUsuario(Usuario usuario){
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.getAvaliacaoUsuario(usuario);
+    }
+
+    public Double avaliacaoTituloUsuario(Titulo titulo){
+        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.getNotaTitulo(usuario, titulo);
     }
 
     public HashMap<Titulo, Double> avaliacaoPorTitulo(Titulo titulo) {

@@ -19,7 +19,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
     private RatingBar ratingBar;
     private TextView txtValorAvaliacao;
     private Button botaoAvaliar;
-    private double nota;
+    private Double nota;
     private ImageView imageViewTituloAvaliar;
 
     @Override
@@ -30,6 +30,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
         addListenerOnButton();
         setUpToolbar();
         resgatarFotoTituloAvaliado();
+        mostrarNotaAtual();
     }
 
     public void setRatingBar() {
@@ -37,11 +38,22 @@ public class AvaliacaoActivity extends AppCompatActivity {
         txtValorAvaliacao = findViewById(R.id.txtValorAvaliacao);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float avaliacao, boolean fromUser) {
-                txtValorAvaliacao.setText(String.valueOf(avaliacao));
-                //Avaliacao ai em cima ta como float aq embaixo ta como Double hm.. e em outro canto ta outra form tbm
-                nota = Double.valueOf(avaliacao);
+                nota = (double) avaliacao;
+                txtValorAvaliacao.setText(String.valueOf(nota));
             }
         });
+    }
+
+    public void mostrarNotaAtual() {
+        ServicoTitulo servicoTitulo = new ServicoTitulo();
+        Titulo titulo = FiltroTitulo.instance.getTituloSelecionado();
+        Double avaliacao = servicoTitulo.avaliacaoTituloUsuario(titulo);
+        if (avaliacao != null) {
+            Float nota = avaliacao.floatValue();
+            txtValorAvaliacao.setText(String.valueOf(avaliacao));
+            ratingBar = findViewById(R.id.ratingBarUserAvaliar);
+            ratingBar.setRating(nota);
+        }
     }
 
     public void addListenerOnButton() {
@@ -50,10 +62,10 @@ public class AvaliacaoActivity extends AppCompatActivity {
         botaoAvaliar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //avaliar(FiltroTitulo.instance.getTituloSelecionado(), regraDeTres(nota));
-                //Toast.makeText(AvaliacaoActivity.this, "Avaliação feita com sucesso " + nota, Toast.LENGTH_SHORT).show();
-                Toast.makeText(AvaliacaoActivity.this, "Avaliação feita com sucesso para o título" + FiltroTitulo.instance.getTituloSelecionado().getNome(), Toast.LENGTH_SHORT).show();
-                finish();
+            avaliar(FiltroTitulo.instance.getTituloSelecionado(), nota);
+            Toast.makeText(AvaliacaoActivity.this, "Avaliação feita com sucesso " + nota, Toast.LENGTH_SHORT).show();
+            Toast.makeText(AvaliacaoActivity.this, "Avaliação feita com sucesso para o título" + FiltroTitulo.instance.getTituloSelecionado().getNome(), Toast.LENGTH_SHORT).show();
+            finish();
             }
         });
     }
@@ -65,7 +77,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
 
     public void avaliar(Titulo titulo, Double nota) {
         ServicoTitulo servicoTitulo = new ServicoTitulo();
-        servicoTitulo.avaliar(titulo,nota);
+        servicoTitulo.avaliar(titulo, nota);
 
     }
     protected void setUpToolbar() {
