@@ -9,6 +9,10 @@
         <item name="android:colorBackground">@color/colorFundo</item>
         <item name="android:textColor">@color/colorTextoNormal</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
+        <!-- Action Mode Overlay -->
+        <item name="windowActionModeOverlay">true</item>
+        <!-- Cor da action bar de contexto (CAB) -->
+        <item name="actionModeBackground">@color/colorPrimary</item>
 
 
 
