@@ -144,9 +144,9 @@
     <string name="img_titulo_sele_avaliacao">Imagem do titulo para avaliação</string>
     <string name="text_resultado_user_avaliacao_titulo">Resultado :</string>
     <string name="text_avaliar_titulo">Avaliar: </string>
-    <string name="label_user_avaliar_titulo">Avaliar titulo</string>
+    <string name="label_user_avaliar_titulo">Avaliar Título </string>
     <string name="label_recomendados">Recomendados</string>
-    <string name="ic_avaliar_titulo">Avaliar titulo</string>
+    <string name="ic_avaliar_titulo">Avaliar Título </string>
     <string name="text_titulo_media_geral">Média geral :</string>
 
 </resources>

@@ -13,6 +13,10 @@
     <color name="colorRosa">#f956ad</color>
     <color name="colorBlack">#0d0d0d</color>
     <color name="colorRosaChoque">#d64090</color>
+    <!-- SwipeRefreshLayout -->
+    <color name="colorRefreshProgress">#33B5E5</color>
+    <color name="colorTransparent">#0000</color>
+
 
 
 

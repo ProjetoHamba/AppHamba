@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -166,6 +167,7 @@ public class TituloListFragment extends Fragment {
         for (TituloView tituloView : selectedTitulos) {
             if (!servicoTitulo.isMeuHamba(tituloView.getTitulo())) {
                 servicoTitulo.adicionarMeuHamba(tituloView.getTitulo());
+                recyclerView.getAdapter().notifyDataSetChanged();
             }
         }
     }
@@ -183,6 +185,7 @@ public class TituloListFragment extends Fragment {
         for (TituloView tituloView : selectedTitulos) {
             if (!servicoTitulo.isFavorito(tituloView.getTitulo())){
                 servicoTitulo.adicionarFavorito(tituloView.getTitulo());
+                recyclerView.getAdapter().notifyDataSetChanged();
             }
         }
     }
@@ -214,6 +217,17 @@ public class TituloListFragment extends Fragment {
             tituloViews.add(tituloView);
         }
         return tituloViews;
+    }
+
+    public void mudarFormaDeLayout(String formaDeLayout){
+        if (formaDeLayout.equals("Linear")){
+            notifyAll();
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        }else if(formaDeLayout.equals("Grid")){
+            recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        }
+
     }
 
 }
