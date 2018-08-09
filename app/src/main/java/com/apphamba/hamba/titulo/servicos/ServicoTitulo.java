@@ -14,6 +14,8 @@ import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class ServicoTitulo {
@@ -112,22 +114,34 @@ public class ServicoTitulo {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioLogado = Sessao.instance.getPessoa().getUsuario();
         HashMap<Usuario, HashMap<Titulo, Double>> matrizTotal = new HashMap<>();
+
         ArrayList<Usuario> usuarios = usuarioDAO.loadUsuarios();
+
         for(Usuario usuario : usuarios){
-            matrizTotal.put(usuario ,this.avaliacaoPorUsuario(usuario));
+            if (usuario.getId() == usuarioLogado.getId()) {
+                usuario = usuarioLogado;
+            }
+            matrizTotal.put(usuario, this.avaliacaoPorUsuario(usuario));
         }
+
         ArrayList<Titulo> listaTitulos = this.getTitulos();
 
-        for(Titulo titulo : listaFiltrada(listaTitulos)){
-            HashMap<Titulo, Double> hashMap = new HashMap<>();
-            hashMap.put(titulo, (double)titulo.getAvaliacao());
-            matrizTotal.put(usuarioLogado,hashMap);
-        }
+//        for(Titulo titulo : listaFiltrada(listaTitulos)){
+//            HashMap<Titulo, Double> hashMap = new HashMap<>();
+//            hashMap.put(titulo, (double)titulo.getAvaliacao());
+//            matrizTotal.put(usuarioLogado,hashMap);
+//        }
+
         SlopeOne slope = new SlopeOne(matrizTotal, listaTitulos);
         slope.slopeOne();
-        return slope.getListaRecomendados(usuarioLogado);
-
-    }
+        ArrayList<Titulo> recomendados = slope.getListaRecomendados(usuarioLogado);
+        Collections.sort(recomendados, new Comparator<Titulo>() {
+            @Override public int compare(Titulo t1, Titulo t2) {
+                return t2.getAvaliacaoUsuario().intValue() - t1.getAvaliacaoUsuario().intValue(); // Ascending
+            }
+        });
+        return recomendados;
+        }
 
     public HashMap<Titulo, Double> avaliacaoPorUsuario() {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();

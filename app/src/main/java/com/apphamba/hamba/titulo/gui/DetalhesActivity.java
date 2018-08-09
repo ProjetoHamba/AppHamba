@@ -85,9 +85,14 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
     }
 
     private void setUpFilme() {
-        botaoFilmeAssistido.setVisibility(View.VISIBLE);
+        Titulo tituloSelecionado = FiltroTitulo.instance.getTituloSelecionado();
         ServicoFilme servicoFilme = new ServicoFilme();
-        Filme filme = servicoFilme.getFilme(FiltroTitulo.instance.getTituloSelecionado());
+        Filme filme = servicoFilme.getFilme(tituloSelecionado);
+        ServicoTitulo servicoTitulo = new ServicoTitulo();
+        if (!servicoTitulo.isMeuHamba(tituloSelecionado)) {
+            return;
+        }
+        botaoFilmeAssistido.setVisibility(View.VISIBLE);
         FiltroTitulo.instance.setFilmeSelecionado(filme);
         if (servicoFilme.isAssistido(filme)) {
             botaoFilmeAssistido.setText("ASSISTIDO");
@@ -107,8 +112,13 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
     }
 
     private void setUpSerie() {
+        Titulo tituloSelecionado = FiltroTitulo.instance.getTituloSelecionado();
         ServicoSerie servicoSerie = new ServicoSerie();
-        servicoSerie.setSerieOnFiltro(FiltroTitulo.instance.getTituloSelecionado());
+        servicoSerie.setSerieOnFiltro(tituloSelecionado);
+        ServicoTitulo servicoTitulo = new ServicoTitulo();
+        if (!servicoTitulo.isMeuHamba(tituloSelecionado)) {
+            return;
+        }
         criarFragmentoBotaoTemp();
     }
 
