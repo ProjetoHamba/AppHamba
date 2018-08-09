@@ -41,7 +41,6 @@ public class ViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = layoutInflater.inflate(R.layout.viewpager_item, null);
-        ServicoTitulo servicoTitulo = new ServicoTitulo();
         Bitmap imagemBitMap = imagens.get(position);
         ImageView imageView = (ImageView) item_view.findViewById(R.id.imageDetalhe);
         imageView.setImageBitmap(imagemBitMap);
