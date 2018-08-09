@@ -113,7 +113,7 @@ public class ServicoTitulo {
         return listaFiltrada;
     }
 
-    public ArrayList<Titulo> getRecomendacao(){//TODO VERIFICAR SE TA CERTO
+    public ArrayList<Titulo> getRecomendacao(){ //TODO VERIFICAR SE TA CERTO
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioLogado = Sessao.instance.getPessoa().getUsuario();
         HashMap<Usuario, HashMap<Titulo, Double>> matrizTotal = new HashMap<>();
