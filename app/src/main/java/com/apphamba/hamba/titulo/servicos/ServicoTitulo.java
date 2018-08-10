@@ -14,9 +14,8 @@ import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ServicoTitulo {
 
@@ -110,38 +109,27 @@ public class ServicoTitulo {
         return listaFiltrada;
     }
 
-    public ArrayList<Titulo> getRecomendacao(){ //TODO VERIFICAR SE TA CERTO
+    public ArrayList<Titulo> getRecomendacao() { //TODO VERIFICAR SE TA CERTO
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioLogado = Sessao.instance.getPessoa().getUsuario();
-        HashMap<Usuario, HashMap<Titulo, Double>> matrizTotal = new HashMap<>();
-
+        Map<Usuario, Map<Titulo, Double>> dados = new HashMap<>();
         ArrayList<Usuario> usuarios = usuarioDAO.loadUsuarios();
 
-        for(Usuario usuario : usuarios){
-            if (usuario.getId() == usuarioLogado.getId()) {
-                usuario = usuarioLogado;
+        for (Usuario usuario : usuarios) {
+            if (usuario.getId() != usuarioLogado.getId()) {
+                dados.put(usuario, avaliacaoPorUsuario(usuario));
             }
-            matrizTotal.put(usuario, this.avaliacaoPorUsuario(usuario));
         }
+        HashMap<Titulo, Double> avaliacoesUsuario = avaliacaoPorUsuario(usuarioLogado);
+        SlopeOne slopeOne = new SlopeOne(dados);
+        Map<Titulo, Double> predicoes = slopeOne.predict(avaliacoesUsuario);
+        ArrayList<Titulo> recomendados = new ArrayList<>();
 
-        ArrayList<Titulo> listaTitulos = this.getTitulos();
-
-//        for(Titulo titulo : listaFiltrada(listaTitulos)){
-//            HashMap<Titulo, Double> hashMap = new HashMap<>();
-//            hashMap.put(titulo, (double)titulo.getAvaliacao());
-//            matrizTotal.put(usuarioLogado,hashMap);
-//        }
-
-        SlopeOne slope = new SlopeOne(matrizTotal, listaTitulos);
-        slope.slopeOne();
-        ArrayList<Titulo> recomendados = slope.getListaRecomendados(usuarioLogado);
-        Collections.sort(recomendados, new Comparator<Titulo>() {
-            @Override public int compare(Titulo t1, Titulo t2) {
-                return t2.getAvaliacaoUsuario().intValue() - t1.getAvaliacaoUsuario().intValue(); // Ascending
+        for (Titulo titulo : predicoes.keySet()) {
+            recomendados.add(titulo);
             }
-        });
         return recomendados;
-        }
+    }
 
     public HashMap<Titulo, Double> avaliacaoPorUsuario() {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
