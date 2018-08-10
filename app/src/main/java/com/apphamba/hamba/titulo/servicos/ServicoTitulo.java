@@ -131,8 +131,12 @@ public class ServicoTitulo {
         ArrayList<Titulo> recomendados = new ArrayList<>();
 
         for (String titulo : predicoes.keySet()) {
-            recomendados.add(getTituloById(titulo));
+            Titulo tituloAtual = getTituloById(titulo);
+            Double notaTituloUsuario = avaliacaoTituloUsuario(tituloAtual);
+            if (notaTituloUsuario == null) {
+                recomendados.add(tituloAtual);
             }
+        }
         return recomendados;
     }
 

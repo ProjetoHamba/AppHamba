@@ -93,7 +93,6 @@ public class FilmeDao {
 
    public void inserir(Filme filme) {
         TituloDao tituloDao = new TituloDao();
-        tituloDao.inserir(filme.getTitulo());
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         Titulo titulo = tituloDao.getByNome(filme.getTitulo().getNome());
         String duracao = String.valueOf(filme.getDuracao());
