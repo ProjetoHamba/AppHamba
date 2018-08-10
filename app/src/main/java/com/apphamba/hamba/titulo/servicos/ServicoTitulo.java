@@ -28,6 +28,11 @@ public class ServicoTitulo {
         return tituloDao.loadTitulos();
     }
 
+    public Titulo getTituloById(String idTitulo){
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.getByID(Integer.parseInt(idTitulo));
+    }
+
     public Titulo buscarTituloPorNome(String nome) {
         TituloDao tituloDao = new TituloDao();
         return tituloDao.getByNome(nome);
@@ -112,7 +117,7 @@ public class ServicoTitulo {
     public ArrayList<Titulo> getRecomendacao() { //TODO VERIFICAR SE TA CERTO
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioLogado = Sessao.instance.getPessoa().getUsuario();
-        Map<Usuario, Map<Titulo, Double>> dados = new HashMap<>();
+        Map<Usuario, Map<String, Double>> dados = new HashMap<>();
         ArrayList<Usuario> usuarios = usuarioDAO.loadUsuarios();
 
         for (Usuario usuario : usuarios) {
@@ -120,13 +125,13 @@ public class ServicoTitulo {
                 dados.put(usuario, avaliacaoPorUsuario(usuario));
             }
         }
-        HashMap<Titulo, Double> avaliacoesUsuario = avaliacaoPorUsuario(usuarioLogado);
+        HashMap<String, Double> avaliacoesUsuario = avaliacaoPorUsuario(usuarioLogado);
         SlopeOne slopeOne = new SlopeOne(dados);
-        Map<Titulo, Double> predicoes = slopeOne.predict(avaliacoesUsuario);
+        Map<String, Double> predicoes = slopeOne.predict(avaliacoesUsuario);
         ArrayList<Titulo> recomendados = new ArrayList<>();
 
-        for (Titulo titulo : predicoes.keySet()) {
-            recomendados.add(titulo);
+        for (String titulo : predicoes.keySet()) {
+            recomendados.add(getTituloById(titulo));
             }
         return recomendados;
     }
@@ -137,9 +142,9 @@ public class ServicoTitulo {
         return tituloDao.getAvaliacaoUsuario(usuario);
     }
 
-    public HashMap<Titulo,Double> avaliacaoPorUsuario(Usuario usuario){
+    public HashMap<String,Double> avaliacaoPorUsuario(Usuario usuario){
         TituloDao tituloDao = new TituloDao();
-        return tituloDao.getAvaliacaoUsuario(usuario);
+        return tituloDao.getAvaliacaoTituloString(usuario);
     }
 
     public Double avaliacaoTituloUsuario(Titulo titulo){

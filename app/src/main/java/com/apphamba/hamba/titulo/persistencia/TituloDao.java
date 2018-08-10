@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.persistencia.DataBase;
 import com.apphamba.hamba.infra.EnumTitulos;
+import com.apphamba.hamba.titulo.dominio.Serie;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.usuario.dominio.Usuario;
 
@@ -214,6 +215,31 @@ public class TituloDao {
                 int indexNota = cursor.getColumnIndex(String.valueOf(EnumTitulos.NOTA));
                 Double nota = cursor.getDouble(indexNota);
                 avaliacaoUsuario.put(this.criarTitulo(cursor), nota);
+            } while (cursor.moveToNext());
+        }
+        return avaliacaoUsuario;
+    }
+
+    public HashMap<String, Double> getAvaliacaoTituloString(Usuario usuario) {
+        String query =  "SELECT * FROM titulo_avaliacao " +
+                        "WHERE id_usuario = ?";
+        String[] args = {String.valueOf(usuario.getId())};
+        return this.loadIdTituloAvaliacao(query, args);
+    }
+
+    private HashMap<String, Double> loadIdTituloAvaliacao(String query, String[] args) {
+        HashMap<String, Double> avaliacaoUsuario = new HashMap<>();
+        SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                // AQUI PODE DA MERDA POR CAUSA DESSES GET NO CURSOR AE, NAO TESTEI - italo
+                int indexNota = cursor.getColumnIndex(EnumTitulos.NOTA.getDescricao());
+                Double nota = cursor.getDouble(indexNota);
+                int indexIdTitulo = cursor.getColumnIndex(EnumTitulos.ID_TITULO.getDescricao());
+                String idTitulo = cursor.getString(indexIdTitulo);
+                avaliacaoUsuario.put(idTitulo, nota);
             } while (cursor.moveToNext());
         }
         return avaliacaoUsuario;
