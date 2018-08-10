@@ -400,11 +400,6 @@ public class PopularBanco {
         tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.inc2));
         tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.default2));
 
-        Filme incriveisF = new Filme();
-        incriveisF.setTitulo(tituloDao.getByID((int) idIncrivei));
-        incriveisF.setDuracao(120);
-        filmeDao.inserir(incriveisF);
-
         Titulo logan = new Titulo();
         logan.setNome("Logan");
         logan.setSinopse("Em 2029, Logan (Hugh Jackman) ganha a vida como chofer de limousine para cuidar do nonagenário Charles Xavier (Patrick Stewart). Debilitado fisicamente e esgotado emocionalmente, ele é procurado por Gabriela (Elizabeth Rodriguez), uma mexicana que precisa da ajuda do ex-X-Men para defender a pequena Laura Kinney / X-23 (Dafne Keen). Ao mesmo tempo em que se recusa a voltar à ativa, Logan é perseguido pelo mercenário Donald Pierce (Boyd Holbrook), interessado na menina.");
@@ -416,11 +411,6 @@ public class PopularBanco {
         long idLogan = tituloDao.inserir(logan);
         tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.logan));
         tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.default2));
-
-        Filme loganF = new Filme();
-        loganF.setTitulo(tituloDao.getByID((int) idLogan));
-        loganF.setDuracao(120);
-        filmeDao.inserir(loganF);
 
         Titulo sexy = new Titulo();
         sexy.setNome("Sexy por Acidente");
@@ -434,11 +424,6 @@ public class PopularBanco {
         tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.sexy));
         tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.default2));
 
-        Filme sexyF = new Filme();
-        sexyF.setTitulo(tituloDao.getByID((int) idSexy));
-        sexyF.setDuracao(120);
-        filmeDao.inserir(sexyF);
-
         Titulo vingadores = new Titulo();
         vingadores.setNome("Vingadores: Guerra Infinita");
         vingadores.setSinopse("Como os Vingadores e seus aliados continuaram a proteger o mundo de ameaças muito grandes para qualquer herói, uma nova ameaça emergiu das sombras cósmicas: Thanos. Um déspota da infâmia intergalática, seu objetivo é coletar todas as seis Joias do Infinito, artefatos de poder inimaginável, e usá-las para infligir sua vontade distorcida em toda a realidade. Tudo o que os Vingadores lutaram levou até este momento - o destino da Terra e da própria existência nunca foi tão incerto.");
@@ -451,10 +436,6 @@ public class PopularBanco {
         tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.vinga));
         tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.default2));
 
-        Filme vingF = new Filme();
-        vingF.setTitulo(tituloDao.getByID((int) idVing));
-        vingF.setDuracao(120);
-        filmeDao.inserir(vingF);
 
         Titulo friends = new Titulo();
         friends.setNome("Friends");
