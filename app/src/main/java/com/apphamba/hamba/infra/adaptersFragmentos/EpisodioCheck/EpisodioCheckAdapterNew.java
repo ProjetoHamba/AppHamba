@@ -48,16 +48,12 @@ public class EpisodioCheckAdapterNew extends RecyclerView.Adapter<EpisodioCheckH
             @Override
             public void onItemClick(View v, int pos) {
                 CheckBox chk = (CheckBox) v;
-                //ServicoSerie servicoSerie = new ServicoSerie();
-                //CKE se está checado ou n
                 ServicoSerie servicoSerie = new ServicoSerie();
                 Temporada temporada = FiltroTitulo.instance.getTemporadaSelecionada();
                 EpisodioViewNewDom episodioClick = episodioViewNewDoms.get(pos);
                 if (chk.isChecked() && !episodioClick.isAssistido()){
-                    // ADD AOS ASSISTIDOS
                     servicoSerie.addAssistido(episodioClick.getEpisodio(), temporada);
                 } else if(!chk.isChecked() && episodioClick.isAssistido()){
-                    // REMOVE DOS ASSISTIDOS
                     servicoSerie.removeAssistido(episodioClick.getEpisodio());
                 }
             }

@@ -64,12 +64,10 @@ public class EpisodioCheckNewActivity extends AppCompatActivity {
         ServicoSerie servicoSerie = new ServicoSerie();
         ArrayList<Episodio> episodiosAssistidos = servicoSerie.getAssistidos(FiltroTitulo.instance.getTemporadaSelecionada());
         ArrayList<EpisodioViewNewDom> episodioViewNewDoms = new ArrayList<>();
-
         for (Episodio episodio:episodios) {
             boolean isAssistido = this.isAssistido(episodio, episodiosAssistidos);
             episodioViewNewDoms.add(new EpisodioViewNewDom(episodio, isAssistido));
         }
-
         return episodioViewNewDoms;
     }
 

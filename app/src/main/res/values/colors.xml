@@ -7,7 +7,7 @@
     <color name="colorTextoBut">#ffffff</color>
     <color name="colorFundo">#ffffff</color>
     <color name="colorTextoNormal">#0d0d0d</color>
-    <color name="colorControlHighlight">#bcbfcc</color>
+    <color name="colorControlHighlight">#fff</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlue">#3F51B5</color>
     <color name="colorRosa">#f956ad</color>
