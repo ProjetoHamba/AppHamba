@@ -142,7 +142,7 @@
     <string name="label_checkbox_ep_assistidos">Marcar episódios assistidos</string>
     <string name="Confirmar">CONFIRMAR</string>
     <string name="img_titulo_sele_avaliacao">Imagem do titulo para avaliação</string>
-    <string name="text_resultado_user_avaliacao_titulo">Resultado :</string>
+    <string name="text_resultado_user_avaliacao_titulo">Resultado:</string>
     <string name="text_avaliar_titulo">Avaliar: </string>
     <string name="label_user_avaliar_titulo">Avaliar Título </string>
     <string name="label_recomendados">Recomendados</string>
