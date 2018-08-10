@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.BotaoTemporada.fragments;
+package com.apphamba.hamba.infra.adaptersFragmentos.BotaoTemporada.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;

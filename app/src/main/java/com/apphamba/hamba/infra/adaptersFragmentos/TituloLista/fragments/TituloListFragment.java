@@ -30,8 +30,10 @@ import java.util.List;
 public class TituloListFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<TituloView> titulosView;
+    private int tipo;
     private ActionMode actionMode;
     private ServicoTitulo servicoTitulo = new ServicoTitulo();
+    private SwipeRefreshLayout swipeLayout;
 
     public static TituloListFragment newInstance(int tipo) {
         Bundle args = new Bundle();
@@ -40,6 +42,14 @@ public class TituloListFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            this.tipo = getArguments().getInt("tipo");
+        }
+    };
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,8 +59,8 @@ public class TituloListFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         titulosView = this.tituloToTituloView(FiltroTitulo.instance.getTitulosList());
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo()));
-        //swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeToRefresh);
-        //swipeLayout.setOnRefreshListener(OnRefreshListener());
+        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeToRefresh);
+        swipeLayout.setOnRefreshListener(OnRefreshListener());
         return view;
     }
 
@@ -203,5 +213,14 @@ public class TituloListFragment extends Fragment {
             tituloViews.add(tituloView);
         }
         return tituloViews;
+    }
+    private SwipeRefreshLayout.OnRefreshListener OnRefreshListener() {
+        return new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeLayout.setRefreshing(false);
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+        };
     }
 }

@@ -1,5 +1,6 @@
 package com.apphamba.hamba.titulo.gui;
 
+import android.app.backup.BackupManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,10 +23,12 @@ import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.noticias.gui.NoticiasActivity;
 import com.apphamba.hamba.usuario.gui.EscolhaCadOuLoginActivity;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
+import com.apphamba.hamba.usuario.servicos.Prefs;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private BackupManager backupManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity
         ToolbarComMenuNavAbreEFecha();
         ViewDoMenuNavListaClicavel();
         DefinindoViewPagerComTab();
+        backupManager = new BackupManager(getContext());
+
     }
     private void ToolbarComMenuNavAbreEFecha(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity
     }
     private void DefinindoViewPagerComTab() {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.fragContainer);
-        //viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(new TabsAdapter(getContext(), getSupportFragmentManager()));
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
@@ -58,6 +63,24 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setTabTextColors(cor, cor);
         int corTabSelecionada= ContextCompat.getColor(getContext(), R.color.colorBlack);
         tabLayout.setSelectedTabIndicatorColor(corTabSelecionada);
+
+        int tabIdx = Prefs.getInteger(getContext(), "tabIdx");
+        viewPager.setCurrentItem(tabIdx);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                // Salva o índice da página/tab selecionada
+                Prefs.setInteger(getContext(), "tabIdx", viewPager.getCurrentItem());
+                backupManager.dataChanged();
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
     }
 
     @Override

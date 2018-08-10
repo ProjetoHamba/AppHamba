@@ -33,7 +33,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
     }
     @Override
     public Fragment getItem(int position) {
-        Fragment fragment;
+        Fragment fragment=null;
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         if (position == 0) {
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
