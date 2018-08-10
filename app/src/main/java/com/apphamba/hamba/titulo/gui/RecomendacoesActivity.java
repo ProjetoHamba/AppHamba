@@ -22,13 +22,6 @@ public class RecomendacoesActivity extends AppCompatActivity {
     private void criarFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             ServicoTitulo servicoTitulo = new ServicoTitulo();
-            //Abaixo esse getRecomendados ainda n tem então mudem aq bjs, talvez fosse melhor colocar
-            //um "ComumActivity" com os métodos comuns, pq ta repetindo código - n coloquei pq
-            //estoy a perguntarem p vcs se acham oks
-           // FiltroTitulo.instance.setTitulosList(servicoTitulo.getRecomendados());
-            //TituloListFragment frag = new TituloListFragment();
-            //frag.setArguments(getIntent().getExtras());
-            //getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
         }
     }
     protected void setUpToolbar() {

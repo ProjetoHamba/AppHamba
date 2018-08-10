@@ -33,7 +33,6 @@ public class UsuarioDAO {
         usuario.setSenha(senha);
 
         return usuario;
-
     }
 
     private Usuario load(String query, String[] args) {

@@ -144,6 +144,4 @@ public class ServicoTitulo {
         TituloDao tituloDao = new TituloDao();
         return tituloDao.getNotaTitulo(usuario, titulo);
     }
-
-
 }

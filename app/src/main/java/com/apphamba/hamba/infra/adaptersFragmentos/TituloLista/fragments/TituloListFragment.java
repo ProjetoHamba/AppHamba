@@ -40,7 +40,6 @@ public class TituloListFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_titulos_list, container, false);
@@ -51,7 +50,6 @@ public class TituloListFragment extends Fragment {
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo()));
         return view;
     }
-
     private TituloAdapter.TituloOnClickListener onClickTitulo() {
         return new TituloAdapter.TituloOnClickListener() {
             @Override
@@ -82,7 +80,6 @@ public class TituloListFragment extends Fragment {
             }
         };
     }
-
     private void updateActionModeTitle() {
         if (actionMode != null) {
             actionMode.setTitle("Selecione os titulos.");

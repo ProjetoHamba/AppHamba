@@ -20,20 +20,17 @@ public class BotaoTemporadaAdapter extends RecyclerView.Adapter<BotaoTemporadaAd
     public interface BotaoTemporadaOnClickListener {
         void onClickBotaoTemporada(BotoesTempViewHolder holder, int indexBotaoTemporada);
     }
-
     public BotaoTemporadaAdapter(Context context, ArrayList<Temporada> temporadas, BotaoTemporadaOnClickListener onClickListener) {
         this.context = context;
         this.temporadas = temporadas;
         this.onClickListener = onClickListener;
     }
-
     @Override
     public BotoesTempViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_butao_temp, viewGroup, false);
         BotoesTempViewHolder holder = new BotoesTempViewHolder(view);
         return holder;
     }
-
     @Override
     public void onBindViewHolder(final BotoesTempViewHolder holder, final int position) {
         holder.buttonTemp.setText(temporadas.get(position).getNome());

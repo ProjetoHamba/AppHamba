@@ -19,7 +19,6 @@ public class DesativarContaActivity extends AppCompatActivity {
     private EditText campoSenha;
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

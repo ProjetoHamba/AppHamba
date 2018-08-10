@@ -23,7 +23,6 @@ public class EpisodioCheckAdapterNew extends RecyclerView.Adapter<EpisodioCheckH
     public EpisodioCheckAdapterNew(Context c, ArrayList<EpisodioViewNewDom> episodioViewNewDoms){
         this.c=c;
         this.episodioViewNewDoms = episodioViewNewDoms;
-
     }
     @Override
     public EpisodioCheckHolderNew onCreateViewHolder(ViewGroup parent, int viewType) {

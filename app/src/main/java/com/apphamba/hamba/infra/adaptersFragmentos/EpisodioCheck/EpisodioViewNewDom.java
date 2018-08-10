@@ -10,7 +10,6 @@ public class EpisodioViewNewDom {
     public String getDescEpis() {
         return descEpis;
     }
-
     public void setDescEpis(String descEpis) {
         this.descEpis = descEpis;
     }
@@ -37,23 +36,18 @@ public class EpisodioViewNewDom {
     public int getNumEp() {
         return numEp;
     }
-
     public void setNumEp(int numEp) {
         this.numEp = numEp;
     }
-
     public Episodio getEpisodio() {
         return episodio;
     }
-
     public void setEpisodio(Episodio episodio) {
         this.episodio = episodio;
     }
-
     public boolean isAssistido() {
         return isAssistido;
     }
-
     public void setAssistido(boolean assistido) {
         isAssistido = assistido;
     }

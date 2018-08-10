@@ -22,7 +22,6 @@ public class BotaoTempListaFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Temporada> temporadas;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_butoes_temp, container, false);
@@ -34,7 +33,6 @@ public class BotaoTempListaFragment extends Fragment {
         recyclerView.setAdapter(new BotaoTemporadaAdapter(getContext(),temporadas,onClickBotaoTemporada()));
         return view;
     }
-
     private BotaoTemporadaAdapter.BotaoTemporadaOnClickListener onClickBotaoTemporada() {
         return new BotaoTemporadaAdapter.BotaoTemporadaOnClickListener() {
             @Override

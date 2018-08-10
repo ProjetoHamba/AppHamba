@@ -102,5 +102,4 @@ public class AlterarSenhaActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }

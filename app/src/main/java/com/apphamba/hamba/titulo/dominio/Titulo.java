@@ -46,7 +46,6 @@ public class Titulo implements Serializable {
     public void setAvaliacaoUsuario(Double avaliacaoUsuario) {
         this.avaliacaoUsuario = avaliacaoUsuario;
     }
-
     public String getGeneros() {
         return generos;
     }
@@ -79,7 +78,6 @@ public class Titulo implements Serializable {
         FormatadorImagem formatadorImagem = new FormatadorImagem();
         return formatadorImagem.byteArrayToBitmap(this.cartaz);
     }
-
     public void setCartaz(byte[] cartaz) {
         this.cartaz = cartaz;
     }
@@ -91,5 +89,4 @@ public class Titulo implements Serializable {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
 }

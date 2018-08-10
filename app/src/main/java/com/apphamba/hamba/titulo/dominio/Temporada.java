@@ -35,7 +35,6 @@ public class Temporada {
         this.idSerie = idSerie;
     }
 
-
     public String getNome() {
         return nome;
     }

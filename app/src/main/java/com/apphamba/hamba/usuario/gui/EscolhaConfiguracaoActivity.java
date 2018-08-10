@@ -22,7 +22,6 @@ public class EscolhaConfiguracaoActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 
     public void mudarTela(Class tela) {
