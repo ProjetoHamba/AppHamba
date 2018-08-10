@@ -79,20 +79,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
-            <ImageButton
+            <android.support.design.widget.FloatingActionButton
                 android:layout_width="40dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/ic_avaliar_titulo"
                 android:onClick="telaAvaliar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.692"
                 app:layout_constraintStart_toEndOf="@+id/indicator"
                 app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/ic_avaliar_titulo"
-                app:srcCompat="@drawable/ic_star_24dp"/>
+                app:srcCompat="@drawable/ic_star_24dp"
+                app:layout_anchorGravity="bottom|right|end"
+
+                />
 
             <TextView
                 android:id="@+id/textViewTituloMediaGeral"
@@ -111,7 +115,7 @@
                 android:id="@+id/ratingBarMediaPublicoEmGeral"
                 android:layout_width="42dp"
                 android:layout_height="49dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="248dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="248dp"
@@ -123,6 +127,7 @@
                 android:scaleY=".5"
                 app:layout_constraintBottom_toTopOf="@+id/textViewSinopse"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textViewTituloMediaGeral"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -130,14 +135,13 @@
                 android:id="@+id/textViewAvaliacao"
                 android:layout_width="wrap_content"
                 android:layout_height="41dp"
-                android:layout_marginBottom="20dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="32dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="0.4dp"
                 android:layout_marginTop="16dp"
                 android:text=""
-                android:textSize="15dp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textViewSinopse"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +157,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
-                android:textSize="16dp"
+                android:textSize="20sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/textViewTituloMediaGeral"
                 app:layout_constraintStart_toStartOf="parent"

@@ -27,6 +27,7 @@ public class RecomendacaoActivity extends AppCompatActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void criarFragment(Bundle savedInstanceState) {

@@ -8,4 +8,5 @@
     android:theme="@style/AppTheme.AppBarOverlay"
     app:layout_scrollFlags="scroll|enterAlways"
     app:popupTheme="@style/AppTheme.PopupOverlay"
+    style="@style/ToolBarWithNavigationBack"
      />
