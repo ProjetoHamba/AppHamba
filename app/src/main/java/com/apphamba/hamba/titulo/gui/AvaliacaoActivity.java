@@ -64,7 +64,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
             public void onClick(View v) {
             avaliar(FiltroTitulo.instance.getTituloSelecionado(), nota);
             Toast.makeText(AvaliacaoActivity.this, "Avaliação feita com sucesso " + nota, Toast.LENGTH_SHORT).show();
-            Toast.makeText(AvaliacaoActivity.this, "Avaliação feita com sucesso para o título" + FiltroTitulo.instance.getTituloSelecionado().getNome(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(AvaliacaoActivity.this, "Avaliação feita com sucesso para o título: " + FiltroTitulo.instance.getTituloSelecionado().getNome(), Toast.LENGTH_SHORT).show();
             finish();
             }
         });
