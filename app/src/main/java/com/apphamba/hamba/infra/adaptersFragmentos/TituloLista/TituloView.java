@@ -3,7 +3,6 @@ package com.apphamba.hamba.infra.adaptersFragmentos.TituloLista;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
 
-
 public class TituloView {
     private Titulo titulo;
     private Boolean selecionado = false;
@@ -23,7 +22,6 @@ public class TituloView {
     public void setSelecionado(Boolean selecionado) {
         this.selecionado = selecionado;
     }
-
 
 
 }

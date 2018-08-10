@@ -18,7 +18,6 @@ public class EpisodioCheckAdapterNew extends RecyclerView.Adapter<EpisodioCheckH
 
     Context c;
     ArrayList<EpisodioViewNewDom> episodioViewNewDoms;
-    ArrayList<EpisodioViewNewDom> checkedEpisodios = new ArrayList<>();
 
     public EpisodioCheckAdapterNew(Context c, ArrayList<EpisodioViewNewDom> episodioViewNewDoms){
         this.c=c;
