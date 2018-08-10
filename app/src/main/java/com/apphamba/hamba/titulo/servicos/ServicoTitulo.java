@@ -33,11 +33,6 @@ public class ServicoTitulo {
         return tituloDao.getByID(Integer.parseInt(idTitulo));
     }
 
-    public Titulo buscarTituloPorNome(String nome) {
-        TituloDao tituloDao = new TituloDao();
-        return tituloDao.getByNome(nome);
-    }
-
     public ArrayList<Titulo> getFavoritos() {
         Usuario usuario = Sessao.instance.getPessoa().getUsuario();
         FavoritoDao favoritoDao = new FavoritoDao();
@@ -104,32 +99,18 @@ public class ServicoTitulo {
         }
     }
 
-    public ArrayList<Titulo> listaFiltrada(ArrayList<Titulo> titulos){//PEGAR TÍTULOS QUE N SAO FAVORITOS E N ESTÃO NO MEU HAMBA
-        ArrayList<Titulo> listaFiltrada = new ArrayList<>();
-        for(Titulo titulo : titulos){
-            if(!isFavorito(titulo) && !isMeuHamba(titulo)){
-                listaFiltrada.add(titulo);
-            }
-        }
-        return listaFiltrada;
-    }
-
-    public ArrayList<Titulo> getRecomendacao() { //TODO VERIFICAR SE TA CERTO
+    public ArrayList<Titulo> getRecomendacao() {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioLogado = Sessao.instance.getPessoa().getUsuario();
-        Map<Usuario, Map<String, Double>> dados = new HashMap<>();
-        ArrayList<Usuario> usuarios = usuarioDAO.loadUsuarios();
-
-        for (Usuario usuario : usuarios) {
-            if (usuario.getId() != usuarioLogado.getId()) {
-                dados.put(usuario, avaliacaoPorUsuario(usuario));
-            }
-        }
+        Map<Usuario, Map<String, Double>> dados = getAvaliacoesUsuarios();
         HashMap<String, Double> avaliacoesUsuario = avaliacaoPorUsuario(usuarioLogado);
         SlopeOne slopeOne = new SlopeOne(dados);
         Map<String, Double> predicoes = slopeOne.predict(avaliacoesUsuario);
-        ArrayList<Titulo> recomendados = new ArrayList<>();
+        return getTitulosRecomendados(predicoes);
+    }
 
+    private ArrayList<Titulo> getTitulosRecomendados(Map<String, Double> predicoes) {
+        ArrayList<Titulo> recomendados = new ArrayList<>();
         for (String titulo : predicoes.keySet()) {
             Titulo tituloAtual = getTituloById(titulo);
             Double notaTituloUsuario = avaliacaoTituloUsuario(tituloAtual);
@@ -140,10 +121,17 @@ public class ServicoTitulo {
         return recomendados;
     }
 
-    public HashMap<Titulo, Double> avaliacaoPorUsuario() {
-        Usuario usuario = Sessao.instance.getPessoa().getUsuario();
-        TituloDao tituloDao = new TituloDao();
-        return tituloDao.getAvaliacaoUsuario(usuario);
+    private  Map<Usuario, Map<String, Double>> getAvaliacoesUsuarios() {
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuarioLogado = Sessao.instance.getPessoa().getUsuario();
+        Map<Usuario, Map<String, Double>> dados = new HashMap<>();
+        ArrayList<Usuario> usuarios = usuarioDAO.loadUsuarios();
+        for (Usuario usuario : usuarios) {
+            if (usuario.getId() != usuarioLogado.getId()) {
+                dados.put(usuario, avaliacaoPorUsuario(usuario));
+            }
+        }
+        return dados;
     }
 
     public HashMap<String,Double> avaliacaoPorUsuario(Usuario usuario){
@@ -157,9 +145,5 @@ public class ServicoTitulo {
         return tituloDao.getNotaTitulo(usuario, titulo);
     }
 
-    public HashMap<Titulo, Double> avaliacaoPorTitulo(Titulo titulo) {
-        TituloDao tituloDao = new TituloDao();
-        return tituloDao.getAvaliacaoTitulo(titulo);
-    }
 
 }
