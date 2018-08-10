@@ -400,11 +400,6 @@ public class PopularBanco {
         tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.inc2));
         tituloDao.inserirImagemTitulo((int) idIncrivei, formatadorImagem.getFotoByte(R.drawable.default2));
 
-        Filme incriveisF = new Filme();
-        incriveisF.setTitulo(tituloDao.getByID((int) idIncrivei));
-        incriveisF.setDuracao(120);
-        filmeDao.inserir(incriveisF);
-
         Titulo logan = new Titulo();
         logan.setNome("Logan");
         logan.setSinopse("Em 2029, Logan (Hugh Jackman) ganha a vida como chofer de limousine para cuidar do nonagenário Charles Xavier (Patrick Stewart). Debilitado fisicamente e esgotado emocionalmente, ele é procurado por Gabriela (Elizabeth Rodriguez), uma mexicana que precisa da ajuda do ex-X-Men para defender a pequena Laura Kinney / X-23 (Dafne Keen). Ao mesmo tempo em que se recusa a voltar à ativa, Logan é perseguido pelo mercenário Donald Pierce (Boyd Holbrook), interessado na menina.");
@@ -416,11 +411,6 @@ public class PopularBanco {
         long idLogan = tituloDao.inserir(logan);
         tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.logan));
         tituloDao.inserirImagemTitulo((int) idLogan, formatadorImagem.getFotoByte(R.drawable.default2));
-
-        Filme loganF = new Filme();
-        loganF.setTitulo(tituloDao.getByID((int) idLogan));
-        loganF.setDuracao(120);
-        filmeDao.inserir(loganF);
 
         Titulo sexy = new Titulo();
         sexy.setNome("Sexy por Acidente");
@@ -434,11 +424,6 @@ public class PopularBanco {
         tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.sexy));
         tituloDao.inserirImagemTitulo((int) idSexy, formatadorImagem.getFotoByte(R.drawable.default2));
 
-        Filme sexyF = new Filme();
-        sexyF.setTitulo(tituloDao.getByID((int) idSexy));
-        sexyF.setDuracao(120);
-        filmeDao.inserir(sexyF);
-
         Titulo vingadores = new Titulo();
         vingadores.setNome("Vingadores: Guerra Infinita");
         vingadores.setSinopse("Como os Vingadores e seus aliados continuaram a proteger o mundo de ameaças muito grandes para qualquer herói, uma nova ameaça emergiu das sombras cósmicas: Thanos. Um déspota da infâmia intergalática, seu objetivo é coletar todas as seis Joias do Infinito, artefatos de poder inimaginável, e usá-las para infligir sua vontade distorcida em toda a realidade. Tudo o que os Vingadores lutaram levou até este momento - o destino da Terra e da própria existência nunca foi tão incerto.");
@@ -451,10 +436,6 @@ public class PopularBanco {
         tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.vinga));
         tituloDao.inserirImagemTitulo((int) idVing, formatadorImagem.getFotoByte(R.drawable.default2));
 
-        Filme vingF = new Filme();
-        vingF.setTitulo(tituloDao.getByID((int) idVing));
-        vingF.setDuracao(120);
-        filmeDao.inserir(vingF);
 
         Titulo friends = new Titulo();
         friends.setNome("Friends");
@@ -514,86 +495,86 @@ public class PopularBanco {
         pessoa3.setNome("deish");
         pessoaDAO.inserirPessoa(pessoa3);
 
-//        Usuario usuario4 = new Usuario();
-//        usuario4.setSenha("123");
-//        usuario4.setEmail("asdasAxd@xd.xd");
-//        long user4 = usuarioDAO.inserir(usuario4);
-//        Pessoa pessoa4 = new Pessoa();
-//        pessoa4.setUsuario(usuarioDAO.getByID(String.valueOf(user4)));
-//        pessoa4.setNome("italo");
-//        pessoaDAO.inserirPessoa(pessoa4);
-//
-//        Usuario usuario5 = new Usuario();
-//        usuario5.setSenha("123");
-//        usuario5.setEmail("fasffxd@xd.xd");
-//        long user5 = usuarioDAO.inserir(usuario5);
-//        Pessoa pessoa5 = new Pessoa();
-//        pessoa5.setUsuario(usuarioDAO.getByID(String.valueOf(user5)));
-//        pessoa5.setNome("KIM");
-//        pessoaDAO.inserirPessoa(pessoa5);
-//
-//        Usuario usuario6 = new Usuario();
-//        usuario6.setSenha("123");
-//        usuario6.setEmail("asdgxd@xd.xd");
-//        long user6 = usuarioDAO.inserir(usuario6);
-//        Pessoa pessoa6 = new Pessoa();
-//        pessoa6.setUsuario(usuarioDAO.getByID(String.valueOf(user6)));
-//        pessoa6.setNome("FFo");
-//        pessoaDAO.inserirPessoa(pessoa6);
-//
-//        Usuario usuario7 = new Usuario();
-//        usuario7.setSenha("123");
-//        usuario7.setEmail("assdxd@xd.xd");
-//        long user7 = usuarioDAO.inserir(usuario7);
-//        Pessoa pessoa7 = new Pessoa();
-//        pessoa7.setUsuario(usuarioDAO.getByID(String.valueOf(user7)));
-//        pessoa7.setNome("italo1");
-//        pessoaDAO.inserirPessoa(pessoa7);
+        Usuario usuario4 = new Usuario();
+        usuario4.setSenha("123");
+        usuario4.setEmail("asdasAxd@xd.xd");
+        long user4 = usuarioDAO.inserir(usuario4);
+        Pessoa pessoa4 = new Pessoa();
+        pessoa4.setUsuario(usuarioDAO.getByID(String.valueOf(user4)));
+        pessoa4.setNome("italo");
+        pessoaDAO.inserirPessoa(pessoa4);
 
-//        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa1.getUsuario(), 3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idBraking),pessoa1.getUsuario(),4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idHouse),pessoa1.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa1.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idFriends),pessoa1.getUsuario(),5.0);
-//
-//        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa2.getUsuario(), 4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa2.getUsuario(),1.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idPrision),pessoa2.getUsuario(),2.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idNarcos),pessoa2.getUsuario(),4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idJurassic),pessoa2.getUsuario(),4.0);
-//
-//        tituloDao.inserirNota(tituloDao.getByID((int) idSexy),pessoa3.getUsuario(), 4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idJurassic),pessoa3.getUsuario(),1.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idHouse),pessoa3.getUsuario(),5.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idBraking),pessoa3.getUsuario(),2.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa3.getUsuario(),4.0);
-//
-//        tituloDao.inserirNota(tituloDao.getByID((int) idVing),pessoa4.getUsuario(), 3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idLaCasa),pessoa4.getUsuario(),4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa4.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idJurassic),pessoa4.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idSexy),pessoa4.getUsuario(),5.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa4.getUsuario(),5.0);
-//
-//        tituloDao.inserirNota(tituloDao.getByID((int) idPrision),pessoa5.getUsuario(), 3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idIncrivei),pessoa5.getUsuario(),4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa5.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idSexy),pessoa5.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idLaCasa),pessoa5.getUsuario(),5.0);
-//
-//        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa6.getUsuario(), 3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idVing),pessoa6.getUsuario(),4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idLaCasa),pessoa6.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa6.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idNarcos),pessoa6.getUsuario(),5.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa6.getUsuario(),5.0);
-//
-//        tituloDao.inserirNota(tituloDao.getByID((int) idFriends),pessoa7.getUsuario(), 3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idStranger),pessoa7.getUsuario(),4.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa7.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa7.getUsuario(),3.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idRobot),pessoa7.getUsuario(),5.0);
-//        tituloDao.inserirNota(tituloDao.getByID((int) idHouse),pessoa7.getUsuario(),5.0);
+        Usuario usuario5 = new Usuario();
+        usuario5.setSenha("123");
+        usuario5.setEmail("fasffxd@xd.xd");
+        long user5 = usuarioDAO.inserir(usuario5);
+        Pessoa pessoa5 = new Pessoa();
+        pessoa5.setUsuario(usuarioDAO.getByID(String.valueOf(user5)));
+        pessoa5.setNome("KIM");
+        pessoaDAO.inserirPessoa(pessoa5);
+
+        Usuario usuario6 = new Usuario();
+        usuario6.setSenha("123");
+        usuario6.setEmail("asdgxd@xd.xd");
+        long user6 = usuarioDAO.inserir(usuario6);
+        Pessoa pessoa6 = new Pessoa();
+        pessoa6.setUsuario(usuarioDAO.getByID(String.valueOf(user6)));
+        pessoa6.setNome("FFo");
+        pessoaDAO.inserirPessoa(pessoa6);
+
+        Usuario usuario7 = new Usuario();
+        usuario7.setSenha("123");
+        usuario7.setEmail("assdxd@xd.xd");
+        long user7 = usuarioDAO.inserir(usuario7);
+        Pessoa pessoa7 = new Pessoa();
+        pessoa7.setUsuario(usuarioDAO.getByID(String.valueOf(user7)));
+        pessoa7.setNome("italo1");
+        pessoaDAO.inserirPessoa(pessoa7);
+
+        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa1.getUsuario(), 3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idBraking),pessoa1.getUsuario(),4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idHouse),pessoa1.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa1.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idFriends),pessoa1.getUsuario(),5.0);
+
+        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa2.getUsuario(), 4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa2.getUsuario(),1.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idPrision),pessoa2.getUsuario(),2.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idNarcos),pessoa2.getUsuario(),4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idJurassic),pessoa2.getUsuario(),4.0);
+
+        tituloDao.inserirNota(tituloDao.getByID((int) idSexy),pessoa3.getUsuario(), 4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idJurassic),pessoa3.getUsuario(),1.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idHouse),pessoa3.getUsuario(),5.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idBraking),pessoa3.getUsuario(),2.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa3.getUsuario(),4.0);
+
+        tituloDao.inserirNota(tituloDao.getByID((int) idVing),pessoa4.getUsuario(), 3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idLaCasa),pessoa4.getUsuario(),4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa4.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idJurassic),pessoa4.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idSexy),pessoa4.getUsuario(),5.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa4.getUsuario(),5.0);
+
+        tituloDao.inserirNota(tituloDao.getByID((int) idPrision),pessoa5.getUsuario(), 3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idIncrivei),pessoa5.getUsuario(),4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa5.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idSexy),pessoa5.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idLaCasa),pessoa5.getUsuario(),5.0);
+
+        tituloDao.inserirNota(tituloDao.getByID((int) idVikings),pessoa6.getUsuario(), 3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idVing),pessoa6.getUsuario(),4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idLaCasa),pessoa6.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa6.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idNarcos),pessoa6.getUsuario(),5.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa6.getUsuario(),5.0);
+
+        tituloDao.inserirNota(tituloDao.getByID((int) idFriends),pessoa7.getUsuario(), 3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idStranger),pessoa7.getUsuario(),4.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idLogan),pessoa7.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idGot),pessoa7.getUsuario(),3.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idRobot),pessoa7.getUsuario(),5.0);
+        tituloDao.inserirNota(tituloDao.getByID((int) idHouse),pessoa7.getUsuario(),5.0);
     }
 
 }

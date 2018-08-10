@@ -43,8 +43,6 @@ public class TabsAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos());
             f = TituloListFragment.newInstance(R.string.tab_text_1);
-
-
         } else if (position == 1) {
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos(EnumTitulos.SERIE.getDescricao()));
             f = TituloListFragment.newInstance(R.string.tab_text_2);
