@@ -23,7 +23,7 @@ public class FilmeDao {
         valores.put(EnumTitulos.ID_FILME.getDescricao(), filme.getId());
         valores.put(EnumTitulos.ID_USUARIO.getDescricao(), usuario.getId());
         valores.put(EnumTitulos.EXCLUIDO.getDescricao(), EnumTitulos.NAO_EXCLUIDO.getDescricao());
-        escritorBanco.insert(EnumTitulos.TABELA_FILME.getDescricao(), null, valores);
+        escritorBanco.insert(EnumTitulos.TABELA_FILME_ASSISTIDO.getDescricao(), null, valores);
         escritorBanco.close();
     }
 
