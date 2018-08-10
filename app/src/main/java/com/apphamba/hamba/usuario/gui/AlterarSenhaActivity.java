@@ -23,7 +23,21 @@ public class AlterarSenhaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alterar_senha);
+        encontrandoElementosView();
+        setupToolbar();
+    }
 
+    private void setupToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    private void encontrandoElementosView(){
         this.campoSenhaAtual = findViewById(R.id.editTextSenhaAtual);
         this.campoNovaSenha = findViewById(R.id.editTextSenhaNovaSenha);
         this.campoConfirmNovaSenha = findViewById(R.id.editTextConfirmarNovaSenha);
@@ -35,14 +49,6 @@ public class AlterarSenhaActivity extends AppCompatActivity {
                 alterarSenha();
             }
         });
-        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
     }
 
     private void alterarSenha() {

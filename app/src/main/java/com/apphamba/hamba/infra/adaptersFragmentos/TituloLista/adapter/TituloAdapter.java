@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.titulo.dominio.Titulo;
-import com.apphamba.hamba.titulo.gui.TituloView;
+import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.TituloView;
 
 import java.util.List;
 

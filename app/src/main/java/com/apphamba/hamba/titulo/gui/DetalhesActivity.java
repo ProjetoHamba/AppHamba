@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.EnumTitulos;
-import com.apphamba.hamba.infra.botaoTemporada.fragments.BotaoTempListaFragment;
+import com.apphamba.hamba.infra.BotaoTemporada.fragments.BotaoTempListaFragment;
 import com.apphamba.hamba.infra.adaptersFragmentos.DetalheTituloSlideFotos.ViewPagerAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Filme;

@@ -24,15 +24,10 @@ public class DesativarContaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desativar_conta);
-
-        this.campoSenha = findViewById(R.id.editTextSenhaAtual);
-        this.botaoDesativar = findViewById(R.id.button_desativar_conta);
-        this.botaoDesativar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                desativarConta();
-            }
-        });
+        encontrandoElementosView();
+        setupToolbar();
+    }
+    private void setupToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +36,16 @@ public class DesativarContaActivity extends AppCompatActivity {
             }
         });
     }
-
+    private void encontrandoElementosView(){
+        this.campoSenha = findViewById(R.id.editTextSenhaAtual);
+        this.botaoDesativar = findViewById(R.id.button_desativar_conta);
+        this.botaoDesativar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                desativarConta();
+            }
+        });
+    }
     private void desativarConta() {
         if (!this.verificarCampos()) {
             return;

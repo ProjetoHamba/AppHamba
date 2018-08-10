@@ -77,16 +77,12 @@ public class EpisodioDao {
     private Episodio criarEpisodio(Cursor cursor) {
         int indexId = cursor.getColumnIndex(EnumTitulos.ID.getDescricao());
         int id = cursor.getInt(indexId);
-
         int indexIdTemp = cursor.getColumnIndex(EnumTitulos.ID_TEMPORADA.getDescricao());
         int idTemp = cursor.getInt(indexIdTemp);
-
         int indexNome = cursor.getColumnIndex(EnumTitulos.NOME.getDescricao());
         String nome = cursor.getString(indexNome);
-
         int indexNumEp = cursor.getColumnIndex(EnumTitulos.NUMERO_EPISODIO.getDescricao());
         int numEp = cursor.getInt(indexNumEp);
-
         Episodio episodio = new Episodio();
         episodio.setId(id);
         episodio.setNome(nome);

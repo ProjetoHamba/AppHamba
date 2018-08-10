@@ -59,7 +59,6 @@ public class SerieDao {
 
         int indexTitulo = cursor.getColumnIndex(EnumTitulos.ID_TITULO.getDescricao());
         int idTitulo = cursor.getInt(indexTitulo);
-
         Titulo titulo = tituloDao.getByID(idTitulo);
         Serie serie = new Serie();
         serie.setId(id);

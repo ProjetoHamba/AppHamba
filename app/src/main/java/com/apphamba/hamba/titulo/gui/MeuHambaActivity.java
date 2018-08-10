@@ -64,19 +64,10 @@ public class MeuHambaActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_search) {
-
         } else if (id == R.id.action_linear){
-
         } else if (id == R.id.action_grid){
-
         }
         return super.onOptionsItemSelected(item);
-    }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
 }

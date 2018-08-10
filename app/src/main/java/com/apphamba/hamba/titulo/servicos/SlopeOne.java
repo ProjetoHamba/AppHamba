@@ -17,8 +17,6 @@ import java.util.Map.Entry;
  *      GitHub: https://github.com/eugenp/tutorials/tree/master/algorithms/src/main/java/com/baeldung/algorithms/slope_one
  */
 
-//MUDEI DE PESSOA PARA USUARIO AS CHAMADAS
-    //PRECISAMOS DE TESTES
 public class SlopeOne {
 
     private Map<Usuario, Map<String, Double>> data = new HashMap<>();

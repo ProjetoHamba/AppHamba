@@ -23,21 +23,25 @@ public class AlterarEmailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mudar_email);
-
+        setUpToolbar();
+        encontrandoElementosView();
+    }
+    private void setUpToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+    private void encontrandoElementosView(){
         this.campoAlterarEmail = findViewById(R.id.editTextNovoEmail);
         this.campoSenha = findViewById(R.id.editTextSenhaMudarEmail);
-
         this.botaoAlterarDadosPessoais = findViewById(R.id.button_criar_AlterarDados2);
         this.botaoAlterarDadosPessoais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 alterarEmail();
-            }
-        });
-        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                onBackPressed();
             }
         });
     }

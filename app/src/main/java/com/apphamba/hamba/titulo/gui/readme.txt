@@ -1,1 +1,0 @@
-telas ou classes de interface gráfica

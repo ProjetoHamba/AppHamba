@@ -113,6 +113,4 @@ public class FilmeDao {
        String[] args = {idTitulo};
        return this.load(query, args);
    }
-
-
 }

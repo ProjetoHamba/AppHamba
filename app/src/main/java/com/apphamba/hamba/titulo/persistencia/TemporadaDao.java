@@ -38,22 +38,16 @@ public class TemporadaDao {
     private Temporada criarTemporada(Cursor cursor) {
         int indexId = cursor.getColumnIndex(EnumTitulos.ID.getDescricao());
         int id = cursor.getInt(indexId);
-
         int indexIdSerie = cursor.getColumnIndex(EnumTitulos.ID_SERIE.getDescricao());
         int idSerie = cursor.getInt(indexIdSerie);
-
         int indexNome = cursor.getColumnIndex(EnumTitulos.NOME.getDescricao());
         String nome = cursor.getString(indexNome);
-
         int indexDataLancamento = cursor.getColumnIndex(EnumTitulos.DATA_LANCAMENTO.getDescricao());
         String dataLancamento = cursor.getString(indexDataLancamento);
-
         int indexNumTemp = cursor.getColumnIndex(EnumTitulos.NUMERO_TEMPORADA.getDescricao());
         int numeroTemp = cursor.getInt(indexNumTemp);
-
         int indexQtdEp = cursor.getColumnIndex(EnumTitulos.QUANTIDADE_EPISODIOS.getDescricao());
         int qtdEpisodios = cursor.getInt(indexQtdEp);
-
         Temporada temporada = new Temporada();
         temporada.setId(id);
         temporada.setIdSerie(idSerie);

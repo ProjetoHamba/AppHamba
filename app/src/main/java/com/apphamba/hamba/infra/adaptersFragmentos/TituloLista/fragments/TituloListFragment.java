@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,7 +22,7 @@ import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter.TituloAdapter;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
-import com.apphamba.hamba.titulo.gui.TituloView;
+import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.TituloView;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +49,8 @@ public class TituloListFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         titulosView = this.tituloToTituloView(FiltroTitulo.instance.getTitulosList());
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo()));
+        //swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeToRefresh);
+        //swipeLayout.setOnRefreshListener(OnRefreshListener());
         return view;
     }
 

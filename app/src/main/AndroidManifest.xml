@@ -67,9 +67,6 @@
             android:label="@string/label_tela_recomendacao">
 
         </activity>
-        <activity android:name=".titulo.gui.RecomendacoesActivity">
-
-        </activity>
     </application>
 
 </manifest>

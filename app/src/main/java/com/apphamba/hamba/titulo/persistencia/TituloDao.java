@@ -234,7 +234,6 @@ public class TituloDao {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                // AQUI PODE DA MERDA POR CAUSA DESSES GET NO CURSOR AE, NAO TESTEI - italo
                 int indexNota = cursor.getColumnIndex(EnumTitulos.NOTA.getDescricao());
                 Double nota = cursor.getDouble(indexNota);
                 int indexIdTitulo = cursor.getColumnIndex(EnumTitulos.ID_TITULO.getDescricao());

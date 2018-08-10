@@ -48,15 +48,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-    // Configura o ViewPager + Tabs
     private void DefinindoViewPagerComTab() {
-        // ViewPager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.fragContainer);
         //viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(new TabsAdapter(getContext(), getSupportFragmentManager()));
-        // Tabs
         TabLayout tabLayout = findViewById(R.id.tabLayout);
-        // Cria as tabs com o mesmo adapter utilizado pelo ViewPager
         tabLayout.setupWithViewPager(viewPager);
         int cor = ContextCompat.getColor(getContext(), R.color.colorWhite);
         tabLayout.setTabTextColors(cor, cor);
@@ -76,7 +72,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         TextView nomeUsuario, email;
         nomeUsuario = findViewById(R.id.nomeView);
         email = findViewById(R.id.emailView);
@@ -88,21 +83,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_search) {
-
         } else if (id == R.id.action_linear){
-
-
         } else if (id == R.id.action_grid){
-
         }
 
         return super.onOptionsItemSelected(item);
@@ -111,34 +97,21 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_inicio) {
-            // Handle inicio action
-
-
         } else if (id == R.id.nav_meu_hamba) {
             startActivity(new Intent(this, MeuHambaActivity.class));
-
         } else if (id == R.id.nav_sair) {
             startActivity(new Intent(this,EscolhaCadOuLoginActivity.class));
-
-
         } else if (id == R.id.nav_favoritos) {
             startActivity(new Intent(this, FavoritosActivity.class));
-
         } else if (id == R.id.nav_recomendacoes) {
             startActivity(new Intent(this,RecomendacaoActivity.class));
-
         } else if (id == R.id.nav_configuracoes) {
             startActivity(new Intent(this, EscolhaConfiguracaoActivity.class));
-
         } else if (id == R.id.nav_noticias) {
             startActivity(new Intent(this, NoticiasActivity.class));
-
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

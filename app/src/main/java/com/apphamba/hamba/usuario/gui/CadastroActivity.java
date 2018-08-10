@@ -19,18 +19,19 @@ public class CadastroActivity extends AppCompatActivity {
     private ServicoValidacao servicoValidacao = new ServicoValidacao();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+        encontrandoViews();
+    }
 
+    private void encontrandoViews(){
         this.campoNome = findViewById(R.id.editTextNome);
         this.campoNome.requestFocus();
         this.campoEmail = findViewById(R.id.editTextEmail);
         this.campoSenha = findViewById(R.id.editTextSenhaCad);
         this.campoResenha = findViewById(R.id.editTextConfSenha);
-
         this.botaoCriar = findViewById(R.id.button_criar_conta2);
         this.botaoCriar.setOnClickListener(new View.OnClickListener() {
             @Override

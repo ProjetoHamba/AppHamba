@@ -23,11 +23,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        encontrandoElementosViews();
+    }
+    private void encontrandoElementosViews(){
         this.campoEmail = findViewById(R.id.editTextEmail);
         this.campoSenha = findViewById(R.id.editTextSenha);
         this.campoEmail.requestFocus();
-
         Button botaoEntrar = findViewById(R.id.button_entrar);
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
                 login();
             }
         });
-
     }
 
     private void login() {

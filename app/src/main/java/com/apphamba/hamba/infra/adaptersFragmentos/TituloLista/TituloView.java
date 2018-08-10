@@ -1,4 +1,4 @@
-package com.apphamba.hamba.titulo.gui;
+package com.apphamba.hamba.infra.adaptersFragmentos.TituloLista;
 
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
