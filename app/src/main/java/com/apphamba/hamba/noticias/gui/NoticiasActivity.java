@@ -9,25 +9,20 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.EnumNoticia;
 import com.apphamba.hamba.infra.adaptersFragmentos.noticiasAdapter.ListaNoticiasAdapter;
 import com.apphamba.hamba.noticias.servico.ServicoNoticia;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
 
 public class NoticiasActivity extends AppCompatActivity {
     ListView listNews;
     ProgressBar loader;
     ArrayList<HashMap<String, String>> dataList = new ArrayList<HashMap<String, String>>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +71,6 @@ public class NoticiasActivity extends AppCompatActivity {
                         map.put(EnumNoticia.KEY_URLTOIMAGE.getDescricao(), jsonObject.optString(EnumNoticia.KEY_URLTOIMAGE.getDescricao()).toString());
                         map.put(EnumNoticia.KEY_PUBLISHEDAT.getDescricao(), jsonObject.optString(EnumNoticia.KEY_PUBLISHEDAT.getDescricao()).toString());
                         dataList.add(map);
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -86,8 +80,8 @@ public class NoticiasActivity extends AppCompatActivity {
             } else{
                 Toast.makeText(getApplicationContext(), "Nenhuma notícia encontrada", Toast.LENGTH_SHORT).show();
             }
-        }}
-
+        }
+    }
     private void criarAdapter() {
         ListaNoticiasAdapter adapter = new ListaNoticiasAdapter(NoticiasActivity.this, dataList);
         listNews.setAdapter(adapter);
@@ -100,5 +94,4 @@ public class NoticiasActivity extends AppCompatActivity {
             }
         });
     }
-
 }

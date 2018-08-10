@@ -4,19 +4,18 @@ import com.apphamba.hamba.titulo.dominio.Filme;
 import com.apphamba.hamba.titulo.dominio.Serie;
 import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.dominio.Titulo;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FiltroTitulo {
-
     public static final FiltroTitulo instance = new FiltroTitulo();
     private final Map<String, Object> values = new HashMap<>();
 
     public void setTitulosList(ArrayList<Titulo> titulosList) {
         setValor("FiltroTitulo.titulosList", titulosList);
     }
+
     public ArrayList<Titulo> getTitulosList() {
         return (ArrayList<Titulo>) values.get("FiltroTitulo.titulosList");
     }
@@ -56,5 +55,4 @@ public class FiltroTitulo {
     private void setValor(String chave, Object valor){
         values.put(chave, valor);
     }
-
 }

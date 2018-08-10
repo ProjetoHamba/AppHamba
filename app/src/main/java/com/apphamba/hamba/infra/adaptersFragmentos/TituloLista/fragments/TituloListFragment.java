@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter.TituloAdapter;
@@ -25,10 +24,8 @@ import com.apphamba.hamba.titulo.dominio.Titulo;
 import com.apphamba.hamba.titulo.gui.DetalhesActivity;
 import com.apphamba.hamba.titulo.gui.TituloView;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class TituloListFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -39,19 +36,17 @@ public class TituloListFragment extends Fragment {
     public static TituloListFragment newInstance(int tipo) {
         Bundle args = new Bundle();
         args.putInt("tipo", tipo);
-        TituloListFragment f = new TituloListFragment();
-        f.setArguments(args);
-        return f;
+        TituloListFragment fragment = new TituloListFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_titulos_list, container, false);
-
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         titulosView = this.tituloToTituloView(FiltroTitulo.instance.getTitulosList());
         recyclerView.setAdapter(new TituloAdapter(getContext(), titulosView, onClickTitulo()));
         return view;
@@ -61,22 +56,18 @@ public class TituloListFragment extends Fragment {
         return new TituloAdapter.TituloOnClickListener() {
             @Override
             public void onClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
-
                 Titulo titulo = titulosView.get(indexTitulo).getTitulo();
                 if (actionMode == null) {
                     Toast.makeText(getContext(), titulo.getNome(), Toast.LENGTH_SHORT).show();
                     FiltroTitulo.instance.setTituloSelecionado(titulo);
                    Intent intent = new Intent(getContext(), DetalhesActivity.class);
                    startActivity(intent);
-
                 } else {
                     titulosView.get(indexTitulo).setSelecionado(true);
                     updateActionModeTitle();
                     recyclerView.getAdapter().notifyDataSetChanged();
                 }
-
             }
-
             @Override
             public void onLongClickTitulo(TituloAdapter.TitulosViewHolder holder, int indexTitulo) {
                 if (actionMode != null) {
@@ -102,7 +93,6 @@ public class TituloListFragment extends Fragment {
             } else if (selectedTitulos.size() > 1) {
                 actionMode.setSubtitle(selectedTitulos.size() + " titulos selecionados");
             }
-
         }
     }
 
@@ -124,12 +114,10 @@ public class TituloListFragment extends Fragment {
                 inflater.inflate(R.menu.menu_frag_titulos_cab, menu);
                 return true;
             }
-
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 return true;
             }
-
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<TituloView> selectedTitulos = getSelectedTitulos();
@@ -189,7 +177,6 @@ public class TituloListFragment extends Fragment {
             }
         }
     }
-
     private void removerFavorito(List<TituloView> selectedTitulos){
         for (TituloView tituloView : selectedTitulos){
             if (servicoTitulo.isFavorito(tituloView.getTitulo())) {
@@ -198,17 +185,14 @@ public class TituloListFragment extends Fragment {
             }
         }
     }
-
     public AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
     }
-
     protected void snack(View view, String msg) {
         Snackbar
                 .make(view, msg, Snackbar.LENGTH_LONG)
                 .show();
     }
-
     private ArrayList<TituloView> tituloToTituloView(ArrayList<Titulo> titulos){
         ArrayList<TituloView> tituloViews = new ArrayList<>();
         for (Titulo titulo:titulos) {
@@ -218,16 +202,4 @@ public class TituloListFragment extends Fragment {
         }
         return tituloViews;
     }
-
-    public void mudarFormaDeLayout(String formaDeLayout){
-        if (formaDeLayout.equals("Linear")){
-            notifyAll();
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        }else if(formaDeLayout.equals("Grid")){
-            recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-        }
-
-    }
-
 }

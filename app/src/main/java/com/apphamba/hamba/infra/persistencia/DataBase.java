@@ -1,9 +1,7 @@
 package com.apphamba.hamba.infra.persistencia;
 
-
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.apphamba.hamba.infra.HambaApp;
 
 public class DataBase extends SQLiteOpenHelper {
@@ -13,7 +11,6 @@ public class DataBase extends SQLiteOpenHelper {
     public DataBase() {
         super(HambaApp.getContext(), DATABASE_NAME, null, DATABASE_VERSION);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE usuario(" +
@@ -100,7 +97,6 @@ public class DataBase extends SQLiteOpenHelper {
                 "nota DOUBLE NOT NULL);");
 
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE usuario;");
@@ -119,4 +115,3 @@ public class DataBase extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 }
-

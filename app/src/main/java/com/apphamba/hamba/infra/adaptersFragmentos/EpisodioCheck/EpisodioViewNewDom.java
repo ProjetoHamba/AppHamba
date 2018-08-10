@@ -7,7 +7,6 @@ public class EpisodioViewNewDom {
     private String descEpis, tituloEpComNumero;
     private int numEp;
     private boolean isAssistido;
-
     public String getDescEpis() {
         return descEpis;
     }
@@ -20,7 +19,6 @@ public class EpisodioViewNewDom {
         this.descEpis = descEpis;
         this.tituloEpComNumero = tituloEpComNumero;
         this.numEp = numEp;
-
     }
 
     public EpisodioViewNewDom(Episodio episodio, boolean isAssistido) {

@@ -3,7 +3,6 @@ package com.apphamba.hamba.noticias.servico;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,11 +11,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ServicoNoticia {
-
     public static boolean isNetworkAvailable(Context context) {
         return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null;
     }
-
     public static String excuteGet(String targetURL, String urlParameters) {
         URL url;
         HttpURLConnection connection = null;
@@ -39,7 +36,6 @@ public class ServicoNoticia {
                 connection.disconnect();
             }
         }
-
     }
 
     @NonNull
@@ -64,6 +60,4 @@ public class ServicoNoticia {
             inputStream = connection.getInputStream();
         return inputStream;
     }
-
-
 }

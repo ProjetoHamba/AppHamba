@@ -1,4 +1,4 @@
-package com.apphamba.hamba.infra.botaoTemporada.fragments;
+package com.apphamba.hamba.infra.BotaoTemporada.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,15 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adaptersFragmentos.EpisodioCheck.EpisodioCheckNewActivity;
 import com.apphamba.hamba.infra.adaptersFragmentos.BotaoTemporada.adapter.BotaoTemporadaAdapter;
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.dominio.Temporada;
-import com.apphamba.hamba.titulo.dominio.Titulo;
-import com.apphamba.hamba.titulo.servicos.ServicoSerie;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +43,6 @@ public class BotaoTempListaFragment extends Fragment {
                 Toast.makeText(getContext(), temporada.getNome(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), EpisodioCheckNewActivity.class);
                 startActivity(intent);
-
             }
         };
     }

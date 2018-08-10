@@ -7,21 +7,18 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
-
 import com.apphamba.hamba.R;
 
 public class DetalhesNoticiaAcitvity extends AppCompatActivity {
     WebView webView;
     ProgressBar loader;
     String url = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_noticia);
         setContent();
     }
-
     private void setContent() {
         Intent intent = getIntent();
         url = intent.getStringExtra("url");
@@ -40,5 +37,4 @@ public class DetalhesNoticiaAcitvity extends AppCompatActivity {
             }
         });
     }
-
 }

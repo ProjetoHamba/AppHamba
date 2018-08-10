@@ -1,10 +1,7 @@
 package com.apphamba.hamba.infra.persistencia;
 
-
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.servicos.FormatadorImagem;
 import com.apphamba.hamba.titulo.dominio.Episodio;
@@ -28,13 +25,11 @@ public class PopularBanco {
     private TituloDao tituloDao = new TituloDao();
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
     private PessoaDAO pessoaDAO = new PessoaDAO();
-
     public void popularBanco() {
         if (!this.bancoIsPopulado()) {
             this.inserirTitulos();
         }
     }
-
     private boolean bancoIsPopulado() {
         String query = "SELECT * FROM titulo";
         Cursor cursor = this.execQuery(query);
@@ -44,7 +39,6 @@ public class PopularBanco {
         }
         return populado;
     }
-
     private Cursor execQuery(String query) {
         DataBase bancoDados;
         bancoDados = new DataBase();
@@ -52,7 +46,6 @@ public class PopularBanco {
         Cursor cursor = leitorBanco.rawQuery(query, null);
         return cursor;
     }
-
     private void inserirTitulos() {
         Titulo vikings = new Titulo();
         vikings.setNome("Vikings");
