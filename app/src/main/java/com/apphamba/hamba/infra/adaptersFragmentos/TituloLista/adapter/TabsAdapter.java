@@ -11,6 +11,8 @@ import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.fragments.TituloL
 import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 
+import static com.apphamba.hamba.infra.EnumTitulos.TAB;
+
 public class TabsAdapter extends FragmentPagerAdapter {
     private Context context;
 
@@ -47,7 +49,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
             fragment = TituloListFragment.newInstance(R.string.tab_text_3);
         }
         Bundle bundle = new Bundle();
-        bundle.putInt("position", position);
+        bundle.putInt(TAB.getDescricao(), position);
         fragment.setArguments(bundle);
         return fragment;
     }

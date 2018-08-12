@@ -132,8 +132,6 @@ public class TituloListFragment extends Fragment {
                 } else if (item.getItemId() == R.id.action_adicionar_meus_fav) {
                     adicionarFavorito(selectedTitulos);
                     snack(recyclerView, "Títulos adicionados com sucesso.");
-                } else if (item.getItemId() == R.id.action_share) {
-
                 } else if (item.getItemId() == R.id.action_remove_fav) {
                     removerFavorito(selectedTitulos);
                     snack(recyclerView, "Títulos excluídos com sucesso.");

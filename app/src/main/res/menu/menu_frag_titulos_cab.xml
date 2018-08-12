@@ -14,11 +14,6 @@
         android:visible="true"/>
 
     <item
-        android:id="@+id/action_share"
-        android:title="@string/text_action_share"
-        app:showAsAction="never"
-        android:visible="true"/>
-    <item
         android:id="@+id/action_remove_meu_hamba"
         android:title="@string/text_action_excluir_meu_hamba"
         android:visible="true"

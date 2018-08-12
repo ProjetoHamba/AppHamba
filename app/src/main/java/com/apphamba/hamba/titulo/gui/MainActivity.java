@@ -1,6 +1,5 @@
 package com.apphamba.hamba.titulo.gui;
 
-import android.app.backup.BackupManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter.TabsAdapter;
@@ -23,12 +23,11 @@ import com.apphamba.hamba.infra.Sessao;
 import com.apphamba.hamba.noticias.gui.NoticiasActivity;
 import com.apphamba.hamba.usuario.gui.EscolhaCadOuLoginActivity;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
-import com.apphamba.hamba.usuario.servicos.Prefs;
+
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private BackupManager backupManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +60,23 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setTabTextColors(cor, cor);
         int corTabSelecionada= ContextCompat.getColor(getContext(), R.color.colorBlack);
         tabLayout.setSelectedTabIndicatorColor(corTabSelecionada);
+        int tabPosition = Sessao.instance.getTabAtiva();
+        viewPager.setCurrentItem(tabPosition);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                Sessao.instance.setTabAtiva(position);
+                viewPager.setCurrentItem(position);
+                Toast.makeText(getApplicationContext(),"Você está na page" + String.valueOf(position),Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+
+        });
 
     }
 
@@ -123,4 +139,5 @@ public class MainActivity extends AppCompatActivity
     protected Context getContext() {
         return this;
     }
+
 }
