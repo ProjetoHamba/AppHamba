@@ -14,6 +14,8 @@ import com.apphamba.hamba.usuario.dominio.Usuario;
 import com.apphamba.hamba.usuario.persistencia.UsuarioDAO;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -113,11 +115,18 @@ public class ServicoTitulo {
         ArrayList<Titulo> recomendados = new ArrayList<>();
         for (String titulo : predicoes.keySet()) {
             Titulo tituloAtual = getTituloById(titulo);
+            tituloAtual.setAvaliacaoUsuario(predicoes.get(titulo));
             Double notaTituloUsuario = avaliacaoTituloUsuario(tituloAtual);
             if (notaTituloUsuario == null) {
                 recomendados.add(tituloAtual);
             }
         }
+        Collections.sort(recomendados, new Comparator<Titulo>() {
+            @Override
+            public int compare(Titulo t1, Titulo t2) {
+                return t2.getAvaliacaoUsuario().intValue() - t1.getAvaliacaoUsuario().intValue();
+            }
+        });
         return recomendados;
     }
 
@@ -144,6 +153,4 @@ public class ServicoTitulo {
         TituloDao tituloDao = new TituloDao();
         return tituloDao.getNotaTitulo(usuario, titulo);
     }
-
-
 }

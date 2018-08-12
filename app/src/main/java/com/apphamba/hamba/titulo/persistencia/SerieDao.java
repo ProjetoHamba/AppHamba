@@ -6,13 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.persistencia.DataBase;
-import com.apphamba.hamba.titulo.dominio.Episodio;
 import com.apphamba.hamba.titulo.dominio.Serie;
-import com.apphamba.hamba.titulo.dominio.Temporada;
 import com.apphamba.hamba.titulo.dominio.Titulo;
 
-
-import java.util.ArrayList;
 
 
 public class SerieDao {

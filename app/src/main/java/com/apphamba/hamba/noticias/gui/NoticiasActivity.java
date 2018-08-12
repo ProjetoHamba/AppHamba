@@ -32,7 +32,6 @@ public class NoticiasActivity extends AppCompatActivity {
         listNews.setEmptyView(loader);
         isOnline();
     }
-
     private void isOnline() {
         if(ServicoNoticia.isNetworkAvailable(getApplicationContext()))
         {
@@ -42,7 +41,6 @@ public class NoticiasActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Sem conexão com a internet", Toast.LENGTH_LONG).show();
         }
     }
-
     public class DownloadNews extends AsyncTask<String, Void, String> {
         @Override
         protected void onPreExecute() {
@@ -57,7 +55,7 @@ public class NoticiasActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(String xml) {
-            if(xml.length()>10){ //Verifica se o xml n ta vazio
+            if(xml.length()>10){
                 try {
                     JSONObject jsonResponse = new JSONObject(xml);
                     JSONArray jsonArray = jsonResponse.optJSONArray("articles");

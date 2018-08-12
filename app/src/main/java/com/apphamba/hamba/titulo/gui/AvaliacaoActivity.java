@@ -32,7 +32,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
         resgatarFotoTituloAvaliado();
         mostrarNotaAtual();
     }
-
     public void setRatingBar() {
         ratingBar = findViewById(R.id.ratingBarUserAvaliar);
         txtValorAvaliacao = findViewById(R.id.txtValorAvaliacao);
@@ -43,7 +42,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
             }
         });
     }
-
     public void mostrarNotaAtual() {
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         Titulo titulo = FiltroTitulo.instance.getTituloSelecionado();
@@ -55,7 +53,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
             ratingBar.setRating(nota);
         }
     }
-
     public void addListenerOnButton() {
         ratingBar = findViewById(R.id.ratingBarMediaPublicoEmGeral);
         botaoAvaliar = findViewById(R.id.botaoAvaliar);
@@ -69,16 +66,13 @@ public class AvaliacaoActivity extends AppCompatActivity {
             }
         });
     }
-
     private Double regraDeTres(double nota) {
         double notaFinal = ((int) nota) / 5;
         return (notaFinal);
     }
-
     public void avaliar(Titulo titulo, Double nota) {
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         servicoTitulo.avaliar(titulo, nota);
-
     }
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
@@ -92,6 +86,5 @@ public class AvaliacaoActivity extends AppCompatActivity {
     public void resgatarFotoTituloAvaliado(){
         imageViewTituloAvaliar = findViewById(R.id.imageViewTituloAvaliar);
         imageViewTituloAvaliar.setImageBitmap(FiltroTitulo.instance.getTituloSelecionado().getImagemBitmap());
-
     }
 }

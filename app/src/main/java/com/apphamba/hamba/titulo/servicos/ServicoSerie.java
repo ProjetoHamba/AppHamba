@@ -36,6 +36,10 @@ public class ServicoSerie {
         EpisodioDao episodioDao = new EpisodioDao();
         return episodioDao.loadAssistidos(temporada, usuario);
     }
+    private boolean isAssistido(Episodio episodio, ArrayList<Episodio> episodiosAssistido) {
+        return episodiosAssistido.contains(episodio);
+    }
+
     public void setSerieOnFiltro(Titulo titulo) {
         Serie serie = this.getSerie(titulo);
         FiltroTitulo.instance.setSerieSelecionada(serie);
