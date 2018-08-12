@@ -66,10 +66,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
             }
         });
     }
-    private Double regraDeTres(double nota) {
-        double notaFinal = ((int) nota) / 5;
-        return (notaFinal);
-    }
     public void avaliar(Titulo titulo, Double nota) {
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         servicoTitulo.avaliar(titulo, nota);

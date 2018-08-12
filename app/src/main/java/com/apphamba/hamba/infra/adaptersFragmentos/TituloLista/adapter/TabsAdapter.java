@@ -1,6 +1,7 @@
 package com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -45,6 +46,9 @@ public class TabsAdapter extends FragmentPagerAdapter {
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos(EnumTitulos.FILME.getDescricao()));
             fragment = TituloListFragment.newInstance(R.string.tab_text_3);
         }
+        Bundle bundle = new Bundle();
+        bundle.putInt("position", position);
+        fragment.setArguments(bundle);
         return fragment;
     }
 }

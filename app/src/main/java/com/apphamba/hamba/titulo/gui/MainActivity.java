@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity
         ToolbarComMenuNavAbreEFecha();
         ViewDoMenuNavListaClicavel();
         DefinindoViewPagerComTab();
-        backupManager = new BackupManager(getContext());
 
     }
     private void ToolbarComMenuNavAbreEFecha(){
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity
     }
     private void DefinindoViewPagerComTab() {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.fragContainer);
-        viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(new TabsAdapter(getContext(), getSupportFragmentManager()));
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
@@ -63,23 +61,6 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setTabTextColors(cor, cor);
         int corTabSelecionada= ContextCompat.getColor(getContext(), R.color.colorBlack);
         tabLayout.setSelectedTabIndicatorColor(corTabSelecionada);
-
-        int tabIdx = Prefs.getInteger(getContext(), "tabIdx");
-        viewPager.setCurrentItem(tabIdx);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-            @Override
-            public void onPageSelected(int position) {
-                // Salva o índice da página/tab selecionada
-                Prefs.setInteger(getContext(), "tabIdx", viewPager.getCurrentItem());
-                backupManager.dataChanged();
-            }
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
 
     }
 

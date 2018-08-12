@@ -42,13 +42,6 @@ public class TituloListFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            this.tipo = getArguments().getInt("tipo");
-        }
-    };
 
 
     @Override
@@ -176,7 +169,6 @@ public class TituloListFragment extends Fragment {
         for (TituloView tituloView : selectedTitulos) {
             if (servicoTitulo.isMeuHamba(tituloView.getTitulo())) {
                 servicoTitulo.removerMeuHamba(tituloView.getTitulo());
-                recyclerView.getAdapter().notifyDataSetChanged();
             }
         }
     }
@@ -185,7 +177,6 @@ public class TituloListFragment extends Fragment {
         for (TituloView tituloView : selectedTitulos) {
             if (!servicoTitulo.isFavorito(tituloView.getTitulo())){
                 servicoTitulo.adicionarFavorito(tituloView.getTitulo());
-                recyclerView.getAdapter().notifyDataSetChanged();
             }
         }
     }
@@ -193,7 +184,6 @@ public class TituloListFragment extends Fragment {
         for (TituloView tituloView : selectedTitulos){
             if (servicoTitulo.isFavorito(tituloView.getTitulo())) {
                 servicoTitulo.removerFavorito(tituloView.getTitulo());
-                recyclerView.getAdapter().notifyDataSetChanged();
             }
         }
     }

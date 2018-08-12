@@ -16,7 +16,6 @@ public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_collapsing_toolbar);
         setUpToolbar();
     }
