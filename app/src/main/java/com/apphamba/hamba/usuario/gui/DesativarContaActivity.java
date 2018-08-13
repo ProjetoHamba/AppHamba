@@ -26,6 +26,7 @@ public class DesativarContaActivity extends AppCompatActivity {
         encontrandoElementosView();
         setupToolbar();
     }
+
     private void setupToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,7 @@ public class DesativarContaActivity extends AppCompatActivity {
             }
         });
     }
+
     private void encontrandoElementosView(){
         this.campoSenha = findViewById(R.id.editTextSenhaAtual);
         this.botaoDesativar = findViewById(R.id.button_desativar_conta);
@@ -45,6 +47,7 @@ public class DesativarContaActivity extends AppCompatActivity {
             }
         });
     }
+
     private void desativarConta() {
         if (!this.verificarCampos()) {
             return;
@@ -84,6 +87,7 @@ public class DesativarContaActivity extends AppCompatActivity {
         usuario.setSenha(senha);
         return usuario;
     }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, EscolhaConfiguracaoActivity.class);

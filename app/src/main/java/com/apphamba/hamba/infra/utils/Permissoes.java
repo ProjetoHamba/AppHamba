@@ -9,17 +9,8 @@ import android.support.v4.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Sistemas de permissão do Android 6.0
- * <p/>
- * http://developer.android.com/preview/features/runtime-permissions.html
- * Retirado do livro Android
- */
 public class Permissoes {
 
-    /**
-     * Solicita as permissões
-     */
     public static boolean validate(Activity activity, int requestCode, String... permissions) {
         List<String> list = new ArrayList<String>();
         for (String permission : permissions) {

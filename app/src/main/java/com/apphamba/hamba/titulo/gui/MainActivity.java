@@ -18,13 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apphamba.hamba.R;
+import com.apphamba.hamba.infra.EnumTitulos;
 import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.adapter.TabsAdapter;
 import com.apphamba.hamba.infra.Sessao;
+import com.apphamba.hamba.infra.adaptersFragmentos.TituloLista.fragments.TituloListFragment;
+import com.apphamba.hamba.infra.servicos.FiltroTitulo;
 import com.apphamba.hamba.noticias.gui.NoticiasActivity;
+import com.apphamba.hamba.titulo.servicos.ServicoTitulo;
 import com.apphamba.hamba.usuario.gui.EscolhaCadOuLoginActivity;
 import com.apphamba.hamba.usuario.gui.EscolhaConfiguracaoActivity;
-
-
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -70,7 +72,6 @@ public class MainActivity extends AppCompatActivity
             public void onPageSelected(int position) {
                 Sessao.instance.setTabAtiva(position);
                 viewPager.setCurrentItem(position);
-                Toast.makeText(getApplicationContext(),"Você está na page" + String.valueOf(position),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onPageScrollStateChanged(int state) {

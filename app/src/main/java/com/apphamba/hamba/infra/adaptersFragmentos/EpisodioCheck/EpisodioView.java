@@ -2,11 +2,11 @@ package com.apphamba.hamba.infra.adaptersFragmentos.EpisodioCheck;
 
 import com.apphamba.hamba.titulo.dominio.Episodio;
 
-public class EpisodioViewNewDom {
+public class EpisodioView {
     private Episodio episodio;
     private boolean isAssistido;
 
-    public EpisodioViewNewDom(Episodio episodio, boolean isAssistido) {
+    public EpisodioView(Episodio episodio, boolean isAssistido) {
         this.episodio = episodio;
         this.isAssistido = isAssistido;
     }
@@ -15,15 +15,8 @@ public class EpisodioViewNewDom {
         return episodio;
     }
 
-    public void setEpisodio(Episodio episodio) {
-        this.episodio = episodio;
-    }
-
     public boolean isAssistido() {
         return isAssistido;
     }
 
-    public void setAssistido(boolean assistido) {
-        isAssistido = assistido;
-    }
 }

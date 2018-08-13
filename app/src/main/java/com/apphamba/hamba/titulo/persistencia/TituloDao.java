@@ -22,14 +22,14 @@ public class TituloDao {
 
     public Titulo getByNome(String nome){
         String query =  "SELECT * FROM titulo " +
-                "WHERE nome = ?";
+                        "WHERE nome = ?";
         String[] args = {nome};
         return this.load(query, args);
     }
 
     public Titulo getByID(int idTitulo){
         String query =  "SELECT * FROM titulo " +
-                "WHERE id = ?";
+                        "WHERE id = ?";
         String[] args = {String.valueOf(idTitulo)};
         return this.load(query, args);
     }
@@ -38,19 +38,17 @@ public class TituloDao {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Titulo titulo = null;
-
         if (cursor.moveToNext()) {
             titulo = criarTitulo(cursor);
         }
-
         cursor.close();
         leitorBanco.close();
         return titulo;
     }
 
     public ArrayList<Titulo> loadTitulos(String tipo) {
-        String query = "SELECT * FROM titulo " +
-                "WHERE tipo = ?";
+        String query =  "SELECT * FROM titulo " +
+                        "WHERE tipo = ?";
         String[] args = {tipo};
         return this.loadTitulos(query, args);
     }
@@ -76,28 +74,20 @@ public class TituloDao {
     private Titulo criarTitulo(Cursor cursor){
         int indexId = cursor.getColumnIndex(String.valueOf(EnumTitulos.ID));
         int id = cursor.getInt(indexId);
-
         int indexNome = cursor.getColumnIndex(String.valueOf(EnumTitulos.NOME));
         String nome = cursor.getString(indexNome);
-
         int indexSinopse = cursor.getColumnIndex(String.valueOf(EnumTitulos.SINOPSE));
         String sinopse = cursor.getString(indexSinopse);
-
         int indexAvaliacao = cursor.getColumnIndex(String.valueOf(EnumTitulos.AVALIACAO));
         int avaliacao = cursor.getInt(indexAvaliacao);
-
         int indexGeneros = cursor.getColumnIndex(String.valueOf(EnumTitulos.GENEROS));
         String generos = cursor.getString(indexGeneros);
-
         int indexTipo = cursor.getColumnIndex(EnumTitulos.TIPO.getDescricao());
         String tipo = cursor.getString(indexTipo);
-
         int indexCriadores = cursor.getColumnIndex(String.valueOf(EnumTitulos.CRIADORES));
         String criadores = cursor.getString(indexCriadores);
-
         int indexImagem = cursor.getColumnIndex(String.valueOf(EnumTitulos.IMAGEM));
         byte[] imagem = cursor.getBlob(indexImagem);
-
         Titulo titulo = new Titulo();
         titulo.setId(id);
         titulo.setNome(nome);
@@ -136,7 +126,7 @@ public class TituloDao {
     }
 
     public ArrayList<byte[]> getImagemByIdTitulo(long idTitulo){
-       String query =  "SELECT * FROM titulo_imagem " +
+       String query =   "SELECT * FROM titulo_imagem " +
                         "WHERE id_titulo = ?";
        String[] args = {String.valueOf(idTitulo)};
        return loadImagens(query, args);

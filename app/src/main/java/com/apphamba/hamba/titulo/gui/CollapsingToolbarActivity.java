@@ -19,6 +19,7 @@ public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatA
         setContentView(R.layout.activity_collapsing_toolbar);
         setUpToolbar();
     }
+
     protected void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -35,4 +36,5 @@ public class CollapsingToolbarActivity extends android.support.v7.app.AppCompatA
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

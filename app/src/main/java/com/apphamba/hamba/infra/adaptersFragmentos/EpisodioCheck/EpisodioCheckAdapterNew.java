@@ -2,7 +2,6 @@ package com.apphamba.hamba.infra.adaptersFragmentos.EpisodioCheck;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,34 +15,32 @@ import java.util.ArrayList;
 
 public class EpisodioCheckAdapterNew extends RecyclerView.Adapter<EpisodioCheckHolderNew> {
 
-    Context c;
-    ArrayList<EpisodioViewNewDom> episodioViewNewDoms;
+    Context contexto;
+    ArrayList<EpisodioView> episodioViews;
 
-    public EpisodioCheckAdapterNew(Context c, ArrayList<EpisodioViewNewDom> episodioViewNewDoms){
-        this.c=c;
-        this.episodioViewNewDoms = episodioViewNewDoms;
+    public EpisodioCheckAdapterNew(Context contexto, ArrayList<EpisodioView> episodioViews){
+        this.contexto = contexto;
+        this.episodioViews = episodioViews;
     }
     @Override
     public EpisodioCheckHolderNew onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_episodio_check,null);
-        EpisodioCheckHolderNew holder = new EpisodioCheckHolderNew(v);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_episodio_check,null);
+        EpisodioCheckHolderNew holder = new EpisodioCheckHolderNew(view);
         return holder;
     }
     @Override
     public void onBindViewHolder(EpisodioCheckHolderNew holder, int position) {
-        EpisodioViewNewDom episodioNewDom = episodioViewNewDoms.get(position);
-        holder.numEp.setText(episodioNewDom.getEpisodio().getNome());
-        holder.descEp.setText("EP " + String.valueOf(episodioNewDom.getEpisodio().getNumeroEpisodio()));
-        holder.chk.setChecked(episodioNewDom.isAssistido());
-        Log.d("is assistido", String.valueOf(episodioNewDom.getEpisodio().getNome()));
-        Log.d("is assistido", String.valueOf(episodioNewDom.isAssistido()));
+        EpisodioView episodioNewDom = episodioViews.get(position);
+        holder.numeroEpisodio.setText(episodioNewDom.getEpisodio().getNome());
+        holder.descricaoEpisodio.setText("EP " + String.valueOf(episodioNewDom.getEpisodio().getNumeroEpisodio()));
+        holder.checkBox.setChecked(episodioNewDom.isAssistido());
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(View v, int pos) {
                 CheckBox chk = (CheckBox) v;
                 ServicoSerie servicoSerie = new ServicoSerie();
                 Temporada temporada = FiltroTitulo.instance.getTemporadaSelecionada();
-                EpisodioViewNewDom episodioClick = episodioViewNewDoms.get(pos);
+                EpisodioView episodioClick = episodioViews.get(pos);
                 if (chk.isChecked() && !episodioClick.isAssistido()){
                     servicoSerie.addAssistido(episodioClick.getEpisodio(), temporada);
                 } else if(!chk.isChecked() && episodioClick.isAssistido()){
@@ -54,6 +51,6 @@ public class EpisodioCheckAdapterNew extends RecyclerView.Adapter<EpisodioCheckH
     }
     @Override
     public int getItemCount() {
-        return episodioViewNewDoms.size();
+        return episodioViews.size();
     }
 }

@@ -54,8 +54,8 @@ public class FavoritoDao {
 
     public boolean existeNosFavoritos(String idUsuario, String idTitulo) {
         String query =  "SELECT * FROM favorito " +
-                "WHERE id_usuario = ? AND id_titulo = ?" +
-                "AND excluido = 'NAO'";
+                        "WHERE id_usuario = ? AND id_titulo = ? " +
+                        "AND excluido = 'NAO'";
         String[] args = {idUsuario, idTitulo};
         return this.load(query, args);
     }

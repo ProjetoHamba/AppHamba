@@ -17,19 +17,22 @@ import java.util.HashMap;
 public class ListaNoticiasAdapter extends BaseAdapter {
     private  Activity activity;
     private ArrayList<HashMap<String, String>> data;
-    public ListaNoticiasAdapter(Activity act, ArrayList<HashMap<String, String>> dados) {
-        activity = act;
-        data = dados;
+    public ListaNoticiasAdapter(Activity activity, ArrayList<HashMap<String, String>> dados) {
+        this.activity = activity;
+        this.data = dados;
     }
     public int getCount() {
         return data.size();
     }
+
     public Object getItem(int position) {
         return position;
     }
+
     public long getItemId(int position) {
         return position;
     }
+
     public View getView(int position, View convertView, ViewGroup parent) {
         ListNewsViewHolder holder;
         if (convertView == null) {
@@ -43,6 +46,7 @@ public class ListaNoticiasAdapter extends BaseAdapter {
         setNewImage(holder, newsMap);
         return convertView;
     }
+
     private void setNewImage(ListNewsViewHolder holder, HashMap<String, String> newsMap) {
         if(newsMap.get(EnumNoticia.KEY_URLTOIMAGE.getDescricao()).toString().length() < 5){
             holder.galleryImage.setVisibility(View.GONE);
@@ -52,12 +56,14 @@ public class ListaNoticiasAdapter extends BaseAdapter {
                     .resize(300, 200).into(holder.galleryImage);
         }
     }
+
     private void setHolder(ListNewsViewHolder holder, HashMap<String, String> song) {
         holder.author.setText(song.get(EnumNoticia.KEY_AUTHOR.getDescricao()));
         holder.title.setText(song.get(EnumNoticia.KEY_TITLE.getDescricao()));
         holder.time.setText(song.get(EnumNoticia.KEY_PUBLISHEDAT.getDescricao()));
         holder.sdetails.setText(song.get(EnumNoticia.KEY_DESCRIPTION.getDescricao()));
     }
+
     @NonNull
     private View getView(ViewGroup parent, ListNewsViewHolder holder) {
         View convertView;
@@ -71,6 +77,7 @@ public class ListaNoticiasAdapter extends BaseAdapter {
         convertView.setTag(holder);
         return convertView;
     }
+
     private HashMap<String, String> getStringStringHashMap(int position, ListNewsViewHolder holder) {
         holder.galleryImage.setId(position);
         holder.author.setId(position);
@@ -81,6 +88,7 @@ public class ListaNoticiasAdapter extends BaseAdapter {
         song = data.get(position);
         return song;
     }
+
     class ListNewsViewHolder {
         ImageView galleryImage;
         TextView author, title, sdetails, time;

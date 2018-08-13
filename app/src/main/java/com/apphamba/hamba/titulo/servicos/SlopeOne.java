@@ -9,12 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-
-
 /**
  * Crédito por este algoritmo:
- *      Site: http://www.baeldung.com/java-collaborative-filtering-recommendations
- *      GitHub: https://github.com/eugenp/tutorials/tree/master/algorithms/src/main/java/com/baeldung/algorithms/slope_one
+ * Site: https://www.programcreek.com/java-api-examples/index.php?source_dir=HappyResearch-master/happyresearch/src/main/java/happy/research/cf/SlopeOne.java
  */
 
 public class SlopeOne {
@@ -24,12 +21,10 @@ public class SlopeOne {
     private Map<String, HashMap<String, Double>> diffMatrix;
     private Map<String, HashMap<String, Integer>> freqMatrix;
 
-
     public SlopeOne(Map<Usuario, Map<String, Double>> data) {
         mData = data;
         buildDiffMatrix();
     }
-
 
     private void buildDiffMatrix() {
         diffMatrix = new HashMap<String, HashMap<String, Double>>();
@@ -94,7 +89,5 @@ public class SlopeOne {
         }
         return cleanpredictions;
     }
-
-
 
 }

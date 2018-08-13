@@ -5,7 +5,7 @@ public enum EnumTitulos {
     AVALIACAO("avaliacao"), GENEROS("generos"), CRIADORES("criadores"), IMAGEM("imagem"),
     TABELA_MEU_HAMBA("meu_hamba"), TABELA_FAVORITO("favorito"), TABELA_TITULOS("titulo"),
     DISTRIBUIDOR("distribuidor"), SIM_EXCLUIDO("SIM"), NAO_EXCLUIDO("NAO"), EXCLUIDO("excluido"),
-    DURACAO("Dduracao"), FILME("Filme"), TABELA_FILME("Filme"), TABELA_SERIE("serie"),
+    DURACAO("duracao"), FILME("Filme"), TABELA_FILME("filme"), TABELA_SERIE("serie"),
     DISTRIBUIDORES("distribuidores"), QUANTIDADE_TEMPORADAS("quantidade_temporada"),
     ID_SERIE("id_serie"), DATA_LANCAMENTO("data_lancamento"),NUMERO_TEMPORADA("numero_temporada"),
     QUANTIDADE_EPISODIOS("quantidade_episodio"), ID_TEMPORADA("id_temporada"),
@@ -13,7 +13,6 @@ public enum EnumTitulos {
     ID_EPISODIO("id_episodio"), TABELA_ASSISTIDO("episodio_assistido"), SERIE("Serie"),
     TABELA_EP_ASSISTIDO("episodio_assistido"), ID_FILME("id_filme"), TABELA_FILME_ASSISTIDO("filme_assistido"),
     TABELA_TEMPORADA("temporada"), TABELA_EPISODIOS("episodio"), NOTA("nota"), TABELA_AVALIACAO("titulo_avaliacao"),TAB("tab");
-
 
     private final String descricao;
 

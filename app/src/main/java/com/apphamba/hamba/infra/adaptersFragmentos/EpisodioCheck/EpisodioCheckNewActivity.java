@@ -21,7 +21,7 @@ public class EpisodioCheckNewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_episodio_check_new);
         setUpToolbar();
-        metodoRecyclerDoEpisodio();
+        criarRecyclerEpisodio();
     }
 
     protected void setUpToolbar() {
@@ -38,7 +38,7 @@ public class EpisodioCheckNewActivity extends AppCompatActivity {
         });
     }
 
-    private void metodoRecyclerDoEpisodio(){
+    private void criarRecyclerEpisodio(){
         adapter = new EpisodioCheckAdapterNew(this, getEpisodios());
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.myRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -46,16 +46,16 @@ public class EpisodioCheckNewActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private ArrayList<EpisodioViewNewDom> getEpisodios(){
+    private ArrayList<EpisodioView> getEpisodios(){
         ArrayList<Episodio> episodios = FiltroTitulo.instance.getTemporadaSelecionada().getEpisodios();
         ServicoSerie servicoSerie = new ServicoSerie();
         ArrayList<Episodio> episodiosAssistidos = servicoSerie.getAssistidos(FiltroTitulo.instance.getTemporadaSelecionada());
-        ArrayList<EpisodioViewNewDom> episodioViewNewDoms = new ArrayList<>();
+        ArrayList<EpisodioView> episodioViews = new ArrayList<>();
         for (Episodio episodio:episodios) {
             boolean isAssistido = this.isAssistido(episodio, episodiosAssistidos);
-            episodioViewNewDoms.add(new EpisodioViewNewDom(episodio, isAssistido));
+            episodioViews.add(new EpisodioView(episodio, isAssistido));
         }
-        return episodioViewNewDoms;
+        return episodioViews;
     }
 
     private boolean isAssistido(Episodio episodio, ArrayList<Episodio> episodiosAssistido) {

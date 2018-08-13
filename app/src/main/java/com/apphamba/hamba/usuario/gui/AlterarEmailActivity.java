@@ -26,6 +26,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
         setUpToolbar();
         encontrandoElementosView();
     }
+
     private void setUpToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -34,6 +35,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
             }
         });
     }
+
     private void encontrandoElementosView(){
         this.campoAlterarEmail = findViewById(R.id.editTextNovoEmail);
         this.campoSenha = findViewById(R.id.editTextSenhaMudarEmail);
@@ -88,6 +90,7 @@ public class AlterarEmailActivity extends AppCompatActivity {
         usuario.setSenha(senha);
         return usuario;
     }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, EscolhaConfiguracaoActivity.class);

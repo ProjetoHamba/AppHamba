@@ -28,7 +28,6 @@ import me.relex.circleindicator.CircleIndicator;
 public class DetalhesActivity extends CollapsingToolbarActivity {
 
     ViewPager viewPager;
-    ViewPagerAdapter adapter;
     private TextView nomeTitulo, avaliacaoTitulo, sinopseTitulo, criadoresTitulo, generosTitulo;
     private Button botaoFilmeAssistido;
     @SuppressLint("WrongViewCast")
@@ -37,6 +36,18 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
         setUpToolbar();
+        setUpViewPager();
+
+        botaoFilmeAssistido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                marcarFilme();
+            }
+        });
+
+    }
+
+    private void setUpViewPager() {
         viewPager = (ViewPager)findViewById(R.id.viewPager);
         ServicoTitulo servicoTitulo = new ServicoTitulo();
         CircleIndicator indicator = (CircleIndicator)findViewById(R.id.indicator);
@@ -45,15 +56,6 @@ public class DetalhesActivity extends CollapsingToolbarActivity {
         viewPager.setAdapter(viewPagerAdapter);
         indicator.setViewPager(viewPager);
         setInformacoesTitulos();
-
-        botaoFilmeAssistido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                marcarFilme();
-                Log.d("tag", "click");
-            }
-        });
-
     }
 
     protected void encontrandoItensView(){

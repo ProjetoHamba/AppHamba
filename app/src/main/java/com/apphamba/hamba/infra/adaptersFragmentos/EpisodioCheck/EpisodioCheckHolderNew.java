@@ -7,22 +7,22 @@ import android.widget.TextView;
 import com.apphamba.hamba.R;
 
 public class EpisodioCheckHolderNew extends RecyclerView.ViewHolder implements View.OnClickListener {
-    CheckBox chk;
-    TextView numEp;
-    TextView descEp;
+    CheckBox checkBox;
+    TextView numeroEpisodio;
+    TextView descricaoEpisodio;
     ItemClickListener itemClickListener;
     public EpisodioCheckHolderNew(View itemView) {
         super(itemView);
-        numEp = itemView.findViewById(R.id.textViewNumEpisodio);
-        descEp = itemView.findViewById(R.id.textViewEpisodioDescri);
-        chk = itemView.findViewById(R.id.checkBoxItemEpisodio);
-        chk.setOnClickListener(this);
+        numeroEpisodio = itemView.findViewById(R.id.textViewNumEpisodio);
+        descricaoEpisodio = itemView.findViewById(R.id.textViewEpisodioDescri);
+        checkBox = itemView.findViewById(R.id.checkBoxItemEpisodio);
+        checkBox.setOnClickListener(this);
     }
-    public void setItemClickListener(ItemClickListener ic){
-        this.itemClickListener = ic;
+    public void setItemClickListener(ItemClickListener itemClickListener){
+        this.itemClickListener = itemClickListener;
     }
     @Override
-    public void onClick(View v) {
-        this.itemClickListener.onItemClick(v,getLayoutPosition());
+    public void onClick(View view) {
+        this.itemClickListener.onItemClick(view,getLayoutPosition());
     }
 }

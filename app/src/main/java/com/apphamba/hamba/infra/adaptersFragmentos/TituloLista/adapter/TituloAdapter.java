@@ -22,17 +22,20 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         void onClickTitulo(TitulosViewHolder holder, int indexTitulo);
         void onLongClickTitulo(TitulosViewHolder holder, int indexTitulo);
     }
+
     public TituloAdapter(Context context, List<TituloView> titulos, TituloOnClickListener onClickListener) {
         this.context = context;
         this.titulos = titulos;
         this.onClickListener = onClickListener;
     }
+
     @Override
     public TitulosViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_titulo, viewGroup, false);
         TitulosViewHolder holder = new TitulosViewHolder(view);
         return holder;
     }
+
     @Override
     public void onBindViewHolder(final TitulosViewHolder holder, final int position) {
         Titulo titulo = titulos.get(position).getTitulo();
@@ -56,6 +59,7 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
         int corFundo = context.getResources().getColor(titulos.get(position).getSelecionado() ? R.color.colorBlue : R.color.colorWhite);
         holder.cardView.setCardBackgroundColor(corFundo);
     }
+
     @Override
     public int getItemCount() {
         return this.titulos != null ? this.titulos.size() : 0;
@@ -71,4 +75,5 @@ public class TituloAdapter extends RecyclerView.Adapter<TituloAdapter.TitulosVie
             cardView = view.findViewById(R.id.card_view);
         }
     }
+
 }

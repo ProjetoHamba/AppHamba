@@ -24,6 +24,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 3;
     }
+
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
@@ -34,6 +35,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
             return context.getString(R.string.tab_text_3);
         }
     }
+
     @Override
     public Fragment getItem(int position) {
         Fragment fragment=null;
@@ -44,7 +46,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
         } else if (position == 1) {
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos(EnumTitulos.SERIE.getDescricao()));
             fragment = TituloListFragment.newInstance(R.string.tab_text_2);
-        } else {
+        } else if (position == 2) {
             FiltroTitulo.instance.setTitulosList(servicoTitulo.getTitulos(EnumTitulos.FILME.getDescricao()));
             fragment = TituloListFragment.newInstance(R.string.tab_text_3);
         }
@@ -53,4 +55,5 @@ public class TabsAdapter extends FragmentPagerAdapter {
         fragment.setArguments(bundle);
         return fragment;
     }
+
 }

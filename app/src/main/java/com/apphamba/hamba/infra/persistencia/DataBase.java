@@ -5,12 +5,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.apphamba.hamba.infra.HambaApp;
 
 public class DataBase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 10;
     private static final String DATABASE_NAME = "dbapphamba";
 
     public DataBase() {
         super(HambaApp.getContext(), DATABASE_NAME, null, DATABASE_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE usuario(" +

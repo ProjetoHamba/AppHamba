@@ -14,6 +14,7 @@ public class ServicoNoticia {
     public static boolean isNetworkAvailable(Context context) {
         return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null;
     }
+
     public static String excuteGet(String targetURL, String urlParameters) {
         URL url;
         HttpURLConnection connection = null;

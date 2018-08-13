@@ -20,18 +20,14 @@ public class UsuarioDAO {
     private Usuario criarUsuario(Cursor cursor) {
         int indexId = cursor.getColumnIndex(EnumUsuarioPessoa.ID.getDescricao());
         long id = cursor.getLong(indexId);
-
         int indexEmail = cursor.getColumnIndex(EnumUsuarioPessoa.EMAIL.getDescricao());
         String email = cursor.getString(indexEmail);
-
         int indexSenha = cursor.getColumnIndex(EnumUsuarioPessoa.SENHA.getDescricao());
         String senha = cursor.getString(indexSenha);
-
         Usuario usuario = new Usuario();
         usuario.setId(id);
         usuario.setEmail(email);
         usuario.setSenha(senha);
-
         return usuario;
     }
 
@@ -39,11 +35,9 @@ public class UsuarioDAO {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Usuario usuario = null;
-
         if (cursor.moveToNext()) {
             usuario = criarUsuario(cursor);
         }
-
         cursor.close();
         leitorBanco.close();
         return usuario;

@@ -21,13 +21,14 @@ import java.util.Map;
 
 public class ServicoTitulo {
 
-    public ArrayList<Titulo> getTitulos(String tipo){
-        TituloDao tituloDao = new TituloDao();
-        return tituloDao.loadTitulos(tipo);
-    }
     public ArrayList<Titulo> getTitulos(){
         TituloDao tituloDao = new TituloDao();
         return tituloDao.loadTitulos();
+    }
+
+    public ArrayList<Titulo> getTitulos(String tipo){
+        TituloDao tituloDao = new TituloDao();
+        return tituloDao.loadTitulos(tipo);
     }
 
     public Titulo getTituloById(String idTitulo){
@@ -143,7 +144,7 @@ public class ServicoTitulo {
         return dados;
     }
 
-    public HashMap<String,Double> avaliacaoPorUsuario(Usuario usuario){
+    private HashMap<String,Double> avaliacaoPorUsuario(Usuario usuario){
         TituloDao tituloDao = new TituloDao();
         return tituloDao.getAvaliacaoTituloString(usuario);
     }

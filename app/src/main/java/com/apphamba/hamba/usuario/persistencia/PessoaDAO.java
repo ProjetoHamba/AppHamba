@@ -35,11 +35,9 @@ public class PessoaDAO {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Pessoa pessoa = null;
-
         if (cursor.moveToNext()) {
             pessoa = criarPessoa(cursor);
         }
-
         cursor.close();
         leitorBanco.close();
         return pessoa;
@@ -48,13 +46,10 @@ public class PessoaDAO {
     private Pessoa criarPessoa(Cursor cursor) {
         int indexId = cursor.getColumnIndex(EnumUsuarioPessoa.ID.getDescricao());
         long id = cursor.getInt(indexId);
-
         int indexNome = cursor.getColumnIndex(EnumUsuarioPessoa.NOME.getDescricao());
         String nome = cursor.getString(indexNome);
-
         int indexUsuario = cursor.getColumnIndex(EnumUsuarioPessoa.ID_USUARIO.getDescricao());
         String idUsuario = cursor.getString(indexUsuario);
-
         Pessoa pessoa = new Pessoa();
         pessoa.setId(id);
         pessoa.setUsuario(usuarioDAO.getByID(idUsuario));

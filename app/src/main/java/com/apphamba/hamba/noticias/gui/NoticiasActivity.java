@@ -23,6 +23,7 @@ public class NoticiasActivity extends AppCompatActivity {
     ListView listNews;
     ProgressBar loader;
     ArrayList<HashMap<String, String>> dataList = new ArrayList<HashMap<String, String>>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class NoticiasActivity extends AppCompatActivity {
         listNews.setEmptyView(loader);
         isOnline();
     }
+
     private void isOnline() {
         if(ServicoNoticia.isNetworkAvailable(getApplicationContext()))
         {
@@ -41,6 +43,7 @@ public class NoticiasActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Sem conexão com a internet", Toast.LENGTH_LONG).show();
         }
     }
+
     public class DownloadNews extends AsyncTask<String, Void, String> {
         @Override
         protected void onPreExecute() {
@@ -53,6 +56,7 @@ public class NoticiasActivity extends AppCompatActivity {
             xml = ServicoNoticia.excuteGet("https://newsapi.org/v2/everything?q=filmes&apiKey=f7d880a8399949f4b8c350b2d157533c", urlParameters);
             return xml;
         }
+
         @Override
         protected void onPostExecute(String xml) {
             if(xml.length()>10){
@@ -60,15 +64,7 @@ public class NoticiasActivity extends AppCompatActivity {
                     JSONObject jsonResponse = new JSONObject(xml);
                     JSONArray jsonArray = jsonResponse.optJSONArray("articles");
                     for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        map.put(EnumNoticia.KEY_AUTHOR.getDescricao(), jsonObject.optString(EnumNoticia.KEY_AUTHOR.getDescricao().toString()));
-                        map.put(EnumNoticia.KEY_TITLE.getDescricao(), jsonObject.optString(EnumNoticia.KEY_TITLE.getDescricao()).toString());
-                        map.put(EnumNoticia.KEY_DESCRIPTION.getDescricao(), jsonObject.optString(EnumNoticia.KEY_DESCRIPTION.getDescricao().toString()));
-                        map.put(EnumNoticia.KEY_URL.getDescricao(), jsonObject.optString(EnumNoticia.KEY_URL.getDescricao()).toString());
-                        map.put(EnumNoticia.KEY_URLTOIMAGE.getDescricao(), jsonObject.optString(EnumNoticia.KEY_URLTOIMAGE.getDescricao()).toString());
-                        map.put(EnumNoticia.KEY_PUBLISHEDAT.getDescricao(), jsonObject.optString(EnumNoticia.KEY_PUBLISHEDAT.getDescricao()).toString());
-                        dataList.add(map);
+                        adicionarArtigo(jsonArray, i);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -80,6 +76,19 @@ public class NoticiasActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void adicionarArtigo(JSONArray jsonArray, int i) throws JSONException {
+        JSONObject jsonObject = jsonArray.getJSONObject(i);
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put(EnumNoticia.KEY_AUTHOR.getDescricao(), jsonObject.optString(EnumNoticia.KEY_AUTHOR.getDescricao().toString()));
+        map.put(EnumNoticia.KEY_TITLE.getDescricao(), jsonObject.optString(EnumNoticia.KEY_TITLE.getDescricao()).toString());
+        map.put(EnumNoticia.KEY_DESCRIPTION.getDescricao(), jsonObject.optString(EnumNoticia.KEY_DESCRIPTION.getDescricao().toString()));
+        map.put(EnumNoticia.KEY_URL.getDescricao(), jsonObject.optString(EnumNoticia.KEY_URL.getDescricao()).toString());
+        map.put(EnumNoticia.KEY_URLTOIMAGE.getDescricao(), jsonObject.optString(EnumNoticia.KEY_URLTOIMAGE.getDescricao()).toString());
+        map.put(EnumNoticia.KEY_PUBLISHEDAT.getDescricao(), jsonObject.optString(EnumNoticia.KEY_PUBLISHEDAT.getDescricao()).toString());
+        dataList.add(map);
+    }
+
     private void criarAdapter() {
         ListaNoticiasAdapter adapter = new ListaNoticiasAdapter(NoticiasActivity.this, dataList);
         listNews.setAdapter(adapter);
@@ -92,4 +101,5 @@ public class NoticiasActivity extends AppCompatActivity {
             }
         });
     }
+
 }

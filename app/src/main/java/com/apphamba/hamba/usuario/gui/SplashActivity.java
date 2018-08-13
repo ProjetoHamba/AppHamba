@@ -12,15 +12,8 @@ import com.apphamba.hamba.R;
 import com.apphamba.hamba.infra.persistencia.PopularBanco;
 import com.apphamba.hamba.infra.utils.Permissoes;
 
-/** implementação adaptada de permissoes do Livro Android .
- * *
- */
-
 public class SplashActivity extends Activity implements Runnable {
 
-    /**
-     * @param savedInstanceState Objeto da classe Bundle que contem o estado anterior da activity
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +30,12 @@ public class SplashActivity extends Activity implements Runnable {
             handler.postDelayed(this, 2000);
         }
     }
-    /**
-     * @see EscolhaCadOuLoginActivity
-     */
 
     public void run() {
         startActivity(new Intent(this, EscolhaCadOuLoginActivity.class));
         finish();
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[],
                                            int[] grantResults){
@@ -57,4 +48,5 @@ public class SplashActivity extends Activity implements Runnable {
         }
         run();
     }
+
 }
